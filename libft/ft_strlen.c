@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/03 12:58:28 by efembock          #+#    #+#             */
-/*   Updated: 2024/09/03 14:11:54 by efembock         ###   ########.fr       */
+/*   Created: 2024/09/03 14:18:57 by efembock          #+#    #+#             */
+/*   Updated: 2024/09/03 14:26:51 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <stdio.h>
 
-int	ft_isalpha(int c)
+size_t	ft_strlen(const char *s)
 {
-	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
-		return (c);
-	return (0);
+	int	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }
 /*
-int	main(void)
+int	main(int argc, char **argv)
 {
-	printf("%i\n", ft_isalpha(42));
-	printf("%i\n", ft_isalpha(420));
-	printf("%i\n", ft_isalpha(70));
-	printf("%i\n", ft_isalpha(100));
+	printf("%s contains %lu characters.\n", argv[1], ft_strlen(argv[1]));
+	(void)argc;
+	return (0);
 }*/
