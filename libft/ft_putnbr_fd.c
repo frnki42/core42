@@ -1,43 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/05 19:54:35 by efembock          #+#    #+#             */
-/*   Updated: 2024/09/06 19:18:01 by efembock         ###   ########.fr       */
+/*   Created: 2024/09/07 18:04:38 by efembock          #+#    #+#             */
+/*   Updated: 2024/09/07 18:08:50 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include "libft.h"
+#include <unistd.h>
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	ft_putnbr_fd(int n, int fd)
 {
-	void	*ptr;
+	char	temp;
 
-	if (nmemb == 0 || size == 0)
-		return (NULL);
-	ptr = malloc(nmemb * size);
-	if (ptr == NULL)
-		return (NULL);
-	ft_bzero(ptr, nmemb * size);
-	return (ptr);
+	temp = n + '0';
+	write(fd, &temp, 1);
 }
 /*
 int	main(void)
 {
-	char	*ptr;
-
-	ptr = ft_calloc(5, sizeof(char));
-	if (ptr == NULL)
-	{
-		printf("memory allocation failed!\n");
-		return (1);
-	}
-	puts(ptr);
-	free(ptr);
-	return (0);
+	ft_putnbr_fd(4, 1);
 }*/

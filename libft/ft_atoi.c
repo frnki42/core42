@@ -6,12 +6,9 @@
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 18:08:14 by efembock          #+#    #+#             */
-/*   Updated: 2024/09/03 18:28:14 by efembock         ###   ########.fr       */
+/*   Updated: 2024/09/06 20:30:04 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
-#include <stdlib.h>
 
 int	ft_atoi(const char *nptr)
 {
@@ -38,6 +35,8 @@ int	ft_atoi(const char *nptr)
 	return (result * either);
 }
 /*
+#include <stdio.h>
+#include <stdlib.h>
 int	main(void)
 {
 	printf("%d\n", ft_atoi("    -42420424abd424"));

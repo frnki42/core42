@@ -1,43 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/05 19:54:35 by efembock          #+#    #+#             */
-/*   Updated: 2024/09/06 19:18:01 by efembock         ###   ########.fr       */
+/*   Created: 2024/09/07 16:54:29 by efembock          #+#    #+#             */
+/*   Updated: 2024/09/07 17:01:07 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include "libft.h"
+#include <unistd.h>
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	ft_putstr_fd(char *s, int fd)
 {
-	void	*ptr;
-
-	if (nmemb == 0 || size == 0)
-		return (NULL);
-	ptr = malloc(nmemb * size);
-	if (ptr == NULL)
-		return (NULL);
-	ft_bzero(ptr, nmemb * size);
-	return (ptr);
+	while (*s)
+	{
+		write(fd, s, 1);
+		s++;
+	}
 }
 /*
 int	main(void)
 {
-	char	*ptr;
+	char	*str;
 
-	ptr = ft_calloc(5, sizeof(char));
-	if (ptr == NULL)
-	{
-		printf("memory allocation failed!\n");
-		return (1);
-	}
-	puts(ptr);
-	free(ptr);
+	str = "Don't panic!\n";
+	ft_putstr_fd(str, 1);
 	return (0);
 }*/
