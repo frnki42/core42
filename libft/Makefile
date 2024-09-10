@@ -6,21 +6,25 @@
 #    By: efembock <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/06 13:25:06 by efembock          #+#    #+#              #
-#    Updated: 2024/09/06 20:09:13 by efembock         ###   ########.fr        #
+#    Updated: 2024/09/10 17:50:59 by efembock         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME = libft.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 SOURCE_FILES = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c \
-ft_isascii.c ft_isdigit.c ft_isprint.c ft_memchr.c ft_memcmp.c ft_memcpy.c \
-ft_memmove.c ft_memset.c ft_strchr.c ft_strdup.c ft_strlcat.c ft_strlcpy.c \
-ft_strlen.c ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_tolower.c ft_toupper.c
+ft_isascii.c ft_isdigit.c ft_isprint.c ft_itoa.c ft_memchr.c ft_memcmp.c \
+ft_memcpy.c ft_memmove.c ft_memset.c ft_putchar_fd.c ft_putendl_fd.c \
+ft_putnbr_fd.c ft_putstr_fd.c ft_strchr.c ft_strdup.c ft_strjoin.c \
+ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strncmp.c ft_strnstr.c ft_strrchr.c \
+ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c
 
 OBJECT_FILES = ft_atoi.o ft_bzero.o ft_calloc.o ft_isalnum.o ft_isalpha.o \
-ft_isascii.o ft_isdigit.o ft_isprint.o ft_memchr.o ft_memcmp.o ft_memcpy.o \
-ft_memmove.o ft_memset.o ft_strchr.o ft_strdup.o ft_strlcat.o ft_strlcpy.o \
-ft_strlen.o ft_strncmp.o ft_strnstr.o ft_strrchr.o ft_tolower.o ft_toupper.o
+ft_isascii.o ft_isdigit.o ft_isprint.o ft_itoa.o ft_memchr.o ft_memcmp.o \
+ft_memcpy.o ft_memmove.o ft_memset.o ft_putchar_fd.o ft_putendl_fd.o \
+ft_putnbr_fd.o ft_putstr_fd.o ft_strchr.o ft_strdup.o ft_strjoin.o \
+ft_strlcat.o ft_strlcpy.o ft_strlen.o ft_strncmp.o ft_strnstr.o ft_strrchr.o \
+ft_strtrim.o ft_substr.o ft_tolower.o ft_toupper.o
 
 $(NAME): $(OBJECT_FILES)
 	ar rcs $(NAME) $(OBJECT_FILES)
@@ -40,6 +44,8 @@ ft_isdigit.o: ft_isdigit.c
 	$(CC) $(CFLAGS) -c ft_isdigit.c -o ft_isdigit.o
 ft_isprint.o: ft_isprint.c
 	$(CC) $(CFLAGS) -c ft_isprint.c -o ft_isprint.o
+ft_itoa.o: ft_itoa.c
+	$(CC) $(CFLAGS) -c ft_itoa.c -o ft_itoa.o
 ft_memchr.o: ft_memchr.c
 	$(CC) $(CFLAGS) -c ft_memchr.c -o ft_memchr.o
 ft_memcmp.o: ft_memcmp.c
@@ -50,10 +56,20 @@ ft_memmove.o: ft_memmove.c
 	$(CC) $(CFLAGS) -c ft_memmove.c -o ft_memmove.o
 ft_memset.o: ft_memset.c
 	$(CC) $(CFLAGS) -c ft_memset.c -o ft_memset.o
+ft_putchar_fd.o: ft_putchar_fd.c
+	$(CC) $(CFLAGS) -c ft_putchar_fd.c -o ft_putchar_fd.o
+ft_putendl_fd.o: ft_putendl_fd.c
+	$(CC) $(CFLAGS) -c ft_putendl_fd.c -o ft_putendl_fd.o
+ft_putnbr_fd.o: ft_putnbr_fd.c
+	$(CC) $(CFLAGS) -c ft_putnbr_fd.c -o ft_putnbr_fd.o
+ft_putstr_fd.o: ft_putstr_fd.c
+	$(CC) $(CFLAGS) -c ft_putstr_fd.c -o ft_putstr_fd.o
 ft_strchr.o: ft_strchr.c
 	$(CC) $(CFLAGS) -c ft_strchr.c -o ft_strchr.o
 ft_strdup.o: ft_strdup.c
 	$(CC) $(CFLAGS) -c ft_strdup.c -o ft_strdup.o
+ft_strjoin.o : ft_strjoin.c
+	$(CC) $(CFLAGS) -c ft_strjoin.c -o ft_strjoin.o
 ft_strlcat.o: ft_strlcat.c
 	$(CC) $(CFLAGS) -c ft_strlcat.c -o ft_strlcat.o
 ft_strlcpy.o: ft_strlcpy.c
@@ -66,6 +82,10 @@ ft_strnstr.o: ft_strnstr.c
 	$(CC) $(CFLAGS) -c ft_strnstr.c -o ft_strnstr.o
 ft_strrchr.o: ft_strrchr.c
 	$(CC) $(CFLAGS) -c ft_strrchr.c -o ft_strrchr.o
+ft_strtrim.o: ft_strtrim.c
+	$(CC) $(CFLAGS) -c ft_strtrim.c -o ft_strtrim.o
+ft_substr.o: ft_substr.c
+	$(CC) $(CFLAGS) -c ft_substr.c -o ft_substr.o
 ft_tolower.o: ft_tolower.c
 	$(CC) $(CFLAGS) -c ft_tolower.c -o ft_tolower.o
 ft_toupper.o: ft_toupper.c

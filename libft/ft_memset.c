@@ -6,7 +6,7 @@
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 18:13:30 by efembock          #+#    #+#             */
-/*   Updated: 2024/09/04 18:49:42 by efembock         ###   ########.fr       */
+/*   Updated: 2024/09/10 19:16:43 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@ void	*ft_memset(void *s, int c, size_t n)
 	unsigned char	value;
 	size_t			i;
 
-	if (s == NULL || n == 0)
-		return (s);
-	ptr = s;
+	ptr = (unsigned char *)s;
 	value = (unsigned char)c;
 	i = 0;
 	while (i < n)

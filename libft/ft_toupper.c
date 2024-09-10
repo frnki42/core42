@@ -6,7 +6,7 @@
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 15:25:23 by efembock          #+#    #+#             */
-/*   Updated: 2024/09/03 15:51:20 by efembock         ###   ########.fr       */
+/*   Updated: 2024/09/10 17:16:40 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_toupper(int c)
 {
 	if (c >= 97 && c <= 122)
 		c = c - 32;
-	return ((unsigned char)c);
+	return (c);
 }
 /*
 int	main(void)

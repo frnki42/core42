@@ -6,7 +6,7 @@
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 15:51:57 by efembock          #+#    #+#             */
-/*   Updated: 2024/09/03 15:56:45 by efembock         ###   ########.fr       */
+/*   Updated: 2024/09/10 17:16:51 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_tolower(int c)
 {
 	if (c >= 65 && c <= 90)
 		c = c + 32;
-	return ((unsigned char)c);
+	return (c);
 }
 /*
 int	main(void)

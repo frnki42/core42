@@ -6,7 +6,7 @@
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 16:12:40 by efembock          #+#    #+#             */
-/*   Updated: 2024/09/04 16:48:58 by efembock         ###   ########.fr       */
+/*   Updated: 2024/09/10 20:18:56 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,17 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int			i;
 	const char	*ptr;
 
-	i = 0;
 	ptr = NULL;
-	while (s[i])
+	while (*s)
 	{
-		if (s[i] == c)
-			ptr = &s[i];
-		i++;
+		if (*s == (char)c)
+			ptr = s;
+		s++;
 	}
 	if (c == '\0')
-		return ((char *)&s[i]);
+		return ((char *)s);
 	return ((char *)ptr);
 }
 /*

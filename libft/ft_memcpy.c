@@ -6,7 +6,7 @@
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 20:27:23 by efembock          #+#    #+#             */
-/*   Updated: 2024/09/07 17:14:55 by efembock         ###   ########.fr       */
+/*   Updated: 2024/09/10 20:07:07 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	char		*dst;
 	const char	*sc;
 
+	if (n == 0)
+		return (dest);
 	dst = (char *)dest;
 	sc = (const char *)src;
 	while (n--)

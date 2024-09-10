@@ -6,7 +6,7 @@
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 20:11:47 by efembock          #+#    #+#             */
-/*   Updated: 2024/09/08 17:47:10 by efembock         ###   ########.fr       */
+/*   Updated: 2024/09/10 17:52:16 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	joined[i + j] = '\0';
 	return (joined);
 }
-
+/*
 int	main(void)
 {
 	const char	*s1;
@@ -55,4 +55,4 @@ int	main(void)
 	puts(joined);
 	free(joined);
 	return (0);
-}
+}*/
