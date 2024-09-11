@@ -1,38 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/04 16:12:40 by efembock          #+#    #+#             */
-/*   Updated: 2024/09/11 14:52:00 by efembock         ###   ########.fr       */
+/*   Created: 2024/09/09 20:50:44 by efembock          #+#    #+#             */
+/*   Updated: 2024/09/11 17:22:49 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	const char	*ptr;
+	size_t	i;
 
-	ptr = NULL;
-	while (*s)
+	i = 0;
+	while (s[i])
 	{
-		if (*s == (char)c)
-			ptr = s;
-		s++;
+		f(i, &s[i]);
+		i++;
 	}
-	if ((char)c == '\0')
-		return ((char *)s);
-	return ((char *)ptr);
 }
 /*
+#include <stdio.h>
+
+static void	ft_toupper_muted(unsigned int i, char *c)
+{
+	(void)i;
+	*c = ft_toupper(*c);
+}
+
 int	main(void)
 {
-	int	ch;
+	char	str[] = "sup dawg, this is 42 code!";
 
-	ch = 100;
-	printf("%s\n", ft_strrchr("Supdawg?", ch));
+	puts(str);
+	ft_striteri(str, &ft_toupper_muted);
+	puts(str);
 	return (0);
 }*/

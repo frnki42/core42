@@ -6,11 +6,11 @@
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 20:59:02 by efembock          #+#    #+#             */
-/*   Updated: 2024/09/07 19:53:05 by efembock         ###   ########.fr       */
+/*   Updated: 2024/09/11 15:08:25 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <stddef.h>
 
 void	ft_bzero(void *s, size_t n)
 {
@@ -25,6 +25,7 @@ void	ft_bzero(void *s, size_t n)
 }
 /*
 #include <strings.h>
+#include <stdio.h>
 int	main(void)
 {
 	char	str1[] = "Supdawg?";
