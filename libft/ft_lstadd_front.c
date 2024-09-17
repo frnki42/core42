@@ -21,7 +21,7 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	new->next = *lst;
 	*lst = new;
 }
-
+/*
 static void	print_list(t_list *lst)
 {
 	while (lst)
@@ -31,7 +31,7 @@ static void	print_list(t_list *lst)
 	}
 	printf("NULL\n");
 }
-/*
+
 int	main(void)
 {
 	t_list	*head;

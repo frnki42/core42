@@ -20,11 +20,16 @@ ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strmapi.c ft_strncmp.c ft_strnstr.c \
 ft_striteri.c ft_strrchr.c ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c
 
 OBJECT_FILES = ft_atoi.o ft_bzero.o ft_calloc.o ft_isalnum.o ft_isalpha.o \
-ft_isascii.o ft_isdigit.o ft_isprint.o ft_itoa.o ft_memchr.o ft_memcmp.o \
+ft_isascii.o ft_isdigit.o ft_isprint.o ft_itoa.o  ft_memchr.o ft_memcmp.o \
 ft_memcpy.o ft_memmove.o ft_memset.o ft_putchar_fd.o ft_putendl_fd.o \
 ft_putnbr_fd.o ft_putstr_fd.o ft_split.o ft_strchr.o ft_strdup.o ft_strjoin.o \
 ft_strlcat.o ft_strlcpy.o ft_strlen.o ft_strmapi.o ft_strncmp.o ft_strnstr.o \
 ft_striteri.o ft_strrchr.o ft_strtrim.o ft_substr.o ft_tolower.o ft_toupper.o
+
+BONUS_SOURCE = ft_lstadd_back.c ft_lstadd_front.c ft_lstdelone.c ft_lstiter.c \
+ft_lstlast.c ft_lstnew.c ft_lstsize.c
+BONUS_OBJECT = ft_lstadd_back.o ft_lstadd_front.o ft_lstdelone.o ft_lstiter.o \
+ft_lstlast.o ft_lstnew.o ft_lstsize.o
 
 $(NAME): $(OBJECT_FILES)
 	ar rcs $(NAME) $(OBJECT_FILES)
@@ -46,6 +51,20 @@ ft_isprint.o: ft_isprint.c
 	$(CC) $(CFLAGS) -c ft_isprint.c -o ft_isprint.o
 ft_itoa.o: ft_itoa.c
 	$(CC) $(CFLAGS) -c ft_itoa.c -o ft_itoa.o
+ft_lstadd_back.o: ft_lstadd_back.c
+	$(CC) $(CFLAGS) -c ft_lstadd_back.c -o ft_lstadd_back.o
+ft_lstadd_front.o: ft_lstadd_front.c
+	$(CC) $(CFLAGS) -c ft_lstadd_front.c -o ft_lstadd_front.o
+ft_lstdelone.o: ft_lstdelone.c
+	$(CC) $(CFLAGS) -c ft_lstdelone.c -o ft_lstdelone.o
+ft_lstiter.o: ft_lstiter.c
+	$(CC) $(CFLAGS) -c ft_lstiter.c -o ft_lstiter.o
+ft_lstlast.o: ft_lstlast.c
+	$(CC) $(CFLAGS) -c ft_lstlast.c -o ft_lstlast.o
+ft_lstnew.o: ft_lstnew.c
+	$(CC) $(CFLAGS) -c ft_lstnew.c -o ft_lstnew.o
+ft_lstsize.o: ft_lstsize.c
+	$(CC) $(CFLAGS) -c ft_lstsize.c -o ft_lstsize.o
 ft_memchr.o: ft_memchr.c
 	$(CC) $(CFLAGS) -c ft_memchr.c -o ft_memchr.o
 ft_memcmp.o: ft_memcmp.c
@@ -97,10 +116,11 @@ ft_tolower.o: ft_tolower.c
 ft_toupper.o: ft_toupper.c
 	$(CC) $(CFLAGS) -c ft_toupper.c -o ft_toupper.o
 clean:
-	rm -f $(OBJECT_FILES)
+	rm -f $(OBJECT_FILES) $(BONUS_OBJECT)
 fclean: clean
 	rm -f $(NAME)
 re: fclean all
 all: $(NAME)
-	
-.PHONY: all clean flcean re
+bonus: $(OBJECT_FILES) $(BONUS_OBJECT)
+	ar rcs $(NAME) $(BONUS_OBJECT)
+.PHONY: all clean flcean re bonus
