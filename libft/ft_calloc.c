@@ -6,11 +6,10 @@
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 19:54:35 by efembock          #+#    #+#             */
-/*   Updated: 2024/09/13 21:29:50 by efembock         ###   ########.fr       */
+/*   Updated: 2024/09/18 19:00:05 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <stdlib.h>
 #include "libft.h"
 
@@ -20,7 +19,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 
 	if (nmemb == 0 || size == 0)
 	{
-		ptr = malloc(1);
+		ptr = malloc(nmemb * size);
 		if (ptr)
 			ft_bzero(ptr, 1);
 		return (ptr);
@@ -32,12 +31,14 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	return (ptr);
 }
 /*
+#include <stdio.h>
+
 int	main(void)
 {
 	char	*ptr;
 
 	ptr = ft_calloc(5, sizeof(char));
-	if (ptr == NULL)
+	if (!ptr)
 	{
 		printf("memory allocation failed!\n");
 		return (1);
@@ -45,7 +46,7 @@ int	main(void)
 	puts(ptr);
 	free(ptr);
 	ptr = calloc(5, 0);
-	if (ptr == NULL)
+	if (!ptr)
 	{
 		printf("memory allocation failed bro!\n");
 		return (1);

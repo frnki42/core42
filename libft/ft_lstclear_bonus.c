@@ -1,39 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/04 20:59:02 by efembock          #+#    #+#             */
-/*   Updated: 2024/09/18 17:53:35 by efembock         ###   ########.fr       */
+/*   Created: 2024/09/18 14:59:00 by efembock          #+#    #+#             */
+/*   Updated: 2024/09/18 15:01:28 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	char	*ptr;
+	t_list	*tmp;
 
-	ptr = (char *)s;
-	while (n--)
+	if (!lst || !del)
+		return ;
+	while (*lst)
 	{
-		*ptr = 0;
-		ptr++;
+		tmp = (*lst)->next;
+		del((*lst)->content);
+		free(*lst);
+		*lst = tmp;
 	}
+	*lst = NULL;
 }
-/*
-#include <strings.h>
-#include <stdio.h>
-int	main(void)
-{
-	char	str1[] = "Supdawg?";
-	char	str2[] = "Supdawg?";
-
-	ft_bzero(str1, 3);
-	bzero(str2, 3);
-	printf("ft_bzero result: %s\n", str1);
-	printf("bzero result: %s\n", str2);
-	return (0);
-}*/

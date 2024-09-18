@@ -6,7 +6,7 @@
 #    By: efembock <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/06 13:25:06 by efembock          #+#    #+#              #
-#    Updated: 2024/09/13 18:52:23 by efembock         ###   ########.fr        #
+#    Updated: 2024/09/18 17:49:59 by efembock         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME = libft.a
@@ -26,10 +26,12 @@ ft_putnbr_fd.o ft_putstr_fd.o ft_split.o ft_strchr.o ft_strdup.o ft_strjoin.o \
 ft_strlcat.o ft_strlcpy.o ft_strlen.o ft_strmapi.o ft_strncmp.o ft_strnstr.o \
 ft_striteri.o ft_strrchr.o ft_strtrim.o ft_substr.o ft_tolower.o ft_toupper.o
 
-BONUS_SOURCE = ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c \
-ft_lstiter.c ft_lstlast.c ft_lstmap.c ft_lstnew.c ft_lstsize.c
-BONUS_OBJECT = ft_lstadd_back.o ft_lstadd_front.o ft_lstclear.o ft_lstdelone.o \
-ft_lstiter.o ft_lstlast.o ft_lstmap.o ft_lstnew.o ft_lstsize.o
+BONUS_SOURCE = ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c \
+ft_lstclear_bonus.c ft_lstdelone_bonus.c ft_lstiter_bonus.c \
+ft_lstlast_bonus.c ft_lstmap_bonus.c ft_lstnew_bonus.c ft_lstsize_bonus.c
+BONUS_OBJECT = ft_lstadd_back_bonus.o ft_lstadd_front_bonus.o \
+ft_lstclear_bonus.o ft_lstdelone_bonus.o ft_lstiter_bonus.o \
+ft_lstlast_bonus.o ft_lstmap_bonus.o ft_lstnew_bonus.o ft_lstsize_bonus.o
 
 $(NAME): $(OBJECT_FILES)
 	ar rcs $(NAME) $(OBJECT_FILES)
@@ -51,24 +53,24 @@ ft_isprint.o: ft_isprint.c
 	$(CC) $(CFLAGS) -c ft_isprint.c -o ft_isprint.o
 ft_itoa.o: ft_itoa.c
 	$(CC) $(CFLAGS) -c ft_itoa.c -o ft_itoa.o
-ft_lstadd_back.o: ft_lstadd_back.c
-	$(CC) $(CFLAGS) -c ft_lstadd_back.c -o ft_lstadd_back.o
-ft_lstadd_front.o: ft_lstadd_front.c
-	$(CC) $(CFLAGS) -c ft_lstadd_front.c -o ft_lstadd_front.o
-ft_lstclear.o: ft_lstclear.c
-	$(CC) $(CFLAGS) -c ft_lstclear.c -o ft_lstclear.o
-ft_lstdelone.o: ft_lstdelone.c
-	$(CC) $(CFLAGS) -c ft_lstdelone.c -o ft_lstdelone.o
-ft_lstiter.o: ft_lstiter.c
-	$(CC) $(CFLAGS) -c ft_lstiter.c -o ft_lstiter.o
-ft_lstlast.o: ft_lstlast.c
-	$(CC) $(CFLAGS) -c ft_lstlast.c -o ft_lstlast.o
-ft_lstmap.o: ft_lstmap.c
-	$(CC) $(CFLAGS) -c ft_lstmap.c -o ft_lstmap.o
-ft_lstnew.o: ft_lstnew.c
-	$(CC) $(CFLAGS) -c ft_lstnew.c -o ft_lstnew.o
-ft_lstsize.o: ft_lstsize.c
-	$(CC) $(CFLAGS) -c ft_lstsize.c -o ft_lstsize.o
+ft_lstadd_back_bonus.o: ft_lstadd_back_bonus.c
+	$(CC) $(CFLAGS) -c ft_lstadd_back_bonus.c -o ft_lstadd_back_bonus.o
+ft_lstadd_front_bonus.o: ft_lstadd_front_bonus.c
+	$(CC) $(CFLAGS) -c ft_lstadd_front_bonus.c -o ft_lstadd_front_bonus.o
+ft_lstclear_bonus.o: ft_lstclear_bonus.c
+	$(CC) $(CFLAGS) -c ft_lstclear_bonus.c -o ft_lstclear_bonus.o
+ft_lstdelone_bonus.o: ft_lstdelone_bonus.c
+	$(CC) $(CFLAGS) -c ft_lstdelone_bonus.c -o ft_lstdelone_bonus.o
+ft_lstiter_bonus.o: ft_lstiter_bonus.c
+	$(CC) $(CFLAGS) -c ft_lstiter_bonus.c -o ft_lstiter_bonus.o
+ft_lstlast_bonus.o: ft_lstlast_bonus.c
+	$(CC) $(CFLAGS) -c ft_lstlast_bonus.c -o ft_lstlast_bonus.o
+ft_lstmap_bonus.o: ft_lstmap_bonus.c
+	$(CC) $(CFLAGS) -c ft_lstmap_bonus.c -o ft_lstmap_bonus.o
+ft_lstnew_bonus.o: ft_lstnew_bonus.c
+	$(CC) $(CFLAGS) -c ft_lstnew_bonus.c -o ft_lstnew_bonus.o
+ft_lstsize_bonus.o: ft_lstsize_bonus.c
+	$(CC) $(CFLAGS) -c ft_lstsize_bonus.c -o ft_lstsize_bonus.o
 ft_memchr.o: ft_memchr.c
 	$(CC) $(CFLAGS) -c ft_memchr.c -o ft_memchr.o
 ft_memcmp.o: ft_memcmp.c
@@ -124,7 +126,7 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 re: fclean all
-all: $(NAME)
 bonus: $(OBJECT_FILES) $(BONUS_OBJECT)
-	ar rcs $(NAME) $(BONUS_OBJECT)
+	ar rcs $(NAME) $(OBJECT_FILES) $(BONUS_OBJECT)
+all: $(NAME)
 .PHONY: all clean flcean re bonus
