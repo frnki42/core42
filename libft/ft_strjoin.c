@@ -6,11 +6,10 @@
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 20:11:47 by efembock          #+#    #+#             */
-/*   Updated: 2024/09/10 17:52:16 by efembock         ###   ########.fr       */
+/*   Updated: 2024/09/18 23:32:00 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <stdlib.h>
 #include "libft.h"
 
@@ -43,6 +42,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (joined);
 }
 /*
+#include <stdio.h>
+
 int	main(void)
 {
 	const char	*s1;

@@ -6,19 +6,19 @@
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 15:51:57 by efembock          #+#    #+#             */
-/*   Updated: 2024/09/10 17:16:51 by efembock         ###   ########.fr       */
+/*   Updated: 2024/09/19 00:25:24 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
 int	ft_tolower(int c)
 {
-	if (c >= 65 && c <= 90)
+	if (c >= 'A' && c <= 'Z')
 		c = c + 32;
 	return (c);
 }
 /*
+#include <stdio.h>
+
 int	main(void)
 {
 	printf("%c", ft_tolower(70));

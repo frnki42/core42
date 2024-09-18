@@ -6,7 +6,7 @@
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 18:39:34 by efembock          #+#    #+#             */
-/*   Updated: 2024/09/10 17:15:26 by efembock         ###   ########.fr       */
+/*   Updated: 2024/09/18 21:01:21 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,20 @@ int	main(void)
 		free(itoa);
 	}
 	n = 0;
+	itoa = ft_itoa(n);
+	if (itoa)
+	{
+		puts(itoa);
+		free(itoa);
+	}
+	n = -4242;
+	itoa = ft_itoa(n);
+	if (itoa)
+	{
+		puts(itoa);
+		free(itoa);
+	}
+	n = 13371337;
 	itoa = ft_itoa(n);
 	if (itoa)
 	{

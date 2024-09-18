@@ -6,7 +6,7 @@
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 18:04:38 by efembock          #+#    #+#             */
-/*   Updated: 2024/09/10 19:07:32 by efembock         ###   ########.fr       */
+/*   Updated: 2024/09/18 22:26:19 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,8 @@ void	ft_putnbr_fd(int n, int fd)
 int	main(void)
 {
 	ft_putnbr_fd(4242, 1);
+	write(1, "\n", 1);
+	ft_putnbr_fd(-42424242, 1);
+	write(1, "\n", 1);
 	return (0);
 }*/

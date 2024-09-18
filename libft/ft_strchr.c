@@ -6,11 +6,11 @@
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 12:02:30 by efembock          #+#    #+#             */
-/*   Updated: 2024/09/11 14:50:07 by efembock         ###   ########.fr       */
+/*   Updated: 2024/09/18 22:35:42 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {

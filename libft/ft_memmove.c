@@ -6,12 +6,11 @@
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 13:27:01 by efembock          #+#    #+#             */
-/*   Updated: 2024/09/05 19:52:12 by efembock         ###   ########.fr       */
+/*   Updated: 2024/09/18 22:00:37 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
@@ -40,6 +39,9 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	return (dest);
 }
 /*
+#include <stdio.h>
+#include <string.h>
+
 int	main(void)
 {
 	const char	str1[] = "Supdawg?";

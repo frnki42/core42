@@ -6,19 +6,19 @@
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 15:25:23 by efembock          #+#    #+#             */
-/*   Updated: 2024/09/10 17:16:40 by efembock         ###   ########.fr       */
+/*   Updated: 2024/09/19 00:26:40 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
 int	ft_toupper(int c)
 {
-	if (c >= 97 && c <= 122)
+	if (c >= 'a' && c <= 'z')
 		c = c - 32;
 	return (c);
 }
 /*
+#include <stdio.h>
+
 int	main(void)
 {
 	printf("%c", ft_toupper(102));

@@ -6,11 +6,11 @@
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 18:33:41 by efembock          #+#    #+#             */
-/*   Updated: 2024/09/04 10:45:07 by efembock         ###   ########.fr       */
+/*   Updated: 2024/09/18 23:40:42 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
@@ -37,6 +37,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	return (idest + isrc);
 }
 /*
+#include <stdio.h>
+
 int	main(int argc, char **argv)
 {
 	if (argc < 3 || argc > 3)

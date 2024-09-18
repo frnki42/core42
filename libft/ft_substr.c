@@ -6,11 +6,10 @@
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 18:30:15 by efembock          #+#    #+#             */
-/*   Updated: 2024/09/13 19:33:08 by efembock         ###   ########.fr       */
+/*   Updated: 2024/09/19 00:22:35 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <stdlib.h>
 #include "libft.h"
 
@@ -50,6 +49,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (substr);
 }
 /*
+#include <stdio.h>
+
 int	main(void)
 {
 	const char	*str;
