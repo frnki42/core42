@@ -26,10 +26,10 @@ ft_putnbr_fd.o ft_putstr_fd.o ft_split.o ft_strchr.o ft_strdup.o ft_strjoin.o \
 ft_strlcat.o ft_strlcpy.o ft_strlen.o ft_strmapi.o ft_strncmp.o ft_strnstr.o \
 ft_striteri.o ft_strrchr.o ft_strtrim.o ft_substr.o ft_tolower.o ft_toupper.o
 
-BONUS_SOURCE = ft_lstadd_back.c ft_lstadd_front.c ft_lstdelone.c ft_lstiter.c \
-ft_lstlast.c ft_lstnew.c ft_lstsize.c
-BONUS_OBJECT = ft_lstadd_back.o ft_lstadd_front.o ft_lstdelone.o ft_lstiter.o \
-ft_lstlast.o ft_lstnew.o ft_lstsize.o
+BONUS_SOURCE = ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c \
+ft_lstiter.c ft_lstlast.c ft_lstmap.c ft_lstnew.c ft_lstsize.c
+BONUS_OBJECT = ft_lstadd_back.o ft_lstadd_front.o ft_lstclear.o ft_lstdelone.o \
+ft_lstiter.o ft_lstlast.o ft_lstmap.o ft_lstnew.o ft_lstsize.o
 
 $(NAME): $(OBJECT_FILES)
 	ar rcs $(NAME) $(OBJECT_FILES)
@@ -55,12 +55,16 @@ ft_lstadd_back.o: ft_lstadd_back.c
 	$(CC) $(CFLAGS) -c ft_lstadd_back.c -o ft_lstadd_back.o
 ft_lstadd_front.o: ft_lstadd_front.c
 	$(CC) $(CFLAGS) -c ft_lstadd_front.c -o ft_lstadd_front.o
+ft_lstclear.o: ft_lstclear.c
+	$(CC) $(CFLAGS) -c ft_lstclear.c -o ft_lstclear.o
 ft_lstdelone.o: ft_lstdelone.c
 	$(CC) $(CFLAGS) -c ft_lstdelone.c -o ft_lstdelone.o
 ft_lstiter.o: ft_lstiter.c
 	$(CC) $(CFLAGS) -c ft_lstiter.c -o ft_lstiter.o
 ft_lstlast.o: ft_lstlast.c
 	$(CC) $(CFLAGS) -c ft_lstlast.c -o ft_lstlast.o
+ft_lstmap.o: ft_lstmap.c
+	$(CC) $(CFLAGS) -c ft_lstmap.c -o ft_lstmap.o
 ft_lstnew.o: ft_lstnew.c
 	$(CC) $(CFLAGS) -c ft_lstnew.c -o ft_lstnew.o
 ft_lstsize.o: ft_lstsize.c
