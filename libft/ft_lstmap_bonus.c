@@ -6,11 +6,10 @@
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 20:53:15 by efembock          #+#    #+#             */
-/*   Updated: 2024/09/19 02:03:02 by efembock         ###   ########.fr       */
+/*   Updated: 2024/09/19 16:38:51 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
@@ -38,6 +37,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	return (new_list);
 }
 /*
+#include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 

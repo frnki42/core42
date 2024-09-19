@@ -6,11 +6,11 @@
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 20:27:23 by efembock          #+#    #+#             */
-/*   Updated: 2024/09/11 15:02:57 by efembock         ###   ########.fr       */
+/*   Updated: 2024/09/19 16:41:02 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
@@ -31,6 +31,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 }
 /*
 #include <string.h>
+#include <stdio.h>
 
 int	main(void)
 {

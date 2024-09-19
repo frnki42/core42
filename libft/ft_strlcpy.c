@@ -6,11 +6,11 @@
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 10:56:49 by efembock          #+#    #+#             */
-/*   Updated: 2024/09/18 23:42:47 by efembock         ###   ########.fr       */
+/*   Updated: 2024/09/19 16:43:40 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
@@ -31,6 +31,8 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	return (i);
 }
 /*
+#include <stdio.h>
+
 int	main(int argc, char **argv)
 {
 	char	buffer[42];

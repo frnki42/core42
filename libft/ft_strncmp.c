@@ -6,7 +6,7 @@
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 17:41:28 by efembock          #+#    #+#             */
-/*   Updated: 2024/09/18 23:50:24 by efembock         ###   ########.fr       */
+/*   Updated: 2024/09/19 16:27:10 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,5 @@ int	main(void)
 	printf("bytesize: %zu\n", bytesize);
 	printf("ASCII difference: %d\n", ft_strncmp(string1, string2, bytesize));
 	printf("ASCII difference: %d\n", strncmp(string1, string2, bytesize));
+	return (0);
 }*/
