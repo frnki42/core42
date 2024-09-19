@@ -6,7 +6,7 @@
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 20:53:15 by efembock          #+#    #+#             */
-/*   Updated: 2024/09/18 17:30:15 by efembock         ###   ########.fr       */
+/*   Updated: 2024/09/19 02:03:02 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,49 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 }
 /*
 #include <stdio.h>
+#include <string.h>
+
+void	del_content(void *content)
+{
+	free(content);
+}
+
+void	*dup_content(void *content)
+{
+	return (strdup((char *)content));
+}
+
+void	print_list(t_list *lst)
+{
+	while (lst)
+	{
+		printf("Content: %s\n", (char *)lst->content);
+		lst = lst->next;
+	}
+}
 
 int	main(void)
 {
-	t_list	*lst;
-	t_list	*str;
-	char *a;
+	t_list *node1;
+	t_list *node2;
+	t_list *node3;
 
-	a = "i am content!";
-	lst = ft_lstnew(a);
-	str = ft_lstmap(lst, upper, ft_lstdelone);
-	printf("%s\n",(char *)str);
+	node1 = ft_lstnew(ft_strdup("first"));
+	node2 = ft_lstnew(ft_strdup("second"));
+	node3 = ft_lstnew(ft_strdup("third"));
+	node1->next = node2;
+	node2->next = node3;
+	t_list *new_list = ft_lstmap(node1, dup_content, del_content);
+	if (new_list)
+	{
+		printf("Original list:\n");
+		print_list(node1);
+		printf("\nMapped list:\n");
+		print_list(new_list);
+	}
+	else
+		printf("ft_lstmap failed\n");
+	ft_lstclear(&node1, del_content);
+	ft_lstclear(&new_list, del_content);
 	return (0);
 }*/

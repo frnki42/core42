@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 19:24:33 by efembock          #+#    #+#             */
-/*   Updated: 2024/09/15 19:58:47 by efembock         ###   ########.fr       */
+/*   Updated: 2024/09/19 01:24:34 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,33 +21,32 @@ t_list	*ft_lstlast(t_list *lst)
 	return (lst);
 }
 /*
+#include <stdio.h>
+#include <stdlib.h>
+
 int	main(void)
 {
-	t_list	*head;
-	t_list	*last;
 	t_list	*node1;
 	t_list	*node2;
 	t_list	*node3;
-	t_list	*tmp;
+	t_list	*node4;
+	t_list	*last;
 
-	head = NULL;
-	last = ft_lstlast(head);
-	printf("Last node of empty list: %p\n", last);
-	node1 = ft_lstnew("Node 1");
-	head = node1;
-	last = ft_lstlast(head);
-	printf("Last node (should be 'Node 1'): %s\n", (char *)last->content);
-	node2 = ft_lstnew("Node 2");
-	node3 = ft_lstnew("Node 3");
+	node1 = ft_lstnew("First");
+	node2 = ft_lstnew("Second");
+	node3 = ft_lstnew("Third");
+	node4 = ft_lstnew("Fourth");
 	node1->next = node2;
 	node2->next = node3;
-	last = ft_lstlast(head);
-	printf("Last node (should be 'Node 3'): %s\n", (char *)last->content);
-	while (head)
-	{
-		tmp = head;
-		head = head->next;
-		free(tmp);
-	}
+	node3->next = node4;
+	last = ft_lstlast(node1);
+	if (last)
+		printf("last node content: %s\n", (char *)last->content);
+	else
+		printf("list is empty.\n");
+	free(node1);
+	free(node2);
+	free(node3);
+	free(node4);
 	return (0);
 }*/

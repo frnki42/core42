@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 20:18:52 by efembock          #+#    #+#             */
-/*   Updated: 2024/09/15 20:39:53 by efembock         ###   ########.fr       */
+/*   Updated: 2024/09/19 01:49:00 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,22 +24,39 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 /*
 #include <stdio.h>
 
-void	del_content(void *content)
+static void	del_content(void *content)
 {
-	if (content)
-		free(content);
+	free(content);
+}
+
+static void	print_list(t_list *lst)
+{
+	while (lst)
+	{
+		printf("%s -> ", (char *)lst->content);
+		lst = lst->next;
+	}
+	printf("NULL\n");
 }
 
 int	main(void)
 {
-	t_list	*node;
+	t_list *node1;
+	t_list *node2;
+	t_list *node3;
 
-	node = ft_lstnew(malloc(20));
-	if (!node || !node->content)
-		printf("Failed to allocate memory for node or content.\n");
-	ft_lstdelone(node, del_content);
-	sprintf((char *)node->content, "Example Content");
-	printf("Content before deletion: %s\n", (char *)node->content);
-	ft_lstdelone(node, del_content);
+	node1 = ft_lstnew(ft_strdup("First"));
+	node2 = ft_lstnew(ft_strdup("Second"));
+	node3 = ft_lstnew(ft_strdup("Third"));
+	node1->next = node2;
+	node2->next = node3;
+	printf("List before deleting node:\n");
+	print_list(node1);
+	printf("Deleting the second node (\"Second\"):\n");
+	ft_lstdelone(node2, del_content);
+	node1->next = node3;
+	print_list(node1);
+	ft_lstdelone(node1, del_content);
+	ft_lstdelone(node3, del_content);
 	return (0);
 }*/
