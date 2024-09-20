@@ -6,7 +6,7 @@
 #    By: efembock <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/06 13:25:06 by efembock          #+#    #+#              #
-#    Updated: 2024/09/18 17:49:59 by efembock         ###   ########.fr        #
+#    Updated: 2024/09/19 19:55:28 by efembock         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME = libft.a
@@ -129,4 +129,4 @@ re: fclean all
 bonus: $(OBJECT_FILES) $(BONUS_OBJECT)
 	ar rcs $(NAME) $(OBJECT_FILES) $(BONUS_OBJECT)
 all: $(NAME)
-.PHONY: all clean flcean re bonus
+.PHONY: all clean fclean re bonus

@@ -6,7 +6,7 @@
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/08 17:32:03 by efembock          #+#    #+#             */
-/*   Updated: 2024/09/19 00:20:33 by efembock         ###   ########.fr       */
+/*   Updated: 2024/09/20 15:00:32 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ int	main(void)
 	char const	*set;
 	char		*trim;
 
-	s1 = "Test me, alright? Test.";
-	set = "Test";
+	s1 = "ccbbaa Test me, alright? Test.bbTccaa";
+	set = "abc";
 	trim = ft_strtrim(s1, set);
 	puts(trim);
 	free(trim);
