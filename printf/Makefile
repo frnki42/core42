@@ -39,7 +39,7 @@ clean:
 	@echo "$(BLACK_ON_G)#           CLEAN COMPLETE!  .frnki    #$(COLOR_OFF)"
 	@echo "$(BLACK_ON_G)########################################$(COLOR_OFF)"
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 re: fclean all
 all: $(NAME)
 .PHONY: all clean fclean re
