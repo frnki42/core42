@@ -73,7 +73,8 @@ static int ft_putchar(int i)
 	char	c;
 
 	c = i;
-	return (write(1, &c, 1);
+	write(1, &c, 1);
+	return (1);
 }
 
 int	ft_printf(const char *format, ...)
@@ -100,6 +101,7 @@ int	ft_printf(const char *format, ...)
 				i += ft_puthexa(va_arg(args, unsigned int), 0, *format);
 			else if (*format =='p')
 				i += ft_puthexa(va_arg(args, unsigned long), 0, *format);
+
 			else if (*format == '%')
 				i += write(1, "%", 1);
 		}
