@@ -25,8 +25,7 @@ static int	ft_puthexa(unsigned long n, int count,char specifier)
 		count = ft_puthexa(n / 16, count, specifier);
 	if(write(1, &str[n % 16], 1) == -1)
 		return (-1);
-	count++;
-	return (count);
+	return (++count);
 }
 
 static int	ft_putptr(unsigned long ptr, int count)
@@ -35,9 +34,7 @@ static int	ft_putptr(unsigned long ptr, int count)
 		return (count += write(1, "(nil)", 5));
 	if(write(1, "0x", 2) == -1)
 			return (-1);
-	count += 2;
-	count = ft_puthexa(ptr, count, 'x');
-	return (count);
+	return (ft_puthexa(ptr, count + 2, 'x'));
 }
 
 static int	ft_putunsigned(unsigned int n, int count)
@@ -49,8 +46,7 @@ static int	ft_putunsigned(unsigned int n, int count)
 	temp = (n % 10) + '0';
 	if(write(1, &temp, 1) == -1)
 		return (-1);
-	count++;
-	return (count);	
+	return (++count);	
 }
 
 static int	ft_putnbr(int n, int count)
@@ -61,7 +57,9 @@ static int	ft_putnbr(int n, int count)
 	nlong = n;
 	if(nlong < 0)
 	{
-		count += write(1, "-", 1);
+		if(write(1, "-", 1) == -1)
+			return (-1);
+		count++;
 		nlong = -nlong;
 	}
 	if (nlong > 9)
@@ -69,8 +67,7 @@ static int	ft_putnbr(int n, int count)
 	temp = (nlong % 10) + '0';
 	if(write(1, &temp, 1) == -1)
 		return (-1);
-	count++;
-	return (count);
+	return (++count);
 }
 
 static int ft_putstr(char *str)
@@ -92,41 +89,64 @@ static int ft_putchar(char c)
 {
 	return (write(1, &c, 1));
 }
-int	ft_printf(const char *format, ...)
+
+static int	ft_format(const char *format, va_list args)
 {
 	int	i;
+	
+	i = 0;
+	if (*format == 'c')
+		i += ft_putchar((char)va_arg(args, int));
+	else if (*format == 's')
+		i += ft_putstr(va_arg(args, char *));
+	else if (*format == 'd' || *format == 'i')
+		i += ft_putnbr(va_arg(args, int), 0);
+	else if (*format == 'u')
+		i += ft_putunsigned(va_arg(args, unsigned int), 0);
+	else if (*format == 'x' || *format == 'X')
+		i += ft_puthexa(va_arg(args, unsigned int), 0, *format);
+	else if (*format =='p')
+		i += ft_putptr(va_arg(args, unsigned long), 0);
+	else if (*format == '%')
+	{
+		if(write(1, "%", 1) == -1)
+			return (-1);
+		return (1);
+	}
+	else
+		return (-1);
+	return (i);
+}
+int	ft_printf(const char *format, ...)
+{
+	int	counter;
+	int	result;
 	va_list	args;
 
-	i = 0;
+	counter = 0;
 	va_start(args, format);
 	while (*format)
 	{
 		if (*format == '%')
 		{
 			format++;
-			if (*format == 'c')
-				i += ft_putchar((char)va_arg(args, int));
-			else if (*format == 's')
-				i += ft_putstr(va_arg(args, char *));
-			else if (*format == 'd' || *format == 'i')
-				i += ft_putnbr(va_arg(args, int), 0);
-			else if (*format == 'u')
-				i += ft_putunsigned(va_arg(args, unsigned int), 0);
-			else if (*format == 'x' || *format == 'X')
-				i += ft_puthexa(va_arg(args, unsigned int), 0, *format);
-			else if (*format =='p')
-				i += ft_putptr(va_arg(args, unsigned long), 0);
-			else if (*format == '%')
-				i += write(1, "%", 1);
+			result = ft_format(format, args);
+			if (result == -1)
+				return (-1);
+			counter += result;
 		}
 		else
-			i += write(1, format, 1);
+		{
+			if(write(1, format, 1) == -1)
+				return (-1);
+			counter++;
+		}
 		format++;
 	}
 	va_end(args);
-	return (i);
+	return (counter);
 }
-
+/*
 int	main()
 {
 	int	i;
@@ -218,4 +238,4 @@ int	main()
 	printf("printf(j) = %u\n", j);
 
 	return (0);
-}
+}*/
