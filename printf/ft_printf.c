@@ -23,7 +23,9 @@ static int	ft_puthexa(unsigned long n, int count,char specifier)
 		str = "0123456789ABCDEF";
 	if (n > 15)
 		count = ft_puthexa(n / 16, count, specifier);
-	count += write(1, &str[n % 16], 1);
+	if(write(1, &str[n % 16], 1) == -1)
+		return (-1);
+	count++;
 	return (count);
 }
 
@@ -31,7 +33,9 @@ static int	ft_putptr(unsigned long ptr, int count)
 {
 	if (ptr == 0)
 		return (count += write(1, "(nil)", 5));
-	count += write(1, "0x", 2);
+	if(write(1, "0x", 2) == -1)
+			return (-1);
+	count += 2;
 	count = ft_puthexa(ptr, count, 'x');
 	return (count);
 }
@@ -63,7 +67,9 @@ static int	ft_putnbr(int n, int count)
 	if (nlong > 9)
 		count = ft_putnbr(nlong / 10, count);
 	temp = (nlong % 10) + '0';
-	count += write(1, &temp, 1);
+	if(write(1, &temp, 1) == -1)
+		return (-1);
+	count++;
 	return (count);
 }
 
@@ -130,56 +136,86 @@ int	main()
 
 	printf("#####TEST:1#####\n");
 	printf("     -char-\n");
-	i = ft_printf("custom: %%%cty%cwo%c%c\n", '4', 'T', '!', '%');
-	j = printf("printf: %%%cty%cwo%c%c\n", '4', 'T', '!', '%');
+	i = ft_printf("%%%cty%cwo%c%c", '4', 'T', '!', '%');
+	printf("\n");
+	j = printf("%%%cty%cwo%c%c", '4', 'T', '!', '%');
+	printf("\n");
 	ft_printf("custom(i) = %i\n", i);
 	printf("printf(j) = %i\n", j);
 
 	printf("#####TEST:2#####\n");
 	printf("    -string-\n");
 	str = "TEST";
-	i = ft_printf("custom: %s\n", str);
-	j = printf("printf: %s\n", str);
+	i = ft_printf("%s", str);
+	printf("\n");
+	j = printf("%s", str);
+	printf("\n");
 	ft_printf("custom(i) = %i\n", i);
 	printf("printf(j) = %i\n", j);
 	str2 = "T%ST M3% PL3453!%";
-	i = ft_printf("custom: %s\n", str2);
-	j = printf("printf: %s\n", str2);
+	i = ft_printf("%s", str2);
+	printf("\n");
+	j = printf("%s", str2);
+	printf("\n");
 	ft_printf("custom(i) = %i\n", i);
 	printf("printf(j) = %i\n", j);
 	
 	printf("#####TEST:3#####\n");
 	printf("      -int-\n");
-	i = ft_printf("custom: %i\n", -2147483647);
-	j = printf("printf: %i\n", -2147483647);
+	i = ft_printf("%i", -2147483647);
+	printf("\n");
+	j = printf("%i", -2147483647);
+	printf("\n");
 	ft_printf("custom(i) = %i\n", i);
 	printf("printf(j) = %i\n", j);
-	i = ft_printf("custom: %i\n", 2147483647);
-	j = printf("printf: %i\n", 2147483647);
-	ft_printf("custom = %i\n", i);
-	printf("printf = %i\n", j);
+	i = ft_printf("%i", 2147483647);
+	printf("\n");
+	j = printf("%i", 2147483647);
+	printf("\n");
+	ft_printf("custom(i) = %i\n", i);
+	printf("printf(j) = %i\n", j);
 
 	printf("#####TEST:4#####\n");
 	printf("   -unsigned-\n");
-	i = ft_printf("custom: %u\n", 4294967295);
-	j = printf("printf: %u\n", (unsigned int)4294967295);
+	i = ft_printf("%u", 4294967295);
+	printf("\n");
+	j = printf("%u", (unsigned int)4294967295);
+	printf("\n");
 	ft_printf("custom(i) = %u\n", i);
 	printf("printf(j) = %u\n", j);
 
 	printf("#####TEST:5#####\n");
 	printf("     -hexa-\n");
-	i = ft_printf("custom: %x\n", 42);
-	j = printf("printf: %x\n", 42);
-	ft_printf("custom(i= = %u\n", i);
+	i = ft_printf("%x", 42);
+	printf("\n");
+	j = printf("%x", 42);
+	printf("\n");
+	ft_printf("custom(i) = %u\n", i);
+	printf("printf(j) = %u\n", j);
+	i = ft_printf("%x", 4242);
+	printf("\n");
+	j = printf("%x", 4242);
+	printf("\n");
+	ft_printf("custom(i) = %u\n", i);
 	printf("printf(j) = %u\n", j);
 
 	printf("#####TEST:6#####\n");
 	printf("   -pointer-   \n");
 	str = NULL;
-	i = ft_printf("custom: %p\n", str);
+	i = ft_printf("%p", str);
+	printf("\n");
 	str = NULL;
-	j = printf("printf: %p\n", str);
+	j = printf("%p", str);
+	printf("\n");
 	ft_printf("custom(i) = %u\n", i);
 	printf("printf(j) = %u\n", j);
+	str = ".fourtyTWO";
+	i = ft_printf("%p", str);
+	printf("\n");
+	j = printf("%p", str);
+	printf("\n");
+	ft_printf("custom(i) = %u\n", i);
+	printf("printf(j) = %u\n", j);
+
 	return (0);
 }
