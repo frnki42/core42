@@ -129,8 +129,7 @@ int	ft_printf(const char *format, ...)
 	{
 		if (*format == '%')
 		{
-			format++;
-			result = ft_format(format, args);
+			result = ft_format(++format, args);
 			if (result == -1)
 				return (-1);
 			counter += result;
