@@ -29,7 +29,7 @@ LIBRARIES	:= $(LIBFT_DIR)/libft.a
 all: $(LIBRARIES) $(NAME)
 
 $(LIBRARIES):
-	@$(MAKE) bonus -sC $(LIBFT_DIR)
+	@make bonus -sC $(LIBFT_DIR)
 $(NAME): $(OBJECT_FILES)
 	@ar -rcs $(NAME) $(OBJECT_FILES)
 	@echo "$(BLACK_ON_G)#      COMPILATION COMPLETE   .frnki  #$(COLOR_OFF)"
@@ -37,8 +37,8 @@ $(NAME): $(OBJECT_FILES)
 %.o: %.c
 	@$(CC) $(CFLAGS) -I./libft -c $< -o $@
 clean:
+	@make clean -sC $(LIBFT_DIR)
 	@rm -f $(OBJECT_FILES)
-	@$(MAKE) -sC $(LIBFT_DIR) clean
 	@echo "$(BLACK_ON_G)#         PRINTF CLEANED!     .frnki  #$(COLOR_OFF)"
 	@echo "$(BLACK_ON_G)#######################################$(COLOR_OFF)"
 	@echo "$(BLACK_ON_G)#         CLEAN COMPLETE!     .frnki  #$(COLOR_OFF)"
