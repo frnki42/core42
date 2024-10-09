@@ -42,6 +42,8 @@ int	ft_printf(const char *format, ...)
 	return (counter);
 }
 /*
+#include <stdio.h>
+
 int	main()
 {
 	int	i;

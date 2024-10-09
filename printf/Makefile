@@ -18,25 +18,33 @@ COLOR_OFF	:= \033[0m
 NAME		:= libftprintf.a
 CC		:= cc
 CFLAGS		:= -Wall -Wextra -Werror
-SOURCE_FILES:= ft_putchar.c ft_puthexa.c ft_putnbr.c ft_putptr.c ft_putstr.c \
-	       ft_putunsigned.c ft_printf.c ft_format.c
-OBJECT_FILES:= ${SOURCE_FILES:.c=.o}
+SOURCE_FILES	:= ft_putchar.c ft_puthexa.c ft_putnbr.c ft_putptr.c \
+	       	   ft_putstr.c ft_putunsigned.c ft_printf.c ft_format.c
+OBJECT_FILES	:= ${SOURCE_FILES:.c=.o}
+LIBFT_DIR	:= ./libft
+LIBRARIES	:= $(LIBFT_DIR)/libft.a
+
 
 # COMMANDS
+all: $(LIBRARIES) $(NAME)
+
+$(LIBRARIES):
+	@$(MAKE) bonus -sC $(LIBFT_DIR)
 $(NAME): $(OBJECT_FILES)
-	ar -rcs $(NAME) $(OBJECT_FILES)
-	@echo "$(BLACK_ON_G)########################################$(COLOR_OFF)"
-	@echo "$(BLACK_ON_G)#        COMPILATION COMPLETE  .frnki  #$(COLOR_OFF)"
-	@echo "$(BLACK_ON_G)########################################$(COLOR_OFF)"
+	@ar -rcs $(NAME) $(OBJECT_FILES)
+	@echo "$(BLACK_ON_G)#      COMPILATION COMPLETE   .frnki  #$(COLOR_OFF)"
+	@echo "$(BLACK_ON_G)#######################################$(COLOR_OFF)"
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -I./libft -c $< -o $@
 clean:
-	@rm -f $(OBJECT_FILES) $(BONUS_OBJECT)
-	@echo "$(BLACK_ON_G)########################################$(COLOR_OFF)"
-	@echo "$(BLACK_ON_G)#           CLEAN COMPLETE!  .frnki    #$(COLOR_OFF)"
-	@echo "$(BLACK_ON_G)########################################$(COLOR_OFF)"
+	@rm -f $(OBJECT_FILES)
+	@$(MAKE) -sC $(LIBFT_DIR) clean
+	@echo "$(BLACK_ON_G)#         PRINTF CLEANED!     .frnki  #$(COLOR_OFF)"
+	@echo "$(BLACK_ON_G)#######################################$(COLOR_OFF)"
+	@echo "$(BLACK_ON_G)#         CLEAN COMPLETE!     .frnki  #$(COLOR_OFF)"
+	@echo "$(BLACK_ON_G)#######################################$(COLOR_OFF)"
 fclean: clean
 	@rm -f $(NAME)
+	@rm -f $(LIBRARIES)
 re: fclean all
-all: $(NAME)
 .PHONY: all clean fclean re
