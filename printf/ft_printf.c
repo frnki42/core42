@@ -43,9 +43,11 @@ int	ft_printf(const char *format, ...)
 }
 /*
 #include <stdio.h>
+#include "libft/libft.h"
 
 int	main()
 {
+	int	c;
 	int	i;
 	int	j;
 	char	*str;
@@ -59,6 +61,10 @@ int	main()
 	printf("\n");
 	ft_printf("custom(i) = %i\n", i);
 	printf("printf(j) = %i\n", j);
+	c = 'A';
+	printf("%i\n", c);
+	c = ft_tolower(c);
+	printf("%i\n", c);
 
 	printf("#####TEST:2#####\n");
 	printf("    -string-\n");

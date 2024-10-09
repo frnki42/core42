@@ -22,16 +22,15 @@ SOURCE_FILES	:= ft_putchar.c ft_puthexa.c ft_putnbr.c ft_putptr.c \
 	       	   ft_putstr.c ft_putunsigned.c ft_printf.c ft_format.c
 OBJECT_FILES	:= ${SOURCE_FILES:.c=.o}
 LIBFT_DIR	:= ./libft
-LIBRARIES	:= $(LIBFT_DIR)/libft.a
-
+LIBFT		:= $(LIBFT_DIR)/libft.a
 
 # COMMANDS
-all: $(LIBRARIES) $(NAME)
+all: $(LIBFT) $(NAME)
 
-$(LIBRARIES):
+$(LIBFT):
 	@make bonus -sC $(LIBFT_DIR)
 $(NAME): $(OBJECT_FILES)
-	@ar -rcs $(NAME) $(OBJECT_FILES)
+	@ar -rcs $(NAME) $(OBJECT_FILES) $(LIBFT_DIR)/*.o
 	@echo "$(BLACK_ON_G)#      COMPILATION COMPLETE   .frnki  #$(COLOR_OFF)"
 	@echo "$(BLACK_ON_G)#######################################$(COLOR_OFF)"
 %.o: %.c
@@ -45,6 +44,6 @@ clean:
 	@echo "$(BLACK_ON_G)#######################################$(COLOR_OFF)"
 fclean: clean
 	@rm -f $(NAME)
-	@rm -f $(LIBRARIES)
+	@rm -f $(LIBFT)
 re: fclean all
 .PHONY: all clean fclean re
