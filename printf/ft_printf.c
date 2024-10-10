@@ -6,7 +6,7 @@
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 12:21:54 by efembock          #+#    #+#             */
-/*   Updated: 2024/10/06 13:02:16 by efembock         ###   ########.fr       */
+/*   Updated: 2024/10/10 14:09:37 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 int	ft_printf(const char *format, ...)
 {
-	int	counter;
-	int	result;
+	int		counter;
+	int		result;
 	va_list	args;
 
 	counter = 0;
@@ -32,7 +32,7 @@ int	ft_printf(const char *format, ...)
 		}
 		else
 		{
-			if(write(1, format, 1) == -1)
+			if (write(1, format, 1) == -1)
 				return (-1);
 			counter++;
 		}
