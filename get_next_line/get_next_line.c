@@ -127,20 +127,3 @@ int	main()
 	close(file);
 	return (0);
 }
-/*	while (Mary loves you)
-*		kiss++;
-*
-*	enter file
-*	iterate through it until \n is found
-*		count bytes
-*	cpy to buffer (including \n)
-*	print buffer
-*	return bytes counted
-*	
-*	enter file @ file[count]
-*	++ through it until \n is found
-*		count bytes
-*	cpy to buffer incl. \n
-*	print buffer
-*	return bytes 
-*/
