@@ -98,32 +98,35 @@ char	*get_next_line(int fd)
 
 int	main()
 {
-	int		file;
-	int		count;
-	char	*output;
+    int		file;
+    int		count;
+    char	*output;
+    int		i;
 
-	file = open("file.txt", O_RDONLY);
-	if (file == -1)
-	{
-		printf("Error opening file\n");
-		return (1);
-	}
-	for (int i = 0; i < 10; i++)
-	{
-		printf("%dTH OUTPUT:\n", i + 1);
-		output = get_next_line(file);
-		if (output)
-		{
-			count = printf("%s", output);
-			printf("\n%d bytes were written\n", count);
-			free(output);
-		}
-		else
-		{
-			printf("No more lines to read.\n");
-			break;
-		}
-	}
-	close(file);
-	return (0);
+    file = open("file.txt", O_RDONLY);
+    if (file == -1)
+    {
+        printf("Error opening file\n");
+        return (1);
+    }
+    i = 0;
+    while (i < 10)
+    {
+        printf("OUTPUT#%d:\n", i + 1);
+        output = get_next_line(file);
+        if (output)
+        {
+            count = printf("%s", output);
+            printf("\n%d bytes were written\n", count);
+            free(output);
+        }
+        else
+        {
+            printf("No more lines to read.\n");
+            break;
+        }
+        i++;
+    }
+    close(file);
+    return (0);
 }
