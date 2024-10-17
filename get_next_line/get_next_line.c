@@ -92,7 +92,7 @@ char	*get_next_line(int fd)
 	rest = update_rest(rest);
 	return (line);
 }
-
+/*
 #include <fcntl.h>
 #include <stdio.h>
 
@@ -118,7 +118,8 @@ int	main()
 		output = get_next_line(file);
 	}
 	if (count == 0)
-		printf("No more lines to read.\n");	
+		printf("No more lines to read.\n");
+	free(output);
 	close(file);
 	return (0);
-}
+}*/
