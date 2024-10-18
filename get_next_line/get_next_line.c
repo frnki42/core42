@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/11 11:14:47 by efembock          #+#    #+#             */
+/*   Updated: 2024/10/18 15:23:57 by efembock         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 
 char	*read_file(int fd, char *rest)
@@ -7,13 +19,17 @@ char	*read_file(int fd, char *rest)
 
 	buffer = malloc(BUFFER_SIZE + 1);
 	if (!buffer)
+	{
+		free(rest);
 		return (NULL);
+	}
 	bytes_read = 1;
 	while (!ft_strchr(rest, '\n') && bytes_read != 0)
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read == -1)
 		{
+			free(rest);
 			free(buffer);
 			return (NULL);
 		}
@@ -24,7 +40,7 @@ char	*read_file(int fd, char *rest)
 	return (rest);
 }
 
-char	*get_line(char *rest)
+char	*ft_get_line(char *rest)
 {
 	size_t	i;
 	char	*line;
@@ -36,7 +52,7 @@ char	*get_line(char *rest)
 		i++;
 	line = malloc(i + 2);
 	if (!line)
-		return (NULL);
+		return (free(rest), NULL);
 	i = 0;
 	while (rest[i] && rest[i] != '\n')
 	{
@@ -56,7 +72,7 @@ char	*update_rest(char *rest)
 {
 	size_t		i;
 	size_t		j;
-	char	*new_rest;
+	char		*new_rest;
 
 	i = 0;
 	while (rest[i] && rest[i] != '\n')
@@ -68,7 +84,10 @@ char	*update_rest(char *rest)
 	}
 	new_rest = malloc(ft_strlen(rest) - i + 1);
 	if (!new_rest)
+	{
+		free(rest);
 		return (NULL);
+	}
 	i++;
 	j = 0;
 	while (rest[i])
@@ -88,7 +107,7 @@ char	*get_next_line(int fd)
 	rest = read_file(fd, rest);
 	if (!rest)
 		return (NULL);
-	line = get_line(rest);
+	line = ft_get_line(rest);
 	rest = update_rest(rest);
 	return (line);
 }

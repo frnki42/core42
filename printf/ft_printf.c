@@ -6,7 +6,7 @@
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 12:21:54 by efembock          #+#    #+#             */
-/*   Updated: 2024/10/10 14:09:37 by efembock         ###   ########.fr       */
+/*   Updated: 2024/10/18 13:37:41 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,6 +139,5 @@ int	main()
 	printf("\n");
 	ft_printf("custom(i) = %u\n", i);
 	printf("printf(j) = %u\n", j);
-
 	return (0);
 }*/
