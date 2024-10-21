@@ -15,27 +15,26 @@
 
 int	ft_printf(const char *format, ...)
 {
-	int		counter;
-	int		result;
+	int	counter;
+	int	result;
 	va_list	args;
 
+	if (!format)
+		return (-1);
 	counter = 0;
 	va_start(args, format);
 	while (*format)
 	{
 		if (*format == '%')
-		{
-			result = ft_format(++format, args);
-			if (result == -1)
+		{	
+			if ((result = ft_format(++format, args)) == -1)
 				return (-1);
 			counter += result;
 		}
+		else if (write(1, format, 1) == -1)
+			return (-1);
 		else
-		{
-			if (write(1, format, 1) == -1)
-				return (-1);
 			counter++;
-		}
 		format++;
 	}
 	va_end(args);
