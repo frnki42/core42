@@ -6,17 +6,27 @@
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 12:21:54 by efembock          #+#    #+#             */
-/*   Updated: 2024/10/18 13:37:41 by efembock         ###   ########.fr       */
+/*   Updated: 2024/10/22 14:38:25 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <unistd.h>
 
+static int	handle_format(const char **format, va_list args)
+{
+	int	result;
+
+	result = ft_format(++(*format), args);
+	if (result == -1)
+		return (-1);
+	return (result);
+}
+
 int	ft_printf(const char *format, ...)
 {
-	int	counter;
-	int	result;
+	int		counter;
+	int		result;
 	va_list	args;
 
 	if (!format)
@@ -26,8 +36,9 @@ int	ft_printf(const char *format, ...)
 	while (*format)
 	{
 		if (*format == '%')
-		{	
-			if ((result = ft_format(++format, args)) == -1)
+		{
+			result = handle_format(&format, args);
+			if (result == -1)
 				return (-1);
 			counter += result;
 		}
