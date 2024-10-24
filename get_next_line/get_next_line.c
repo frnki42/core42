@@ -50,9 +50,12 @@ char	*ft_get_line(char *rest)
 		return (NULL);
 	while (rest[i] && rest[i] != '\n')
 		i++;
-	line = malloc(i + 2);
+	if (rest[i] == '\n')
+		line = malloc(i + 2);
+	else
+		line = malloc(i + 1);
 	if (!line)
-		return (free(rest), NULL);
+		return (NULL);
 	i = 0;
 	while (rest[i] && rest[i] != '\n')
 	{
