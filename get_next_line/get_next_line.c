@@ -6,7 +6,7 @@
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 11:14:47 by efembock          #+#    #+#             */
-/*   Updated: 2024/10/24 14:06:49 by efembock         ###   ########.fr       */
+/*   Updated: 2024/10/18 15:23:57 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +19,17 @@ char	*read_file(int fd, char *rest)
 
 	buffer = malloc(BUFFER_SIZE + 1);
 	if (!buffer)
-	{
-		free(rest);
-		return (NULL);
-	}
+		return (free(rest), NULL);
 	bytes_read = 1;
 	while (!ft_strchr(rest, '\n') && bytes_read != 0)
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read == -1)
-		{
-			free(rest);
-			free(buffer);
-			return (NULL);
-		}
+			return (free(rest), free(buffer), NULL);
 		buffer[bytes_read] = '\0';
 		rest = ft_strjoin(rest, buffer);
 	}
-	free(buffer);
-	return (rest);
+	return (free(buffer), rest);
 }
 
 char	*ft_get_line(char *rest)
@@ -51,8 +43,9 @@ char	*ft_get_line(char *rest)
 	while (rest[i] && rest[i] != '\n')
 		i++;
 	if (rest[i] == '\n')
-		i++;
-	line = malloc(i + 1);
+		line = malloc(i + 2);
+	else
+		line = malloc(i + 1);
 	if (!line)
 		return (NULL);
 	i = 0;
@@ -80,23 +73,16 @@ char	*update_rest(char *rest)
 	while (rest[i] && rest[i] != '\n')
 		i++;
 	if (!rest[i])
-	{
-		free(rest);
-		return (NULL);
-	}
+		return (free(rest), NULL);
 	new_rest = malloc(ft_strlen(rest) - i + 1);
 	if (!new_rest)
-	{
-		free(rest);
-		return (NULL);
-	}
+		return (free(rest), NULL);
 	i++;
 	j = 0;
 	while (rest[i])
 		new_rest[j++] = rest[i++];
 	new_rest[j] = '\0';
-	free(rest);
-	return (new_rest);
+	return (free(rest), new_rest);
 }
 
 char	*get_next_line(int fd)
