@@ -6,7 +6,7 @@
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 11:14:47 by efembock          #+#    #+#             */
-/*   Updated: 2024/10/18 15:23:57 by efembock         ###   ########.fr       */
+/*   Updated: 2024/10/24 14:06:49 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,9 @@ char	*ft_get_line(char *rest)
 		return (NULL);
 	while (rest[i] && rest[i] != '\n')
 		i++;
-	line = malloc(i + 2);
+	if (rest[i] == '\n')
+		i++;
+	line = malloc(i + 1);
 	if (!line)
 		return (NULL);
 	i = 0;
