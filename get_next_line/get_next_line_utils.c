@@ -6,64 +6,61 @@
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 11:15:07 by efembock          #+#    #+#             */
-/*   Updated: 2024/10/18 15:11:08 by efembock         ###   ########.fr       */
+/*   Updated: 2024/10/25 22:29:08 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen(char *s)
 {
 	size_t	i;
 
 	i = 0;
-	if (!s)
-		return (0);
 	while (s[i])
 		i++;
 	return (i);
 }
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr(char *rest, int new_line)
 {
-	if (!s)
+	if (!rest)
 		return (NULL);
-	while (*s)
+	while (*rest)
 	{
-		if (*s == (char)c)
-			return ((char *)s);
-		s++;
+		if (*rest == (char)new_line)
+			return (rest);
+		rest++;
 	}
-	if ((char)c == '\0')
-		return ((char *)s);
+	if ((char)new_line == '\0')
+		return (rest);
 	return (NULL);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin(char *rest, char *buffer)
 {
-	char	*joined;
+	char	*result;
 	size_t	i;
 	size_t	j;
 
-	if (!s1)
+	if (!rest)
 	{
-		s1 = malloc(1);
-		if (!s1)
+		rest = malloc(1);
+		if (!rest)
 			return (NULL);
-		s1[0] = '\0';
+		rest[0] = '\0';
 	}
-	if (!s2)
-		return (free(s1), NULL);
-	joined = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
-	if (!joined)
-		return (free(s1), NULL);
+	if (!buffer)
+		return (free(rest), NULL);
+	result = malloc(ft_strlen(rest) + ft_strlen(buffer) + 1);
+	if (!result)
+		return (free(rest), NULL);
 	i = -1;
-	while (s1[++i])
-		joined[i] = s1[i];
+	while (rest[++i])
+		result[i] = rest[i];
 	j = 0;
-	while (s2[j])
-		joined[i++] = s2[j++];
-	joined[i] = '\0';
-	free(s1);
-	return (joined);
+	while (buffer[j])
+		result[i++] = buffer[j++];
+	result[i] = '\0';
+	return (free(rest), result);
 }

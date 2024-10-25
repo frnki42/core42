@@ -6,7 +6,7 @@
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 11:14:47 by efembock          #+#    #+#             */
-/*   Updated: 2024/10/18 15:23:57 by efembock         ###   ########.fr       */
+/*   Updated: 2024/10/25 22:25:57 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ char	*read_file(int fd, char *rest)
 {
 	char	*buffer;
 	ssize_t	bytes_read;
-
+	
 	buffer = malloc(BUFFER_SIZE + 1);
 	if (!buffer)
 		return (free(rest), NULL);
-	bytes_read = 1;
-	while (!ft_strchr(rest, '\n') && bytes_read != 0)
+	bytes_read = 42;
+	while (!ft_strchr(rest, '\n') && bytes_read > 0)
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read == -1)
@@ -43,17 +43,13 @@ char	*ft_get_line(char *rest)
 	while (rest[i] && rest[i] != '\n')
 		i++;
 	if (rest[i] == '\n')
-		line = malloc(i + 2);
-	else
-		line = malloc(i + 1);
+		i++;
+	line = malloc(i + 1);
 	if (!line)
 		return (NULL);
-	i = 0;
-	while (rest[i] && rest[i] != '\n')
-	{
+	i = -1;
+	while (rest[++i] && rest[i] != '\n')
 		line[i] = rest[i];
-		i++;
-	}
 	if (rest[i] == '\n')
 	{
 		line[i] = rest[i];
@@ -96,6 +92,8 @@ char	*get_next_line(int fd)
 	if (!rest)
 		return (NULL);
 	line = ft_get_line(rest);
+	if (!line)
+		return (free(rest), rest = NULL, NULL);
 	rest = update_rest(rest);
 	return (line);
 }
