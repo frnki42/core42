@@ -6,7 +6,7 @@
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 11:14:47 by efembock          #+#    #+#             */
-/*   Updated: 2024/10/25 22:25:57 by efembock         ###   ########.fr       */
+/*   Updated: 2024/10/26 15:26:43 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*read_file(int fd, char *rest)
 {
 	char	*buffer;
 	ssize_t	bytes_read;
-	
+
 	buffer = malloc(BUFFER_SIZE + 1);
 	if (!buffer)
 		return (free(rest), NULL);
