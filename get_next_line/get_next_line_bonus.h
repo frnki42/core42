@@ -26,6 +26,10 @@
 size_t	ft_strlen(char *s);
 char	*ft_strchr(char *s, int c);
 char	*ft_strjoin(char *s1, char *s2);
+
+char	*read_file(int fd, char *rest);
+char	*ft_get_line(char *rest);
+char	*update_rest(char *rest);
 char	*get_next_line(int fd);
 
 #endif

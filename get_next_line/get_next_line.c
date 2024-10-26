@@ -28,6 +28,8 @@ char	*read_file(int fd, char *rest)
 			return (free(rest), free(buffer), NULL);
 		buffer[bytes_read] = '\0';
 		rest = ft_strjoin(rest, buffer);
+		if (!rest)
+			return (free(buffer), NULL);
 	}
 	return (free(buffer), rest);
 }
@@ -52,7 +54,7 @@ char	*ft_get_line(char *rest)
 		line[i] = rest[i];
 	if (rest[i] == '\n')
 	{
-		line[i] = rest[i];
+		line[i] = '\n';
 		i++;
 	}
 	line[i] = '\0';
