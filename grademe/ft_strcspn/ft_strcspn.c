@@ -1,37 +1,34 @@
-#include <stddef.h>
+#include <unistd.h>
+#include <stdio.h>
 
 size_t	ft_strcspn(const char *s, const char *reject)
 {
-	size_t	count;
+	size_t	len;
 	size_t	i;
 
-	count = 0;
-	while (s[count])
+	len = 0;
+	while (s[len])
 	{
 		i = 0;
 		while (reject[i])
 		{
-			if (s[count] == reject[i])
-				return (count);
-			i++;
+			if (s[len] == reject[i++])
+				return (len);
 		}
-		count++;
+		len++;
 	}
-	return (count);
+	return (len);
 }
 /*
-#include <stdio.h>
-
-int	main(void)
+int	main(int argc, char **argv)
 {
-	const char	*s;
-	const char	*reject;
-	size_t		result;
-	
-	result = 0;
-	s = "This is the test string we are traversiXgn to find the reject!";
-	reject = "X";
-	result = ft_strcspn(s, reject);
-	printf("The result is: %ld\n", result);
+	int	len;
+
+	if (argc != 3)
+		return (write(1, "kekW n00b!\n", 11));
+	len = 42;
+	printf("len = %i (should be 42)\n", len);
+	len = ft_strcspn(argv[1], argv[2]);
+	printf("len after ft_strcpsn exec: %i\n", len);
 	return (0);
 }*/
