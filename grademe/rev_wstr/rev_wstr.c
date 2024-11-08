@@ -1,36 +1,30 @@
+#include <stdlib.h>
 #include <unistd.h>
-
-int	ft_strlen(char *string)
-{
-	int	i;
-
-	i = 0;
-	while (string[i])
-		i++;
-	return (i);
-}
 
 void	rev_wstr(char *str)
 {
+	int	i;
 	int	len;
-	char	*temp;
+	char	*printme;
 
-	temp = NULL;
-	len = ft_strlen(str);
-	while(str[--len])
+	len = 0;
+	printme = str;
+	while (str[len])
+		len++;
+	while (str[--len])
 	{
+		i = 0;
 		if (str[len - 1] == ' ')
 		{
-			temp = &str[len];
-			while (*temp && *temp != ' ')
-				write(1, &(*temp++), 1);
+			printme = &str[len];
+			while (printme[i] && printme[i] != ' ')
+				write(1, &printme[i++], 1);
 			write(1, " ", 1);
 		}
 		else if (len == 0)
 		{
-			temp = &str[len];
-			while (*temp && *temp != ' ')
-				write(1, &(*temp++), 1);
+			while (*str && *str != ' ')
+				write(1, &(*str++), 1);
 		}
 	}
 }
