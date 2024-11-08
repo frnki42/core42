@@ -1,4 +1,3 @@
-#include <stdlib.h>
 #include <unistd.h>
 
 void	rev_wstr(char *str)
