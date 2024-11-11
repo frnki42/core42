@@ -3,27 +3,20 @@
 void	rev_wstr(char *str)
 {
 	int	i;
-	int	len;
-	char	*printme;
+	char	*word;
 
-	len = 0;
-	printme = str;
-	while (str[len])
-		len++;
-	while (str[--len])
+	i = -1;
+	while (str[++i])
+		;
+	while (str[--i])
 	{
-		i = 0;
-		if (str[len - 1] == ' ')
+		if (str[i - 1] == ' ' || str[i - 1] == '\0')
 		{
-			printme = &str[len];
-			while (printme[i] && printme[i] != ' ')
-				write(1, &printme[i++], 1);
-			write(1, " ", 1);
-		}
-		else if (len == 0)
-		{
-			while (*str && *str != ' ')
-				write(1, &(*str++), 1);
+			word = &str[i];
+			while (*word && *word != ' ')
+				write(1, &(*word++), 1);
+			if (str[i - 1])
+				write(1, " ", 1);
 		}
 	}
 }
