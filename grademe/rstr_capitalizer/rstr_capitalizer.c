@@ -1,48 +1,31 @@
 #include <unistd.h>
 
-int	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-char	*rstr_capitalizer(char *str)
+void	rstr_capitalizer(char *str)
 {
 	int	i;
 
 	i = 0;
 	while (str[i])
 	{
-		if(str[i] >= 'A' && str[i] <= 'Z')
-			str[i] = str[i + 1] + 32;
+		if (str[i] >= 'A' && str[i] <= 'Z')
+			str[i] += 32;
+		if ((str[i + 1] == ' ' || str[i + 1] == '\0') && (str[i] >= 'a' && str[i] <= 'z'))
+			str[i] -= 32;
+		write(1, &str[i++], 1);
 	}
-	while((*str && (*str >= 'a' && *str <= 'z') &&
-	    	((*(str + 1) < 'A') || *(str + 1) > 'z') ||
-		(*(str + 1) >= '[' && *str <= 96)))
-	{
-		*str = *str - 32;
-		str--;
-	}	       
-	return (str);
 }
 
 int	main(int argc, char **argv)
 {
 	int	i;
-	char	*res;
 
 	if (argc < 2)
 		return (write(1, "\n", 1));
 	i = 1;
 	while (i < argc)
 	{
-		res = rstr_capitalizer(argv[i++]);
-		while (*res)
-			write(1, &(*res++), 1);
+		rstr_capitalizer(argv[i++]);
 		write(1, "\n", 1);
 	}
+	return (0);
 }
