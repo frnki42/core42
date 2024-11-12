@@ -2,7 +2,7 @@
 
 void	inter(char *hay, char *needle)
 {
-	int	check[255] = {0};
+	int	check[127] = {0};
 	int	i;
 	int	j;
 
