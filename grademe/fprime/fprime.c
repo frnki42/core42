@@ -1,27 +1,24 @@
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 void	fprime(int n)
 {
-	int	factor;
+	int	i;
 
-	factor = 2;
 	if (n == 1)
-	{
 		printf("1");
-		return ;
-	}
+	i = 2;
 	while (n > 1)
 	{
-		if (n % factor == 0)
+		if (n % i == 0)
 		{
-			printf("%d", factor);
-			n = n / factor;
+			printf("%i", i);
+			n /= i;
 			if (n > 1)
 				printf("*");
 		}
 		else
-			factor++;
+			i++;
 	}
 }
 
