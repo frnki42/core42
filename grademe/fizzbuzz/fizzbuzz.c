@@ -1,39 +1,33 @@
 #include <unistd.h>
 
-void	fizzbuzz(int max)
+int	main(void)
 {
-	int	i;
-	char	ones;
-	char	tens;
+	int	i = 0;
+	char	temp = '\0';
+	char	tem = '\0';
 
-	i = 1;
-	while (i <= max)
+	while (++i <= 100)
 	{
-		if (i % 5 == 0 && i % 3 == 0)
+		if (!(i % 3) && !(i % 5))
 			write(1, "fizzbuzz", 8);
-		else if (i % 3 == 0)
+		else if (!(i % 3))
 			write(1, "fizz", 4);
-		else if (i % 5 == 0)
+		else if (!(i % 5))
 			write(1, "buzz", 4);
-		else if (i > 10)
+		else if  (i > 10)
 		{
-			ones = i % 10 + '0';
-			tens = i / 10 + '0';
-			write(1, &tens, 1);
-			write(1, &ones, 1);
+			temp = (i % 10) + '0';
+			tem = (i / 10) + '0';
+			write(1, &tem, 1);
+			write(1, &temp, 1);
+
 		}
 		else
 		{
-			ones = i + '0';
-			write(1, &ones, 1);
+			temp = i + '0';
+			write(1, &temp, 1);
 		}
 		write(1, "\n", 1);
-		i++;
 	}
-}
-
-int	main(void)
-{
-	fizzbuzz(100);
 	return (0);
 }
