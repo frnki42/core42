@@ -1,65 +1,45 @@
 #include <stdlib.h>
 
-int	get_amount(int start, int end)
-{
-	int	i;
-
-	i = 0;
-	if (start < end)
-	{
-		while (start < end)
-		{
-			start++;
-			i++;
-		}
-	}
-	else if (start > end)
-	{
-		while (start > end)
-		{
-			start--;
-			i++;
-		}
-	}
-	return (i);
-}
-
 int	*ft_rrange(int start, int end)
 {
-	int	*array;
-	int	amount;
-	int	i;
+	int	i = 0;
+	int	*res = NULL;
 
-	amount = get_amount(start, end);
-	array = (int *)malloc(sizeof(int) * amount + 1); 
-	i = 0;
 	if (start < end)
 	{
-		while (i <= amount)
-			array[i++] = end--;
+		while ((start + i) <= end)
+			i++;
 	}
 	else
 	{
-		while (i <= amount)
-			array[i++] = end++;
+		while ((start - i) >= end)
+			i++;
 	}
-	return (array);
+	res = (int *)malloc(sizeof(int) * i);
+	if (!res)
+		return (NULL);
+	if (start < end)
+	{
+		while (i--)
+			res[i] = start++;
+	}
+	else
+	{
+		while (i--)
+			res[i] = start--;
+	}
+	return (res);
 }
 /*
 #include <stdio.h>
 
 int	main(void)
 {
-	int	i;
-	int	*integers;
+	int	*res = ft_rrange(0, -3);
+	int	i = 0;
 
-	i = 0;
-	integers = ft_rrange(0, -5);
-	while (i < 6)
-	{
-		printf("integers[%i] = %i\n", i, integers[i]);
-		i++;
-	}
-	free(integers);
+	while (i < 4)
+		printf("%i\n", res[i++]);
+	free(res);
 	return (0);
 }*/
