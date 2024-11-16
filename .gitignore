@@ -1,5 +1,8 @@
 # ignore minilibx
 *.tgz
+so_long/minilibx-linux
+so_long/minilibx_mms_20200219_beta
+so_long/minilibx_opengl
 
 # ignore a.out
 a.out
