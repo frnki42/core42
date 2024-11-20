@@ -1,8 +1,13 @@
 # ignore minilibx
 *.tgz
 so_long/minilibx-linux
-so_long/minilibx_mms_20200219_beta
-so_long/minilibx_opengl
+so_long/libmlx.a
 
-# ignore a.out
+# ignore textures
+so_long/floor.xpm
+so_long/stormhead
+so_long/yellow_tileset
+
+# ignore a.out & backup
 a.out
+main_backup.c
