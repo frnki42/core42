@@ -4,10 +4,6 @@ so_long/minilibx-linux
 so_long/libmlx.a
 
 # ignore textures
-so_long/floor.xpm
-so_long/stormhead
-so_long/yellow_tileset
 
 # ignore a.out & backup
 a.out
-main_backup.c
