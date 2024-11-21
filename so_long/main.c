@@ -11,6 +11,7 @@ typedef struct	s_vars
 	int	img_width;
 	int	img_height;
 	void	*img;
+	void	*img2;
 	void	*mlx;
 	void	*win;
 }	t_vars;
@@ -46,10 +47,31 @@ int	print_floor(t_vars *vars)
 	return (0);
 }
 
+int	print_checker(t_vars *vars)
+{
+	int	x;
+	int	y;
+
+	y = 16;
+	while (y <= HEIGHT)
+	{	
+		x = 16;
+		while (x <= WIDTH)
+		{
+			mlx_put_image_to_window(vars->mlx, vars->win,vars->img2, x, y);
+			x += 64;	
+		}
+		y += 64;
+	}
+	return (0);
+}
+
 int	exit_game(t_vars *vars)
 {
 	if (vars->img)
 		mlx_destroy_image(vars->mlx, vars->img);
+	if (vars->img2)
+		mlx_destroy_image(vars->mlx, vars->img2);
 	if (vars->win)
 		mlx_destroy_window(vars->mlx, vars->win);
 	exit (0);
@@ -93,7 +115,7 @@ int	mouse_click(int mouse_button, int x, int y, t_vars *vars)
 	if (mouse_button == 5)
 		mlx_string_put(vars->mlx, vars->win, x, y, 0xfb4934, "IIIIIIIIII");
 	if (mouse_button == 8)
-		mlx_put_image_to_window(vars->mlx, vars->win,vars->img, x, y);
+		print_checker(vars);
 	printf("mouse button [%d] clicked at (%d, %d)\n", mouse_button, x, y);
 	return (0);
 }
@@ -115,6 +137,11 @@ int	main(void)
 			&vars.img_width, &vars.img_height);
 	if (!vars.img)
 		return (free(vars.mlx), 1);
+	vars.img2 = mlx_xpm_file_to_image(vars.mlx, "textures/green_dark.xpm",
+			&vars.img_width, &vars.img_height);
+	if (!vars.img2)
+		return (free(vars.mlx), 1);
+	mlx_do_key_autorepeaton(vars.mlx);
 	mlx_hook(vars.win, 2, 1L<<0, key_hook, &vars);
 	mlx_hook(vars.win, 7, 1L<<4, print_hello, &vars);
 	mlx_hook(vars.win, 8, 1L<<5, print_bye, &vars);
