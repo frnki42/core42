@@ -6,7 +6,7 @@
 #    By: efembock <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/06 13:25:06 by efembock          #+#    #+#              #
-#    Updated: 2024/10/18 11:20:31 by efembock         ###   ########.fr        #
+#    Updated: 2024/11/22 13:33:37 by efembock         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,12 +15,13 @@ BLACK_ON_G	:= \033[42;30m
 COLOR_OFF	:= \033[0m
 
 # VARIABLES
-NAME		:= libftprintf.a
-CC			:= cc
+NAME		:= libftprintfgnl.a
+CC		:= cc
 CFLAGS		:= -Wall -Wextra -Werror
-SOURCE_FILES:= ft_putchar.c ft_puthexa.c ft_putnbr.c ft_putptr.c \
-	       	ft_putstr.c ft_putunsigned.c ft_printf.c ft_format.c
-OBJECT_FILES:= ${SOURCE_FILES:.c=.o}
+SOURCE_FILES	:= ft_putchar.c ft_puthexa.c ft_putnbr.c ft_putptr.c \
+	       	ft_putstr.c ft_putunsigned.c ft_printf.c ft_format.c \
+		get_next_line.c get_next_line_utils.c
+OBJECT_FILES	:= ${SOURCE_FILES:.c=.o}
 LIBFT_DIR	:= ./libft
 LIBFT		:= $(LIBFT_DIR)/libft.a
 
