@@ -1,28 +1,13 @@
 #include "minilibx-linux/mlx.h"
 #include "so_long.h"
-#include <stdio.h>
-#include <stdlib.h>
 
-#define WIDTH	1280
-#define HEIGHT	720
-
-typedef struct	s_vars
-{
-	char	**map;
-	int	img_width;
-	int	img_height;
-	void	*img[5];
-	void	*mlx;
-	void	*win;
-}	t_vars;
-
-int	print_bye(t_vars *vars)
+int	print_bye(void)
 {
 	printf("Bye!\n");
 	return (0);
 }
 
-int	print_hello(t_vars *vars)
+int	print_hello(void)
 {
 	printf("Hello!\n");
 	return (0);
@@ -98,7 +83,7 @@ int	key_hook(int keycode, t_vars *vars)
 	if (keycode == 'w')
 		printf("UP!");
 	if (keycode == 'r')
-		printf("RELOAD!");
+		mlx_clear_window(vars->mlx, vars->win);
 	if (keycode == 65288)			// backspace
 		mlx_clear_window(vars->mlx, vars->win);
 	if (keycode == 65293)			// enter
@@ -157,10 +142,7 @@ int	display_map(t_vars vars)
 int	main(void)
 {
 	t_vars	vars;
-	int	x;
-	int	y;
 
-	x = 0;
 	vars.mlx = mlx_init();
 	if (!vars.mlx)
 		return (1);

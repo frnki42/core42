@@ -10,30 +10,35 @@
 #                                                                              #
 # **************************************************************************** #
 
-# COLORS - CUSTOM
-BLACK_ON_G	:= \033[42;30m
-COLOR_OFF	:= \033[0m
+# COMPILER
+CC 		= cc
+CFLAGS 		= -Wall -Wextra -Werror
 
 # VARIABLES
 NAME = so_long
-CC = cc
 
-# FLAGS
-CFLAGS = -Wall -Wextra -Werror
-MLXFLAGS = -Lminilibx-linux -lminilibx-linux -L/usr/lib/X11 -lXext -lX11
-INCLUDES = -I/usr/include -Iminilibx-linux
+# COLORS - CUSTOM
+BLACK_ON_G	= \033[42;30m
+COLOR_OFF	= \033[0m
 
-SOURCE_FILES = 
-OBJECT_FILES = ${SOURCE_FILES:.c=.o}
-#BONUS_SOURCE = 
-#BONUS_OBJECT = ${BONUS_SOURCE:.c=.o}
-#LIBFT_DIR	:= ./libft
-#LIBFT		:= $(LIBFT_DIR)/libft.a
+# MLX
+MLXFLAGS 	= -Lminilibx-lmlx -L/usr/lib/X11 -lXext -lX11 -lm -lz
+
+# LIBRARIES
+LIBFT_DIR	= ./printf/libft
+LIBFT		= $(LIBFT_DIR)/libft.a
+# SRC- & OBJ-FILES
+SOURCE_FILES 	= main.c 
+OBJECT_FILES 	= ${SOURCE_FILES:.c=.o}
+
+INCLUDES 	= -I$(LIBFT_DIR)
+#BONUS_SOURCE 	= 
+#BONUS_OBJECT 	= ${BONUS_SOURCE:.c=.o}
 
 # COMMANDS
 all: $(NAME)
 $(NAME): $(OBJECT_FILES)
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJECT_FILES) $(MLXFLAGS)
+	@$(CC) $(CFLAGS) $(OBJECT_FILES) $(MLXFLAGS) -o $(NAME) 
 	@echo "$(BLACK_ON_G)#######################################$(COLOR_OFF)"
 	@echo "$(BLACK_ON_G)#         SO_LONG COMPILED    .frnki  #$(COLOR_OFF)"
 	@echo "$(BLACK_ON_G)#######################################$(COLOR_OFF)"
