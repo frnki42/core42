@@ -15,7 +15,7 @@ BLACK_ON_G	:= \033[42;30m
 COLOR_OFF	:= \033[0m
 
 # VARIABLES
-NAME		:= libftprintfgnl.a
+NAME		:= lftpfgnl.a
 CC		:= cc
 CFLAGS		:= -Wall -Wextra -Werror
 SOURCE_FILES	:= ft_putchar.c ft_puthexa.c ft_putnbr.c ft_putptr.c \

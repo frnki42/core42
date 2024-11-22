@@ -3,19 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: .frnki   <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: .frnki   <frnki@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/16 16:20:42 by efembock          #+#    #+#             */
-/*   Updated: 2024/11/16 16:24:42 by efembock         ###   ########.fr       */
+/*   Created: 2024/11/16 16:20:42 by .frnki            #+#    #+#             */
+/*   Updated: 2024/11/16 16:24:42 by .frnki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SOLONG_H
 # define SOLONG_H
-// header
+// std header
 # include <stddef.h>
 # include <stdio.h>
 # include <stdlib.h>
+// custom header
+# include "minilibx-linux/mlx.h"
 // window sizes
 # define WIDTH	1280
 # define HEIGHT	720
@@ -34,6 +36,4 @@ typedef struct	s_vars
 	void	*mlx;
 	void	*win;
 }	t_vars;
-
-
 #endif
