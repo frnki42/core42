@@ -1,4 +1,3 @@
-#include "minilibx-linux/mlx.h"
 #include "so_long.h"
 
 int	print_bye(void)

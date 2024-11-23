@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: efembock <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: .frnki   <frnki@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/09/06 13:25:06 by efembock          #+#    #+#              #
-#    Updated: 2024/11/22 13:33:37 by efembock         ###   ########.fr        #
+#    Created: 2024/09/06 13:25:06 by .frnki            #+#    #+#              #
+#    Updated: 2024/11/23 14:42:42 by .frnki           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,34 +15,26 @@ BLACK_ON_G	:= \033[42;30m
 COLOR_OFF	:= \033[0m
 
 # VARIABLES
-NAME		:= lftpfgnl.a
+NAME		:= libftprintf.a
 CC		:= cc
 CFLAGS		:= -Wall -Wextra -Werror
 SOURCE_FILES	:= ft_putchar.c ft_puthexa.c ft_putnbr.c ft_putptr.c \
-	       	ft_putstr.c ft_putunsigned.c ft_printf.c ft_format.c \
-		get_next_line.c get_next_line_utils.c
+	       	ft_putstr.c ft_putunsigned.c ft_printf.c ft_format.c
 OBJECT_FILES	:= ${SOURCE_FILES:.c=.o}
-LIBFT_DIR	:= ./libft
-LIBFT		:= $(LIBFT_DIR)/libft.a
 
 # COMMANDS
-all: $(LIBFT) $(NAME)
+all: $(NAME)
 
-$(LIBFT):
-	@make bonus -sC $(LIBFT_DIR)
 $(NAME): $(OBJECT_FILES)
-	@ar -rcs $(NAME) $(OBJECT_FILES) $(LIBFT_DIR)/*.o
-	@echo "$(BLACK_ON_G)#      COMPILATION COMPLETE   .frnki  #$(COLOR_OFF)"
+	@ar -rcs $(NAME) $(OBJECT_FILES)
 	@echo "$(BLACK_ON_G)#######################################$(COLOR_OFF)"
+	@echo "$(BLACK_ON_G)#         PRINTF COMPILED     .frnki  #$(COLOR_OFF)"
 %.o: %.c
-	@$(CC) $(CFLAGS) -I./libft -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 clean:
-	@make clean -sC $(LIBFT_DIR)
 	@rm -f $(OBJECT_FILES)
-	@echo "$(BLACK_ON_G)#         PRINTF CLEANED!     .frnki  #$(COLOR_OFF)"
 	@echo "$(BLACK_ON_G)#######################################$(COLOR_OFF)"
-	@echo "$(BLACK_ON_G)#         CLEAN COMPLETE!     .frnki  #$(COLOR_OFF)"
-	@echo "$(BLACK_ON_G)#######################################$(COLOR_OFF)"
+	@echo "$(BLACK_ON_G)#          PRINTF CLEANED     .frnki  #$(COLOR_OFF)"
 fclean: clean
 	@rm -f $(NAME)
 	@rm -f $(LIBFT)

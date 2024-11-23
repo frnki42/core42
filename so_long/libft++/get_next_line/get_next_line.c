@@ -99,7 +99,7 @@ char	*get_next_line(int fd)
 	rest = update_rest(rest);
 	return (line);
 }
-
+/*
 #include <fcntl.h>
 #include <stdio.h>
 
@@ -109,7 +109,7 @@ int	main()
 	int	count;
 	char	*output;
 
-	file = open("map_valid.ber", O_RDONLY);
+	file = open("file.txt", O_RDONLY);
 	if (file == -1)
 	{
 		printf("Error opening file\n");
@@ -119,6 +119,8 @@ int	main()
 	while (output)
 	{
 		count = printf("%s", output);
+		printf("\n");
+		printf("%d bytes were written\n", count);
 		free(output);
 		output = get_next_line(file);
 	}
@@ -127,4 +129,4 @@ int	main()
 	free(output);
 	close(file);
 	return (0);
-}
+}*/
