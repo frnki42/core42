@@ -3,7 +3,5 @@
 so_long/minilibx-linux
 so_long/libmlx.a
 
-# ignore textures
-
 # ignore a.out & backup
 a.out
