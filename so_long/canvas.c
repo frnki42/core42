@@ -1,5 +1,17 @@
 #include "so_long.h"
 
+int	print_bye(void)
+{
+	printf("Bye!\n");
+	return (0);
+}
+
+int	print_hello(void)
+{
+	printf("Hello!\n");
+	return (0);
+}
+
 int	print_floor(t_vars *vars)
 {
 	int	x;
@@ -143,6 +155,8 @@ int	main(void)
 		return (free(vars.mlx), 1);
 	mlx_do_key_autorepeaton(vars.mlx);			// change to off later!!
 	mlx_hook(vars.win, 2, 1L<<0, key_hook, &vars);
+	mlx_hook(vars.win, 7, 1L<<4, print_hello, &vars);
+	mlx_hook(vars.win, 8, 1L<<5, print_bye, &vars);
 	mlx_hook(vars.win, 4, 1L<<2, mouse_click, &vars);
 	mlx_hook(vars.win, 17, 0L, exit_game, &vars);
 	mlx_loop(vars.mlx);
