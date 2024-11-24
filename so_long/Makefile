@@ -15,49 +15,50 @@ CC 		= cc
 CFLAGS 		= -Wall -Wextra -Werror
 
 # VARIABLES
-NAME = so_long
+NAME		= so_long
 
 # COLORS - CUSTOM
 BLACK_ON_G	= \033[42;30m
 COLOR_OFF	= \033[0m
 
 # LIBRARIES
-LIBFT++_DIR	= ./libft++
-LIBFT++		= $(LIBFT++_DIR)/libft++.a
+LIBFT_DIR	= ./libft
+LIBFT		= $(LIBFT_DIR)/libft++.a
 
 # MLX
-MLXFLAGS 	= -lminilibx-linux -lXext lX11
 MLX_DIR		= ./minilibx-linux
+MLXFLAGS 	= -L$(MLX_DIR) -lmlx -L/usr/lib  -lXext -lX11
 
 # SRC- & OBJ-FILES
 SOURCE_FILES 	= main.c 
 OBJECT_FILES 	= ${SOURCE_FILES:.c=.o}
 
-INCLUDES 	= -I$(LIBFT++_DIR) -I$(MLX_DIR)
+# INCLUDES
+INCLUDES 	= -I$(LIBFT_DIR) -I$(MLX_DIR)
 
 # COMMANDS
 all: $(NAME)
 
-$(NAME): $(LIBFT++) $(OBJECT_FILES)
-	@ $(CC) $(CFLAGS) $(OBJECT_FILES) -o $(NAME) $(LIBFT++) $(MLXFLAGS) $(INCLUDES) 
+$(NAME): $(LIBFT) $(OBJECT_FILES)
+	@ $(CC) $(CFLAGS) $(OBJECT_FILES) -o $(NAME) $(LIBFT) $(MLXFLAGS) $(INCLUDES) 
 	@echo "$(BLACK_ON_G)#######################################$(COLOR_OFF)"
-	@echo "$(BLACK_ON_G)#         SO_LONG COMPILED    .frnki  #$(COLOR_OFF)"
+	@echo "$(BLACK_ON_G)#        SO_LONG COMPILED     .frnki  #$(COLOR_OFF)"
 	@echo "$(BLACK_ON_G)#######################################$(COLOR_OFF)"
 
 # LIBFT++ (LIBFT+PRINTF+GET_NEXT_LINE)
-$(LIBFT++):
-	@make -sC $(LIBFT++_DIR)
+$(LIBFT):
+	@make -sC $(LIBFT_DIR)
 
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES)
 clean:
-	@make clean -sC $(LFTPFGNL_DIR)
+	@make clean -sC $(LIBFT_DIR)
 	@rm -f $(OBJECT_FILES)
 	@echo "$(BLACK_ON_G)#######################################$(COLOR_OFF)"
-	@echo "$(BLACK_ON_G)#          SO_LONG CLEANED    .frnki  #$(COLOR_OFF)"
+	@echo "$(BLACK_ON_G)#         SO_LONG CLEANED     .frnki  #$(COLOR_OFF)"
 	@echo "$(BLACK_ON_G)#######################################$(COLOR_OFF)"
 fclean: clean
-	@rm -f $(LIBFT++)
+	@rm -f $(LIBFT)
 	@rm -f $(NAME)
 re: fclean all
 .PHONY: all clean fclean re

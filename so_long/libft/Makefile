@@ -43,7 +43,6 @@ $(NAME): $(OBJECT_FILES) $(PRINTF)
 	@ar -rcs $(NAME) $(OBJECT_FILES) $(PRINTF)
 	@echo "$(BLACK_ON_G)#######################################$(COLOR_OFF)"
 	@echo "$(BLACK_ON_G)#        LIBFT++ COMPILED     .frnki  #$(COLOR_OFF)"
-	@echo "$(BLACK_ON_G)#######################################$(COLOR_OFF)"
 $(PRINTF):
 	@make -sC $(PRINTF_DIR)
 %.o: %.c
@@ -53,7 +52,6 @@ clean:
 	@rm -f $(OBJECT_FILES) 
 	@echo "$(BLACK_ON_G)#######################################$(COLOR_OFF)"
 	@echo "$(BLACK_ON_G)#         LIBFT++ CLEANED     .frnki  #$(COLOR_OFF)"
-	@echo "$(BLACK_ON_G)#######################################$(COLOR_OFF)"
 fclean: clean
 	@rm -f $(PRINTF)
 	@rm -f $(NAME)
