@@ -27,13 +27,26 @@
 # define BG_0		0x282828
 # define FG_1		0xebdbb2
 // typedef & structs
-typedef struct	s_vars
+
+typedef struct	s_mary
 {
-	char	**map;
-	int	img_width;
-	int	img_height;
-	void	*img[5];
+	int	x;
+	int	y;
+	void	*sprite[2];
+}	t_mary;
+
+typedef struct	s_game
+{
 	void	*mlx;
 	void	*win;
-}	t_vars;
+	t_mary	mary;
+	char	**map;
+	int	tex_width;
+	int	tex_height;
+	void	*tex[4];
+}	t_game;
+// prototypes
+int	movements(int keycode, t_game *game);
+int	exit_game(t_game *game);
+int	print_floor(t_game *game);
 #endif
