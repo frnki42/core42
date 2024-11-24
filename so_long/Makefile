@@ -30,7 +30,8 @@ MLX_DIR		= ./minilibx-linux
 MLXFLAGS 	= -L$(MLX_DIR) -lmlx -L/usr/lib  -lXext -lX11 -lm
 
 # SRC- & OBJ-FILES
-SOURCE_FILES 	= print_floor.c exit_game.c movements.c game.c
+SOURCE_FILES 	= print_floor.c exit_game.c movements.c game.c \
+		  load_game_textures.c load_mary.c
 OBJECT_FILES 	= ${SOURCE_FILES:.c=.o}
 
 # INCLUDES

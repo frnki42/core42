@@ -16,6 +16,7 @@ int	exit_game(t_game *game)
 		mlx_destroy_image(game->mlx, game->mary.sprite[0]);
 	if (game->win)
 		mlx_destroy_window(game->mlx, game->win);
+	free(game);
 	exit (0);
 	return (0);
 }
