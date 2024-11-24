@@ -27,7 +27,7 @@ LIBFT		= $(LIBFT_DIR)/libft++.a
 
 # MLX
 MLX_DIR		= ./minilibx-linux
-MLXFLAGS 	= -L$(MLX_DIR) -lmlx -L/usr/lib  -lXext -lX11
+MLXFLAGS 	= -L$(MLX_DIR) -lmlx -L/usr/lib  -lXext -lX11 -lm
 
 # SRC- & OBJ-FILES
 SOURCE_FILES 	= print_floor.c exit_game.c movements.c game.c  
