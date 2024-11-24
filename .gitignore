@@ -1,7 +1,7 @@
 # ignore minilibx
 *.tgz
 so_long/minilibx-linux
-so_long/libmlx.a
+so_long/blackbook
 
 # ignore a.out & backup
 a.out
