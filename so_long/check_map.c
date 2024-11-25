@@ -7,7 +7,7 @@ int	check_rows(t_game *game)
 	if (game->map.array)
 	{
 		game->map.columns = ft_strlen(game->map.array[0]);
-		i = 1;
+		i = 0;
 		while (i < game->map.rows)
 		{
 			if (game->map.columns != ft_strlen(game->map.array[i]))

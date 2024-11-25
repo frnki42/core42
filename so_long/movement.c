@@ -10,6 +10,7 @@ int	movement(int keycode, t_game *game)
 		game->mary.x -= 32;
 		game->mary.moves += 1;
 		mlx_clear_window(game->mlx, game->win);
+		render_map(game);
 		mlx_put_image_to_window(game->mlx, game->win, game->mary.xpm_left, game->mary.x, game->mary.y);
 		ft_printf("MOVES: %i\n", game->mary.moves);				// replace me with counter in game
 	}
@@ -18,6 +19,7 @@ int	movement(int keycode, t_game *game)
 		game->mary.x += 32;
 		game->mary.moves += 1;
 		mlx_clear_window(game->mlx, game->win);
+		render_map(game);
 		mlx_put_image_to_window(game->mlx, game->win, game->mary.xpm_right, game->mary.x, game->mary.y);
 		ft_printf("MOVES: %i\n", game->mary.moves);				// replace me with counter in game
 	}
@@ -26,6 +28,7 @@ int	movement(int keycode, t_game *game)
 		game->mary.y += 32;
 		game->mary.moves += 1;
 		mlx_clear_window(game->mlx, game->win);
+		render_map(game);
 		mlx_put_image_to_window(game->mlx, game->win, game->mary.xpm_left, game->mary.x, game->mary.y);
 		ft_printf("MOVES: %i\n", game->mary.moves);				// replace me with counter in game
 	}
@@ -34,6 +37,7 @@ int	movement(int keycode, t_game *game)
 		game->mary.y -= 32;
 		game->mary.moves += 1;
 		mlx_clear_window(game->mlx, game->win);
+		render_map(game);
 		mlx_put_image_to_window(game->mlx, game->win, game->mary.xpm_right, game->mary.x, game->mary.y);
 		ft_printf("MOVES: %i\n", game->mary.moves);				// replace me with counter in game
 	}
@@ -42,7 +46,7 @@ int	movement(int keycode, t_game *game)
 	if (keycode == KEY_BACKSPACE)
 		mlx_clear_window(game->mlx, game->win);
 	if (keycode == KEY_ENTER)
-		print_floor(game);
+		render_map(game);
 	if (keycode == KEY_ESCAPE)
 	{
 		exit_game(game);

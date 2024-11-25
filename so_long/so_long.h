@@ -69,7 +69,6 @@ typedef struct	s_game
 // prototypes
 int	movement(int keycode, t_game *game);
 int	exit_game(t_game *game);
-void	print_floor(t_game *game);
 void	load_game_textures(t_game *game);
 void	load_mary(t_game *game);
 void	start_mlx(t_game *game);
@@ -78,7 +77,8 @@ void	init_game(t_game *game);
 void	init_map(t_game *game);
 void	init_mary(t_game *game);
 void	display_mary(t_game *game);
-char	*convert_ber(t_game *game);
+void	convert_ber(t_game *game);
 void	convert_str(t_game *game);
 int	check_rows(t_game *game);
+void	render_map(t_game *game);
 #endif

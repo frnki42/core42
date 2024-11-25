@@ -23,7 +23,7 @@ int	exit_game(t_game *game)
 		free(game->mlx);
 	if (game->map.string)
 		free(game->map.string);
-	while (i < game->map.columns)
+	while (i < game->map.rows)
 		free(game->map.array[i++]);
 	if (game->map.array)
 		free(game->map.array);

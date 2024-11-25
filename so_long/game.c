@@ -15,6 +15,7 @@ int	main(void)
 	create_window(&game);
 	load_game_textures(&game);
 	load_mary(&game);
+	render_map(&game);
 	display_mary(&game);
 //	mlx_do_key_autorepeatoff(game.mlx);
 	mlx_hook(game.win, 2, 1L<<0, movement, &game);
