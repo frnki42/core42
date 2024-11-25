@@ -18,5 +18,6 @@ char	*convert_ber(t_game *game)
 	}
 	free(output);
 	close(map);
+	ft_printf("%s\n", game->map.string);
 	return (game->map.string);
 }

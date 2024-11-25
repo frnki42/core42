@@ -4,6 +4,7 @@ int	main(void)
 {
 	t_game		game;
 
+	convert_ber(&game);
 	init_game(&game);
 	init_mary(&game);
 	init_map(&game);

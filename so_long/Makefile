@@ -24,6 +24,8 @@ COLOR_OFF	= \033[0m
 # LIBRARIES
 LIBFT_DIR	= ./libft
 LIBFT		= $(LIBFT_DIR)/libft++.a
+PRINTF_DIR	= $(LIBFT_DIR)/printf
+PRINTF		= $(PRINTF_DIR)/printf.a
 
 # MLX
 MLX_DIR		= ./minilibx-linux
@@ -42,7 +44,7 @@ INCLUDES 	= -I$(LIBFT_DIR) -I$(MLX_DIR)
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJECT_FILES)
-	@ $(CC) $(CFLAGS) $(OBJECT_FILES) -o $(NAME) $(LIBFT) $(MLXFLAGS) $(INCLUDES) 
+	@ $(CC) $(CFLAGS) $(OBJECT_FILES) -o $(NAME) $(LIBFT) $(PRINTF) $(MLXFLAGS) $(INCLUDES) 
 	@echo "$(BLACK_ON_G)#######################################$(COLOR_OFF)"
 	@echo "$(BLACK_ON_G)#        SO_LONG COMPILED     .frnki  #$(COLOR_OFF)"
 	@echo "$(BLACK_ON_G)#######################################$(COLOR_OFF)"
@@ -55,12 +57,14 @@ $(LIBFT):
 	@$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES)
 clean:
 	@make clean -sC $(LIBFT_DIR)
+	@make clean -sC $(PRINTF_DIR)
 	@rm -f $(OBJECT_FILES)
 	@echo "$(BLACK_ON_G)#######################################$(COLOR_OFF)"
 	@echo "$(BLACK_ON_G)#         SO_LONG CLEANED     .frnki  #$(COLOR_OFF)"
 	@echo "$(BLACK_ON_G)#######################################$(COLOR_OFF)"
 fclean: clean
 	@rm -f $(LIBFT)
+	@rm -f $(PRINTF)
 	@rm -f $(NAME)
 re: fclean all
 .PHONY: all clean fclean re
