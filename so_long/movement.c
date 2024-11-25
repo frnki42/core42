@@ -8,26 +8,34 @@ int	movement(int keycode, t_game *game)
 	if (keycode == 'a')
 	{
 		game->mary.x -= 32;
+		game->mary.steps += 1;
 		mlx_clear_window(game->mlx, game->win);
 		mlx_put_image_to_window(game->mlx, game->win, game->mary.xpm_left, game->mary.x, game->mary.y);
+		printf("STEPS: %i\n", game->mary.steps);				// replace me with counter in game
 	}
 	if (keycode == 'd')
 	{
 		game->mary.x += 32;
+		game->mary.steps += 1;
 		mlx_clear_window(game->mlx, game->win);
 		mlx_put_image_to_window(game->mlx, game->win, game->mary.xpm_right, game->mary.x, game->mary.y);
+		printf("STEPS: %i\n", game->mary.steps);				// replace me with counter in game
 	}
 	if (keycode == 's')
 	{
 		game->mary.y += 32;
+		game->mary.steps += 1;
 		mlx_clear_window(game->mlx, game->win);
 		mlx_put_image_to_window(game->mlx, game->win, game->mary.xpm_left, game->mary.x, game->mary.y);
+		printf("STEPS: %i\n", game->mary.steps);				// replace me with counter in game
 	}
 	if (keycode == 'w')
 	{
 		game->mary.y -= 32;
+		game->mary.steps += 1;
 		mlx_clear_window(game->mlx, game->win);
 		mlx_put_image_to_window(game->mlx, game->win, game->mary.xpm_right, game->mary.x, game->mary.y);
+		printf("STEPS: %i\n", game->mary.steps);				// replace me with counter in game
 	}
 	if (keycode == 'r')
 		mlx_clear_window(game->mlx, game->win);

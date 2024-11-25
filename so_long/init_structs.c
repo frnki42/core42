@@ -23,8 +23,9 @@ void	init_map(t_game *game)
 
 void	init_mary(t_game *game)
 {
-	game->mary.x = 0;
-	game->mary.y = 0;
+	game->mary.x = 32;
+	game->mary.y = 32;
+	game->mary.steps = 0;
 	game->mary.xpm_left = NULL;
 	game->mary.xpm_right = NULL;
 	printf("# INIT_MARY DONE!\n");		// remove me

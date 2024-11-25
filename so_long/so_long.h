@@ -39,6 +39,7 @@ typedef struct	s_mary
 {
 	int	x;
 	int	y;
+	int	steps;
 	void	*xpm_left;
 	void	*xpm_right;
 }	t_mary;
@@ -74,4 +75,5 @@ void	create_window(t_game *game);
 void	init_game(t_game *game);
 void	init_map(t_game *game);
 void	init_mary(t_game *game);
+void	display_mary(t_game *game);
 #endif
