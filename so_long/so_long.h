@@ -35,23 +35,39 @@ typedef struct	s_mary
 {
 	int	x;
 	int	y;
-	void	*sprite[2];
+	void	*xpm_left;
+	void	*xpm_right;
 }	t_mary;
+
+typedef struct	s_map
+{
+	int	x;
+	int	y;
+	char	**data;
+}	t_map;
 
 typedef struct	s_game
 {
 	void	*mlx;
 	void	*win;
-	t_mary	mary;
-	char	**map;
+	void	*tex_empty;
+	void	*tex_wall;
+	void	*tex_collectible;
+	void	*tex_exit;
 	int	tex_width;
 	int	tex_height;
-	void	*tex[4];
+	t_mary	mary;
+	t_map	map;
 }	t_game;
 // prototypes
-int	movements(int keycode, t_game *game);
+int	movement(int keycode, t_game *game);
 int	exit_game(t_game *game);
 int	print_floor(t_game *game);
 void	load_game_textures(t_game *game);
 void	load_mary(t_game *game);
+void	start_mlx(t_game *game);
+void	create_window(t_game *game);
+void	init_game(t_game *game);
+void	init_map(t_game *game);
+void	init_mary(t_game *game);
 #endif

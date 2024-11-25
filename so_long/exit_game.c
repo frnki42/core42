@@ -2,21 +2,22 @@
 
 int	exit_game(t_game *game)
 {
-	if (game->tex[0])
-		mlx_destroy_image(game->mlx, game->tex[0]);
-	if (game->tex[1])
-		mlx_destroy_image(game->mlx, game->tex[1]);
-	if (game->tex[2])
-		mlx_destroy_image(game->mlx, game->tex[2]);
-	if (game->tex[3])
-		mlx_destroy_image(game->mlx, game->tex[3]);
-	if (game->tex[4])
-		mlx_destroy_image(game->mlx, game->tex[4]);
-	if (game->mary.sprite[0])
-		mlx_destroy_image(game->mlx, game->mary.sprite[0]);
+	if (game->tex_empty)
+		mlx_destroy_image(game->mlx, game->tex_empty);
+	if (game->tex_wall)
+		mlx_destroy_image(game->mlx, game->tex_wall);
+	if (game->tex_collectible)
+		mlx_destroy_image(game->mlx, game->tex_collectible);
+	if (game->tex_exit)
+		mlx_destroy_image(game->mlx, game->tex_exit);
+	if (game->mary.xpm_left)
+		mlx_destroy_image(game->mlx, game->mary.xpm_left);
+	if (game->mary.xpm_right)
+		mlx_destroy_image(game->mlx, game->mary.xpm_right);
 	if (game->win)
 		mlx_destroy_window(game->mlx, game->win);
-	free(game);
+	if (game->mlx)
+		free(game->mlx);
 	exit (0);
 	return (0);
 }
