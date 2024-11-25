@@ -23,8 +23,8 @@
 # include "libft/printf/ft_printf.h"
 # include "libft/libft.h"
 // window sizes
-# define WIDTH		1280
-# define HEIGHT		720
+# define MAX_WIDTH	1280
+# define MAX_HEIGHT	720
 // colors
 # define AQUA_DARK	0x689d6a
 # define AQUA_LIGHT	0x8ec07c
@@ -38,33 +38,34 @@
 
 typedef struct	s_mary
 {
+	int	collectible;
+	int	moves;
 	int	x;
 	int	y;
-	int	moves;
 	void	*xpm_left;
 	void	*xpm_right;
 }	t_mary;
 
 typedef struct	s_map
 {
-	size_t	rows;
 	size_t	columns;
+	size_t	rows;
 	char	*string;
 	char	**array;
 }	t_map;
 
 typedef struct	s_game
 {
+	t_mary	mary;
+	t_map	map;
+	int	tex_width;
+	int	tex_height;
 	void	*mlx;
-	void	*win;
 	void	*tex_empty;
 	void	*tex_wall;
 	void	*tex_collectible;
 	void	*tex_exit;
-	int	tex_width;
-	int	tex_height;
-	t_mary	mary;
-	t_map	map;
+	void	*win;
 }	t_game;
 // prototypes
 int	movement(int keycode, t_game *game);
@@ -79,6 +80,10 @@ void	init_mary(t_game *game);
 void	display_mary(t_game *game);
 void	convert_ber(t_game *game);
 void	convert_str(t_game *game);
-int	check_rows(t_game *game);
+int	check_rectangle(t_game *game);
 void	render_map(t_game *game);
+void	manipulate_map(t_game *game);
+int	check_collectible(t_game *game);
+int	check_exit(t_game *game);
+int	check_player(t_game *game);
 #endif

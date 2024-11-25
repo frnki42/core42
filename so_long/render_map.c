@@ -19,6 +19,12 @@ void	render_map(t_game *game)
 				mlx_put_image_to_window(game->mlx, game->win, game->tex_collectible, x * 32, y * 32);
 			if (game->map.array[y][x] == 'E')
 				mlx_put_image_to_window(game->mlx, game->win, game->tex_exit, x * 32, y * 32);
+			if (game->map.array[y][x] == 'P')
+			{
+				game->map.array[y][x] = '0';
+				game->mary.x = x * 32;
+				game->mary.y = y * 32;
+			}
 			x++;
 		}
 		y++;

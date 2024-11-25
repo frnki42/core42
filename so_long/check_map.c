@@ -1,6 +1,7 @@
 #include "so_long.h"
 
-int	check_rows(t_game *game)
+// checks if all rows have the same length (rectangle)
+int	check_rectangle(t_game *game)
 {
 	size_t	i;
 
@@ -16,4 +17,49 @@ int	check_rows(t_game *game)
 		}
 	}
 	return (0);
+}
+
+int	check_collectible(t_game *game)
+{
+	int	collectible;
+	int	i;
+
+	collectible = -1;
+	i = 0;
+	while (game->map.string[i])
+	{
+		if (game->map.string[i++] == 'C')
+			collectible++;
+	}
+	return (collectible);
+}
+
+int	check_exit(t_game *game)
+{
+	int	exit;
+	int	i;
+
+	exit = -1;
+	i = 0;
+	while (game->map.string[i])
+	{
+		if (game->map.string[i++] == 'E')
+			exit++;
+	}
+	return (exit);
+}
+
+int	check_player(t_game *game)
+{
+	int	player;
+	int	i;
+
+	player = -1;
+	i = 0;
+	while (game->map.string[i])
+	{
+		if (game->map.string[i++] == 'P')
+			player++;
+	}
+	return (player);
 }

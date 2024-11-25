@@ -9,7 +9,13 @@ int	main(void)
 	init_map(&game);
 	convert_ber(&game);
 	convert_str(&game);
-	if (check_rows(&game))
+	if (check_rectangle(&game))
+		exit_game(&game);
+	if (check_collectible(&game))
+		exit_game(&game);
+	if (check_exit(&game))
+		exit_game(&game);
+	if (check_player(&game))
 		exit_game(&game);
 	start_mlx(&game);
 	create_window(&game);
