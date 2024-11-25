@@ -1,6 +1,6 @@
 #include "so_long.h"
 
-int	print_floor(t_game *game)
+void	print_floor(t_game *game)
 {
 	int	x;
 	int	y;
@@ -16,6 +16,5 @@ int	print_floor(t_game *game)
 		}
 		y += 32;
 	}
-	printf("# PRINT_FLOOR DONE!");
-	return (0);
+	printf("# PRINT_FLOOR DONE!\n");
 }

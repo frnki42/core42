@@ -17,7 +17,8 @@ void	init_map(t_game *game)
 {
 	game->map.x = 0;
 	game->map.y = 0;
-	game->map.data = NULL;
+	game->map.string = NULL;
+	game->map.array = NULL;
 	printf("# INIT_MAP DONE!\n");		// remove me
 }
 
@@ -25,7 +26,7 @@ void	init_mary(t_game *game)
 {
 	game->mary.x = 32;
 	game->mary.y = 32;
-	game->mary.steps = 0;
+	game->mary.moves = 0;
 	game->mary.xpm_left = NULL;
 	game->mary.xpm_right = NULL;
 	printf("# INIT_MARY DONE!\n");		// remove me

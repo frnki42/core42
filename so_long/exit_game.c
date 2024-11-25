@@ -19,5 +19,6 @@ int	exit_game(t_game *game)
 	if (game->mlx)
 		free(game->mlx);
 	exit (0);
+	printf("# EXIT_GAME DONE!\n");		// remove me
 	return (0);
 }

@@ -2,40 +2,40 @@
 
 int	movement(int keycode, t_game *game)
 {
-	printf("You pressed: %c (keycode: %i)\n", (char)keycode, keycode);		// remove me
+//	printf("You pressed: %c (keycode: %i)\n", (char)keycode, keycode);
 	if (keycode == ' ')
 		mlx_put_image_to_window(game->mlx, game->win, game->tex_collectible, game->mary.x, game->mary.y);
 	if (keycode == 'a')
 	{
 		game->mary.x -= 32;
-		game->mary.steps += 1;
+		game->mary.moves += 1;
 		mlx_clear_window(game->mlx, game->win);
 		mlx_put_image_to_window(game->mlx, game->win, game->mary.xpm_left, game->mary.x, game->mary.y);
-		printf("STEPS: %i\n", game->mary.steps);				// replace me with counter in game
+		printf("MOVES: %i\n", game->mary.moves);				// replace me with counter in game
 	}
 	if (keycode == 'd')
 	{
 		game->mary.x += 32;
-		game->mary.steps += 1;
+		game->mary.moves += 1;
 		mlx_clear_window(game->mlx, game->win);
 		mlx_put_image_to_window(game->mlx, game->win, game->mary.xpm_right, game->mary.x, game->mary.y);
-		printf("STEPS: %i\n", game->mary.steps);				// replace me with counter in game
+		printf("MOVES: %i\n", game->mary.moves);				// replace me with counter in game
 	}
 	if (keycode == 's')
 	{
 		game->mary.y += 32;
-		game->mary.steps += 1;
+		game->mary.moves += 1;
 		mlx_clear_window(game->mlx, game->win);
 		mlx_put_image_to_window(game->mlx, game->win, game->mary.xpm_left, game->mary.x, game->mary.y);
-		printf("STEPS: %i\n", game->mary.steps);				// replace me with counter in game
+		printf("MOVES: %i\n", game->mary.moves);				// replace me with counter in game
 	}
 	if (keycode == 'w')
 	{
 		game->mary.y -= 32;
-		game->mary.steps += 1;
+		game->mary.moves += 1;
 		mlx_clear_window(game->mlx, game->win);
 		mlx_put_image_to_window(game->mlx, game->win, game->mary.xpm_right, game->mary.x, game->mary.y);
-		printf("STEPS: %i\n", game->mary.steps);				// replace me with counter in game
+		printf("MOVES: %i\n", game->mary.moves);				// replace me with counter in game
 	}
 	if (keycode == 'r')
 		mlx_clear_window(game->mlx, game->win);

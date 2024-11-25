@@ -39,7 +39,7 @@ typedef struct	s_mary
 {
 	int	x;
 	int	y;
-	int	steps;
+	int	moves;
 	void	*xpm_left;
 	void	*xpm_right;
 }	t_mary;
@@ -48,7 +48,8 @@ typedef struct	s_map
 {
 	int	x;
 	int	y;
-	char	**data;
+	char	*string;
+	char	**array;
 }	t_map;
 
 typedef struct	s_game
@@ -67,7 +68,7 @@ typedef struct	s_game
 // prototypes
 int	movement(int keycode, t_game *game);
 int	exit_game(t_game *game);
-int	print_floor(t_game *game);
+void	print_floor(t_game *game);
 void	load_game_textures(t_game *game);
 void	load_mary(t_game *game);
 void	start_mlx(t_game *game);
@@ -76,4 +77,5 @@ void	init_game(t_game *game);
 void	init_map(t_game *game);
 void	init_mary(t_game *game);
 void	display_mary(t_game *game);
+char	*convert_ber(t_game *game);
 #endif

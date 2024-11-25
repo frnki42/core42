@@ -12,7 +12,7 @@ int	main(void)
 	load_game_textures(&game);
 	load_mary(&game);
 	display_mary(&game);
-//	mlx_do_key_autorepeaton(game.mlx);
+//	mlx_do_key_autorepeatoff(game.mlx);
 	mlx_hook(game.win, 2, 1L<<0, movement, &game);
 	mlx_hook(game.win, 17, 0L, exit_game, &game);
 	mlx_loop(game.mlx);
