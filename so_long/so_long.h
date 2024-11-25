@@ -47,8 +47,8 @@ typedef struct	s_mary
 
 typedef struct	s_map
 {
-	int	x;
-	int	y;
+	size_t	rows;
+	size_t	columns;
 	char	*string;
 	char	**array;
 }	t_map;
@@ -79,4 +79,6 @@ void	init_map(t_game *game);
 void	init_mary(t_game *game);
 void	display_mary(t_game *game);
 char	*convert_ber(t_game *game);
+void	convert_str(t_game *game);
+int	check_rows(t_game *game);
 #endif

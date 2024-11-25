@@ -2,6 +2,9 @@
 
 int	exit_game(t_game *game)
 {
+	size_t	i;
+
+	i = 0;
 	if (game->tex_empty)
 		mlx_destroy_image(game->mlx, game->tex_empty);
 	if (game->tex_wall)
@@ -18,7 +21,13 @@ int	exit_game(t_game *game)
 		mlx_destroy_window(game->mlx, game->win);
 	if (game->mlx)
 		free(game->mlx);
-	exit (0);
+	if (game->map.string)
+		free(game->map.string);
+	while (i < game->map.columns)
+		free(game->map.array[i++]);
+	if (game->map.array)
+		free(game->map.array);
 	ft_printf("# EXIT_GAME DONE!\n");		// remove me
+	exit (0);
 	return (0);
 }

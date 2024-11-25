@@ -4,10 +4,13 @@ int	main(void)
 {
 	t_game		game;
 
-	convert_ber(&game);
 	init_game(&game);
 	init_mary(&game);
 	init_map(&game);
+	convert_ber(&game);
+	convert_str(&game);
+	if (check_rows(&game))
+		exit_game(&game);
 	start_mlx(&game);
 	create_window(&game);
 	load_game_textures(&game);
