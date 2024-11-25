@@ -21,13 +21,13 @@ char	*read_file(int fd, char *rest)
 	if (!buffer)
 		return (free(rest), NULL);
 	bytes_read = 42;
-	while (!ft_strchr(rest, '\n') && bytes_read > 0)
+	while (!ft_strchr_gnl(rest, '\n') && bytes_read > 0)
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read == -1)
 			return (free(rest), free(buffer), NULL);
 		buffer[bytes_read] = '\0';
-		rest = ft_strjoin(rest, buffer);
+		rest = ft_strjoin_gnl(rest, buffer);
 		if (!rest)
 			return (free(buffer), NULL);
 	}
@@ -72,7 +72,7 @@ char	*update_rest(char *rest)
 		i++;
 	if (!rest[i])
 		return (free(rest), NULL);
-	new_rest = malloc(ft_strlen(rest) - i + 1);
+	new_rest = malloc(ft_strlen_gnl(rest) - i + 1);
 	if (!new_rest)
 		return (free(rest), NULL);
 	i++;

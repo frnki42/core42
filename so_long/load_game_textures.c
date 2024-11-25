@@ -14,7 +14,7 @@ void	load_game_textures(t_game *game)
 	game->tex_exit = mlx_xpm_file_to_image(game->mlx, "textures/aqua_light.xpm", &game->tex_width, &game->tex_height);
 	if (!game->tex_exit)
 		exit_game(game);
-	printf("# LOAD_GAME_TEXTURES DONE!\n");	// remove me
+	ft_printf("# LOAD_GAME_TEXTURES DONE!\n");
 }
 
 void	load_mary(t_game *game)
@@ -25,5 +25,5 @@ void	load_mary(t_game *game)
 	game->mary.xpm_right = mlx_xpm_file_to_image(game->mlx, "textures/mary_right.xpm", &game->tex_width, &game->tex_height);
 	if (!game->mary.xpm_right)
 		exit_game(game);
-	printf("# LOAD_MARY DONE!\n");		// remove me
+	ft_printf("# LOAD_MARY DONE!\n");
 }

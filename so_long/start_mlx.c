@@ -5,5 +5,5 @@ void	start_mlx(t_game *game)
 	game->mlx = mlx_init();
 	if (!game->mlx)
 		exit_game(game);
-	printf("# MLX INITIALIZED\n");		// remove me
+	ft_printf("# MLX INITIALIZED\n");		// remove me
 }

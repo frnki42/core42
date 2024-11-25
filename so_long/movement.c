@@ -11,7 +11,7 @@ int	movement(int keycode, t_game *game)
 		game->mary.moves += 1;
 		mlx_clear_window(game->mlx, game->win);
 		mlx_put_image_to_window(game->mlx, game->win, game->mary.xpm_left, game->mary.x, game->mary.y);
-		printf("MOVES: %i\n", game->mary.moves);				// replace me with counter in game
+		ft_printf("MOVES: %i\n", game->mary.moves);				// replace me with counter in game
 	}
 	if (keycode == 'd')
 	{
@@ -19,7 +19,7 @@ int	movement(int keycode, t_game *game)
 		game->mary.moves += 1;
 		mlx_clear_window(game->mlx, game->win);
 		mlx_put_image_to_window(game->mlx, game->win, game->mary.xpm_right, game->mary.x, game->mary.y);
-		printf("MOVES: %i\n", game->mary.moves);				// replace me with counter in game
+		ft_printf("MOVES: %i\n", game->mary.moves);				// replace me with counter in game
 	}
 	if (keycode == 's')
 	{
@@ -27,7 +27,7 @@ int	movement(int keycode, t_game *game)
 		game->mary.moves += 1;
 		mlx_clear_window(game->mlx, game->win);
 		mlx_put_image_to_window(game->mlx, game->win, game->mary.xpm_left, game->mary.x, game->mary.y);
-		printf("MOVES: %i\n", game->mary.moves);				// replace me with counter in game
+		ft_printf("MOVES: %i\n", game->mary.moves);				// replace me with counter in game
 	}
 	if (keycode == 'w')
 	{
@@ -35,7 +35,7 @@ int	movement(int keycode, t_game *game)
 		game->mary.moves += 1;
 		mlx_clear_window(game->mlx, game->win);
 		mlx_put_image_to_window(game->mlx, game->win, game->mary.xpm_right, game->mary.x, game->mary.y);
-		printf("MOVES: %i\n", game->mary.moves);				// replace me with counter in game
+		ft_printf("MOVES: %i\n", game->mary.moves);				// replace me with counter in game
 	}
 	if (keycode == 'r')
 		mlx_clear_window(game->mlx, game->win);

@@ -16,5 +16,5 @@ void	print_floor(t_game *game)
 		}
 		y += 32;
 	}
-	printf("# PRINT_FLOOR DONE!\n");
+	ft_printf("# PRINT_FLOOR DONE!\n");
 }

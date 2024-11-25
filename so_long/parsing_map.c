@@ -8,7 +8,7 @@ char	*convert_ber(t_game *game)
 	game->map.string = "";
 	map = open("maps/map_valid.ber", O_RDONLY);
 	if (map == -1)
-		return (printf("Error opening map \n"), NULL);	// use ft_printf 
+		return (ft_printf("Error opening map \n"), NULL);	// use ft_printf 
 	output = get_next_line(map);
 	while (output)
 	{

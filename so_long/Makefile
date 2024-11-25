@@ -57,7 +57,6 @@ $(LIBFT):
 	@$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES)
 clean:
 	@make clean -sC $(LIBFT_DIR)
-	@make clean -sC $(PRINTF_DIR)
 	@rm -f $(OBJECT_FILES)
 	@echo "$(BLACK_ON_G)#######################################$(COLOR_OFF)"
 	@echo "$(BLACK_ON_G)#         SO_LONG CLEANED     .frnki  #$(COLOR_OFF)"
