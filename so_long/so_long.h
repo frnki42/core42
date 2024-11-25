@@ -22,13 +22,17 @@
 # include "libft/get_next_line/get_next_line.h"
 # include "libft/printf/ft_printf.h"
 // window sizes
-# define WIDTH	1280
-# define HEIGHT	720
+# define WIDTH		1280
+# define HEIGHT		720
 // colors
 # define AQUA_DARK	0x689d6a
 # define AQUA_LIGHT	0x8ec07c
 # define BG_0		0x282828
 # define FG_1		0xebdbb2
+// keys
+# define KEY_BACKSPACE	65288
+# define KEY_ENTER	65293
+# define KEY_ESCAPE	65307
 // typedef & structs
 
 typedef struct	s_mary
