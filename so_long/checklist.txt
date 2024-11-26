@@ -3,10 +3,10 @@
 # window must remain smooth (change window, minimize, ..)
 # display "Error\n" + custom error msg if map is not valid
 # check if there is a valid path + floodfill
-# check if map is only composed of  " 0, 1, C, E, P "
 # constructed by only walls collectibles and free space?
 
 // done
+# check if map is only composed of  " 0, 1, C, E, P "
 # program displays image in a window
 # escape exit only if all collectibles are aquired
 # move with W A S D
@@ -17,7 +17,7 @@
 # pressing X quits program clean
 # check if map is rectangular
 # check if map is surrounded by walls - return error if not
-# check is map contains 1 exit 1 starting position and at least 1 collectible
+# check if map contains 1 exit 1 starting position and at least 1 collectible
 # be able to parse any kind of map
 
 65361 = LEFT

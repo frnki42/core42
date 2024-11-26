@@ -62,6 +62,21 @@ int	check_player(t_game *game)
 	return (player);
 }
 
+int	check_composition(t_game *game)
+{
+	int	i;
+
+	i = 0;
+	while (game->map.string[i])
+	{
+		if (game->map.string[i] == '0' || game->map.string[i] == '1' || game->map.string[i] == 'C' || game->map.string[i] == 'E' || game->map.string[i] == 'P' || game->map.string[i] == '\n')
+			i++;
+		else
+			return (1);
+	}
+	return (0);
+}
+
 int	check_valid(t_game *game)
 {
 	int	res;
@@ -72,5 +87,6 @@ int	check_valid(t_game *game)
 	res += check_exit(game);
 	res += check_player(game);
 	res += check_surrounded(game);
+	res += check_composition(game);
 	return (res);
 }
