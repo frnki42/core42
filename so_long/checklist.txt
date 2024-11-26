@@ -1,12 +1,10 @@
 // to do
 # program only accepts .ber files
-# display image in window
 # window must remain smooth (change window, minimize, ..)
 # display "Error\n" + custom error msg if map is not valid
-# check if there is a valid path
+# check if there is a valid path + floodfill
 # check if map is only composed of  " 0, 1, C, E, P "
-# check if constructed by only WALLS COLLECTIBLES AND FREE SPACE
-
+# constructed by only walls collectibles and free space?
 
 // done
 # program displays image in a window
@@ -22,8 +20,8 @@
 # check is map contains 1 exit 1 starting position and at least 1 collectible
 # be able to parse any kind of map
 
-You pressed: Q (keycode: 65361) LEFT
-You pressed: S (keycode: 65363) RIGHT
-You pressed: R (keycode: 65362) UP
-You pressed: T (keycode: 65364) DOWN
+65361 = LEFT
+65363 = RIGHT
+65362 = UP
+65364 = DOWN
 
