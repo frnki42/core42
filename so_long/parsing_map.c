@@ -1,12 +1,12 @@
 #include "so_long.h"
 
-void	convert_ber(t_game *game)
+void	convert_ber(t_game *game, char *path)
 {
 	int	map;
 	char	*output;
 
 	game->map.string = "";
-	map = open("maps/first_map.ber", O_RDONLY);
+	map = open(path, O_RDONLY);
 	if (map == -1)
 		exit_game(game);
 	output = get_next_line(map);

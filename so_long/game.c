@@ -1,13 +1,15 @@
 #include "so_long.h"
 
-int	main(void)
+int	main(int argc, char **argv)
 {
 	t_game		game;
 
+	if (argc != 2)
+		return (write(1, "NAHBRO", 7));
 	init_game(&game);
 	init_mary(&game);
 	init_map(&game);
-	convert_ber(&game);
+	convert_ber(&game, argv[1]);
 	convert_str(&game);
 	count_collectibles(&game);
 	if (check_rectangle(&game))

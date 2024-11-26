@@ -79,7 +79,7 @@ void	init_game(t_game *game);
 void	init_map(t_game *game);
 void	init_mary(t_game *game);
 void	display_mary(t_game *game);
-void	convert_ber(t_game *game);
+void	convert_ber(t_game *game, char *path);
 void	convert_str(t_game *game);
 int	check_rectangle(t_game *game);
 void	render_map(t_game *game);
