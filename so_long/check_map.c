@@ -19,7 +19,6 @@ int	check_rectangle(t_game *game)
 	return (0);
 }
 
-// checks if there is any collectible inside the map
 int	check_collectible(t_game *game)
 {
 	int	i;
@@ -33,7 +32,6 @@ int	check_collectible(t_game *game)
 	return (1);
 }
 
-// checks if there is one exit present
 int	check_exit(t_game *game)
 {
 	int	exit;
@@ -49,7 +47,6 @@ int	check_exit(t_game *game)
 	return (exit);
 }
 
-// checks if there is one player present
 int	check_player(t_game *game)
 {
 	int	player;
@@ -63,30 +60,4 @@ int	check_player(t_game *game)
 			player++;
 	}
 	return (player);
-}
-
-// checks if next move would hit a wall
-int	check_wall(t_game *game, int keycode)
-{
-	int	dest;
-
-	if (keycode == 'a' || keycode == 'd')
-	{
-		if (keycode == 'a')
-			dest = (game->mary.x / 32) - 1;
-		else if (keycode == 'd')
-			dest = (game->mary.x / 32) + 1;
-		if (game->map.array[game->mary.y / 32][dest] == '1')
-			return (0);
-	}
-	else if (keycode == 's' || keycode == 'w')
-	{
-		if (keycode == 's')
-			dest = (game->mary.y / 32) + 1;
-		else if (keycode == 'w')
-			dest = (game->mary.y / 32) - 1;
-		if (game->map.array[dest][game->mary.x / 32] == '1')
-			return (0);
-	}
-	return (1);
 }

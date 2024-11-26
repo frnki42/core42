@@ -33,7 +33,9 @@ MLXFLAGS 	= -L$(MLX_DIR) -lmlx -L/usr/lib  -lXext -lX11 -lm
 
 # SRC- & OBJ-FILES
 SOURCE_FILES 	= exit_game.c movement.c game.c load_game_textures.c \
-		  init_structs.c parsing_map.c utils.c check_map.c \
+		  start_mlx.c create_window.c init_structs.c display_mary.c \
+		  parsing_map.c check_map.c render_map.c manipulate_map.c \
+		  check_move.c
 OBJECT_FILES 	= ${SOURCE_FILES:.c=.o}
 
 # INCLUDES
