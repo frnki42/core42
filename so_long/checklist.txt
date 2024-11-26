@@ -1,0 +1,29 @@
+// to do
+# program only accepts .ber files
+# display image in window
+# window must remain smooth (change window, minimize, ..)
+# display "Error\n" + custom error msg if map is not valid
+# check if there is a valid path
+# check if map is only composed of  " 0, 1, C, E, P "
+# check if constructed by only WALLS COLLECTIBLES AND FREE SPACE
+
+
+// done
+# program displays image in a window
+# escape exit only if all collectibles are aquired
+# move with W A S D
+# moves up down left and right
+# not moving into walls
+# display number of moves in shell
+# ESC quits program clean
+# pressing X quits program clean
+# check if map is rectangular
+# check if map is surrounded by walls - return error if not
+# check is map contains 1 exit 1 starting position and at least 1 collectible
+# be able to parse any kind of map
+
+You pressed: Q (keycode: 65361) LEFT
+You pressed: S (keycode: 65363) RIGHT
+You pressed: R (keycode: 65362) UP
+You pressed: T (keycode: 65364) DOWN
+
