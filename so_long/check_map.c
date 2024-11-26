@@ -61,3 +61,16 @@ int	check_player(t_game *game)
 	}
 	return (player);
 }
+
+int	check_valid(t_game *game)
+{
+	int	res;
+
+	res = 0;
+	res += check_rectangle(game);
+	res += check_collectible(game);
+	res += check_exit(game);
+	res += check_player(game);
+	res += check_surrounded(game);
+	return (res);
+}
