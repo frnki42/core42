@@ -81,12 +81,13 @@ void	init_mary(t_game *game);
 void	display_mary(t_game *game);
 void	convert_ber(t_game *game, char *path);
 void	convert_str(t_game *game);
-int	check_rectangle(t_game *game);
 void	render_map(t_game *game);
 void	manipulate_map(t_game *game);
 int	check_collectible(t_game *game);
 int	check_exit(t_game *game);
 int	check_player(t_game *game);
+int	check_rectangle(t_game *game);
 int	check_wall(t_game *game, int keycode);
+int	check_valid(t_game *game);
 void	count_collectibles(t_game *game);
 #endif
