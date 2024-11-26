@@ -2,7 +2,7 @@
 
 int	movement(int keycode, t_game *game)
 {
-	printf("You pressed: %c (keycode: %i)\n", (char)keycode, keycode);
+//	printf("You pressed: %c (keycode: %i)\n", (char)keycode, keycode);
 	if (keycode == ' ')
 		mlx_put_image_to_window(game->mlx, game->win, game->tex_collectible, game->mary.x, game->mary.y);
 	if (keycode == 'a')

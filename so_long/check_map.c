@@ -12,7 +12,7 @@ int	check_rectangle(t_game *game)
 		while (i < game->map.rows)
 		{
 			if (game->map.columns != ft_strlen(game->map.array[i]))
-					return (1);
+				return (1);
 			i++;
 		}
 	}
@@ -69,7 +69,12 @@ int	check_composition(t_game *game)
 	i = 0;
 	while (game->map.string[i])
 	{
-		if (game->map.string[i] == '0' || game->map.string[i] == '1' || game->map.string[i] == 'C' || game->map.string[i] == 'E' || game->map.string[i] == 'P' || game->map.string[i] == '\n')
+		if (game->map.string[i] == '0' ||
+			game->map.string[i] == '1' ||
+			game->map.string[i] == 'C' ||
+			game->map.string[i] == 'E' ||
+			game->map.string[i] == 'P' ||
+			game->map.string[i] == '\n')
 			i++;
 		else
 			return (1);
