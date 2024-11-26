@@ -21,17 +21,15 @@ int	check_rectangle(t_game *game)
 
 int	check_collectible(t_game *game)
 {
-	int	collectible;
 	int	i;
 
-	collectible = -1;
 	i = 0;
 	while (game->map.string[i])
 	{
 		if (game->map.string[i++] == 'C')
-			collectible++;
+			return (0);
 	}
-	return (collectible);
+	return (1);
 }
 
 int	check_exit(t_game *game)

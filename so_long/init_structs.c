@@ -15,6 +15,7 @@ void	init_game(t_game *game)
 
 void	init_map(t_game *game)
 {
+	game->map.collectibles = 0;
 	game->map.columns = 0;
 	game->map.rows = 0;
 	game->map.string = NULL;

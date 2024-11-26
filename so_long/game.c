@@ -9,6 +9,7 @@ int	main(void)
 	init_map(&game);
 	convert_ber(&game);
 	convert_str(&game);
+	count_collectibles(&game);
 	if (check_rectangle(&game))
 		exit_game(&game);
 	if (check_collectible(&game))

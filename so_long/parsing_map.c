@@ -27,3 +27,16 @@ void	convert_str(t_game *game)
 	game->map.array = ft_split(game->map.string, '\n');
 	ft_printf("# MAP.ARRAY ALLOCATED\n");			// remove me
 }
+
+void	count_collectibles(t_game *game)
+{
+	int	i;
+
+	i = -1;
+	while (game->map.string[++i])
+	{
+		if (game->map.string[i] == 'C')
+			game->map.collectibles++;
+	}
+	ft_printf("# %i COLLECTIBLES DETECTED\n", game->map.collectibles);	//remove me
+}

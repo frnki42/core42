@@ -48,6 +48,7 @@ typedef struct	s_mary
 
 typedef struct	s_map
 {
+	int	collectibles;
 	size_t	columns;
 	size_t	rows;
 	char	*string;
@@ -86,4 +87,6 @@ void	manipulate_map(t_game *game);
 int	check_collectible(t_game *game);
 int	check_exit(t_game *game);
 int	check_player(t_game *game);
+int	check_wall(t_game *game, int keycode);
+void	count_collectibles(t_game *game);
 #endif

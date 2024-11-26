@@ -6,10 +6,8 @@ void	manipulate_map(t_game *game)
 	{
 		game->mary.collectible++;
 		game->map.array[game->mary.y / 32][game->mary.x / 32] = '0';
-		ft_printf("# COLLECTIBLE AQUIRED\n");
+		ft_printf("# %i/%i COLLECTIBLES COLLECTED!\n", game->mary.collectible, game->map.collectibles);
 	}
-//	if (game->map.array[game->mary.y][game->mary.x] == '0')
-//	if (game->map.array[game->mary.y][game->mary.x] == '1')
-//	if (game->map.array[game->mary.y][game->mary.x] == 'E')
-//		mlx_put_image_to_window(game->mlx, game->win, game->tex_exit, x * 32, y * 32);
+	if (game->map.array[game->mary.y / 32][game->mary.x / 32] == 'E'&& (game->mary.collectible == game->map.collectibles))
+		exit_game(game);	
 }

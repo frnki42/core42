@@ -7,7 +7,8 @@ int	movement(int keycode, t_game *game)
 		mlx_put_image_to_window(game->mlx, game->win, game->tex_collectible, game->mary.x, game->mary.y);
 	if (keycode == 'a')
 	{
-		game->mary.x -= 32;
+		if (check_wall(game, keycode))
+			game->mary.x -= 32;
 		game->mary.moves++;
 		mlx_clear_window(game->mlx, game->win);
 		manipulate_map(game);
@@ -17,7 +18,8 @@ int	movement(int keycode, t_game *game)
 	}
 	if (keycode == 'd')
 	{
-		game->mary.x += 32;
+		if (check_wall(game, keycode))
+			game->mary.x += 32;
 		game->mary.moves++;
 		mlx_clear_window(game->mlx, game->win);
 		manipulate_map(game);
@@ -27,7 +29,8 @@ int	movement(int keycode, t_game *game)
 	}
 	if (keycode == 's')
 	{
-		game->mary.y += 32;
+		if (check_wall(game, keycode))
+			game->mary.y += 32;
 		game->mary.moves++;
 		mlx_clear_window(game->mlx, game->win);
 		manipulate_map(game);
@@ -37,7 +40,8 @@ int	movement(int keycode, t_game *game)
 	}
 	if (keycode == 'w')
 	{
-		game->mary.y -= 32;
+		if (check_wall(game, keycode))
+			game->mary.y -= 32;
 		game->mary.moves++;
 		mlx_clear_window(game->mlx, game->win);
 		manipulate_map(game);
