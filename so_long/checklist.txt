@@ -2,12 +2,11 @@
 # program only accepts .ber files
 # window must remain smooth (change window, minimize, ..)
 # display "Error\n" + custom error msg if map is not valid
-# check if there is a valid path + floodfill
-# constructed by only walls collectibles and free space?
 
 // done
+# check if there is a valid path + floodfill
 # copy array (use string and split again kekW)
-# check if map is only composed of  " 0, 1, C, E, P "
+# check if map is only composed of  {0, 1, C, E, P}
 # program displays image in a window
 # escape exit only if all collectibles are aquired
 # move with W A S D
