@@ -19,13 +19,13 @@ void	convert_ber(t_game *game, char *path)
 	}
 	free(output);
 	close(map);
-	ft_printf("# MAP.STRING ALLOCATED\n");			// remove me
+	ft_printf("# CONVERT_BER DONE\n");			// remove me
 }
 
 void	convert_str(t_game *game)
 {
 	game->map.array = ft_split(game->map.string, '\n');
-	ft_printf("# MAP.ARRAY ALLOCATED\n");			// remove me
+	ft_printf("# CONVERT_STR DONE\n");			// remove me
 }
 
 void	count_collectibles(t_game *game)
