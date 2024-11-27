@@ -1,6 +1,6 @@
 #include "so_long.h"
 
-// replace all '0' 'C' 'P' 'E' with 'X' in array_cpy
+// replace all reachable '0' 'C' 'P' 'E' with 'X' in game->map.array_cpy
 void	flood_fill(t_game *game, size_t y, size_t x)
 {
 	if (x < 1 || x >= game->map.columns - 1 ||
@@ -19,7 +19,7 @@ void	flood_fill(t_game *game, size_t y, size_t x)
 	}
 }
 
-// check if only '1' and 'X' exist game->map.array_cpy
+// check if only '1' and 'X' exist in game->map.array_cpy
 int	check_flood(t_game *game)
 {
 	int	y;
@@ -31,14 +31,16 @@ int	check_flood(t_game *game)
 		x = -1;
 		while (game->map.array_cpy[y][++x])
 		{
-			if (!(game->map.array_cpy[y][x] == '1' || game->map.array_cpy[y][x] == 'X'))
-				return (1);
+			if (!(game->map.array_cpy[y][x] == '1' ||
+				game->map.array_cpy[y][x] == 'X' ||
+				game->map.array_cpy[y][x] == '0'))
+				return (ft_printf("Error\n"), 1);
 		}
 	}
 	return (0);
 }
 
-// locate game->map.start_x and start_y
+// locate game->map.start_x and game->map.start_y
 void	detect_start(t_game *game)
 {
 	size_t	x;
