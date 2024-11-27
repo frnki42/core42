@@ -92,7 +92,7 @@ int	check_exit(t_game *game);
 int	check_player(t_game *game);
 int	check_wall(t_game *game, int keycode);
 void	count_collectibles(t_game *game);
-int	check_valid(t_game *game);
+void	check_valid(t_game *game);
 int	check_surrounded(t_game *game);
 int	check_composition(t_game *game);
 void	detect_start(t_game *game);

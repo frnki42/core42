@@ -17,7 +17,7 @@
 # pressing X quits program clean
 # check if map is rectangular
 # check if map is surrounded by walls - return error if not
-# check if map contains 1 exit 1 starting position and at least 1 collectible
+# check if map contains 1 exit 1 starting position and 1+ collectible
 # be able to parse any kind of map
 
 65361 = LEFT

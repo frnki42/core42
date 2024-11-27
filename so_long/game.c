@@ -15,8 +15,7 @@ int	main(int argc, char **argv)
 	convert_str(&game);
 	detect_start(&game);
 	count_collectibles(&game);
-	if (check_valid(&game))
-		exit_game(&game);
+	check_valid(&game);
 	flood_fill(&game, game.map.start_y, game.map.start_x);
 	if (check_path(&game))
 		exit_game(&game);

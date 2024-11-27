@@ -91,7 +91,7 @@ int	check_composition(t_game *game)
 }
 
 // performs all checks and returns the amount of failed checks
-int	check_valid(t_game *game)
+void	check_valid(t_game *game)
 {
 	int	res;
 
@@ -102,5 +102,6 @@ int	check_valid(t_game *game)
 	res += check_player(game);
 	res += check_surrounded(game);
 	res += check_composition(game);
-	return (res);
+	if (res)
+		exit_game(game);
 }
