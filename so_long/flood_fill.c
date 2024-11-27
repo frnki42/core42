@@ -9,7 +9,7 @@ void	flood_fill(t_game *game, size_t y, size_t x)  //int collectibles, int exit 
 		{
 			game->map.array_cpy[y][x] = 'X';			// 80 chars here
 			flood_fill(game, y + 1, x);
-			flood_fill(game, y + 1, x);
+			flood_fill(game, y - 1, x);
 			flood_fill(game, y, x + 1);
 			flood_fill(game, y, x - 1);
 		}
