@@ -46,18 +46,20 @@ void	detect_start(t_game *game)
 	size_t	x;
 	size_t	y;
 
-	y = -1;
-	while (game->map.array[++y])
+	y = 0;
+	while (game->map.array[y])
 	{
-		x = -1;
-		while (game->map.array[y][++x])
+		x = 0;
+		while (game->map.array[y][x])
 		{
 			if (game->map.array[y][x] == 'P')
 			{
 				game->map.start_x = x;
 				game->map.start_y = y;
 			}
+			x++;
 		}
+		y++;
 	}
 	ft_printf("# DETECT_START DONE\n");
 }
