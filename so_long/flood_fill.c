@@ -19,7 +19,7 @@ void	flood_fill(t_game *game, size_t y, size_t x)
 	}
 }
 
-// check if only '1' and 'X' exist in game->map.array_cpy
+// check if {P, E, C} got reached by flood_fill in game->map.array_cpy
 int	check_flood(t_game *game)
 {
 	int	y;
@@ -34,7 +34,7 @@ int	check_flood(t_game *game)
 			if (!(game->map.array_cpy[y][x] == '1' ||
 				game->map.array_cpy[y][x] == 'X' ||
 				game->map.array_cpy[y][x] == '0'))
-				return (ft_printf("Error\n"), 1);
+				return (ft_printf("Error\n# NO VALID PATH DETECTED\n"), 1);
 		}
 	}
 	return (0);
