@@ -97,4 +97,5 @@ int	check_surrounded(t_game *game);
 int	check_composition(t_game *game);
 void	detect_start(t_game *game);
 void	flood_fill(t_game *game, size_t y, size_t x);
+int	check_flood(t_game *game);
 #endif

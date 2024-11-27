@@ -19,6 +19,8 @@ int	main(int argc, char **argv)
 	if (check_valid(&game))
 		exit_game(&game);
 	flood_fill(&game, game.map.start_y, game.map.start_x);
+	if (check_flood(&game))
+		exit_game(&game);
 	i = 0;
 	while (i < game.map.rows)
 		ft_printf("%s\n", game.map.array_cpy[i++]);
