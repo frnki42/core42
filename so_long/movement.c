@@ -8,46 +8,53 @@ int	movement(int keycode, t_game *game)
 	if (keycode == 'a')
 	{
 		if (check_wall(game, keycode))
+		{
 			game->mary.x -= 32;
-		game->mary.moves++;
-		mlx_clear_window(game->mlx, game->win);
+			game->mary.moves++;
+			ft_printf("MOVES: %i\n", game->mary.moves);				// replace me with counter in game
+		}
 		manipulate_map(game);
 		render_map(game);
 		mlx_put_image_to_window(game->mlx, game->win, game->mary.xpm_left, game->mary.x, game->mary.y);
-		ft_printf("MOVES: %i\n", game->mary.moves);				// replace me with counter in game
 	}
 	if (keycode == 'd')
 	{
 		if (check_wall(game, keycode))
+		{
 			game->mary.x += 32;
-		game->mary.moves++;
+			game->mary.moves++;
+			ft_printf("MOVES: %i\n", game->mary.moves);				// replace me with counter in game
+		}
 		mlx_clear_window(game->mlx, game->win);
 		manipulate_map(game);
 		render_map(game);
 		mlx_put_image_to_window(game->mlx, game->win, game->mary.xpm_right, game->mary.x, game->mary.y);
-		ft_printf("MOVES: %i\n", game->mary.moves);				// replace me with counter in game
 	}
 	if (keycode == 's')
 	{
 		if (check_wall(game, keycode))
+		{
 			game->mary.y += 32;
-		game->mary.moves++;
+			game->mary.moves++;
+			ft_printf("MOVES: %i\n", game->mary.moves);				// replace me with counter in game
+		}
 		mlx_clear_window(game->mlx, game->win);
 		manipulate_map(game);
 		render_map(game);
 		mlx_put_image_to_window(game->mlx, game->win, game->mary.xpm_left, game->mary.x, game->mary.y);
-		ft_printf("MOVES: %i\n", game->mary.moves);				// replace me with counter in game
 	}
 	if (keycode == 'w')
 	{
 		if (check_wall(game, keycode))
+		{
 			game->mary.y -= 32;
-		game->mary.moves++;
+			game->mary.moves++;
+			ft_printf("MOVES: %i\n", game->mary.moves);				// replace me with counter in game
+		}
 		mlx_clear_window(game->mlx, game->win);
 		manipulate_map(game);
 		render_map(game);
 		mlx_put_image_to_window(game->mlx, game->win, game->mary.xpm_right, game->mary.x, game->mary.y);
-		ft_printf("MOVES: %i\n", game->mary.moves);				// replace me with counter in game
 	}
 	if (keycode == 'r')
 		mlx_clear_window(game->mlx, game->win);
