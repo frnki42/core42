@@ -8,9 +8,7 @@ int	main(int argc, char **argv)
 		return (ft_printf("# Error\n# NO MAP PATH WAS SPECIFIED!\n"), 1);
 	if (argc > 2)
 		return (ft_printf("# Error\n# TOO MANY ARGUMENTS!\n"), 1);
-	init_game(&game);
-	init_mary(&game);
-	init_map(&game);
+	init_stuff(&game);
 	convert_ber(&game, argv[1]);
 	convert_str(&game);
 	detect_start(&game);

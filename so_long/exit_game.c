@@ -1,10 +1,8 @@
 #include "so_long.h"
 
-int	exit_game(t_game *game)
+// destroys stuff
+void	destroy_stuff(t_game *game)
 {
-	size_t	i;
-
-	i = 0;
 	if (game->tex_empty)
 		mlx_destroy_image(game->mlx, game->tex_empty);
 	if (game->tex_wall)
@@ -19,14 +17,38 @@ int	exit_game(t_game *game)
 		mlx_destroy_image(game->mlx, game->mary.xpm_right);
 	if (game->win)
 		mlx_destroy_window(game->mlx, game->win);
-	if (game->mlx)
-		free(game->mlx);
+}
+
+// frees stuff
+void	free_stuff(t_game *game)
+{
+	size_t	i;
+
 	if (game->map.string)
 		free(game->map.string);
-	while (i < game->map.rows)
-		free(game->map.array[i++]);
 	if (game->map.array)
+	{
+		i = 0;
+		while (i < game->map.rows)
+			free(game->map.array[i++]);
 		free(game->map.array);
+	}
+	if (game->map.array_cpy)
+	{
+		i = 0;
+		while (i < game->map.rows)
+			free(game->map.array_cpy[i++]);
+		free(game->map.array_cpy);
+	}
+	if (game->mlx)
+		free(game->mlx);
+}
+
+// exits game
+int	exit_game(t_game *game)
+{
+	destroy_stuff(game);
+	free_stuff(game);
 	exit (0);
 	return (0);
 }

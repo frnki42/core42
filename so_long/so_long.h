@@ -21,14 +21,7 @@
 # include "libft/get_next_line/get_next_line.h"
 # include "libft/printf/ft_printf.h"
 # include "libft/libft.h"
-// window sizes
-# define MAX_WIDTH	1280
-# define MAX_HEIGHT	720
-// colors
-# define AQUA_DARK	0x689d6a
-# define AQUA_LIGHT	0x8ec07c
-# define BG_0		0x282828
-# define FG_1		0xebdbb2
+
 // keys
 # define KEY_BACKSPACE	65288
 # define KEY_ENTER	65293
@@ -70,6 +63,7 @@ typedef struct	s_game
 	void	*tex_exit;
 	void	*win;
 }	t_game;
+
 // prototypes
 int	movement(int keycode, t_game *game);
 int	exit_game(t_game *game);
@@ -98,4 +92,5 @@ void	detect_start(t_game *game);
 void	flood_fill(t_game *game, size_t y, size_t x);
 int	check_path(t_game *game);
 int	check_argv(char *argv);
+void	init_stuff(t_game *game);
 #endif
