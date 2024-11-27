@@ -6,6 +6,8 @@ void	convert_ber(t_game *game, char *path)
 	int	map;
 	char	*output;
 
+	if (check_argv(path))
+		exit_game(game);
 	game->map.string = "";
 	map = open(path, O_RDONLY);
 	if (map == -1)

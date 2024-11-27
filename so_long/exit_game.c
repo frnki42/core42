@@ -27,7 +27,6 @@ int	exit_game(t_game *game)
 		free(game->map.array[i++]);
 	if (game->map.array)
 		free(game->map.array);
-	ft_printf("# EXIT_GAME DONE!\n");		// remove me
 	exit (0);
 	return (0);
 }
