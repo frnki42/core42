@@ -18,6 +18,8 @@ void	init_map(t_game *game)
 	game->map.collectibles = 0;
 	game->map.columns = 0;
 	game->map.rows = 0;
+	game->map.start_x = 0;
+	game->map.start_y = 0;
 	game->map.string = NULL;
 	game->map.array = NULL;
 	game->map.array_cpy = NULL;
