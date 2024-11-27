@@ -14,6 +14,7 @@ int	main(int argc, char **argv)
 	convert_ber(&game, argv[1]);
 	convert_str(&game);
 	count_collectibles(&game);
+//	flood_fill(&game);
 	if (check_valid(&game))
 		exit_game(&game);
 	start_mlx(&game);
