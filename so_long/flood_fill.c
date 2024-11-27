@@ -5,7 +5,10 @@ void	flood_fill(t_game *game, size_t y, size_t x)  //int collectibles, int exit 
 {
 	if (x < 1 || x >= game->map.columns - 1 || y < 1 || y >= game->map.rows - 1)
 		return ;
-	if (game->map.array_cpy[y][x] == '0'|| game->map.array_cpy[y][x] == 'C' || game->map.array_cpy[y][x] == 'P' || game->map.array_cpy[y][x] == 'E')
+	if (game->map.array_cpy[y][x] == '0'||
+		game->map.array_cpy[y][x] == 'C' ||
+		game->map.array_cpy[y][x] == 'P' ||
+		game->map.array_cpy[y][x] == 'E')
 	{
 		game->map.array_cpy[y][x] = 'X';			// 80 chars here
 		flood_fill(game, y + 1, x);
