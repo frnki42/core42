@@ -55,6 +55,7 @@ typedef struct	s_map
 	size_t	start_y;
 	char	*string;
 	char	**array;
+	char	**array_cpy;
 }	t_map;
 
 typedef struct	s_game
@@ -95,4 +96,5 @@ int	check_valid(t_game *game);
 int	check_surrounded(t_game *game);
 int	check_composition(t_game *game);
 void	detect_start(t_game *game);
+void	flood_fill(t_game *game, size_t y, size_t x);
 #endif

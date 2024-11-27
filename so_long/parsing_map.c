@@ -25,6 +25,7 @@ void	convert_ber(t_game *game, char *path)
 void	convert_str(t_game *game)
 {
 	game->map.array = ft_split(game->map.string, '\n');
+	game->map.array_cpy = ft_split(game->map.string, '\n');
 	ft_printf("# CONVERT_STR DONE\n");			// remove me
 }
 

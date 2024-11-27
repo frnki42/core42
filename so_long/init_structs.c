@@ -20,6 +20,7 @@ void	init_map(t_game *game)
 	game->map.rows = 0;
 	game->map.string = NULL;
 	game->map.array = NULL;
+	game->map.array_cpy = NULL;
 	ft_printf("# INIT_MAP DONE\n");		// remove me
 }
 

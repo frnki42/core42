@@ -4,6 +4,7 @@
 # display "Error\n" + custom error msg if map is not valid
 # check if there is a valid path + floodfill
 # constructed by only walls collectibles and free space?
+# copy array (use string and split again kekW)
 
 // done
 # check if map is only composed of  " 0, 1, C, E, P "
