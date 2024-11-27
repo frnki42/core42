@@ -1,9 +1,9 @@
 // to do
-# program only accepts .ber files
 # window must remain smooth (change window, minimize, ..)
 # display "Error\n" + custom error msg if map is not valid
 
 // done
+# program only accepts .ber files
 # check if there is a valid path + floodfill
 # copy array (use string and split again kekW)
 # check if map is only composed of  {0, 1, C, E, P}
