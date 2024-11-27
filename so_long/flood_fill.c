@@ -20,7 +20,7 @@ void	flood_fill(t_game *game, size_t y, size_t x)
 }
 
 // check if {P, E, C} got reached by flood_fill in game->map.array_cpy
-int	check_flood(t_game *game)
+int	check_path(t_game *game)
 {
 	int	y;
 	int	x;

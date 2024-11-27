@@ -1,5 +1,6 @@
 #include "so_long.h"
 
+// converts .ber file into string
 void	convert_ber(t_game *game, char *path)
 {
 	int	map;
@@ -22,6 +23,7 @@ void	convert_ber(t_game *game, char *path)
 	ft_printf("# CONVERT_BER DONE\n");			// remove me
 }
 
+// converts 1d map into 2d map
 void	convert_str(t_game *game)
 {
 	game->map.array = ft_split(game->map.string, '\n');
@@ -29,6 +31,7 @@ void	convert_str(t_game *game)
 	ft_printf("# CONVERT_STR DONE\n");			// remove me
 }
 
+// detects amount of collectibles
 void	count_collectibles(t_game *game)
 {
 	int	i;

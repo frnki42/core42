@@ -18,7 +18,7 @@ int	main(int argc, char **argv)
 	if (check_valid(&game))
 		exit_game(&game);
 	flood_fill(&game, game.map.start_y, game.map.start_x);
-	if (check_flood(&game))
+	if (check_path(&game))
 		exit_game(&game);
 	start_mlx(&game);
 	create_window(&game);
