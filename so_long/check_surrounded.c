@@ -1,5 +1,6 @@
 #include "so_long.h"
 
+// checks if the map is surrounded by walls
 int	check_surrounded(t_game *game)
 {
 	size_t	i;

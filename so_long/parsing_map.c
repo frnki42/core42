@@ -22,7 +22,7 @@ void	convert_ber(t_game *game, char *path)
 	}
 	free(output);
 	close(map);
-	ft_printf("# CONVERT_BER DONE\n");			// remove me
+	ft_printf("# CONVERT_BER DONE\n");
 }
 
 // converts 1d map into 2d map
@@ -30,7 +30,7 @@ void	convert_str(t_game *game)
 {
 	game->map.array = ft_split(game->map.string, '\n');
 	game->map.array_cpy = ft_split(game->map.string, '\n');
-	ft_printf("# CONVERT_STR DONE\n");			// remove me
+	ft_printf("# CONVERT_STR DONE\n");
 }
 
 // detects amount of collectibles
@@ -44,5 +44,5 @@ void	count_collectibles(t_game *game)
 		if (game->map.string[i] == 'C')
 			game->map.collectibles++;
 	}
-	ft_printf("# %i COLLECTIBLES DETECTED\n", game->map.collectibles);	//remove me
+	ft_printf("# %i COLLECTIBLES DETECTED\n", game->map.collectibles);
 }
