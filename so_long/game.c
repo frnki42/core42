@@ -2,7 +2,6 @@
 
 int	main(int argc, char **argv)
 {
-	size_t	i;
 	t_game		game;
 
 	if (argc < 2)
@@ -19,9 +18,6 @@ int	main(int argc, char **argv)
 	if (check_valid(&game))
 		exit_game(&game);
 	flood_fill(&game, game.map.start_y, game.map.start_x);
-	i = 0;
-	while (i < game.map.rows)
-		ft_printf("%s", game.map.array_cpy[i++]);
 	start_mlx(&game);
 	create_window(&game);
 	load_game_textures(&game);
