@@ -15,7 +15,6 @@
 // std header
 # include <fcntl.h>
 # include <stddef.h>
-# include <stdio.h>
 # include <stdlib.h>
 // custom header
 # include "minilibx-linux/mlx.h"

@@ -1,8 +1,8 @@
 // to do
-# window must remain smooth (change window, minimize, ..)
-# display "Error\n" + custom error msg if map is not valid
 
 // done
+# window must remain smooth (change window, minimize, ..)
+# display "Error\n" + custom error msg if map is not valid
 # program only accepts .ber files
 # check if there is a valid path + floodfill
 # copy array (use string and split again kekW)

@@ -2,7 +2,6 @@
 
 int	movement(int keycode, t_game *game)
 {
-//	printf("You pressed: %c (keycode: %i)\n", (char)keycode, keycode);
 	if (keycode == ' ')
 		mlx_put_image_to_window(game->mlx, game->win, game->tex_collectible, game->mary.x, game->mary.y);
 	if (keycode == 'a')
@@ -11,7 +10,7 @@ int	movement(int keycode, t_game *game)
 		{
 			game->mary.x -= 32;
 			game->mary.moves++;
-			ft_printf("MOVES: %i\n", game->mary.moves);				// replace me with counter in game
+			ft_printf("MOVES: %i\n", game->mary.moves);
 		}
 		manipulate_map(game);
 		render_map(game);
@@ -23,7 +22,7 @@ int	movement(int keycode, t_game *game)
 		{
 			game->mary.x += 32;
 			game->mary.moves++;
-			ft_printf("MOVES: %i\n", game->mary.moves);				// replace me with counter in game
+			ft_printf("MOVES: %i\n", game->mary.moves);
 		}
 		mlx_clear_window(game->mlx, game->win);
 		manipulate_map(game);
@@ -36,7 +35,7 @@ int	movement(int keycode, t_game *game)
 		{
 			game->mary.y += 32;
 			game->mary.moves++;
-			ft_printf("MOVES: %i\n", game->mary.moves);				// replace me with counter in game
+			ft_printf("MOVES: %i\n", game->mary.moves);
 		}
 		mlx_clear_window(game->mlx, game->win);
 		manipulate_map(game);
@@ -49,7 +48,7 @@ int	movement(int keycode, t_game *game)
 		{
 			game->mary.y -= 32;
 			game->mary.moves++;
-			ft_printf("MOVES: %i\n", game->mary.moves);				// replace me with counter in game
+			ft_printf("MOVES: %i\n", game->mary.moves);
 		}
 		mlx_clear_window(game->mlx, game->win);
 		manipulate_map(game);
