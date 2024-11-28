@@ -43,6 +43,7 @@ int	check_wall(t_game *game, int keycode)
 {
 	int	dest;
 
+	dest = 0;
 	if (keycode == 'a' || keycode == 'd')
 	{
 		if (keycode == 'a')
