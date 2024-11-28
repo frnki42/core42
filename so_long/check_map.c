@@ -33,7 +33,7 @@ int	check_collectible(t_game *game)
 		if (game->map.string[i++] == 'C')
 			return (0);
 	}
-	return (ft_printf("Error\n# NO COLLECTIBLES IN MAP DETECTED"), 1);
+	return (ft_printf("Error\n# NO COLLECTIBLES IN MAP DETECTED\n"), 1);
 }
 
 // checks if only one exit is present
