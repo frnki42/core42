@@ -32,11 +32,9 @@ MLX_DIR		= ./minilibx-linux
 MLXFLAGS 	= -L$(MLX_DIR) -lmlx -L/usr/lib  -lXext -lX11 -lm
 
 # SRC- & OBJ-FILES
-SOURCE_FILES 	= exit_game.c movement.c game.c load_game_textures.c \
-		  start_mlx.c create_window.c init_structs.c display_mary.c \
-		  parsing_map.c check_map.c render_map.c manipulate_map.c \
-		  check_move.c check_surrounded.c flood_fill.c check_argv.c
-OBJECT_FILES 	= ${SOURCE_FILES:.c=.o}
+SOURCE_FILES 	= checks.c check_map.c exit_game.c game.c init_structs.c \
+		  load_textures.c movement.c parsing_map.c utils.c
+		  OBJECT_FILES 	= ${SOURCE_FILES:.c=.o}
 
 # INCLUDES
 INCLUDES 	= -I$(LIBFT_DIR) -I$(MLX_DIR)

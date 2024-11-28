@@ -34,7 +34,10 @@ int	check_path(t_game *game)
 			if (!(game->map.array_cpy[y][x] == '1' ||
 				game->map.array_cpy[y][x] == 'X' ||
 				game->map.array_cpy[y][x] == '0'))
-				return (ft_printf("Error\n# NO VALID PATH DETECTED\n"), 1);
+			{
+				ft_printf("Error\n# NO VALID PATH DETECTED\n");
+				return (1);
+			}
 		}
 	}
 	return (0);
@@ -61,7 +64,11 @@ void	detect_start(t_game *game)
 		}
 		y++;
 	}
-	ft_printf("# DETECT_START DONE\n");
 }
 
-
+// displays player
+void	display_mary(t_game *game)
+{
+	mlx_put_image_to_window(game->mlx, game->win,
+		game->mary.xpm_right, game->mary.x, game->mary.y);
+}

@@ -11,7 +11,8 @@ void	move_left(int keycode, t_game *game)
 	}
 	manipulate_map(game);
 	render_map(game);
-	mlx_put_image_to_window(game->mlx, game->win, game->mary.xpm_left, game->mary.x, game->mary.y);
+	mlx_put_image_to_window(game->mlx, game->win,
+		game->mary.xpm_left, game->mary.x, game->mary.y);
 }
 
 // moves player 32 pixel right
@@ -26,7 +27,8 @@ void	move_right(int keycode, t_game *game)
 	mlx_clear_window(game->mlx, game->win);
 	manipulate_map(game);
 	render_map(game);
-	mlx_put_image_to_window(game->mlx, game->win, game->mary.xpm_right, game->mary.x, game->mary.y);
+	mlx_put_image_to_window(game->mlx, game->win,
+		game->mary.xpm_right, game->mary.x, game->mary.y);
 }
 
 // moves player 32 pixel down
@@ -41,7 +43,8 @@ void	move_down(int keycode, t_game *game)
 	mlx_clear_window(game->mlx, game->win);
 	manipulate_map(game);
 	render_map(game);
-	mlx_put_image_to_window(game->mlx, game->win, game->mary.xpm_left, game->mary.x, game->mary.y);
+	mlx_put_image_to_window(game->mlx, game->win,
+		game->mary.xpm_left, game->mary.x, game->mary.y);
 }
 
 // moves player 32 pixel up
@@ -56,7 +59,8 @@ void	move_up(int keycode, t_game *game)
 	mlx_clear_window(game->mlx, game->win);
 	manipulate_map(game);
 	render_map(game);
-	mlx_put_image_to_window(game->mlx, game->win, game->mary.xpm_right, game->mary.x, game->mary.y);
+	mlx_put_image_to_window(game->mlx, game->win,
+		game->mary.xpm_right, game->mary.x, game->mary.y);
 }
 
 // handles user input

@@ -22,7 +22,6 @@ void	convert_ber(t_game *game, char *path)
 	}
 	free(output);
 	close(map);
-	ft_printf("# CONVERT_BER DONE\n");
 }
 
 // converts 1d map into 2d map
@@ -30,7 +29,6 @@ void	convert_str(t_game *game)
 {
 	game->map.array = ft_split(game->map.string, '\n');
 	game->map.array_cpy = ft_split(game->map.string, '\n');
-	ft_printf("# CONVERT_STR DONE\n");
 }
 
 // detects amount of collectibles
@@ -44,5 +42,42 @@ void	count_collectibles(t_game *game)
 		if (game->map.string[i] == 'C')
 			game->map.collectibles++;
 	}
-	ft_printf("# %i COLLECTIBLES DETECTED\n", game->map.collectibles);
+}
+
+// puts textures according to the map
+void	show_map(t_game *game, int x, int y)
+{
+	if (game->map.array[y][x] == 'P')
+	{
+		game->map.array[y][x] = '0';
+		game->mary.x = x * 32;
+		game->mary.y = y * 32;
+	}
+	if (game->map.array[y][x] == '0')
+		mlx_put_image_to_window(game->mlx, game->win,
+				game->tex_empty, x * 32, y * 32);
+	if (game->map.array[y][x] == '1')
+		mlx_put_image_to_window(game->mlx, game->win,
+				game->tex_wall, x * 32, y * 32);
+	if (game->map.array[y][x] == 'C')
+		mlx_put_image_to_window(game->mlx, game->win,
+				game->tex_collectible, x * 32, y * 32);
+	if (game->map.array[y][x] == 'E')
+		mlx_put_image_to_window(game->mlx, game->win,
+				game->tex_exit, x * 32, y * 32);
+}
+
+// show_map wrapper function
+void	render_map(t_game *game)
+{
+	int	x;
+	int	y;
+
+	y = -1;
+	while (game->map.array[++y])
+	{
+		x = -1;
+		while (game->map.array[y][++x])
+			show_map(game, x, y);
+	}
 }

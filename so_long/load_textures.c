@@ -23,7 +23,6 @@ void	load_game_textures(t_game *game)
 			&game->tex_width, &game->tex_height);
 	if (!game->tex_exit)
 		exit_game(game);
-	ft_printf("# LOAD_GAME_TEXTURES DONE\n");
 }
 
 // loads mary .xpm files
@@ -39,5 +38,4 @@ void	load_mary(t_game *game)
 			&game->tex_width, &game->tex_height);
 	if (!game->mary.xpm_right)
 		exit_game(game);
-	ft_printf("# LOAD_MARY DONE\n");
 }

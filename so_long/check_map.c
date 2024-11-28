@@ -12,7 +12,10 @@ int	check_rectangle(t_game *game)
 		while (i < game->map.rows)
 		{
 			if (game->map.columns != ft_strlen(game->map.array[i]))
-				return (ft_printf("Error\n# MAP IS NOT RECTANGULAR\n"), 1);
+			{
+				ft_printf("Error\n# MAP IS NOT RECTANGULAR\n");
+				return (1);
+			}
 			i++;
 		}
 	}
@@ -85,7 +88,10 @@ int	check_composition(t_game *game)
 			game->map.string[i] == '\n')
 			i++;
 		else
-			return (ft_printf("Error\n# WRONG MAP COMPOSITION\n", 1));
+		{
+			ft_printf("Error\n# WRONG MAP COMPOSITION\n");
+			return (1);
+		}
 	}
 	return (0);
 }

@@ -92,5 +92,14 @@ void	detect_start(t_game *game);
 void	flood_fill(t_game *game, size_t y, size_t x);
 int	check_path(t_game *game);
 int	check_argv(char *argv);
-void	init_stuff(t_game *game);
+void	initialize_game(t_game *game);
+void	destroy_stuff(t_game *game);
+void	free_stuff(t_game *game);
+void	prepare_game(t_game *game, char *path);
+void	start_game(t_game *game);
+void	move_left(int keycode, t_game *game);
+void	move_right(int keycode, t_game *game);
+void	move_down(int keycode, t_game *game);
+void	move_up(int keycode, t_game *game);
+void	show_map(t_game *game, int x, int y);
 #endif
