@@ -17,6 +17,8 @@ void	destroy_stuff(t_game *game)
 		mlx_destroy_image(game->mlx, game->mary.xpm_right);
 	if (game->win)
 		mlx_destroy_window(game->mlx, game->win);
+	if (game->mlx)
+		mlx_destroy_display(game->mlx);
 }
 
 // frees stuff

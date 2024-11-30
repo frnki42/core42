@@ -40,9 +40,9 @@ int	main(int argc, char **argv)
 	t_game		game;
 
 	if (argc < 2)
-		return (ft_printf("# Error\n# NO MAP PATH WAS SPECIFIED!\n"), 1);
+		return (ft_printf("Error\n# NO MAP PATH WAS SPECIFIED!\n"), 1);
 	if (argc > 2)
-		return (ft_printf("# Error\n# TOO MANY ARGUMENTS!\n"), 1);
+		return (ft_printf("Error\n# TOO MANY ARGUMENTS!\n"), 1);
 	initialize_game(&game);
 	prepare_game(&game, argv[1]);
 	start_game(&game);
