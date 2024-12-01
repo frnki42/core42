@@ -50,6 +50,8 @@ void	detect_start(t_game *game)
 	size_t	y;
 
 	y = 0;
+	if (!game->map.array)
+		exit_game(game);
 	while (game->map.array[y])
 	{
 		x = 0;
