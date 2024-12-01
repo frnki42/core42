@@ -5,10 +5,11 @@ void	convert_ber(t_game *game, char *path)
 {
 	int	map;
 	char	*output;
+	char	*temp;
 
 	if (check_argv(path))
 		exit_game(game);
-	game->map.string = "";
+	game->map.string = ft_strdup("");
 	map = open(path, O_RDONLY);
 	if (map == -1)
 		exit_game(game);
@@ -16,7 +17,9 @@ void	convert_ber(t_game *game, char *path)
 	while (output)
 	{
 		game->map.rows++;
+		temp = game->map.string;
 		game->map.string = ft_strjoin(game->map.string, output);
+		free(temp);
 		free(output);
 		output = get_next_line(map);
 	}
