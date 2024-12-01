@@ -16,6 +16,8 @@ void	create_window(t_game *game)
 {
 	game->win = mlx_new_window(game->mlx,
 			game->map.columns * 32, game->map.rows * 32, ".frnki");
+	if (!game->win)
+		exit_game(game);
 }
 
 void	start_mlx(t_game *game)
