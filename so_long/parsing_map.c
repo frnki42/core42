@@ -31,7 +31,11 @@ void	convert_ber(t_game *game, char *path)
 void	convert_str(t_game *game)
 {
 	game->map.array = ft_split(game->map.string, '\n');
+	if (!game->map.array)
+		exit_game(game);
 	game->map.array_cpy = ft_split(game->map.string, '\n');
+	if (!game->map.array_cpy)
+		exit_game(game);
 }
 
 // detects amount of collectibles
