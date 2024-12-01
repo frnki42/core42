@@ -14,6 +14,8 @@ void	convert_ber(t_game *game, char *path)
 	if (map == -1)
 		exit_game(game);
 	output = get_next_line(map);
+	if (!output)
+		exit_game(game);
 	while (output)
 	{
 		game->map.rows++;
