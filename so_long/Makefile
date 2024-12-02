@@ -36,7 +36,7 @@ SOURCE_FILES 	= checks.c check_map.c exit_game.c game.c init_structs.c \
 		  load_textures.c movement.c parsing_map.c utils.c
 OBJECT_FILES 	= ${SOURCE_FILES:.c=.o}
 
-# COMMANDS
+# TARGETS
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJECT_FILES)
