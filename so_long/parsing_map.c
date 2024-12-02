@@ -7,15 +7,16 @@ void	convert_ber(t_game *game, char *path)
 	char	*output;
 	char	*temp;
 
-	if (check_argv(path))
-		exit_game(game);
+	check_argv(game, path);
 	game->map.string = ft_strdup("");
+	if (!game->map.string)
+		exit_game(game, 1);
 	map = open(path, O_RDONLY);
 	if (map == -1)
-		exit_game(game);
+		exit_game(game, 1);
 	output = get_next_line(map);
 	if (!output)
-		exit_game(game);
+		exit_game(game, 1);
 	while (output)
 	{
 		game->map.rows++;
@@ -34,10 +35,10 @@ void	convert_str(t_game *game)
 {
 	game->map.array = ft_split(game->map.string, '\n');
 	if (!game->map.array)
-		exit_game(game);
+		exit_game(game, 1);
 	game->map.array_cpy = ft_split(game->map.string, '\n');
 	if (!game->map.array_cpy)
-		exit_game(game);
+		exit_game(game, 1);
 }
 
 // detects amount of collectibles

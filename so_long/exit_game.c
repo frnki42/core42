@@ -47,10 +47,10 @@ void	free_stuff(t_game *game)
 }
 
 // exits game
-int	exit_game(t_game *game)
+int	exit_game(t_game *game, int exit_status)
 {
 	destroy_stuff(game);
 	free_stuff(game);
-	exit (0);
+	exit (exit_status);
 	return (0);
 }

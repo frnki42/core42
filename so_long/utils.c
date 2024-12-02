@@ -51,7 +51,7 @@ void	detect_start(t_game *game)
 
 	y = 0;
 	if (!game->map.array)
-		exit_game(game);
+		exit_game(game, 1);
 	while (game->map.array[y])
 	{
 		x = 0;

@@ -1,5 +1,8 @@
 # ignore minilibx
 *.tgz
 so_long/minilibx-linux
+# ignore push_swap checker
+push_swap/checker_linux
 # ignore a.out & backup
 a.out
+

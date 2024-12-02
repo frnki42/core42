@@ -9,7 +9,7 @@ void	prepare_game(t_game *game, char *path)
 	check_valid(game);
 	flood_fill(game, game->map.start_y, game->map.start_x);
 	if (check_path(game))
-		exit_game(game);
+		exit_game(game, 1);
 }
 
 void	create_window(t_game *game)
@@ -17,14 +17,14 @@ void	create_window(t_game *game)
 	game->win = mlx_new_window(game->mlx,
 			game->map.columns * 32, game->map.rows * 32, ".frnki");
 	if (!game->win)
-		exit_game(game);
+		exit_game(game, 1);
 }
 
 void	start_mlx(t_game *game)
 {
 	game->mlx = mlx_init();
 	if (!game->mlx)
-		exit_game(game);
+		exit_game(game, 1);
 }
 
 void	start_game(t_game *game)

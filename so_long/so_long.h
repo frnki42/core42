@@ -63,7 +63,7 @@ typedef struct	s_game
 }	t_game;
 
 // prototypes
-int	check_argv(char *argv);
+void	check_argv(t_game *game, char *argv);
 int	check_collectible(t_game *game);
 int	check_composition(t_game *game);
 int	check_exit(t_game *game);
@@ -94,7 +94,7 @@ void	move_down(int keycode, t_game *game);
 void	move_left(int keycode, t_game *game);
 void	move_right(int keycode, t_game *game);
 void	move_up(int keycode, t_game *game);
-int	exit_game(t_game *game);
+int	exit_game(t_game *game, int exit_status);
 void	prepare_game(t_game *game, char *path);
 void	render_map(t_game *game);
 void	show_map(t_game *game, int x, int y);

@@ -67,7 +67,7 @@ void	move_up(int keycode, t_game *game)
 int	movement(int keycode, t_game *game)
 {
 	if (keycode == KEY_ESCAPE)
-		exit_game(game);
+		exit_game(game, 0);
 	if (keycode == 'a')
 		move_left(keycode, game);
 	if (keycode == 'd')

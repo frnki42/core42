@@ -29,7 +29,7 @@ PRINTF		= $(PRINTF_DIR)/printf.a
 
 # MLX
 MLX_DIR		= ./minilibx-linux
-MLXFLAGS 	= -L$(MLX_DIR) -lmlx -L/usr/lib  -lXext -lX11 -lm
+MLXFLAGS 	= -L$(MLX_DIR) -lmlx -L/usr/lib -lXext -lX11
 
 # SRC- & OBJ-FILES
 SOURCE_FILES 	= checks.c check_map.c exit_game.c game.c init_structs.c \

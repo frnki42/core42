@@ -1,25 +1,24 @@
 #include "so_long.h"
 
 // checks if argv is valid (*.ber file)
-int	check_argv(char *argv)
+void	check_argv(t_game *game, char *argv)
 {
 	int	len;
 
 	if (!argv)
-		return (1);
+		exit_game(game, 1);
 	len = 0;
 	len = ft_strlen(argv);
 	if (len < 5)
-		return (2);
+		exit_game(game, 1);
 	if (argv[--len] != 'r')
-		return (3);
+		exit_game(game, 1);
 	if (argv[--len] != 'e')
-		return (3);
+		exit_game(game, 1);
 	if (argv[--len] != 'b')
-		return (3);
+		exit_game(game, 1);
 	if (argv[--len] != '.')
-		return (3);
-	return (0);
+		exit_game(game, 1);
 }
 
 // performs all map checks
@@ -35,7 +34,7 @@ void	check_valid(t_game *game)
 	res += check_surrounded(game);
 	res += check_composition(game);
 	if (res)
-		exit_game(game);
+		exit_game(game, 1);
 }
 
 // checks if next move would hit a wall
@@ -113,6 +112,6 @@ void	manipulate_map(t_game *game)
 		ft_printf("|    HIGHSCORES:    |\n");
 		ft_printf("| 42: 174     .frnki|\n");
 		ft_printf("|___________________|\n");
-		exit_game(game);
+		exit_game(game, 0);
 	}
 }
