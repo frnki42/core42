@@ -34,16 +34,13 @@ MLXFLAGS 	= -L$(MLX_DIR) -lmlx -L/usr/lib -lXext -lX11
 # SRC- & OBJ-FILES
 SOURCE_FILES 	= checks.c check_map.c exit_game.c game.c init_structs.c \
 		  load_textures.c movement.c parsing_map.c utils.c
-		  OBJECT_FILES 	= ${SOURCE_FILES:.c=.o}
-
-# INCLUDES
-INCLUDES 	= -I$(LIBFT_DIR) -I$(MLX_DIR)
+OBJECT_FILES 	= ${SOURCE_FILES:.c=.o}
 
 # COMMANDS
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJECT_FILES)
-	@ $(CC) $(CFLAGS) $(OBJECT_FILES) -o $(NAME) $(LIBFT) $(PRINTF) $(MLXFLAGS) $(INCLUDES) 
+	@ $(CC) $(CFLAGS) $(OBJECT_FILES) -o $(NAME) $(LIBFT) $(PRINTF) $(MLXFLAGS)
 	@echo "$(BLACK_ON_G)#######################################$(COLOR_OFF)"
 	@echo "$(BLACK_ON_G)#        SO_LONG COMPILED     .frnki  #$(COLOR_OFF)"
 	@echo "$(BLACK_ON_G)#######################################$(COLOR_OFF)"
@@ -53,7 +50,7 @@ $(LIBFT):
 	@make -sC $(LIBFT_DIR)
 
 %.o: %.c
-	@$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES)
+	@$(CC) $(CFLAGS) -c $< -o $@
 clean:
 	@make clean -sC $(LIBFT_DIR)
 	@rm -f $(OBJECT_FILES)
