@@ -60,8 +60,8 @@ void	show_map(t_game *game, int x, int y)
 	if (game->map.array[y][x] == 'P')
 	{
 		game->map.array[y][x] = '0';
-		game->mary.x = x * 32;
-		game->mary.y = y * 32;
+		game->mary.x = x;
+		game->mary.y = y;
 	}
 	if (game->map.array[y][x] == '0')
 		mlx_put_image_to_window(game->mlx, game->win,
