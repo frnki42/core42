@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/15 19:03:54 by efembock          #+#    #+#             */
-/*   Updated: 2024/09/15 19:22:07 by efembock         ###   ########.fr       */
+/*   Created: 2024/09/15 19:24:33 by efembock          #+#    #+#             */
+/*   Updated: 2024/09/19 01:24:34 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
-	int	i;
-
-	i = 0;
-	while (lst)
-	{
-		i++;
+	if (!lst)
+		return (NULL);
+	while (lst->next)
 		lst = lst->next;
-	}
-	return (i);
+	return (lst);
 }
 /*
 #include <stdio.h>
@@ -30,31 +26,27 @@ int	ft_lstsize(t_list *lst)
 
 int	main(void)
 {
-	int		size;
-	t_list	*head;
 	t_list	*node1;
 	t_list	*node2;
 	t_list	*node3;
-	t_list	tmp;
+	t_list	*node4;
+	t_list	*last;
 
-	head = NULL;
-	node1 = ft_lstnew("Node 1");
-	node2 = ft_lstnew("Node 2");
-	node3 = ft_lstnew("Node 3");
-	size = ft_lstsize(head);
-	printf("List size (should be 0): %d\n", size);
-	head = node1;
-	size = ft_lstsize(head);
-	printf("List size (should be 1); %d\n", size);
-	node1-> = node2;
-	node2-> = node3;
-	size = ft_lstsize(head);
-	printf("List size (should be 3): %d\n", size);
-	while (head)
-	{
-		tmp = head;
-		head = head->next;
-		free(tmp);
-	}
+	node1 = ft_lstnew("First");
+	node2 = ft_lstnew("Second");
+	node3 = ft_lstnew("Third");
+	node4 = ft_lstnew("Fourth");
+	node1->next = node2;
+	node2->next = node3;
+	node3->next = node4;
+	last = ft_lstlast(node1);
+	if (last)
+		printf("last node content: %s\n", (char *)last->content);
+	else
+		printf("list is empty.\n");
+	free(node1);
+	free(node2);
+	free(node3);
+	free(node4);
 	return (0);
 }*/
