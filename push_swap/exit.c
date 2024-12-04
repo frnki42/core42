@@ -31,6 +31,8 @@ void	exit_clean(t_data *data)
 void	exit_error(t_data *data)
 {
 	ft_putstr_fd("Error\n", 2);
-	exit_clean(data);
+	free_stacks(data);
+	free_input(data);
+	exit (1);
 }
 

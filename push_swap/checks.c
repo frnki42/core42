@@ -1,19 +1,20 @@
 #include "push_swap.h"
 
-// check if all characters are digits
+// check if character is a digit
 void	check_num(t_data *data,int c)
 {
 	if (!(c >= '0' && c <= '9'))
 		exit_error(data);
 }
 
-// check if first character is digit, + or -
+// check if character is digit, + or -
 void	check_sign(t_data *data, int c)
 {
 	if (!((c >= '0' && c <= '9') || c == '-' || c == '+'))
 		exit_error(data);
 }
 
+// check if input is valid
 void	check_input(t_data *data)
 {
 	int	x;
@@ -33,14 +34,12 @@ void	check_input(t_data *data)
 	}
 }
 
+// executes all checks
 void	check_valid(t_data *data)
 {
 
 	if (!data->input)
-	{
-		ft_putstr_fd("Error\n", 2);
-		exit_clean(data);
-	}
+		exit_error(data);
 	// check_characters(data);
 	check_input(data);
 	// check if there is doubles
