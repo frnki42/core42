@@ -3,19 +3,19 @@
 static size_t	count_numbers(const char *argv)
 {
 	size_t	amount;
-	size_t	i;
+	size_t	word;
 
 	amount = 0;
-	i = 0;
+	word = 0;
 	while (*argv)
 	{
-		if (*argv != ' ' && i == 0)
+		if (*argv != ' ' && word == 0)
 		{
-			i = 1;
+			word = 1;
 			amount++;
 		}
 		if (*argv == ' ')
-			i = 0;
+			word = 0;
 		argv++;
 	}
 	return (amount);
