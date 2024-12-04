@@ -25,4 +25,12 @@ void	exit_clean(t_data *data)
 {
 	free_stacks(data);
 	free_input(data);
+	exit (0);
 }
+
+void	exit_error(t_data *data)
+{
+	ft_putstr_fd("Error\n", 2);
+	exit_clean(data);
+}
+

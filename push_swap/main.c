@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-static size_t	count_numbers(char *argv)
+size_t	count_numbers(char *argv)
 {
 	size_t	amount;
 	size_t	word;
@@ -30,14 +30,16 @@ void	convert_argv(t_data *data, char *argv)
 		exit_clean(data);
 }
 
-static void	single_arg(t_data *data, char *argv)
+void	single_arg(t_data *data, char *argv)
 {
 	// check if argv[1] is one or multiple numbers
 	data->size = count_numbers(argv);
 	if (data->size < 1)
 		exit_clean(data);
-	// convert str to *int || int
+	// convert *char to *char[data->size]
 	convert_argv(data, argv);
+	// check if data->input is valid (only numbers)
+	check_valid(data);
 }
 
 int	main(int argc, char **argv)

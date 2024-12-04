@@ -30,5 +30,7 @@ typedef struct	s_data
 
 // prototypes
 void	exit_clean(t_data *data);
+void	exit_error(t_data *data);
 void	init_structs(t_data *data);
+void	check_valid(t_data *data);
 #endif

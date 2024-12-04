@@ -28,7 +28,7 @@ PRINTF_DIR	= $(LIBFT_DIR)/printf
 PRINTF		= $(PRINTF_DIR)/printf.a
 
 # SRC- & OBJ-FILES
-SOURCE_FILES 	= exit.c init.c main.c 
+SOURCE_FILES 	= checks.c exit.c init.c main.c 
 OBJECT_FILES 	= ${SOURCE_FILES:.c=.o}
 
 # TARGETS
