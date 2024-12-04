@@ -89,6 +89,7 @@ char	**ft_split(char const *s, char c)
 	strings[i] = NULL;
 	return (strings);
 }
+
 /*
 #include <stdio.h>
 
@@ -96,16 +97,20 @@ int	main(void)
 {
 	char	*str = "   Don't panic! This is 42-code. Also AI helped!";
 	char	**strings;
+	int	i;
 
 	strings = ft_split(str, ' ');
-	printf("Seperate words inside of the string: %zu\n", count_words(str, ' '));
-	puts(strings[0]);
-	puts(strings[1]);
-	puts(strings[2]);
-	puts(strings[3]);
-	puts(strings[4]);
-	puts(strings[5]);
-	puts(strings[6]);
-	puts(strings[7]);
+	if (!strings)
+		return (1);
+	i = 0;
+	while(strings[i])
+	{
+		puts(strings[i]);
+		free(strings[i]);
+		i++;
+	}
+	printf("%zu seperate words detected.\n", count_words(str, ' '));
+	free(strings);
 	return (0);
-}*/
+}
+*/
