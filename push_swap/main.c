@@ -23,7 +23,7 @@ static size_t	count_numbers(char *argv)
 
 void	convert_argv(t_data *data, char *argv)
 {
-	if (!data || !argv)
+	if (!argv)
 		exit_clean(data);
 	data->input = ft_split(argv, ' ');
 	if (!data->input)
@@ -59,5 +59,6 @@ int	main(int argc, char **argv)
 	ft_printf("string: %s\n", argv[1]);\
 	ft_printf("int : %i\n", ft_atoi(argv[1]));
 	ft_printf("%i\n", data.size);
+	exit_clean(&data);
 	return (0);
 }

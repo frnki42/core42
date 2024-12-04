@@ -17,6 +17,7 @@ static void	free_input(t_data *data)
 	{
 		while (data->input[i])
 			free(data->input[i++]);
+		free(data->input);
 	}
 }
 
@@ -24,6 +25,4 @@ void	exit_clean(t_data *data)
 {
 	free_stacks(data);
 	free_input(data);
-	if (data)
-		free(data);
 }
