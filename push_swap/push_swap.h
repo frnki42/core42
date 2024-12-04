@@ -22,6 +22,7 @@
 
 typedef struct	s_data
 {
+	char	**input;
 	size_t	size;
 	int	*stack_a;
 	int	*stack_b;
