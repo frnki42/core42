@@ -19,5 +19,19 @@
 # include "libft/libft.h"
 // keys
 // typedef & structs
+
+typedef struct	s_stack
+{
+	int	*content;
+}	t_stack;
+
+typedef struct	s_data
+{
+	size_t	size;
+	t_stack	stack_a;
+	t_stack	stack_b;
+}	t_data;
 // prototypes
+void	exit_clean(t_data *data);
+void	init_structs(t_data *data);
 #endif
