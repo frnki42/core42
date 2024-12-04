@@ -1,9 +1,14 @@
 #include "push_swap.h"
 
+static void	free_stacks(t_data *data)
+{
+	if (data->stack_a)
+		free(data->stack_a);
+	if (data->stack_b)
+		free(data->stack_b);
+}
+
 void	exit_clean(t_data *data)
 {
-	if (data->stack_a.content)
-		free(data->stack_a.content);
-	if (data->stack_b.content)
-		free(data->stack_b.content);
+	free_stacks(data);
 }

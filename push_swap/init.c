@@ -3,6 +3,6 @@
 void	init_structs(t_data *data)
 {
 	data->size = 0;
-	data->stack_a.content = NULL;
-	data->stack_b.content = NULL;
+	data->stack_a = NULL;
+	data->stack_b = NULL;
 }
