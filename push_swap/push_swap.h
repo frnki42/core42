@@ -17,7 +17,6 @@
 # include "libft/get_next_line/get_next_line.h"
 # include "libft/printf/ft_printf.h"
 # include "libft/libft.h"
-// keys
 // typedef & structs
 
 typedef struct	s_data
@@ -33,4 +32,5 @@ void	exit_clean(t_data *data);
 void	exit_error(t_data *data);
 void	init_structs(t_data *data);
 void	check_valid(t_data *data);
+size_t	count_numbers(char *argv);
 #endif

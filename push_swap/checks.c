@@ -1,7 +1,7 @@
 #include "push_swap.h"
 
 // check if character is a digit
-void	check_num(t_data *data,int c)
+void	check_num(t_data *data, int c)
 {
 	if (!(c >= '0' && c <= '9'))
 		exit_error(data);

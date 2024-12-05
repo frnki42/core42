@@ -1,26 +1,5 @@
 #include "push_swap.h"
 
-size_t	count_numbers(char *argv)
-{
-	size_t	amount;
-	size_t	word;
-
-	amount = 0;
-	word = 0;
-	while (*argv)
-	{
-		if (*argv != ' ' && word == 0)
-		{
-			word = 1;
-			amount++;
-		}
-		if (*argv == ' ')
-			word = 0;
-		argv++;
-	}
-	return (amount);
-}
-
 void	convert_argv(t_data *data, char *argv)
 {
 	if (!argv)
@@ -28,6 +7,18 @@ void	convert_argv(t_data *data, char *argv)
 	data->input = ft_split(argv, ' ');
 	if (!data->input)
 		exit_clean(data);
+}
+
+void	convert_input(t_data *data)
+{
+	int	y;
+
+	data->stack_a = (int *)malloc(sizeof(int) * data->size);
+	if (!data->stack_a)
+		exit_error(data);
+	y = -1;
+	while (data->input[++y])
+		data->stack_a[y] = ft_atoi(data->input[y]);
 }
 
 void	single_arg(t_data *data, char *argv)
@@ -40,6 +31,8 @@ void	single_arg(t_data *data, char *argv)
 	convert_argv(data, argv);
 	// check if data->input is valid (only numbers)
 	check_valid(data);
+	// convert *char to *int
+	convert_input(data);
 }
 
 int	main(int argc, char **argv)
@@ -58,9 +51,7 @@ int	main(int argc, char **argv)
 		// check args if valid
 		// convert args to *int
 	}
-	ft_printf("string: %s\n", argv[1]);\
-	ft_printf("int : %i\n", ft_atoi(argv[1]));
-	ft_printf("%i\n", data.size);
+	// execute algorithm
 	exit_clean(&data);
 	return (0);
 }
