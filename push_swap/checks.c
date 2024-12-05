@@ -34,6 +34,19 @@ void	check_input(t_data *data)
 	}
 }
 
+// check if numbers fit into an int
+void	check_arrays(t_data *data)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < data->size)
+	{
+		if (data->stack_c[i] != (int)data->stack_c[i])
+			exit_error(data);
+		i++;
+	}
+}
 // executes all checks
 void	check_valid(t_data *data)
 {

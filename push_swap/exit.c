@@ -6,6 +6,8 @@ static void	free_stacks(t_data *data)
 		free(data->stack_a);
 	if (data->stack_b)
 		free(data->stack_b);
+	if (data->stack_c)
+		free(data->stack_c);
 }
 
 static void	free_input(t_data *data)

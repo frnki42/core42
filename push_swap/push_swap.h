@@ -12,19 +12,23 @@
 
 #ifndef PUSHSWAP_H
 # define PUSHSWAP_H
+
+# define INT_MIN (-2147483647 - 1)
+# define INT_MAX 2147483647
 // std header
 // custom header
 # include "libft/get_next_line/get_next_line.h"
 # include "libft/printf/ft_printf.h"
 # include "libft/libft.h"
-// typedef & structs
 
+// typedef & structs
 typedef struct	s_data
 {
 	char	**input;
 	size_t	size;
 	int	*stack_a;
 	int	*stack_b;
+	long	*stack_c;
 }	t_data;
 
 // prototypes
@@ -34,4 +38,6 @@ void	init_structs(t_data *data);
 void	check_valid(t_data *data);
 size_t	count_numbers(char *argv);
 void	check_doubles(t_data *data);
+long	ft_atolong(const char *nptr);
+void	check_arrays(t_data *data);
 #endif

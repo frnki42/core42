@@ -11,14 +11,22 @@ void	convert_argv(t_data *data, char *argv)
 
 void	convert_input(t_data *data)
 {
-	int	y;
+	int	i;
 
 	data->stack_a = (int *)malloc(sizeof(int) * data->size);
 	if (!data->stack_a)
 		exit_error(data);
-	y = -1;
-	while (data->input[++y])
-		data->stack_a[y] = ft_atoi(data->input[y]);
+	data->stack_c = (long *)malloc(sizeof(long) * data->size);
+	if (!data->stack_c)
+		exit_error(data);
+	i = -1;
+	while (data->input[++i])
+	{
+		data->stack_a[i] = ft_atoi(data->input[i]);
+		data->stack_c[i] = ft_atolong(data->input[i]);
+		ft_printf("%i\n", data->stack_a[i]);
+		ft_printf("%i\n", data->stack_c[i]);
+	}
 }
 
 void	single_arg(t_data *data, char *argv)
@@ -34,6 +42,8 @@ void	single_arg(t_data *data, char *argv)
 	// convert *char to *int
 	convert_input(data);
 	check_doubles(data);
+	// check if numbers fit into an int
+	check_arrays(data);
 }
 
 int	main(int argc, char **argv)
