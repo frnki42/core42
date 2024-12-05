@@ -20,6 +20,8 @@ void	check_input(t_data *data)
 	int	x;
 	int	y;
 
+	if (!data->input)
+		exit_error(data);
 	y = -1;
 	while (data->input[++y])
 	{
@@ -35,7 +37,7 @@ void	check_input(t_data *data)
 }
 
 // check if numbers fit into an int
-void	check_arrays(t_data *data)
+void	check_ints(t_data *data)
 {
 	size_t	i;
 
@@ -46,14 +48,4 @@ void	check_arrays(t_data *data)
 			exit_error(data);
 		i++;
 	}
-}
-// executes all checks
-void	check_valid(t_data *data)
-{
-
-	if (!data->input)
-		exit_error(data);
-	// check_characters(data);
-	check_input(data);
-	// check if there is doubles
 }

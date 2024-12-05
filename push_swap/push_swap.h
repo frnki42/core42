@@ -12,9 +12,6 @@
 
 #ifndef PUSHSWAP_H
 # define PUSHSWAP_H
-
-# define INT_MIN (-2147483647 - 1)
-# define INT_MAX 2147483647
 // std header
 // custom header
 # include "libft/get_next_line/get_next_line.h"
@@ -39,5 +36,6 @@ void	check_valid(t_data *data);
 size_t	count_numbers(char *argv);
 void	check_doubles(t_data *data);
 long	ft_atolong(const char *nptr);
-void	check_arrays(t_data *data);
+void	check_ints(t_data *data);
+void	check_input(t_data *data);
 #endif

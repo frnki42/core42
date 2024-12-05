@@ -24,26 +24,19 @@ void	convert_input(t_data *data)
 	{
 		data->stack_a[i] = ft_atoi(data->input[i]);
 		data->stack_c[i] = ft_atolong(data->input[i]);
-		ft_printf("%i\n", data->stack_a[i]);
-		ft_printf("%i\n", data->stack_c[i]);
 	}
 }
 
 void	single_arg(t_data *data, char *argv)
 {
-	// check if argv[1] is one or multiple numbers
 	data->size = count_numbers(argv);
 	if (data->size < 1)
 		exit_clean(data);
-	// convert *char to *char[data->size]
 	convert_argv(data, argv);
-	// check if data->input is valid (only numbers)
-	check_valid(data);
-	// convert *char to *int
+	check_input(data);
 	convert_input(data);
 	check_doubles(data);
-	// check if numbers fit into an int
-	check_arrays(data);
+	check_ints(data);
 }
 
 int	main(int argc, char **argv)
@@ -51,7 +44,6 @@ int	main(int argc, char **argv)
 	t_data	data;
 	if (argc == 1)
 		return (ft_putstr_fd(argv[0], 1), 1);
-	// initialize structures
 	init_structs(&data);
 	if (argc == 2)
 		single_arg(&data, argv[1]);
