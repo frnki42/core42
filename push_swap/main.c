@@ -3,10 +3,10 @@
 void	convert_argv(t_data *data, char *argv)
 {
 	if (!argv)
-		exit_clean(data);
+		exit_error(data);
 	data->input = ft_split(argv, ' ');
 	if (!data->input)
-		exit_clean(data);
+		exit_error(data);
 }
 
 void	convert_input(t_data *data)
