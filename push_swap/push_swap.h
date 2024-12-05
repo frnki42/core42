@@ -33,4 +33,5 @@ void	exit_error(t_data *data);
 void	init_structs(t_data *data);
 void	check_valid(t_data *data);
 size_t	count_numbers(char *argv);
+void	check_doubles(t_data *data);
 #endif

@@ -33,6 +33,7 @@ void	single_arg(t_data *data, char *argv)
 	check_valid(data);
 	// convert *char to *int
 	convert_input(data);
+	check_doubles(data);
 }
 
 int	main(int argc, char **argv)

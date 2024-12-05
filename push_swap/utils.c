@@ -3,20 +3,38 @@
 size_t	count_numbers(char *argv)
 {
 	size_t	amount;
-	size_t	is_number;
+	size_t	number;
 
 	amount = 0;
-	is_number = 0;
+	number = 0;
 	while (*argv)
 	{
-		if (*argv != ' ' && is_number == 0)
+		if (*argv != ' ' && number == 0)
 		{
-			is_number = 1;
+			number = 1;
 			amount++;
 		}
 		if (*argv == ' ')
-			is_number = 0;
+			number = 0;
 		argv++;
 	}
 	return (amount);
+}
+
+void	check_doubles(t_data *data)
+{
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	while (i < data->size)
+	{
+		j = 1 + i;
+		while (j < data->size)
+		{
+			if (data->stack_a[i] == data->stack_a[j++])
+				exit_error(data);
+		}
+		i++;
+	}
 }
