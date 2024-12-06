@@ -20,11 +20,20 @@
 
 // typedef & structs
 
+typedef struct s_stack
+{
+	int		num;
+	struct s_stack	*prev;
+	struct s_stack	*next;
+}	t_stack;
+
 typedef struct	s_data
 {
 	char	**input;
 	long	*numbers;
 	size_t	size;
+	t_stack	a;
+	t_stack	b;
 }	t_data;
 
 // prototypes
