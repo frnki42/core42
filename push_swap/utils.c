@@ -49,6 +49,12 @@ long	ft_atolong(const char *nptr)
 void	init_structs(t_data *data)
 {
 	data->input = NULL;
-	data->size = 0;
 	data->numbers = NULL;
+	data->size = 0;
+	data->a.num = 0;
+	data->a.prev = NULL;
+	data->a.next = NULL;
+	data->b.num = 0;
+	data->b.prev = NULL;
+	data->b.next = NULL;
 }
