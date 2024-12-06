@@ -9,6 +9,25 @@ void	convert_argv(t_data *data, char *argv)
 		exit_error(data);
 }
 
+void	convert_args(t_data *data, char **argv)
+{
+	size_t	i;
+
+	data->input = (char **)malloc(sizeof(char *) * (data->size + 1));
+	if (!data->input)
+		exit_error(data);
+	i = 0;
+	while (i < data->size)
+	{
+		data->input[i] = (char *)malloc(ft_strlen(argv[i + 1]) + 1);
+		if (!data->input[i])
+			exit_error(data);
+		ft_strlcpy(data->input[i], argv[i + 1], ft_strlen(argv[i + 1]) + 1);
+		i++;
+	}
+	data->input[i] = NULL;
+}
+
 void	convert_input(t_data *data)
 {
 	int	i;
@@ -39,21 +58,28 @@ void	single_arg(t_data *data, char *argv)
 	check_ints(data);
 }
 
+void	multiple_args(t_data *data, int argc, char **argv)
+{
+	data->size = argc - 1;
+	if (data->size < 1)
+		exit_clean(data);
+	convert_args(data, argv);
+	check_input(data);
+	convert_input(data);
+	check_ints(data);
+}
+
 int	main(int argc, char **argv)
 {
 	t_data	data;
+
 	if (argc == 1)
 		return (ft_putstr_fd(argv[0], 1), 1);
 	init_structs(&data);
 	if (argc == 2)
 		single_arg(&data, argv[1]);
 	if (argc > 2)
-	{
-		// multiple_args(data);
-		// store args
-		// check args if valid
-		// convert args to *int
-	}
+		multiple_args(&data, argc, argv);
 	// execute algorithm
 	exit_clean(&data);
 	return (0);
