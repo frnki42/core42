@@ -19,12 +19,11 @@
 # include "libft/libft.h"
 
 // typedef & structs
+
 typedef struct	s_data
 {
 	char	**input;
-	int	*stack_a;
-	int	*stack_b;
-	long	*stack_c;
+	long	*numbers;
 	size_t	size;
 }	t_data;
 

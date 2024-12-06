@@ -47,7 +47,7 @@ void	check_doubles(t_data *data)
 		j = 1 + i;
 		while (j < data->size)
 		{
-			if (data->stack_a[i] == data->stack_a[j++])
+			if (data->numbers[i] == data->numbers[j++])
 				exit_error(data);
 		}
 		i++;
@@ -62,7 +62,7 @@ void	check_ints(t_data *data)
 	i = 0;
 	while (i < data->size)
 	{
-		if (data->stack_c[i] != (int)data->stack_c[i])
+		if (data->numbers[i] != (int)data->numbers[i])
 			exit_error(data);
 		i++;
 	}

@@ -32,18 +32,13 @@ void	convert_input(t_data *data)
 {
 	int	i;
 
-	data->stack_a = (int *)malloc(sizeof(int) * data->size);
-	if (!data->stack_a)
-		exit_error(data);
-	data->stack_c = (long *)malloc(sizeof(long) * data->size);
-	if (!data->stack_c)
+
+	data->numbers = (long *)malloc(sizeof(long) * data->size);
+	if (!data->numbers)
 		exit_error(data);
 	i = -1;
 	while (data->input[++i])
-	{
-		data->stack_a[i] = ft_atoi(data->input[i]);
-		data->stack_c[i] = ft_atolong(data->input[i]);
-	}
+		data->numbers[i] = ft_atolong(data->input[i]);
 }
 
 void	process_single_arg(t_data *data, char *argv)
