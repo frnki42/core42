@@ -48,6 +48,7 @@ void	convert_input(t_data *data)
 
 void	single_arg(t_data *data, char *argv)
 {
+	init_structs(data);
 	data->size = count_numbers(argv);
 	if (data->size < 1)
 		exit_clean(data);
@@ -60,6 +61,7 @@ void	single_arg(t_data *data, char *argv)
 
 void	multiple_args(t_data *data, int argc, char **argv)
 {
+	init_structs(data);
 	data->size = argc - 1;
 	if (data->size < 1)
 		exit_clean(data);
@@ -76,7 +78,6 @@ int	main(int argc, char **argv)
 
 	if (argc == 1)
 		return (ft_putstr_fd(argv[0], 1), 1);
-	init_structs(&data);
 	if (argc == 2)
 		single_arg(&data, argv[1]);
 	if (argc > 2)
