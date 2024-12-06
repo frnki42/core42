@@ -22,10 +22,10 @@
 typedef struct	s_data
 {
 	char	**input;
-	size_t	size;
 	int	*stack_a;
 	int	*stack_b;
 	long	*stack_c;
+	size_t	size;
 }	t_data;
 
 // prototypes
