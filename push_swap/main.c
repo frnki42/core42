@@ -66,6 +66,7 @@ void	multiple_args(t_data *data, int argc, char **argv)
 	convert_args(data, argv);
 	check_input(data);
 	convert_input(data);
+	check_doubles(data);
 	check_ints(data);
 }
 
