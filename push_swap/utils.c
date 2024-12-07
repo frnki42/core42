@@ -57,7 +57,7 @@ void	fill_stack(t_data *data)
 	while (i < data->size)
 	{
 		data->a[i].num = (int)data->numbers[i];
-		if (i == 0)
+		if (!i)
 			data->a[i].prev = NULL;
 		else
 			data->a[i].prev = &data->a[i - 1];
@@ -71,9 +71,9 @@ void	fill_stack(t_data *data)
 
 void	init_structs(t_data *data)
 {
+	data->size = 0;
 	data->input = NULL;
 	data->numbers = NULL;
-	data->size = 0;
 	data->a = NULL;
 	data->b = NULL;
 }

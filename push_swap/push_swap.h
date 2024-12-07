@@ -29,9 +29,9 @@ typedef struct s_stack
 
 typedef struct	s_data
 {
+	size_t	size;
 	char	**input;
 	long	*numbers;
-	size_t	size;
 	t_stack	*a;
 	t_stack	*b;
 }	t_data;
