@@ -46,6 +46,29 @@ long	ft_atolong(const char *nptr)
 	return (result * either);
 }
 
+void	fill_stack(t_data *data)
+{
+	size_t	i;
+
+	data->a = (t_stack *)malloc(sizeof(t_stack) * data->size);
+	if (!data->a)
+		exit_error(data);
+	i = 0;
+	while (i < data->size)
+	{
+		data->a[i].num = (int)data->numbers[i];
+		if (i == 0)
+			data->a[i].prev = NULL;
+		else
+			data->a[i].prev = &data->a[i - 1];
+		if (i < data->size - 1)
+			data->a[i].next = &data->a[i + 1];
+		else
+			data->a[i].next = NULL;
+		i++;
+	}
+}
+
 void	init_structs(t_data *data)
 {
 	data->input = NULL;

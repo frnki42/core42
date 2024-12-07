@@ -41,7 +41,7 @@ void	convert_input(t_data *data)
 		data->numbers[i] = ft_atolong(data->input[i]);
 }
 
-void	process_single_arg(t_data *data, char *argv)
+static void	process_single_arg(t_data *data, char *argv)
 {
 	init_structs(data);
 	data->size = count_numbers(argv);
@@ -52,9 +52,10 @@ void	process_single_arg(t_data *data, char *argv)
 	convert_input(data);
 	check_doubles(data);
 	check_ints(data);
+	fill_stack(data);
 }
 
-void	process_multiple_args(t_data *data, int argc, char **argv)
+static void	process_multiple_args(t_data *data, int argc, char **argv)
 {
 	init_structs(data);
 	data->size = argc - 1;
@@ -65,6 +66,7 @@ void	process_multiple_args(t_data *data, int argc, char **argv)
 	convert_input(data);
 	check_doubles(data);
 	check_ints(data);
+	fill_stack(data);
 }
 
 int	main(int argc, char **argv)

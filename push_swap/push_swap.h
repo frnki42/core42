@@ -46,4 +46,5 @@ void	check_doubles(t_data *data);
 long	ft_atolong(const char *nptr);
 void	check_ints(t_data *data);
 void	check_input(t_data *data);
+void	fill_stack(t_data *data);
 #endif
