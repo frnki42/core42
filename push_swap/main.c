@@ -32,7 +32,6 @@ void	convert_input(t_data *data)
 {
 	int	i;
 
-
 	data->numbers = (long *)malloc(sizeof(long) * data->size);
 	if (!data->numbers)
 		exit_error(data);
@@ -79,6 +78,15 @@ int	main(int argc, char **argv)
 		process_single_arg(&data, argv[1]);
 	if (argc > 2)
 		process_multiple_args(&data, argc, argv);
+	while (data.size--)
+	{
+		ft_printf("# INDEX NO.  %i\n", data.size);
+		ft_printf("# NUM:       %i\n", data.a[data.size].num);
+		ft_printf("# POSITION:  %p\n", &data.a[data.size].num);
+		ft_printf("# PREV:      %p\n", data.a[data.size].prev);
+		ft_printf("# NEXT:      %p\n", data.a[data.size].next);
+		ft_printf("#############################\n");
+	}
 	// execute algorithm
 	exit_clean(&data);
 	return (0);
