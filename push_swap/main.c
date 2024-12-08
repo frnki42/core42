@@ -2,8 +2,6 @@
 
 void	convert_argv(t_data *data, char *argv)
 {
-	if (!argv)
-		exit_error(data);
 	data->input = ft_split(argv, ' ');
 	if (!data->input)
 		exit_error(data);
@@ -78,6 +76,7 @@ int	main(int argc, char **argv)
 		process_single_arg(&data, argv[1]);
 	if (argc > 2)
 		process_multiple_args(&data, argc, argv);
+	//removemepls
 	while (data.size--)
 	{
 		ft_printf("# INDEX NO.  %i\n", data.size);
@@ -87,6 +86,7 @@ int	main(int argc, char **argv)
 		ft_printf("# NEXT:      %p\n", data.a[data.size].next);
 		ft_printf("#############################\n");
 	}
+	//test_algo(data);
 	// execute algorithm
 	exit_clean(&data);
 	return (0);
