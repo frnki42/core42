@@ -66,6 +66,22 @@ static void	process_multiple_args(t_data *data, int argc, char **argv)
 	fill_stack(data);
 }
 
+void	print_stack(t_data *data)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < data->size)
+	{
+		ft_printf("# INDEX NO.  %i\n", data->size);
+		ft_printf("# NUM:       %i\n", data->a[i].num);
+		ft_printf("# POSITION:  %p\n", &data->a[i].num);
+		ft_printf("# PREV:      %p\n", data->a[i].prev);
+		ft_printf("# NEXT:      %p\n", data->a[i++].next);
+		ft_printf("#############################\n");
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	t_data	data;
@@ -76,17 +92,8 @@ int	main(int argc, char **argv)
 		process_single_arg(&data, argv[1]);
 	if (argc > 2)
 		process_multiple_args(&data, argc, argv);
-	//removemepls
-	while (data.size--)
-	{
-		ft_printf("# INDEX NO.  %i\n", data.size);
-		ft_printf("# NUM:       %i\n", data.a[data.size].num);
-		ft_printf("# POSITION:  %p\n", &data.a[data.size].num);
-		ft_printf("# PREV:      %p\n", data.a[data.size].prev);
-		ft_printf("# NEXT:      %p\n", data.a[data.size].next);
-		ft_printf("#############################\n");
-	}
-	//test_algo(data);
+	print_stack(&data);					//!remove me
+	select_algo(&data);
 	// execute algorithm
 	exit_clean(&data);
 	return (0);
