@@ -48,4 +48,5 @@ void	check_ints(t_data *data);
 void	check_input(t_data *data);
 void	fill_stack(t_data *data);
 void	select_algo(t_data *data);
+void	swap_a(t_data *data);
 #endif

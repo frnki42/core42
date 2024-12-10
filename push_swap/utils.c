@@ -62,12 +62,11 @@ void	fill_stack(t_data *data)
 		else
 			data->a[i].prev = &data->a[i - 1];
 		if (i == data->size - 1)
-			data->a[i].next = &data->a[0];
+			data->a[i].next = NULL;
 		else
 			data->a[i].next = &data->a[i + 1];
 		i++;
 	}
-	data->a[0].prev = &data->a[i - 1];
 }
 
 void	init_structs(t_data *data)

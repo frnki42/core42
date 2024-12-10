@@ -73,7 +73,7 @@ void	print_stack(t_data *data)
 	i = 0;
 	while (i < data->size)
 	{
-		ft_printf("# INDEX NO.  %i\n", data->size);
+		ft_printf("# INDEX NO.  %i\n", i);
 		ft_printf("# NUM:       %i\n", data->a[i].num);
 		ft_printf("# POSITION:  %p\n", &data->a[i].num);
 		ft_printf("# PREV:      %p\n", data->a[i].prev);
@@ -94,6 +94,8 @@ int	main(int argc, char **argv)
 		process_multiple_args(&data, argc, argv);
 	print_stack(&data);					//!remove me
 	select_algo(&data);
+	swap_a(&data);
+	print_stack(&data);					//!remove me
 	// execute algorithm
 	exit_clean(&data);
 	return (0);
