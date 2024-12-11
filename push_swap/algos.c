@@ -32,7 +32,7 @@ static void	algo43(t_data *data)
 		{
 			if (data->a->num < data->a->next->next->num)
 				swap_a(data);
-			else if (data->a->num > data->a->next->next->num)
+			else
 				rotate_a(data);
 		}
 	}
