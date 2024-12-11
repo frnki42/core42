@@ -46,7 +46,7 @@ long	ft_atolong(const char *nptr)
 	return (result * either);
 }
 
-void	fill_stack(t_data *data)
+void	fill_stack_a(t_data *data)
 {
 	size_t	i;
 
@@ -67,6 +67,13 @@ void	fill_stack(t_data *data)
 			data->a[i].next = &data->a[i + 1];
 		i++;
 	}
+}
+
+void	fill_stack_b(t_data *data)
+{
+	data->b = (t_stack *)malloc(sizeof(t_stack));
+	if (!data->b)
+		exit_error(data);
 }
 
 void	init_structs(t_data *data)

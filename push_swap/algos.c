@@ -2,19 +2,13 @@
 
 static void	algo42(t_data *data)
 {
-	int	tmp;
-
-	ft_printf("# + ALGO42 SELECTED! +\n");
-	ft_printf("# [0] BEFORE ALGO42: %i\n", data->a[0].num);
-	ft_printf("# [1] BEFORE ALGO42: %i\n", data->a[1].num);
+	ft_printf("# + ALGO42 SELECTED! +\n");				// remove me
+	ft_printf("# [0] BEFORE ALGO42: %i\n", data->a[0].num);		// remove me
+	ft_printf("# [1] BEFORE ALGO42: %i\n", data->a[1].num);		// remove me
 	if (data->a[0].num > data->a[1].num)
-	{
-		tmp = data->a[0].num;
-		data->a[0].num = data->a[1].num;
-		data->a[1].num = tmp;
-	}
-	ft_printf("# [0] AFTER ALGO42: %i\n", data->a[0].num);
-	ft_printf("# [1] AFTER ALGO42: %i\n", data->a[1].num);
+		swap_a(data);
+	ft_printf("# [0] AFTER ALGO42: %i\n", data->a[0].num);		// remove me
+	ft_printf("# [1] AFTER ALGO42: %i\n", data->a[1].num);		// remove me
 }
 
 void	select_algo(t_data *data)

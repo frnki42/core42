@@ -49,7 +49,8 @@ static void	process_single_arg(t_data *data, char *argv)
 	convert_input(data);
 	check_doubles(data);
 	check_ints(data);
-	fill_stack(data);
+	fill_stack_a(data);
+	fill_stack_b(data);
 }
 
 static void	process_multiple_args(t_data *data, int argc, char **argv)
@@ -63,7 +64,8 @@ static void	process_multiple_args(t_data *data, int argc, char **argv)
 	convert_input(data);
 	check_doubles(data);
 	check_ints(data);
-	fill_stack(data);
+	fill_stack_a(data);
+	fill_stack_b(data);
 }
 
 void	print_stack(t_data *data)

@@ -36,6 +36,7 @@ void	check_input(t_data *data)
 	}
 }
 
+// checks for duplicates
 void	check_doubles(t_data *data)
 {
 	size_t	i;
