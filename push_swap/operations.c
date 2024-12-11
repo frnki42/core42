@@ -5,10 +5,13 @@ void	swap_a(t_data *data)
 {
 	int	tmp;
 
-	tmp = data->a->num;
-	data->a->num = data->a->next->num;
-	data->a->next->num = tmp;
-	write(1, "sa\n", 3);
+	if (data->a && data->a->next)
+	{
+		tmp = data->a->num;
+		data->a->num = data->a->next->num;
+		data->a->next->num = tmp;
+		write(1, "sa\n", 3);
+	}
 }
 
 // swaps first 2 ints on stack b
@@ -16,10 +19,13 @@ void	swap_b(t_data *data)
 {
 	int	tmp;
 
-	tmp = data->b->num;
-	data->b->num = data->b->next->num;
-	data->b->next->num = tmp;
-	write(1, "sb\n", 3);
+	if (data->b && data->b->next)
+	{
+		tmp = data->b->num;
+		data->b->num = data->b->next->num;
+		data->b->next->num = tmp;
+		write(1, "sb\n", 3);
+	}
 }
 
 // pushes top element from stack b to the top of stack a
