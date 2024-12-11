@@ -54,6 +54,8 @@ void	push_a(t_data *data);
 void	push_b(t_data *data);
 void	rotate_a(t_data *data);
 void	rotate_b(t_data *data);
+void	rotate_both_stacks(t_data *data);
 void	reverse_rotate_a(t_data *data);
 void	reverse_rotate_b(t_data *data);
+void	reverse_rotate_both_stacks(t_data *data);
 #endif

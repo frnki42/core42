@@ -119,6 +119,17 @@ void	rotate_b(t_data *data)
 	}
 }
 
+// rotates stack a and stack b
+void	rotate_both_stacks(t_data *data)
+{
+	if (data->a && data->a->next && data->b && data->b->next)
+	{
+		rotate_a(data);
+		rotate_b(data);
+		write(1, "rr\n", 3);
+	}
+}
+
 // reverse rotates stack a
 void	reverse_rotate_a(t_data *data)
 {
@@ -158,5 +169,15 @@ void	reverse_rotate_b(t_data *data)
 		tmp->next = data->b;
 		data->b = tmp;
 		write(1, "rrb\n", 4);
+	}
+}
+
+void	reverse_rotate_both_stacks(t_data *data)
+{
+	if (data->a && data->a->next && data->b && data->b->next)
+	{
+		reverse_rotate_a(data);
+		reverse_rotate_b(data);
+		write(1, "rrr\n", 4);
 	}
 }
