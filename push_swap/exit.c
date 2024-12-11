@@ -21,10 +21,29 @@ static void	free_numbers(t_data *data)
 
 static void	free_stacks(t_data *data)
 {
+	t_stack	*current;
+	t_stack	*next;
+
 	if (data->a)
-		free(data->a);
+	{
+		current = data->a;
+		while (current)
+		{
+			next = current->next;
+			free(current);
+			current = next;
+		}
+	}
 	if (data->b)
-		free(data->b);
+	{
+		current = data->b;
+		while (current)
+		{
+			next = current->next;
+			free(current);
+			current = next;
+		}
+	}
 }
 
 void	exit_clean(t_data *data)

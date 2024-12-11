@@ -4,16 +4,12 @@ void	swap_a(t_data *data)
 {
 	int	tmp;
 
-	if (data->size > 1)
-	{
-		tmp = 0;
-		tmp = data->a[0].num;
-		data->a[0].num = data->a[1].num;
-		data->a[1].num = tmp;
-		write(1, "sa\n", 3);
-	}
+	tmp = data->a->num;
+	data->a->num = data->a->next->num;
+	data->a->next->num = tmp;
+	write(1, "sa\n", 3);
 }
-
+/*
 void	swap_b(t_data *data)
 {
 	int	tmp;
@@ -27,3 +23,4 @@ void	swap_b(t_data *data)
 		write(1, "sb\n", 3);
 	}
 }
+*/

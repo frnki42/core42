@@ -50,30 +50,26 @@ void	fill_stack_a(t_data *data)
 {
 	size_t	i;
 
-	data->a = (t_stack *)malloc(sizeof(t_stack) * data->size);
-	if (!data->a)
-		exit_error(data);
+	t_stack	*new;
+	t_stack	*prev;
+
 	i = 0;
+	new = NULL;
+	prev = NULL;
 	while (i < data->size)
 	{
-		data->a[i].num = (int)data->numbers[i];
-		if (!i)
-			data->a[i].prev = NULL;
+		new = (t_stack *)malloc(sizeof(t_stack));
+		if (!new)
+			exit_error(data);
+		new->num = (int)data->numbers[i];
+		new->next = NULL;
+		if (prev)
+			prev->next = new;
 		else
-			data->a[i].prev = &data->a[i - 1];
-		if (i == data->size - 1)
-			data->a[i].next = NULL;
-		else
-			data->a[i].next = &data->a[i + 1];
+			data->a = new;
+		prev = new;
 		i++;
 	}
-}
-
-void	fill_stack_b(t_data *data)
-{
-	data->b = (t_stack *)malloc(sizeof(t_stack));
-	if (!data->b)
-		exit_error(data);
 }
 
 void	init_structs(t_data *data)

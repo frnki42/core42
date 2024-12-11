@@ -23,7 +23,6 @@
 typedef struct s_stack
 {
 	int		num;
-	struct s_stack	*prev;
 	struct s_stack	*next;
 }	t_stack;
 
@@ -47,7 +46,6 @@ long	ft_atolong(const char *nptr);
 void	check_ints(t_data *data);
 void	check_input(t_data *data);
 void	fill_stack_a(t_data *data);
-void	fill_stack_b(t_data *data);
 void	select_algo(t_data *data);
 void	swap_a(t_data *data);
 void	swap_b(t_data *data);

@@ -50,7 +50,6 @@ static void	process_single_arg(t_data *data, char *argv)
 	check_doubles(data);
 	check_ints(data);
 	fill_stack_a(data);
-	fill_stack_b(data);
 }
 
 static void	process_multiple_args(t_data *data, int argc, char **argv)
@@ -65,22 +64,24 @@ static void	process_multiple_args(t_data *data, int argc, char **argv)
 	check_doubles(data);
 	check_ints(data);
 	fill_stack_a(data);
-	fill_stack_b(data);
 }
 
 void	print_stack(t_data *data)
 {
-	size_t	i;
+	t_stack *current;
+	size_t i;
 
+	current = data->a;
 	i = 0;
-	while (i < data->size)
+	while (current != NULL)
 	{
-		ft_printf("# INDEX NO.  %i\n", i);
-		ft_printf("# NUM:       %i\n", data->a[i].num);
-		ft_printf("# POSITION:  %p\n", &data->a[i].num);
-		ft_printf("# PREV:      %p\n", data->a[i].prev);
-		ft_printf("# NEXT:      %p\n", data->a[i++].next);
+		ft_printf("# INDEX NO.  %zu\n", i);
+		ft_printf("# NUM:       %d\n", current->num);
+		ft_printf("# POSITION:  %p\n", (void *)&current->num);
+		ft_printf("# NEXT:      %p\n", (void *)current->next);
 		ft_printf("#############################\n");
+		current = current->next;
+		i++;
 	}
 }
 
@@ -96,7 +97,6 @@ int	main(int argc, char **argv)
 		process_multiple_args(&data, argc, argv);
 	print_stack(&data);					//!remove me
 	select_algo(&data);
-	swap_a(&data);
 	print_stack(&data);					//!remove me
 	// execute algorithm
 	exit_clean(&data);
