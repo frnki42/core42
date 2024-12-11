@@ -59,3 +59,87 @@ void	push_b(t_data *data)
 		write(1, "pb\n", 3);
 	}
 }
+
+// rotates stack a
+void	rotate_a(t_data *data)
+{
+	t_stack	*last;
+	t_stack *tmp;
+
+	last = NULL;
+	tmp = NULL;
+	if (data->a && data->a->next)
+	{
+		tmp = data->a;
+		data->a = data->a->next;
+		last = data->a;
+		while (last->next)
+			last = last->next;
+		last->next = tmp;
+		tmp->next = NULL;
+		write(1, "ra\n", 3);
+	}
+}
+
+// rotates stack b
+void	rotate_b(t_data *data)
+{
+	t_stack	*last;
+	t_stack *tmp;
+
+	last = NULL;
+	tmp = NULL;
+	if (data->b && data->b->next)
+	{
+		tmp = data->b;
+		data->b = data->b->next;
+		last = data->b;
+		while (last->next)
+			last = last->next;
+		last->next = tmp;
+		tmp->next = NULL;
+		write(1, "rb\n", 3);
+	}
+}
+
+// reverse rotates stack a
+void	reverse_rotate_a(t_data *data)
+{
+	t_stack	*last;
+	t_stack *tmp;
+
+	last = NULL;
+	tmp = NULL;
+	if (data->a && data->a->next)
+	{
+		last = data->a;
+		while (last->next->next)
+			last = last->next;
+		tmp = last->next;
+		last->next = NULL;
+		tmp->next = data->a;
+		data->a = tmp;
+		write(1, "rra\n", 4);
+	}
+}
+
+// reverse rotates stack b
+void	reverse_rotate_b(t_data *data)
+{
+	t_stack	*last;
+	t_stack *tmp;
+
+	last = NULL;
+	tmp = NULL;
+	if (data->b && data->b->next)
+	{
+		last = data->b;
+		while (last->next->next)
+			last = last->next;
+		tmp = last->next;
+		last->next = NULL;
+		tmp->next = data->b;
+		data->b = tmp;
+		write(1, "rrb\n", 4);
+	}
+}

@@ -51,4 +51,8 @@ void	swap_a(t_data *data);
 void	swap_b(t_data *data);
 void	push_a(t_data *data);
 void	push_b(t_data *data);
+void	rotate_a(t_data *data);
+void	rotate_b(t_data *data);
+void	reverse_rotate_a(t_data *data);
+void	reverse_rotate_b(t_data *data);
 #endif

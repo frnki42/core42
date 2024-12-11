@@ -70,31 +70,24 @@ static void	process_multiple_args(t_data *data, int argc, char **argv)
 void	print_stack(t_data *data)			//!remove me
 {
 	t_stack *current;
-	size_t i;
 
 	current = data->a;
-	i = 0;
 	while (current)
 	{
-		ft_printf("#A INDEX NO.  %zu\n", i);
 		ft_printf("#A NUM:       %d\n", current->num);
 		ft_printf("#A POSITION:  %p\n", (void *)&current->num);
 		ft_printf("#A NEXT:      %p\n", (void *)current->next);
 		ft_printf("#######################################\n");
 		current = current->next;
-		i++;
 	}
 	current = data->b;
-	i = 0;
 	while (current)
 	{
-		ft_printf("#B INDEX NO.  %zu\n", i);
 		ft_printf("#B NUM:       %d\n", current->num);
 		ft_printf("#B POSITION:  %p\n", (void *)&current->num);
 		ft_printf("#B NEXT:      %p\n", (void *)current->next);
 		ft_printf("#######################################\n");
 		current = current->next;
-		i++;
 	}
 }
 
@@ -110,6 +103,9 @@ int	main(int argc, char **argv)
 		process_multiple_args(&data, argc, argv);
 	print_stack(&data);					//!remove me
 	select_algo(&data);
+	rotate_a(&data);
+	print_stack(&data);					//!remove me
+	reverse_rotate_a(&data);
 	print_stack(&data);					//!remove me
 	// execute algorithm
 	exit_clean(&data);
