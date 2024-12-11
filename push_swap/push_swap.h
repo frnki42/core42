@@ -50,4 +50,5 @@ void	select_algo(t_data *data);
 void	swap_a(t_data *data);
 void	swap_b(t_data *data);
 void	push_a(t_data *data);
+void	push_b(t_data *data);
 #endif
