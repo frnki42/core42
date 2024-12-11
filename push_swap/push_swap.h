@@ -59,4 +59,5 @@ void	reverse_rotate_a(t_data *data);
 void	reverse_rotate_b(t_data *data);
 void	reverse_rotate_both_stacks(t_data *data);
 void	algo43(t_data *data);
+void	is_sorted(t_data *data);
 #endif

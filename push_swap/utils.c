@@ -21,6 +21,24 @@ size_t	count_numbers(char *argv)
 	return (amount);
 }
 
+void	is_sorted(t_data *data)
+{
+	t_stack	*ptr;
+	int	i;
+
+	ptr = NULL;
+	i = 0;
+	ptr = data->a;
+	while (ptr->next)
+	{
+		if (ptr->num > ptr->next->num)
+			i = 1;
+		ptr = ptr->next;
+	}
+	if (!i)
+		exit_clean(data);
+}
+
 long	ft_atolong(const char *nptr)
 {
 	int	either;

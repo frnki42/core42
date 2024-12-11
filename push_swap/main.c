@@ -106,6 +106,7 @@ int	main(int argc, char **argv)
 	if (argc > 2)
 		process_multiple_args(&data, argc, argv);
 	print_stack(&data);					//!remove me
+	is_sorted(&data);
 	select_algo(&data);
 	print_stack(&data);					//!remove me
 	// execute algorithm
