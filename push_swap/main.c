@@ -20,7 +20,8 @@ void	convert_args(t_data *data, char **argv)
 		data->input[i] = (char *)malloc(ft_strlen(argv[i + 1]) + 1);
 		if (!data->input[i])
 			exit_error(data);
-		ft_strlcpy(data->input[i], argv[i + 1], ft_strlen(argv[i + 1]) + 1);
+		ft_strlcpy(data->input[i], argv[i + 1],
+			ft_strlen(argv[i + 1]) + 1);
 		i++;
 	}
 	data->input[i] = NULL;
@@ -109,8 +110,6 @@ int	main(int argc, char **argv)
 		process_multiple_args(&data, argc, argv);
 	print_stack(&data);					//!remove me
 	select_algo(&data);
-	push_b(&data);
-	push_b(&data);
 	print_stack(&data);					//!remove me
 	// execute algorithm
 	exit_clean(&data);

@@ -1,5 +1,6 @@
 #include "push_swap.h"
 
+// swaps first 2 ints on stack a
 void	swap_a(t_data *data)
 {
 	int	tmp;
@@ -10,6 +11,7 @@ void	swap_a(t_data *data)
 	write(1, "sa\n", 3);
 }
 
+// swaps first 2 ints on stack b
 void	swap_b(t_data *data)
 {
 	int	tmp;
@@ -20,6 +22,7 @@ void	swap_b(t_data *data)
 	write(1, "sb\n", 3);
 }
 
+// pushes top element from stack b to the top of stack a
 void	push_a(t_data *data)
 {
 	t_stack *tmp;
@@ -35,6 +38,7 @@ void	push_a(t_data *data)
 	}
 }
 
+// pushes top element from stack a to the top of stack b
 void	push_b(t_data *data)
 {
 	t_stack *tmp;
