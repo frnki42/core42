@@ -49,6 +49,7 @@ void	fill_stack_a(t_data *data);
 void	select_algo(t_data *data);
 void	swap_a(t_data *data);
 void	swap_b(t_data *data);
+void	swap_both_stacks(t_data *data);
 void	push_a(t_data *data);
 void	push_b(t_data *data);
 void	rotate_a(t_data *data);

@@ -106,6 +106,11 @@ int	main(int argc, char **argv)
 	rotate_a(&data);
 	print_stack(&data);					//!remove me
 	reverse_rotate_a(&data);
+	push_b(&data);
+	print_stack(&data);					//!remove me
+	push_b(&data);
+	print_stack(&data);					//!remove me
+	swap_both_stacks(&data);
 	print_stack(&data);					//!remove me
 	// execute algorithm
 	exit_clean(&data);
