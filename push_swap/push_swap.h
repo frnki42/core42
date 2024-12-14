@@ -28,6 +28,7 @@ typedef struct s_stack
 
 typedef struct	s_data
 {
+	int	highest;
 	int	lowest;
 	size_t	size;
 	char	**input;
@@ -37,7 +38,6 @@ typedef struct	s_data
 }	t_data;
 
 // prototypes
-void	algo43(t_data *data);
 void	algo44(t_data *data);
 void	check_doubles(t_data *data);
 void	check_input(t_data *data);
@@ -48,8 +48,13 @@ void	exit_clean(t_data *data);
 void	exit_error(t_data *data);
 void	fill_stack_a(t_data *data);
 long	ft_atolong(const char *nptr);
+void	handle_lowest_zero(t_data *data);
+void	handle_lowest_one(t_data *data);
+void	handle_lowest_two(t_data *data);
+void	handle_lowest_three(t_data *data);
 void	init_structs(t_data *data);
 void	is_sorted(t_data *data);
+void	print_stack(t_data *data);
 void	push_a(t_data *data);
 void	push_b(t_data *data);
 void	reverse_rotate_a(t_data *data);

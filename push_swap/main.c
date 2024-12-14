@@ -105,11 +105,9 @@ int	main(int argc, char **argv)
 		process_single_arg(&data, argv[1]);
 	if (argc > 2)
 		process_multiple_args(&data, argc, argv);
-	print_stack(&data);					//!remove me
 	is_sorted(&data);
 	select_algo(&data);
-	print_stack(&data);					//!remove me
-	// execute algorithm
+	print_stack(&data);			//!remove me
 	exit_clean(&data);
 	return (0);
 }
