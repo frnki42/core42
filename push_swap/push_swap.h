@@ -36,28 +36,29 @@ typedef struct	s_data
 }	t_data;
 
 // prototypes
-void	exit_clean(t_data *data);
-void	exit_error(t_data *data);
-void	init_structs(t_data *data);
+void	algo43(t_data *data);
+void	algo44(t_data *data);
+void	check_doubles(t_data *data);
+void	check_input(t_data *data);
+void	check_ints(t_data *data);
 void	check_valid(t_data *data);
 size_t	count_numbers(char *argv);
-void	check_doubles(t_data *data);
-long	ft_atolong(const char *nptr);
-void	check_ints(t_data *data);
-void	check_input(t_data *data);
+void	exit_clean(t_data *data);
+void	exit_error(t_data *data);
 void	fill_stack_a(t_data *data);
+long	ft_atolong(const char *nptr);
+void	init_structs(t_data *data);
+void	is_sorted(t_data *data);
+void	push_a(t_data *data);
+void	push_b(t_data *data);
+void	reverse_rotate_a(t_data *data);
+void	reverse_rotate_b(t_data *data);
+void	reverse_rotate_both_stacks(t_data *data);
+void	rotate_a(t_data *data);
+void	rotate_b(t_data *data);
+void	rotate_both_stacks(t_data *data);
 void	select_algo(t_data *data);
 void	swap_a(t_data *data);
 void	swap_b(t_data *data);
 void	swap_both_stacks(t_data *data);
-void	push_a(t_data *data);
-void	push_b(t_data *data);
-void	rotate_a(t_data *data);
-void	rotate_b(t_data *data);
-void	rotate_both_stacks(t_data *data);
-void	reverse_rotate_a(t_data *data);
-void	reverse_rotate_b(t_data *data);
-void	reverse_rotate_both_stacks(t_data *data);
-void	algo43(t_data *data);
-void	is_sorted(t_data *data);
 #endif

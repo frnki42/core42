@@ -12,4 +12,6 @@ void	select_algo(t_data *data)
 		algo42(data);
 	if (data->size == 3)
 		algo43(data);
+	if (data->size == 4)
+		algo44(data);
 }

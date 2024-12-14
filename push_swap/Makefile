@@ -28,7 +28,8 @@ PRINTF_DIR	= $(LIBFT_DIR)/printf
 PRINTF		= $(PRINTF_DIR)/printf.a
 
 # SRC- & OBJ-FILES
-SOURCE_FILES 	= algos.c algo43.c checks.c exit.c main.c operations.c utils.c
+SOURCE_FILES 	= algos.c algo43.c algo44.c checks.c exit.c main.c \
+		  operations.c utils.c
 OBJECT_FILES 	= ${SOURCE_FILES:.c=.o}
 
 # TARGETS
@@ -36,9 +37,9 @@ all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJECT_FILES)
 	@ $(CC) $(CFLAGS) $(OBJECT_FILES) -o $(NAME) $(LIBFT) $(PRINTF)
-	@echo "$(BLACK_ON_G)#######################################$(COLOR_OFF)"
-	@echo "$(BLACK_ON_G)#      PUSH_SWAP COMPILED     .frnki  #$(COLOR_OFF)"
-	@echo "$(BLACK_ON_G)#######################################$(COLOR_OFF)"
+	@echo "$(BLACK_ON_G)######################################$(COLOR_OFF)"
+	@echo "$(BLACK_ON_G)#     PUSH_SWAP COMPILED     .frnki  #$(COLOR_OFF)"
+	@echo "$(BLACK_ON_G)######################################$(COLOR_OFF)"
 
 # LIBFT++ (LIBFT+PRINTF+GET_NEXT_LINE)
 $(LIBFT):
@@ -49,9 +50,9 @@ $(LIBFT):
 clean:
 	@make clean -sC $(LIBFT_DIR)
 	@rm -f $(OBJECT_FILES)
-	@echo "$(BLACK_ON_G)#######################################$(COLOR_OFF)"
-	@echo "$(BLACK_ON_G)#       PUSH_SWAP CLEANED     .frnki  #$(COLOR_OFF)"
-	@echo "$(BLACK_ON_G)#######################################$(COLOR_OFF)"
+	@echo "$(BLACK_ON_G)######################################$(COLOR_OFF)"
+	@echo "$(BLACK_ON_G)#      PUSH_SWAP CLEANED     .frnki  #$(COLOR_OFF)"
+	@echo "$(BLACK_ON_G)######################################$(COLOR_OFF)"
 fclean: clean
 	@rm -f $(LIBFT)
 	@rm -f $(PRINTF)
