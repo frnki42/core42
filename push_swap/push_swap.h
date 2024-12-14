@@ -28,6 +28,7 @@ typedef struct s_stack
 
 typedef struct	s_data
 {
+	int	lowest;
 	size_t	size;
 	char	**input;
 	long	*numbers;
