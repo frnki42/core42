@@ -38,7 +38,9 @@ typedef struct	s_data
 }	t_data;
 
 // prototypes
+void	algo43(t_data *data);
 void	algo44(t_data *data);
+void	algo4more(t_data *data);
 void	check_doubles(t_data *data);
 void	check_input(t_data *data);
 void	check_ints(t_data *data);

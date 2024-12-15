@@ -67,7 +67,6 @@ long	ft_atolong(const char *nptr)
 void	fill_stack_a(t_data *data)
 {
 	size_t	i;
-
 	t_stack	*new;
 	t_stack	*prev;
 

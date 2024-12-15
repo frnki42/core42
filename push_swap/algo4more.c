@@ -27,17 +27,29 @@ static void	find_lowest_num(t_data *data)
 		ptr = ptr->next;
 	}
 }
-
-void	algo44(t_data *data)
+void	algo4more(t_data *data)
 {
+	t_stack	*ptr;
+	size_t	size;
+
 	find_highest_num(data);
 	find_lowest_num(data);
-	if (data->a->num == data->lowest)
-		handle_lowest_zero(data);
-	else if (data->a->next->num == data->lowest)
-		handle_lowest_one(data);
-	else if (data->a->next->next->num == data->lowest)
-		handle_lowest_two(data);
-	else if (data->a->next->next->next->num == data->lowest)
-		handle_lowest_three(data);
+	ptr = data->a;
+	size = data->size;
+	while (size > 4)
+	{
+		ptr = data->a;
+		if (ptr->num == data->lowest)
+		{
+			push_b(data);
+			size--;
+			find_lowest_num(data);
+		}
+		else
+			rotate_a(data);
+	}
+	algo44(data);
+	while (data->b)
+		push_a(data);
+	print_stack(data);
 }

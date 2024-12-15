@@ -107,7 +107,6 @@ int	main(int argc, char **argv)
 		process_multiple_args(&data, argc, argv);
 	is_sorted(&data);
 	select_algo(&data);
-	print_stack(&data);			//!remove me
 	exit_clean(&data);
 	return (0);
 }

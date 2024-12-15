@@ -29,7 +29,8 @@ PRINTF		= $(PRINTF_DIR)/printf.a
 
 # SRC- & OBJ-FILES
 SOURCE_FILES 	= algos.c algo44.c algo44_0.c algo44_1.c algo44_2.c \
-		  algo44_3.c checks.c exit.c main.c operations.c utils.c
+		  algo44_3.c algo4more.c checks.c exit.c main.c operations.c \
+		  utils.c
 OBJECT_FILES 	= ${SOURCE_FILES:.c=.o}
 
 # TARGETS

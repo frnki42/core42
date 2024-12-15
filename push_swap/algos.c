@@ -30,7 +30,7 @@ static void	handle_bigger_number(t_data *data)
 	}
 }
 
-static void	algo43(t_data *data)
+void	algo43(t_data *data)
 {
 	if (data->a->num < data->a->next->num)
 		handle_smaller_number(data);
@@ -52,4 +52,6 @@ void	select_algo(t_data *data)
 		algo43(data);
 	if (data->size == 4)
 		algo44(data);
+	if (data->size > 4)
+		algo4more(data);
 }
