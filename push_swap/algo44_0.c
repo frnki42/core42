@@ -2,9 +2,12 @@
 
 static void	handle_highest_two(t_data *data)
 {
-	push_b(data);
-	swap_a(data);
-	push_a(data);
+	if (data->a->next->num > data->a->next->next->num)
+	{
+		push_b(data);
+		swap_a(data);
+		push_a(data);
+	}
 }
 static void	handle_highest_one(t_data *data)
 {
@@ -31,8 +34,8 @@ static void	handle_highest_zero(t_data *data)
 	else if (data->a->next->next->num > data->a->next->next->next->num)
 	{
 		push_b(data);
-		rotate_a(data);
-		rotate_a(data);
+		swap_a(data);
+		reverse_rotate_a(data);
 		push_a(data);
 	}
 }

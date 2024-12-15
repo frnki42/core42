@@ -51,5 +51,4 @@ void	algo4more(t_data *data)
 	algo44(data);
 	while (data->b)
 		push_a(data);
-	print_stack(data);
 }

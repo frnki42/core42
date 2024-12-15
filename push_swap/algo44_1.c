@@ -34,10 +34,10 @@ static void	handle_highest_one(t_data *data)
 static void	handle_highest_zero(t_data *data)
 {
 	if (data->a->next->next->num < data->a->next->next->next->num)
-		reverse_rotate_a(data);
+		rotate_a(data);
 	else if (data->a->next->next->num > data->a->next->next->next->num)
 	{
-		reverse_rotate_a(data);
+		rotate_a(data);
 		push_b(data);
 		swap_a(data);
 		push_a(data);
