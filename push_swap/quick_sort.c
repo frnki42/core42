@@ -13,7 +13,7 @@ static void	set_pivot(t_data *data)
 	}
 }
 
-static size_t	stack_length(t_stack *stack)
+static size_t	stack_height(t_stack *stack)
 {
 	size_t	len;
 	t_stack	*ptr;
@@ -34,10 +34,8 @@ static void	partition(t_data *data)
 	t_stack	*tmp;
 	size_t	size;
 
-
-	set_pivot(data);
 	ptr = data->a;
-	size = stack_length(ptr);
+	size = stack_height(ptr);
 	while (size--)
 	{
 		tmp = ptr->next;
@@ -55,6 +53,7 @@ void	quick_sort(t_data *data)
 	find_lowest_a(data);
 	find_highest_b(data);
 	find_lowest_b(data);
+	set_pivot(data);
 	partition(data);
 	print_stack(data);
 }
