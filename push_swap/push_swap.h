@@ -28,6 +28,7 @@ typedef struct s_stack
 
 typedef struct	s_data
 {
+	int	fourth_highest;
 	int	highest_a;
 	int	highest_b;
 	int	lowest_a;
