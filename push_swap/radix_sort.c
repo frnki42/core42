@@ -1,15 +1,15 @@
 #include "push_swap.h"
 
-static void	find_highest_num(t_data *data)
+static void	find_highest_a(t_data *data)
 {
 	t_stack	*ptr;
 
-	data->highest = data->a->num;
+	data->highest_a = data->a->num;
 	ptr = data->a;
 	while (ptr)
 	{
-		if (data->highest < ptr->num)
-			data->highest = ptr->num;
+		if (data->highest_a < ptr->num)
+			data->highest_a = ptr->num;
 		ptr = ptr->next;
 	}
 }
@@ -21,10 +21,10 @@ void	radix_sort(t_data *data)
 	size_t	size;
 	int	tmp;
 
-	find_highest_num(data);
+	find_highest_a(data);
 	bits = 0;
 	i = 0;
-	tmp = data->highest;
+	tmp = data->highest_a;
 	while ((tmp >> bits) != 0)
 		bits++;
 	while (i < bits)

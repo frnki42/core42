@@ -55,5 +55,7 @@ void	select_algo(t_data *data)
 	if (data->size == 5)
 		algo45(data);
 	if (data->size > 5)
-		radix_sort(data);
+		quick_sort(data);
+//	if (data->size > 5)
+//		radix_sort(data);
 }

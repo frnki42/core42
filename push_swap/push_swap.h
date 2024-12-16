@@ -28,8 +28,11 @@ typedef struct s_stack
 
 typedef struct	s_data
 {
-	int	highest;
-	int	lowest;
+	int	highest_a;
+	int	highest_b;
+	int	lowest_a;
+	int	lowest_b;
+	int	pivot;
 	size_t	size;
 	char	**input;
 	long	*numbers;
@@ -70,4 +73,5 @@ void	select_algo(t_data *data);
 void	swap_a(t_data *data);
 void	swap_b(t_data *data);
 void	swap_both_stacks(t_data *data);
+void	quick_sort(t_data *data);
 #endif

@@ -41,10 +41,10 @@ static void	handle_highest_zero(t_data *data)
 }
 void	handle_lowest_zero(t_data *data)
 {
-	if (data->a->next->num == data->highest)
+	if (data->a->next->num == data->highest_a)
 		handle_highest_zero(data);
-	else if (data->a->next->next->num == data->highest)
+	else if (data->a->next->next->num == data->highest_a)
 		handle_highest_one(data);
-	else if (data->a->next->next->next->num == data->highest)
+	else if (data->a->next->next->next->num == data->highest_a)
 		handle_highest_two(data);
 }
