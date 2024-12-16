@@ -52,6 +52,8 @@ void	select_algo(t_data *data)
 		algo43(data);
 	if (data->size == 4)
 		algo44(data);
-	if (data->size > 4)
-		algo4more(data);
+	if (data->size == 5)
+		algo45(data);
+	if (data->size > 5)
+		radix_sort(data);
 }

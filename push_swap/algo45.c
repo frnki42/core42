@@ -27,7 +27,7 @@ static void	find_lowest_num(t_data *data)
 		ptr = ptr->next;
 	}
 }
-void	algo4more(t_data *data)
+void	algo45(t_data *data)
 {
 	t_stack	*ptr;
 	size_t	size;

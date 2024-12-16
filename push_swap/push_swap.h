@@ -40,7 +40,7 @@ typedef struct	s_data
 // prototypes
 void	algo43(t_data *data);
 void	algo44(t_data *data);
-void	algo4more(t_data *data);
+void	algo45(t_data *data);
 void	check_doubles(t_data *data);
 void	check_input(t_data *data);
 void	check_ints(t_data *data);
@@ -59,6 +59,7 @@ void	is_sorted(t_data *data);
 void	print_stack(t_data *data);
 void	push_a(t_data *data);
 void	push_b(t_data *data);
+void	radix_sort(t_data *data);
 void	reverse_rotate_a(t_data *data);
 void	reverse_rotate_b(t_data *data);
 void	reverse_rotate_both_stacks(t_data *data);
