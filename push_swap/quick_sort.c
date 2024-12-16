@@ -6,8 +6,6 @@ static void	partition(t_data *data)
 	t_stack	*tmp;
 	size_t	size;
 
-	find_highest_a(data);
-	find_lowest_a(data);
 	ptr = data->a;
 	data->pivot = ptr->num;
 	while (data->pivot == data->highest_a || data->pivot == data->lowest_a)
@@ -30,6 +28,10 @@ static void	partition(t_data *data)
 
 void	quick_sort(t_data *data)
 {
+	find_highest_a(data);
+	find_lowest_a(data);
+	find_highest_b(data);
+	find_lowest_b(data);
 	partition(data);
 	print_stack(data);
 }
