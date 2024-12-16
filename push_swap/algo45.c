@@ -1,32 +1,5 @@
 #include "push_swap.h"
 
-static void	find_highest_a(t_data *data)
-{
-	t_stack	*ptr;
-
-	data->highest_a = data->a->num;
-	ptr = data->a;
-	while (ptr)
-	{
-		if (data->highest_a < ptr->num)
-			data->highest_a = ptr->num;
-		ptr = ptr->next;
-	}
-}
-
-static void	find_lowest_a(t_data *data)
-{
-	t_stack	*ptr;
-
-	data->lowest_a = data->a->num;
-	ptr = data->a;
-	while (ptr)
-	{
-		if (data->lowest_a > ptr->num)
-			data->lowest_a = ptr->num;
-		ptr = ptr->next;
-	}
-}
 void	algo45(t_data *data)
 {
 	t_stack	*ptr;

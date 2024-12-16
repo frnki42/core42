@@ -41,6 +41,7 @@ typedef struct	s_data
 }	t_data;
 
 // prototypes
+void	algo42(t_data *data);
 void	algo43(t_data *data);
 void	algo44(t_data *data);
 void	algo45(t_data *data);
@@ -52,6 +53,10 @@ size_t	count_numbers(char *argv);
 void	exit_clean(t_data *data);
 void	exit_error(t_data *data);
 void	fill_stack_a(t_data *data);
+void	find_highest_a(t_data *data);
+void	find_highest_b(t_data *data);
+void	find_lowest_a(t_data *data);
+void	find_lowest_b(t_data *data);
 long	ft_atolong(const char *nptr);
 void	handle_lowest_zero(t_data *data);
 void	handle_lowest_one(t_data *data);
