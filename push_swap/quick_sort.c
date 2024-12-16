@@ -51,6 +51,7 @@ void	quick_sort(t_data *data)
 {
 	find_highest_a(data);
 	find_lowest_a(data);
+	find_fourth_highest(data);
 	set_pivot(data);
 	partition(data);
 	print_stack(data);

@@ -54,6 +54,7 @@ size_t	count_numbers(char *argv);
 void	exit_clean(t_data *data);
 void	exit_error(t_data *data);
 void	fill_stack_a(t_data *data);
+void	find_fourth_highest(t_data *data);
 void	find_highest_a(t_data *data);
 void	find_highest_b(t_data *data);
 void	find_lowest_a(t_data *data);
