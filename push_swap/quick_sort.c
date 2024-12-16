@@ -1,10 +1,8 @@
 #include "push_swap.h"
 
-static void	partition(t_data *data)
+static void	set_pivot(t_data *data)
 {
 	t_stack	*ptr;
-	t_stack	*tmp;
-	size_t	size;
 
 	ptr = data->a;
 	data->pivot = ptr->num;
@@ -13,8 +11,33 @@ static void	partition(t_data *data)
 		ptr = ptr->next;
 		data->pivot = ptr->num;
 	}
+}
+
+static size_t	stack_length(t_stack *stack)
+{
+	size_t	len;
+	t_stack	*ptr;
+
+	len = 0;
+	ptr = stack;
+	while (ptr)
+	{
+		ptr = ptr->next;
+		len++;
+	}
+	return (len);
+}
+
+static void	partition(t_data *data)
+{
+	t_stack	*ptr;
+	t_stack	*tmp;
+	size_t	size;
+
+
+	set_pivot(data);
 	ptr = data->a;
-	size = data->size;
+	size = stack_length(ptr);
 	while (size--)
 	{
 		tmp = ptr->next;
