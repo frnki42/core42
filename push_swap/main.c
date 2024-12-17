@@ -36,7 +36,7 @@ int	main(int argc, char **argv)
 	t_data	data;
 
 	if (argc == 1)
-		return (ft_putstr_fd(argv[0], 1), write(1, "\n", 1), 1);
+		return (ft_printf("%s\n", argv[0]));
 	if (argc == 2)
 		process_single_arg(&data, argv[1]);
 	if (argc > 2)
