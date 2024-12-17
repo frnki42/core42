@@ -23,17 +23,17 @@
 typedef struct s_stack
 {
 	int		num;
+	int		pos;
 	struct s_stack	*next;
 }	t_stack;
 
 typedef struct	s_data
 {
-	int	fourth_highest;
 	int	highest_a;
 	int	highest_b;
+	int	highest_pos;
 	int	lowest_a;
 	int	lowest_b;
-	int	pivot;
 	size_t	size;
 	char	**input;
 	long	*numbers;
@@ -58,9 +58,9 @@ size_t	count_numbers(char *argv);
 void	exit_clean(t_data *data);
 void	exit_error(t_data *data);
 void	fill_stack_a(t_data *data);
-void	find_fourth_highest(t_data *data);
 void	find_highest_a(t_data *data);
 void	find_highest_b(t_data *data);
+void	find_highest_pos(t_data *data);
 void	find_lowest_a(t_data *data);
 void	find_lowest_b(t_data *data);
 long	ft_atolong(const char *nptr);

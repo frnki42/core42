@@ -91,12 +91,11 @@ void	fill_stack_a(t_data *data)
 
 void	init_structs(t_data *data)
 {
-	data->fourth_highest = 0;
 	data->highest_a = 0;
 	data->highest_b = 0;
+	data->highest_pos = 0;
 	data->lowest_a = 0;
 	data->lowest_b = 0;
-	data->pivot = 0;
 	data->size = 0;
 	data->input = NULL;
 	data->numbers = NULL;

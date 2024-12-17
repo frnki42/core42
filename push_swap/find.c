@@ -60,25 +60,16 @@ void	find_lowest_b(t_data *data)
 	}
 }
 
-void	find_fourth_highest(t_data *data)
+void	find_highest_pos(t_data *data)
 {
 	t_stack	*ptr;
-	int	tmp;
-	int	i;
 
 	ptr = data->a;
-	data->fourth_highest = data->highest_a;
-	i = 3;
-	while (i--)
+	data->highest_pos = ptr->pos;
+	while (ptr)
 	{
-		ptr = data->a;
-		tmp = -2147483648;
-		while (ptr)
-		{
-			if (ptr->num < data->fourth_highest && ptr->num > tmp)
-				tmp = ptr->num;
-			ptr = ptr->next;
-		}
-		data->fourth_highest = tmp;
+		if (ptr->pos > data->highest_pos)
+			data->highest_pos = ptr->pos;
+		ptr = ptr->next;
 	}
 }
