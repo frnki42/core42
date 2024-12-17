@@ -46,6 +46,7 @@ void	algo42(t_data *data);
 void	algo43(t_data *data);
 void	algo44(t_data *data);
 void	algo45(t_data *data);
+void	algo4more(t_data *data);
 void	check_doubles(t_data *data);
 void	check_input(t_data *data);
 void	check_ints(t_data *data);
@@ -83,5 +84,4 @@ void	select_algo(t_data *data);
 void	swap_a(t_data *data);
 void	swap_b(t_data *data);
 void	swap_both_stacks(t_data *data);
-void	quick_sort(t_data *data);
 #endif

@@ -43,14 +43,12 @@ static void	partition(t_data *data)
 	while (size--)
 	{
 		tmp = ptr->next;
-		// if number is higher than pivot and less than 4th highest
 		if (ptr->num >= data->pivot && ptr->num < data->fourth_highest)
 		{
 			if (ptr->num > data->highest_b)
 				data->highest_b = ptr->num;
 			push_b(data);
 		}
-		// if number is smaller than pivot and less than 4th highest
 		else if (ptr->num < data->pivot && ptr->num < data->fourth_highest)
 		{
 			if (ptr->num > data->lowest_b)
@@ -58,13 +56,10 @@ static void	partition(t_data *data)
 			push_b(data);
 			rotate_b(data);
 		}
-		// if number >= 4th highest
 		else
 			rotate_a(data);
 		ptr = tmp;
 	}
-	ft_printf("# highest_b: %i\n", data->highest_b);
-	ft_printf("# lowest_b: %i\n", data->lowest_b);
 }
 
 // continue pushing until 4 highest are left
@@ -119,13 +114,15 @@ void	sort_substack(t_data *data)
 	}
 }
 */
-void	quick_sort(t_data *data)
+void	algo4more(t_data *data)
 {
 	find_highest_a(data);
 	find_lowest_a(data);
 	find_fourth_highest(data);
 	set_pivot(data);
 	partition(data);
+	ft_printf("# highest_b: %i\n", data->highest_b);
+	ft_printf("# lowest_b: %i\n", data->lowest_b);
 	algo44(data);
 	//sort_substack(data);
 	//push_substack(data);
