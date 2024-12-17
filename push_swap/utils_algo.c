@@ -1,22 +1,7 @@
 #include "push_swap.h"
-/*
-size_t	stack_size(t_stack *stack)
-{
-	size_t	len;
-	t_stack	*ptr;
 
-	len = 0;
-	ptr = stack;
-	while (ptr)
-	{
-		ptr = ptr->next;
-		len++;
-	}
-	return (len);
-}
-*/
-
-int	get_higher_num(t_data *data, int lowest)
+// get higher lowest number in stack
+static int	get_higher_num(t_data *data, int lowest)
 {
 	int	tmp;
 	t_stack	*ptr;
@@ -32,6 +17,7 @@ int	get_higher_num(t_data *data, int lowest)
 	return (tmp);
 }
 
+// sets positions in ascending order
 void	sort_positions(t_data *data)
 {
 	int	lowest;
@@ -39,7 +25,6 @@ void	sort_positions(t_data *data)
 	int	size;
 	t_stack	*ptr;
 
-	find_lowest_a(data);
 	lowest = data->lowest_a;
 	pos = 0;
 	size = data->size;
@@ -59,6 +44,39 @@ void	sort_positions(t_data *data)
 	}
 }
 
+// ..handles smaller numbers
+void	handle_smaller_number(t_data *data)
+{
+	if (data->a->next->num > data->a->next->next->num)
+	{
+		if (data->a->num < data->a->next->next->num)
+		{
+			swap_a(data);
+			rotate_a(data);
+		}
+		else
+			reverse_rotate_a(data);
+	}
+}
+
+// .. handles bigger numbers
+void	handle_bigger_number(t_data *data)
+{
+	if (data->a->next->num > data->a->next->next->num)
+	{
+		rotate_a(data);
+		swap_a(data);
+	}
+	else if (data->a->next->num < data->a->next->next->num)
+	{
+		if (data->a->num < data->a->next->next->num)
+			swap_a(data);
+		else
+			rotate_a(data);
+	}
+}
+
+// well.. radix_sort!
 void	radix_sort(t_data *data)
 {
 	int	bit;
@@ -84,11 +102,4 @@ void	radix_sort(t_data *data)
 		while (data->b)
 			push_a(data);
 	}
-}
-
-void	algo4more(t_data *data)
-{
-	sort_positions(data);
-	find_highest_pos(data);
-	radix_sort(data);
 }

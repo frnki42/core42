@@ -1,17 +1,36 @@
 #include "push_swap.h"
 
 // check if character is a digit
-void	check_num(t_data *data, int c)
+static void	check_num(t_data *data, int c)
 {
 	if (!(c >= '0' && c <= '9'))
 		exit_error(data);
 }
 
 // check if character is digit, + or -
-void	check_sign(t_data *data, int c)
+static void	check_sign(t_data *data, int c)
 {
 	if (!((c >= '0' && c <= '9') || c == '-' || c == '+'))
 		exit_error(data);
+}
+
+// checks for duplicates
+void	check_doubles(t_data *data)
+{
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	while (i < data->size)
+	{
+		j = 1 + i;
+		while (j < data->size)
+		{
+			if (data->numbers[i] == data->numbers[j++])
+				exit_error(data);
+		}
+		i++;
+	}
 }
 
 // check if input is valid
@@ -33,25 +52,6 @@ void	check_input(t_data *data)
 			else
 				check_num(data, data->input[y][x]);
 		}
-	}
-}
-
-// checks for duplicates
-void	check_doubles(t_data *data)
-{
-	size_t	i;
-	size_t	j;
-
-	i = 0;
-	while (i < data->size)
-	{
-		j = 1 + i;
-		while (j < data->size)
-		{
-			if (data->numbers[i] == data->numbers[j++])
-				exit_error(data);
-		}
-		i++;
 	}
 }
 

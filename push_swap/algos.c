@@ -1,35 +1,13 @@
 #include "push_swap.h"
 
-static void	handle_smaller_number(t_data *data)
+// handles 2 numbers
+void	algo42(t_data *data)
 {
-	if (data->a->next->num > data->a->next->next->num)
-	{
-		if (data->a->num < data->a->next->next->num)
-		{
-			swap_a(data);
-			rotate_a(data);
-		}
-		else
-			reverse_rotate_a(data);
-	}
-}
-
-static void	handle_bigger_number(t_data *data)
-{
-	if (data->a->next->num > data->a->next->next->num)
-	{
-		rotate_a(data);
+	if (data->a->num > data->a->next->num)
 		swap_a(data);
-	}
-	else if (data->a->next->num < data->a->next->next->num)
-	{
-		if (data->a->num < data->a->next->next->num)
-			swap_a(data);
-		else
-			rotate_a(data);
-	}
 }
 
+// handles 3 numbers
 void	algo43(t_data *data)
 {
 	if (data->a->num < data->a->next->num)
@@ -38,22 +16,52 @@ void	algo43(t_data *data)
 		handle_bigger_number(data);
 }
 
-void	algo42(t_data *data)
+// handles 4 numbers
+void	algo44(t_data *data)
 {
-	if (data->a->num > data->a->next->num)
-		swap_a(data);
+	find_highest_a(data);
+	find_lowest_a(data);
+	if (data->a->num == data->lowest_a)
+		handle_lowest_zero(data);
+	else if (data->a->next->num == data->lowest_a)
+		handle_lowest_one(data);
+	else if (data->a->next->next->num == data->lowest_a)
+		handle_lowest_two(data);
+	else if (data->a->next->next->next->num == data->lowest_a)
+		handle_lowest_three(data);
 }
 
-void	select_algo(t_data *data)
+// handles 5 numbers
+void	algo45(t_data *data)
 {
-	if (data->size == 2)
-		algo42(data);
-	if (data->size == 3)
-		algo43(data);
-	if (data->size == 4)
-		algo44(data);
-	if (data->size == 5)
-		algo45(data);
-	if (data->size > 5)
-		algo4more(data);
+	t_stack	*ptr;
+	size_t	size;
+
+	find_lowest_a(data);
+	ptr = data->a;
+	size = data->size;
+	while (size > 4)
+	{
+		ptr = data->a;
+		if (ptr->num == data->lowest_a)
+		{
+			push_b(data);
+			size--;
+			find_lowest_a(data);
+		}
+		else
+			rotate_a(data);
+	}
+	algo44(data);
+	while (data->b)
+		push_a(data);
+}
+
+// handles more numbers
+void	algo4more(t_data *data)
+{
+	find_lowest_a(data);
+	sort_positions(data);
+	find_highest_pos(data);
+	radix_sort(data);
 }

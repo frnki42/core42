@@ -1,5 +1,6 @@
 #include "push_swap.h"
 
+// counts the amount of numbers inside a string
 size_t	count_numbers(char *argv)
 {
 	size_t	amount;
@@ -21,6 +22,7 @@ size_t	count_numbers(char *argv)
 	return (amount);
 }
 
+// checks if stack is sorted already and exits clean if so
 void	is_sorted(t_data *data)
 {
 	t_stack	*ptr;
@@ -39,6 +41,7 @@ void	is_sorted(t_data *data)
 		exit_clean(data);
 }
 
+// converts ascii to long
 long	ft_atolong(const char *nptr)
 {
 	int	either;
@@ -64,6 +67,7 @@ long	ft_atolong(const char *nptr)
 	return (result * either);
 }
 
+// fills stack with valid longs that get typecasted to integers
 void	fill_stack_a(t_data *data)
 {
 	size_t	i;
@@ -89,13 +93,12 @@ void	fill_stack_a(t_data *data)
 	}
 }
 
+// initializes the data struct
 void	init_structs(t_data *data)
 {
 	data->highest_a = 0;
-	data->highest_b = 0;
 	data->highest_pos = 0;
 	data->lowest_a = 0;
-	data->lowest_b = 0;
 	data->size = 0;
 	data->input = NULL;
 	data->numbers = NULL;

@@ -1,5 +1,6 @@
 #include "push_swap.h"
 
+// frees data->input and all strings inside it
 static void	free_input(t_data *data)
 {
 	size_t	i;
@@ -13,12 +14,14 @@ static void	free_input(t_data *data)
 	}
 }
 
+// frees data->numbers
 static void	free_numbers(t_data *data)
 {
 	if (data->numbers)
 		free(data->numbers);
 }
 
+// frees both stacks
 static void	free_stacks(t_data *data)
 {
 	t_stack	*current;
@@ -46,6 +49,7 @@ static void	free_stacks(t_data *data)
 	}
 }
 
+// exits clean
 void	exit_clean(t_data *data)
 {
 	free_stacks(data);
@@ -54,6 +58,7 @@ void	exit_clean(t_data *data)
 	exit (0);
 }
 
+// ERROR! FCK! EVERYONE GRAB THEIR STUFF AND RUN!!
 void	exit_error(t_data *data)
 {
 	ft_putstr_fd("Error\n", 2);

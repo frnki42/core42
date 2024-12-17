@@ -1,5 +1,6 @@
 #include "push_swap.h"
 
+// handles single argv
 static void	process_single_arg(t_data *data, char *argv)
 {
 	init_structs(data);
@@ -14,6 +15,7 @@ static void	process_single_arg(t_data *data, char *argv)
 	fill_stack_a(data);
 }
 
+// handles multiple argvs
 static void	process_multiple_args(t_data *data, int argc, char **argv)
 {
 	init_structs(data);
@@ -28,6 +30,7 @@ static void	process_multiple_args(t_data *data, int argc, char **argv)
 	fill_stack_a(data);
 }
 
+// "Hello, World!"
 int	main(int argc, char **argv)
 {
 	t_data	data;

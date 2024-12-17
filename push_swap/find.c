@@ -1,5 +1,6 @@
 #include "push_swap.h"
 
+// you guessed it! finds the highest num in stack a
 void	find_highest_a(t_data *data)
 {
 	t_stack	*ptr;
@@ -15,6 +16,7 @@ void	find_highest_a(t_data *data)
 	}
 }
 
+// you guessed it! finds the lowest num in stack a
 void	find_lowest_a(t_data *data)
 {
 	t_stack	*ptr;
@@ -30,36 +32,7 @@ void	find_lowest_a(t_data *data)
 	}
 }
 
-void	find_highest_b(t_data *data)
-{
-	t_stack	*ptr;
-
-	if (data->b)
-		data->highest_b = data->b->num;
-	ptr = data->b;
-	while (ptr)
-	{
-		if (data->highest_b < ptr->num)
-			data->highest_b = ptr->num;
-		ptr = ptr->next;
-	}
-}
-
-void	find_lowest_b(t_data *data)
-{
-	t_stack	*ptr;
-
-	if (data->b)
-		data->lowest_b = data->b->num;
-	ptr = data->b;
-	while (ptr)
-	{
-		if (data->lowest_b > ptr->num)
-			data->lowest_b = ptr->num;
-		ptr = ptr->next;
-	}
-}
-
+// finds highest position inside a stack
 void	find_highest_pos(t_data *data)
 {
 	t_stack	*ptr;

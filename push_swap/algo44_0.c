@@ -9,6 +9,7 @@ static void	handle_highest_two(t_data *data)
 		push_a(data);
 	}
 }
+
 static void	handle_highest_one(t_data *data)
 {
 	if (data->a->next->num < data->a->next->next->next->num)
@@ -24,6 +25,7 @@ static void	handle_highest_one(t_data *data)
 		swap_a(data);
 	}
 }
+
 static void	handle_highest_zero(t_data *data)
 {
 	if (data->a->next->next->num < data->a->next->next->next->num)
@@ -39,6 +41,7 @@ static void	handle_highest_zero(t_data *data)
 		push_a(data);
 	}
 }
+
 void	handle_lowest_zero(t_data *data)
 {
 	if (data->a->next->num == data->highest_a)
