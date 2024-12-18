@@ -34,7 +34,6 @@ void	start_game(t_game *game)
 	load_game_textures(game);
 	load_mary(game);
 	render_map(game);
-	//display_mary(game);
 }
 
 int	main(int argc, char **argv)
