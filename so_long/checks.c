@@ -105,13 +105,7 @@ void	manipulate_map(t_game *game)
 	if (game->map.array[game->mary.y][game->mary.x] == 'E'&&
 			(game->mary.collectible == game->map.collectibles))
 	{
-		ft_printf(" ___________________ \n");
-		ft_printf("|                   |\n");
-		ft_printf("| YOU WON THE GAME! |\n");
-		ft_printf("|___________________|\n");
-		ft_printf("|    HIGHSCORES:    |\n");
-		ft_printf("| 42: 174     .frnki|\n");
-		ft_printf("|___________________|\n");
+		win_screen();
 		exit_game(game, 0);
 	}
 }

@@ -79,7 +79,6 @@ void	count_collectibles(t_game *game);
 void	create_window(t_game *game);
 void	destroy_stuff(t_game *game);
 void	detect_start(t_game *game);
-void	display_mary(t_game *game);
 void	flood_fill(t_game *game, size_t y, size_t x);
 void	free_stuff(t_game *game);
 void	initialize_game(t_game *game);
@@ -100,4 +99,5 @@ void	render_map(t_game *game);
 void	show_map(t_game *game, int x, int y);
 void	start_game(t_game *game);
 void	start_mlx(t_game *game);
+void	win_screen(void);
 #endif

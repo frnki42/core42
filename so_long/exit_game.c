@@ -51,5 +51,5 @@ int	exit_game(t_game *game, int exit_status)
 {
 	destroy_stuff(game);
 	free_stuff(game);
-	exit (exit_status);
+	exit(exit_status);
 }

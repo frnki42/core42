@@ -68,9 +68,21 @@ void	detect_start(t_game *game)
 	}
 }
 
-// displays player
-void	display_mary(t_game *game)
+void	win_screen(void)
 {
-	mlx_put_image_to_window(game->mlx, game->win,
-		game->mary.xpm_right, game->mary.x * 32, game->mary.y * 32);
+	ft_printf(" ______________________ ______________________ \n");
+	ft_printf("|      //  ) )                                |\n");
+	ft_printf("|   __//__  __       __     / ___     ( )     |\n");
+	ft_printf("|    //   //  ) ) //   ) ) //\\ \\     / /      |\n");
+	ft_printf("|   //   //      //   / / //  \\ \\   / /       |\n");
+	ft_printf("| ()/   //      //   / / //    \\ \\ / /        |\n");
+	ft_printf(" ______________________ ______________________ \n");
+	ft_printf("|                      |      HIGHSCORES      |\n");
+	ft_printf("|   YOU WON THE GAME!  |   MAP:   42          |\n");
+	ft_printf("| ____________________ | ____________________ |\n");
+	ft_printf("|                      |   PLAYER: MARVIN     |\n");
+	ft_printf("|   CONGRATULATIONS,   |   MOVES: 42          |\n");
+	ft_printf("|   YOU ARE AWESOME!   |   PLAYER:.frnki      |\n");
+	ft_printf("|         ***          |   MOVES: 166         |\n");
+	ft_printf("|______________________|______________________|\n");
 }
