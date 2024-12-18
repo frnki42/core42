@@ -15,7 +15,8 @@ void	prepare_game(t_game *game, char *path)
 void	create_window(t_game *game)
 {
 	game->win = mlx_new_window(game->mlx,
-			game->map.columns * 32, game->map.rows * 32, ".frnki");
+			game->map.columns * 32, game->map.rows * 32,
+			"./so_long");
 	if (!game->win)
 		exit_game(game, 1);
 }
