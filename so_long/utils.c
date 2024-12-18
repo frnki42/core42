@@ -68,21 +68,21 @@ void	detect_start(t_game *game)
 	}
 }
 
-void	win_screen(void)
+void	win_screen(int moves)
 {
-	ft_printf(" ______________________ ______________________ \n");
+	ft_printf(" _____________________________________________ \n");
 	ft_printf("|      //  ) )                                |\n");
 	ft_printf("|   __//__  __       __     / ___     ( )     |\n");
 	ft_printf("|    //   //  ) ) //   ) ) //\\ \\     / /      |\n");
 	ft_printf("|   //   //      //   / / //  \\ \\   / /       |\n");
 	ft_printf("| ()/   //      //   / / //    \\ \\ / /        |\n");
 	ft_printf(" ______________________ ______________________ \n");
-	ft_printf("|                      |      HIGHSCORES      |\n");
-	ft_printf("|   YOU WON THE GAME!  |   MAP:   42          |\n");
+	ft_printf("|                      |  --- HIGHSCORES ---  |\n");
+	ft_printf("|   YOU WON THE GAME!  | MAP:   42.ber        |\n");
 	ft_printf("| ____________________ | ____________________ |\n");
-	ft_printf("|                      |   PLAYER: MARVIN     |\n");
-	ft_printf("|   CONGRATULATIONS,   |   MOVES: 42          |\n");
-	ft_printf("|   YOU ARE AWESOME!   |   PLAYER:.frnki      |\n");
-	ft_printf("|         ***          |   MOVES: 166         |\n");
+	ft_printf("|                      |                      |\n");
+	ft_printf("|   CONGRATULATIONS,   | #1 - MARVIN: 42      |\n");
+	ft_printf("|   YOU ARE AWESOME!   | #2 - .frnki: 166     |\n");
+	ft_printf("|         ***          | #3 - YOU:    %i     |\n", moves);
 	ft_printf("|______________________|______________________|\n");
 }

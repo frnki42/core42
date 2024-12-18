@@ -105,7 +105,7 @@ void	manipulate_map(t_game *game)
 	if (game->map.array[game->mary.y][game->mary.x] == 'E'&&
 			(game->mary.collectible == game->map.collectibles))
 	{
-		win_screen();
+		win_screen(game->mary.moves);
 		exit_game(game, 0);
 	}
 }

@@ -99,5 +99,5 @@ void	render_map(t_game *game);
 void	show_map(t_game *game, int x, int y);
 void	start_game(t_game *game);
 void	start_mlx(t_game *game);
-void	win_screen(void);
+void	win_screen(int moves);
 #endif
