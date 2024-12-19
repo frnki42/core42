@@ -11,11 +11,34 @@
 /* ************************************************************************** */
 #include "minitalk.h"
 
-// "Hello, World!"
-int	main(int argc, char **argv)
+void	signal_handler(int signum)
 {
-	ft_printf("HI I AM THE SERVER!\n");
-	(void)argc;
-	(void)argv;
+	int	i;
+
+	i = 0;
+	ft_printf("\nsignum %i recieved\n", signum);
+	ft_printf("LOADING!\n");
+	while (i < 5)
+	{
+		write(1, "=", 1);
+		usleep(100000);
+	}
+	ft_printf("DONE!\n");
+	exit(0);
+}
+
+int	main(void)
+{
+	struct sigaction action;
+	int	pid;
+
+	action.sa_handler = signal_handler;
+	sigemptyset(&action.sa_mask);
+	action.sa_flags = 0;
+	pid = getpid();
+	ft_printf("# SERVER-PID: %i\n", pid);
+	sigaction(SIGINT, &action, NULL);
+	while (42)
+		;
 	return (0);
 }

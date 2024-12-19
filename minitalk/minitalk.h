@@ -12,11 +12,12 @@
 
 #ifndef MINITALK_H
 # define MINITALK_H
-// std header
 // custom header
 # include "libft/get_next_line/get_next_line.h"
 # include "libft/printf/ft_printf.h"
 # include "libft/libft.h"
+// std header
+#include <signal.h>
 // typedef & structs
 // prototypes
 #endif
