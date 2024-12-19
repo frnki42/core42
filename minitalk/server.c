@@ -13,21 +13,14 @@
 
 void	sigusr_handler(int signum)
 {
-	int	i;
-
 	if (signum == SIGUSR1)
 	{
-		i = -1;
-		while (++i < 42)
-		{
-			write(1, "=", 1);
-			usleep(100000);
-		}
-		ft_printf("\nDONE!\n");
-		exit(0);
+		write(1, "# 1\n", 4);
+		//store binary input
+		//translate binary
 	}
 	if (signum == SIGUSR2)
-		ft_printf("# STRING RECIEVED!\n");
+		write(1, "# 0\n", 4);
 }
 
 int	main(void)
