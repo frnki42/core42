@@ -10,3 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "minitalk.h"
+
+// "Hello, World!"
+int	main(int argc, char **argv)
+{
+	ft_printf("HI I AM THE CLIENT!\n");
+	(void)argc;
+	(void)argv;
+	return (0);
+}

@@ -14,7 +14,8 @@
 // "Hello, World!"
 int	main(int argc, char **argv)
 {
-	if (argc == 1)
-	if (argc > 1)
+	ft_printf("HI I AM THE SERVER!\n");
+	(void)argc;
+	(void)argv;
 	return (0);
 }
