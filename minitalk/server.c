@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: .frnki   <frnki@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -15,11 +15,12 @@ void	sigusr_handler(int signum)
 {
 	int	i;
 
-	ft_printf("\nsignum %i recieved\nLOADING!\n", signum);
+	ft_printf("# recieved %i\n", signum);
+	ft_printf("LOADING!\n");
 	if (signum == SIGUSR1)
 	{
 		i = -1;
-		while (++i < 5)
+		while (++i < 39)
 		{
 			write(1, "=", 1);
 			usleep(100000);
@@ -27,12 +28,12 @@ void	sigusr_handler(int signum)
 		ft_printf("\nDONE!\n");
 		exit(0);
 	}
-	if (signum == SIGUSR1)
+	if (signum == SIGUSR2)
 	{
 		i = -1;
-		while (++i < 5)
+		while (++i < 39)
 		{
-			write(1, "#", 1);
+			write(1, ".", 1);
 			usleep(100000);
 		}
 		ft_printf("\nDONE!\n");
@@ -48,14 +49,13 @@ int	main(void)
 	//print PID
 	pid = getpid();
 	ft_printf("# SERVER-PID: %i\n", pid);
-	//init structs
+	//init struct
 	action.sa_handler = sigusr_handler;
 	sigemptyset(&action.sa_mask);
 	action.sa_flags = 0;
-	//set actions
+	//set signal handler for SIGUSR1 and SIGUSR2
 	sigaction(SIGUSR1, &action, NULL);
 	sigaction(SIGUSR2, &action, NULL);
 	while (42)
 		;
-	return (0);
 }
