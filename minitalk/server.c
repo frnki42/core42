@@ -15,12 +15,10 @@ void	sigusr_handler(int signum)
 {
 	int	i;
 
-	ft_printf("# recieved %i\n", signum);
-	ft_printf("LOADING!\n");
 	if (signum == SIGUSR1)
 	{
 		i = -1;
-		while (++i < 39)
+		while (++i < 42)
 		{
 			write(1, "=", 1);
 			usleep(100000);
@@ -29,16 +27,7 @@ void	sigusr_handler(int signum)
 		exit(0);
 	}
 	if (signum == SIGUSR2)
-	{
-		i = -1;
-		while (++i < 39)
-		{
-			write(1, ".", 1);
-			usleep(100000);
-		}
-		ft_printf("\nDONE!\n");
-		exit(0);
-	}
+		ft_printf("# STRING RECIEVED!\n");
 }
 
 int	main(void)
