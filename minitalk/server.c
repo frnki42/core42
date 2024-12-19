@@ -15,15 +15,14 @@ void	signal_handler(int signum)
 {
 	int	i;
 
-	i = 0;
-	ft_printf("\nsignum %i recieved\n", signum);
-	ft_printf("LOADING!\n");
-	while (i < 5)
+	i = -1;
+	ft_printf("\nsignum %i recieved\nLOADING!\n", signum);
+	while (++i < 5)
 	{
 		write(1, "=", 1);
 		usleep(100000);
 	}
-	ft_printf("DONE!\n");
+	ft_printf("\nDONE!\n");
 	exit(0);
 }
 
