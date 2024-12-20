@@ -17,7 +17,7 @@ void	send_bit(__pid_t pid, int bit)
 		kill(pid, SIGUSR1);
 	else
 		kill(pid, SIGUSR2);
-	usleep(100000);
+	usleep(1);
 }
 void	send_string(__pid_t pid, char *str)
 {
@@ -30,13 +30,13 @@ void	send_string(__pid_t pid, char *str)
 	{
 		cur = str[i];
 		bits = 8;
-		while (--bits)
+		while (bits--)
 			send_bit(pid, (cur >> bits) & 1);
 	}
 }
 
-// "Hello, World!"
-int	main(int argc, char **argv)	// PID + string  ./client 4204 "Hello\!"
+// main
+int	main(int argc, char **argv)
 {
 	__pid_t	pid;
 	char	*str;
