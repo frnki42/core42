@@ -26,7 +26,7 @@
 # define KEY_ESCAPE	65307
 // typedef & structs
 
-typedef struct	s_mary
+typedef struct	s_player
 {
 	int	collectible;
 	int	moves;
@@ -34,7 +34,7 @@ typedef struct	s_mary
 	int	y;
 	void	*xpm_left;
 	void	*xpm_right;
-}	t_mary;
+}	t_player;
 
 typedef struct	s_map
 {
@@ -50,7 +50,7 @@ typedef struct	s_map
 
 typedef struct	s_game
 {
-	t_mary	mary;
+	t_player	player;
 	t_map	map;
 	int	tex_width;
 	int	tex_height;
@@ -84,9 +84,9 @@ void	free_stuff(t_game *game);
 void	initialize_game(t_game *game);
 void	init_game(t_game *game);
 void	init_map(t_game *game);
-void	init_mary(t_game *game);
+void	init_player(t_game *game);
 void	load_game_textures(t_game *game);
-void	load_mary(t_game *game);
+void	load_player(t_game *game);
 void	manipulate_map(t_game *game);
 int	movement(int keycode, t_game *game);
 void	move_down(int keycode, t_game *game);

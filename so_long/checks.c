@@ -46,19 +46,19 @@ int	check_wall(t_game *game, int keycode)
 	if (keycode == 'a' || keycode == 'd')
 	{
 		if (keycode == 'a')
-			dest = game->mary.x - 1;
+			dest = game->player.x - 1;
 		else if (keycode == 'd')
-			dest = game->mary.x + 1;
-		if (game->map.array[game->mary.y][dest] == '1')
+			dest = game->player.x + 1;
+		if (game->map.array[game->player.y][dest] == '1')
 			return (0);
 	}
 	else if (keycode == 's' || keycode == 'w')
 	{
 		if (keycode == 's')
-			dest = game->mary.y + 1;
+			dest = game->player.y + 1;
 		else if (keycode == 'w')
-			dest = game->mary.y - 1;
-		if (game->map.array[dest][game->mary.x] == '1')
+			dest = game->player.y - 1;
+		if (game->map.array[dest][game->player.x] == '1')
 			return (0);
 	}
 	return (1);
@@ -97,15 +97,15 @@ int	check_surrounded(t_game *game)
 // exits game if all collectibles are found + swaps C when player stands on it
 void	manipulate_map(t_game *game)
 {
-	if (game->map.array[game->mary.y][game->mary.x] == 'C')
+	if (game->map.array[game->player.y][game->player.x] == 'C')
 	{
-		game->mary.collectible++;
-		game->map.array[game->mary.y][game->mary.x] = '0';
+		game->player.collectible++;
+		game->map.array[game->player.y][game->player.x] = '0';
 	}
-	if (game->map.array[game->mary.y][game->mary.x] == 'E'&&
-			(game->mary.collectible == game->map.collectibles))
+	if (game->map.array[game->player.y][game->player.x] == 'E'&&
+			(game->player.collectible == game->map.collectibles))
 	{
-		win_screen(game->mary.moves);
+		win_screen(game->player.moves);
 		exit_game(game, 0);
 	}
 }

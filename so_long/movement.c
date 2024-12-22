@@ -6,12 +6,12 @@ void	move_left(int keycode, t_game *game)
 	if (check_wall(game, keycode))
 	{
 		mlx_put_image_to_window(game->mlx, game->win,
-			game->tex_empty, game->mary.x * 32, game->mary.y * 32);
-		game->mary.x -= 1;
+			game->tex_empty, game->player.x * 32, game->player.y * 32);
+		game->player.x -= 1;
 		mlx_put_image_to_window(game->mlx, game->win,
-			game->mary.xpm_left, game->mary.x * 32, game->mary.y * 32);
-		game->mary.moves++;
-		ft_printf("MOVES: %i\n", game->mary.moves);
+			game->player.xpm_left, game->player.x * 32, game->player.y * 32);
+		game->player.moves++;
+		ft_printf("MOVES: %i\n", game->player.moves);
 	}
 }
 
@@ -21,12 +21,12 @@ void	move_right(int keycode, t_game *game)
 	if (check_wall(game, keycode))
 	{
 		mlx_put_image_to_window(game->mlx, game->win,
-			game->tex_empty, game->mary.x * 32, game->mary.y * 32);
-		game->mary.x += 1;
+			game->tex_empty, game->player.x * 32, game->player.y * 32);
+		game->player.x += 1;
 		mlx_put_image_to_window(game->mlx, game->win,
-			game->mary.xpm_right, game->mary.x * 32, game->mary.y * 32);
-		game->mary.moves++;
-		ft_printf("MOVES: %i\n", game->mary.moves);
+			game->player.xpm_right, game->player.x * 32, game->player.y * 32);
+		game->player.moves++;
+		ft_printf("MOVES: %i\n", game->player.moves);
 	}
 }
 
@@ -36,12 +36,12 @@ void	move_down(int keycode, t_game *game)
 	if (check_wall(game, keycode))
 	{
 		mlx_put_image_to_window(game->mlx, game->win,
-			game->tex_empty, game->mary.x * 32, game->mary.y * 32);
-		game->mary.y += 1;
+			game->tex_empty, game->player.x * 32, game->player.y * 32);
+		game->player.y += 1;
 		mlx_put_image_to_window(game->mlx, game->win,
-			game->mary.xpm_left, game->mary.x * 32, game->mary.y * 32);
-		game->mary.moves++;
-		ft_printf("MOVES: %i\n", game->mary.moves);
+			game->player.xpm_left, game->player.x * 32, game->player.y * 32);
+		game->player.moves++;
+		ft_printf("MOVES: %i\n", game->player.moves);
 	}
 }
 
@@ -51,12 +51,12 @@ void	move_up(int keycode, t_game *game)
 	if (check_wall(game, keycode))
 	{
 		mlx_put_image_to_window(game->mlx, game->win,
-			game->tex_empty, game->mary.x * 32, game->mary.y * 32);
-		game->mary.y -= 1;
+			game->tex_empty, game->player.x * 32, game->player.y * 32);
+		game->player.y -= 1;
 		mlx_put_image_to_window(game->mlx, game->win,
-			game->mary.xpm_right, game->mary.x * 32, game->mary.y * 32);
-		game->mary.moves++;
-		ft_printf("MOVES: %i\n", game->mary.moves);
+			game->player.xpm_right, game->player.x * 32, game->player.y * 32);
+		game->player.moves++;
+		ft_printf("MOVES: %i\n", game->player.moves);
 	}
 }
 

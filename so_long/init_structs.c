@@ -26,21 +26,21 @@ void	init_map(t_game *game)
 	game->map.array_cpy = NULL;
 }
 
-// initializes mary 
-void	init_mary(t_game *game)
+// initializes player 
+void	init_player(t_game *game)
 {
-	game->mary.collectible = 0;
-	game->mary.moves = 0;
-	game->mary.x = 0;
-	game->mary.y = 0;
-	game->mary.xpm_left = NULL;
-	game->mary.xpm_right = NULL;
+	game->player.collectible = 0;
+	game->player.moves = 0;
+	game->player.x = 0;
+	game->player.y = 0;
+	game->player.xpm_left = NULL;
+	game->player.xpm_right = NULL;
 }
 
 // initializes stuff
 void	initialize_game(t_game *game)
 {
 	init_game(game);
-	init_mary(game);
+	init_player(game);
 	init_map(game);
 }

@@ -26,16 +26,16 @@ void	load_game_textures(t_game *game)
 }
 
 // loads mary .xpm files
-void	load_mary(t_game *game)
+void	load_player(t_game *game)
 {
-	game->mary.xpm_left = mlx_xpm_file_to_image(game->mlx,
+	game->player.xpm_left = mlx_xpm_file_to_image(game->mlx,
 			"textures/mary_left.xpm",
 			&game->tex_width, &game->tex_height);
-	if (!game->mary.xpm_left)
+	if (!game->player.xpm_left)
 		exit_game(game, 1);
-	game->mary.xpm_right = mlx_xpm_file_to_image(game->mlx,
+	game->player.xpm_right = mlx_xpm_file_to_image(game->mlx,
 			"textures/mary_right.xpm",
 			&game->tex_width, &game->tex_height);
-	if (!game->mary.xpm_right)
+	if (!game->player.xpm_right)
 		exit_game(game, 1);
 }

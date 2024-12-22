@@ -33,7 +33,7 @@ void	start_game(t_game *game)
 	start_mlx(game);
 	create_window(game);
 	load_game_textures(game);
-	load_mary(game);
+	load_player(game);
 	render_map(game);
 }
 

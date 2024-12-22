@@ -59,10 +59,10 @@ void	show_map(t_game *game, int x, int y)
 {
 	if (game->map.array[y][x] == 'P')
 	{
-		game->mary.x = x;
-		game->mary.y = y;
+		game->player.x = x;
+		game->player.y = y;
 		mlx_put_image_to_window(game->mlx, game->win,
-				game->mary.xpm_right, x * 32, y * 32);
+				game->player.xpm_right, x * 32, y * 32);
 		game->map.array[y][x] = '0';
 	}
 	else if (game->map.array[y][x] == '0')
