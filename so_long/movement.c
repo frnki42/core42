@@ -39,7 +39,7 @@ void	move_down(int keycode, t_game *game)
 			game->tex_empty, game->player.x * 32, game->player.y * 32);
 		game->player.y += 1;
 		mlx_put_image_to_window(game->mlx, game->win,
-			game->player.xpm_left, game->player.x * 32, game->player.y * 32);
+			game->player.xpm_down, game->player.x * 32, game->player.y * 32);
 		game->player.moves++;
 		ft_printf("MOVES: %i\n", game->player.moves);
 	}
@@ -54,7 +54,7 @@ void	move_up(int keycode, t_game *game)
 			game->tex_empty, game->player.x * 32, game->player.y * 32);
 		game->player.y -= 1;
 		mlx_put_image_to_window(game->mlx, game->win,
-			game->player.xpm_right, game->player.x * 32, game->player.y * 32);
+			game->player.xpm_up, game->player.x * 32, game->player.y * 32);
 		game->player.moves++;
 		ft_printf("MOVES: %i\n", game->player.moves);
 	}

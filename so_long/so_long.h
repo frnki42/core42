@@ -34,6 +34,8 @@ typedef struct	s_player
 	int	y;
 	void	*xpm_left;
 	void	*xpm_right;
+	void 	*xpm_up;
+	void	*xpm_down;
 }	t_player;
 
 typedef struct	s_map

@@ -25,17 +25,27 @@ void	load_game_textures(t_game *game)
 		exit_game(game, 1);
 }
 
-// loads mary .xpm files
+// loads player .xpm files
 void	load_player(t_game *game)
 {
 	game->player.xpm_left = mlx_xpm_file_to_image(game->mlx,
-			"textures/mary_left.xpm",
+			"textures/42man_left.xpm",
 			&game->tex_width, &game->tex_height);
 	if (!game->player.xpm_left)
 		exit_game(game, 1);
 	game->player.xpm_right = mlx_xpm_file_to_image(game->mlx,
-			"textures/mary_right.xpm",
+			"textures/42man_right.xpm",
 			&game->tex_width, &game->tex_height);
 	if (!game->player.xpm_right)
+		exit_game(game, 1);
+	game->player.xpm_up = mlx_xpm_file_to_image(game->mlx,
+			"textures/42man_up.xpm",
+			&game->tex_width, &game->tex_height);
+	if (!game->player.xpm_up)
+		exit_game(game, 1);
+	game->player.xpm_down = mlx_xpm_file_to_image(game->mlx,
+			"textures/42man_down.xpm",
+			&game->tex_width, &game->tex_height);
+	if (!game->player.xpm_down)
 		exit_game(game, 1);
 }
