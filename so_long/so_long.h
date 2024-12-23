@@ -53,15 +53,15 @@ typedef struct	s_map
 typedef struct	s_game
 {
 	t_player	player;
-	t_map	map;
-	int	tex_width;
-	int	tex_height;
-	void	*mlx;
-	void	*tex_empty;
-	void	*tex_wall;
-	void	*tex_collectible;
-	void	*tex_exit;
-	void	*win;
+	t_map		map;
+	int		tex_width;
+	int		tex_height;
+	void		*mlx;
+	void		*tex_empty;
+	void		*tex_wall;
+	void		*tex_collectible;
+	void		*tex_exit;
+	void		*win;
 }	t_game;
 
 // prototypes
