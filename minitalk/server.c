@@ -11,33 +11,82 @@
 /* ************************************************************************** */
 #include "minitalk.h"
 
-void	sigusr_handler(int signum)
+static char	*g_str = NULL;
+
+static void	add_byte(unsigned char character)
 {
-	if (signum == SIGUSR1)
+	static char	*addition = NULL;
+
+	if (!g_str)
 	{
-		write(1, "# 1\n", 4);
-		//store binary input
-		//translate binary
+		g_str = (char *)malloc(1);
+		if (!g_str)
+			return ;
+		g_str[0] = '\0';
 	}
-	if (signum == SIGUSR2)
-		write(1, "# 0\n", 4);
+	if (character == '\0')
+	{
+		ft_printf("%s\n", g_str);
+		free(g_str);
+		g_str = NULL;
+		exit(1) ;
+	}
+	addition = (char *)malloc(2);
+	if (!addition)
+	{
+		free(g_str);
+		g_str = NULL;
+		return ;
+	}
+	addition[0] = character;
+	addition[1] = '\0';
+	g_str = ft_strjoin(g_str, addition);
+	if (!g_str)
+		return (free(addition));
+	free(addition);
+	addition = NULL;
 }
 
+//translates signals into string
+static void	translate_signal(int signum)
+{
+	static int		bit = 0;			// 01101101
+	static unsigned char	tmp = 0;
+
+
+	tmp = tmp << 1;
+	if (signum == SIGUSR1)
+		tmp = tmp | 1;
+	bit++;
+	if (bit == 8)
+	{
+		add_byte(tmp);
+		tmp = 0;
+		bit = 0;
+	}
+}
+
+// server SIGUSR handler
+static void	sigusr_handler(int signum)
+{
+	if (signum == SIGUSR1 || signum == SIGUSR2)
+		translate_signal(signum);
+}
+
+// server main
 int	main(void)
 {
 	struct sigaction action;
-	__pid_t	pid;
+	pid_t	pid;
 
-	//print PID
 	pid = getpid();
 	ft_printf("# SERVER-PID: %i\n", pid);
-	//init struct
 	action.sa_handler = sigusr_handler;
 	sigemptyset(&action.sa_mask);
 	action.sa_flags = 0;
-	//set signal handler for SIGUSR1 and SIGUSR2
 	sigaction(SIGUSR1, &action, NULL);
 	sigaction(SIGUSR2, &action, NULL);
 	while (42)
-		;
+		pause();
+	return (0);
 }

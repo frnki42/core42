@@ -11,44 +11,47 @@
 /* ************************************************************************** */
 #include "minitalk.h"
 
-void	send_bit(__pid_t pid, int bit)
+void	send_bit(pid_t pid, int bit)
 {
 	if (bit)
 		kill(pid, SIGUSR1);
 	else
 		kill(pid, SIGUSR2);
-	usleep(1);
 }
-void	send_string(__pid_t pid, char *str)
+void	send_string(pid_t pid, char *str)
 {
-	char	cur;
 	int	bits;
-	int	i;
 
-	i = -1;
-	while (str[++i])
+	while (*str)
 	{
-		cur = str[i];
-		bits = 8;
-		while (bits--)
-			send_bit(pid, (cur >> bits) & 1);
+		bits = 7;
+		while (bits >= 0)
+		{
+			send_bit(pid, (*str >> bits) & 1);
+			usleep(42);
+			bits--;
+		}
+		str++;
+	}
+	bits = 7;
+	while (bits >= 0)
+	{
+		send_bit(pid, ('\0' >> bits) & 1);
+		usleep(42);
+		bits--;
 	}
 }
 
 // main
 int	main(int argc, char **argv)
 {
-	__pid_t	pid;
+	pid_t	pid;
 	char	*str;
 
 	if (argc != 3)
 		return (1);
 	pid = ft_atoi(argv[1]);
 	str = argv[2];
-	ft_printf("# SERVER-PID: %i\n", pid);
-	ft_printf("# STRING: %s\n", str);
 	send_string(pid, str);
-	while (42)
-		;
 	return (0);
 }
