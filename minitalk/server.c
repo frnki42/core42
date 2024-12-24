@@ -15,7 +15,8 @@ static char	*g_str = NULL;
 
 static void	add_byte(unsigned char character)
 {
-	static char	*addition = NULL;
+	char	*addition = NULL;
+	char	*tmp;
 
 	if (!g_str)
 	{
@@ -29,7 +30,7 @@ static void	add_byte(unsigned char character)
 		ft_printf("%s\n", g_str);
 		free(g_str);
 		g_str = NULL;
-		exit(1) ;
+		return ;
 	}
 	addition = (char *)malloc(2);
 	if (!addition)
@@ -40,9 +41,16 @@ static void	add_byte(unsigned char character)
 	}
 	addition[0] = character;
 	addition[1] = '\0';
+	tmp = g_str;
 	g_str = ft_strjoin(g_str, addition);
 	if (!g_str)
-		return (free(addition));
+	{
+		free(addition);
+		free(g_str);
+		g_str = NULL;
+		return ;
+	}
+	free(tmp);
 	free(addition);
 	addition = NULL;
 }
@@ -50,9 +58,8 @@ static void	add_byte(unsigned char character)
 //translates signals into string
 static void	translate_signal(int signum)
 {
-	static int		bit = 0;			// 01101101
+	static int		bit = 0;
 	static unsigned char	tmp = 0;
-
 
 	tmp = tmp << 1;
 	if (signum == SIGUSR1)
