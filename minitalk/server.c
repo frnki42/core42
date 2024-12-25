@@ -11,36 +11,29 @@
 /* ************************************************************************** */
 #include "minitalk.h"
 
-static void	add_byte(unsigned char character)
+static int	add_byte(unsigned char character)
 {
-	static char	*message;
+	static char	*msg;
 	char		*tmp;
 	char		addition[2];
 
-	if (!message)
+	if (!msg)
 	{
-		message = (char *)malloc(1);
-		if (!message)
-			return ;
-		message[0] = '\0';
+		msg = (char *)malloc(1);
+		if (!msg)
+			return (1);
+		msg[0] = '\0';
 	}
 	if (character == '\0')
-	{
-		ft_printf("%s\n", message);
-		free(message);
-		message = NULL;
-		return ;
-	}
+		return (ft_printf("%s\n", msg), free(msg), msg = NULL, 0);
 	addition[0] = character;
 	addition[1] = '\0';
-	tmp = message;
-	message = ft_strjoin(message, addition);
+	tmp = msg;
+	msg = ft_strjoin(msg, addition);
 	free(tmp);
-	if (!message)
-	{
-		message = NULL;
-		return ;
-	}
+	if (!msg)
+		return (msg = NULL, 1);
+	return (0);
 }
 
 static void	translate_signal(int signum, siginfo_t *info, void *context)
