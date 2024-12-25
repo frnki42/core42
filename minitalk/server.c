@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "minitalk.h"
 
-static void	add_byte(unsigned char character)
+static void	add_byte(unsigned char character, pid_t client_pid)
 {
 	static char	*message;
 	char		*addition;
@@ -29,6 +29,7 @@ static void	add_byte(unsigned char character)
 		ft_printf("%s\n", message);
 		free(message);
 		message = NULL;
+		kill(client_pid, SIGUSR2);
 		return ;
 	}
 	addition = (char *)malloc(2);
@@ -55,29 +56,25 @@ static void	add_byte(unsigned char character)
 }
 
 //translates signals into string
-static void	translate_signal(int signum)
+static void	translate_signal(int signum, siginfo_t *info, void *context)
 {
 	static int		bit;
 	static unsigned char	tmp;
 
-	tmp = tmp << 1;
-	if (signum == SIGUSR1)
-		tmp = tmp | 1;
-	bit++;
-	if (bit == 8)
-	{
-		add_byte(tmp);
-		tmp = 0;
-		bit = 0;
-	}
-}
-
-// server SIGUSR handler
-static void	sigusr_handler(int signum, siginfo_t *info, void *context)
-{
 	if (signum == SIGUSR1 || signum == SIGUSR2)
-		translate_signal(signum);
-	kill(info->si_pid, SIGUSR1);
+	{
+		tmp = tmp << 1;
+		if (signum == SIGUSR1)
+			tmp = tmp | 1;
+		bit++;
+		if (bit == 8)
+		{
+			add_byte(tmp, info->si_pid);
+			tmp = 0;
+			bit = 0;
+		}
+		kill(info->si_pid, SIGUSR1);
+	}
 	(void)context;
 }
 
@@ -87,7 +84,7 @@ int	main(void)
 	struct sigaction action;
 
 	ft_printf("# SERVER-PID: %i\n", getpid());
-	action.sa_sigaction = sigusr_handler;
+	action.sa_sigaction = translate_signal;
 	sigemptyset(&action.sa_mask);
 	action.sa_flags = SA_SIGINFO;
 	sigaction(SIGUSR1, &action, NULL);
