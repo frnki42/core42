@@ -11,11 +11,11 @@
 /* ************************************************************************** */
 #include "minitalk.h"
 
-static void	add_byte(unsigned char character, pid_t client_pid)
+static void	add_byte(unsigned char character)
 {
 	static char	*message;
-	char		*addition;
 	char		*tmp;
+	char		addition[2];
 
 	if (!message)
 	{
@@ -29,30 +29,18 @@ static void	add_byte(unsigned char character, pid_t client_pid)
 		ft_printf("%s\n", message);
 		free(message);
 		message = NULL;
-		kill(client_pid, SIGUSR2);
-		return ;
-	}
-	addition = (char *)malloc(2);
-	if (!addition)
-	{
-		free(message);
-		message = NULL;
 		return ;
 	}
 	addition[0] = character;
 	addition[1] = '\0';
 	tmp = message;
 	message = ft_strjoin(message, addition);
+	free(tmp);
 	if (!message)
 	{
-		free(addition);
-		free(message);
 		message = NULL;
 		return ;
 	}
-	free(tmp);
-	free(addition);
-	addition = NULL;
 }
 
 //translates signals into string
@@ -61,20 +49,18 @@ static void	translate_signal(int signum, siginfo_t *info, void *context)
 	static int		bit;
 	static unsigned char	tmp;
 
-	if (signum == SIGUSR1 || signum == SIGUSR2)
+	tmp = tmp << 1;
+	if (signum == SIGUSR1)
+		tmp = tmp | 1;
+	bit++;
+	if (bit == 8)
 	{
-		tmp = tmp << 1;
-		if (signum == SIGUSR1)
-			tmp = tmp | 1;
-		bit++;
-		if (bit == 8)
-		{
-			add_byte(tmp, info->si_pid);
-			tmp = 0;
-			bit = 0;
-		}
-		kill(info->si_pid, SIGUSR1);
+		add_byte(tmp);
+		tmp = 0;
+		bit = 0;
 	}
+	usleep(42);
+	kill(info->si_pid, SIGUSR1);
 	(void)context;
 }
 

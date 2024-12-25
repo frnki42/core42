@@ -17,6 +17,7 @@ static void	send_bit(pid_t pid, int bit)
 		kill(pid, SIGUSR1);
 	else
 		kill(pid, SIGUSR2);
+	pause();
 }
 
 static void	send_string(pid_t pid, char *str)
@@ -25,31 +26,21 @@ static void	send_string(pid_t pid, char *str)
 
 	while (*str)
 	{
-		bits = 7;
-		while (bits >= 0)
-		{
+		bits = 8;
+		while (bits--)
 			send_bit(pid, (*str >> bits) & 1);
-			pause();
-			bits--;
-		}
 		str++;
 	}
-	bits = 7;
-	while (bits >= 0)
-	{
-		send_bit(pid, ('\0' >> bits) & 1);
-		pause();
-		bits--;
-	}
+	bits = 8;
+	while (bits--)
+		send_bit(pid, 0);
 }
 
 // client SIGUSR handler
 static void	sigusr_handler(int signum)
 {
 	if (signum == SIGUSR1)
-		ft_printf("# server recieved byte\n");
-	if (signum == SIGUSR2)
-		ft_printf("# server recieved message\n");
+		write(1, "# server recieved byte\n", 23);
 }
 
 // main
@@ -57,18 +48,16 @@ int	main(int argc, char **argv)
 {
 	struct sigaction action;
 	pid_t	pid;
-	char	*str;
 
 	if (argc != 3)
 		return (1);
-	ft_printf("# CLIENT-PID: %i\n", getpid());
 	action.sa_handler = sigusr_handler;
 	sigemptyset(&action.sa_mask);
-	action.sa_flags = SA_SIGINFO;
+	action.sa_flags = 0;
 	sigaction(SIGUSR1, &action, NULL);
-	sigaction(SIGUSR2, &action, NULL);
 	pid = ft_atoi(argv[1]);
-	str = argv[2];
-	send_string(pid, str);
+	if (pid < 1)
+		return (1);
+	send_string(pid, argv[2]);
 	return (0);
 }
