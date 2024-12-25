@@ -36,14 +36,12 @@ static void	send_string(pid_t pid, char *str)
 		send_bit(pid, 0);
 }
 
-// client SIGUSR handler
 static void	sigusr_handler(int signum)
 {
 	if (signum == SIGUSR1)
-		write(1, "# server recieved byte\n", 23);
+		write(1, "# server recieved bit\n", 23);
 }
 
-// main
 int	main(int argc, char **argv)
 {
 	struct sigaction action;

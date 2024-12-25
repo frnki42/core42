@@ -43,7 +43,6 @@ static void	add_byte(unsigned char character)
 	}
 }
 
-//translates signals into string
 static void	translate_signal(int signum, siginfo_t *info, void *context)
 {
 	static int		bit;
@@ -64,7 +63,6 @@ static void	translate_signal(int signum, siginfo_t *info, void *context)
 	(void)context;
 }
 
-// server main
 int	main(void)
 {
 	struct sigaction action;
