@@ -18,6 +18,7 @@ void	send_bit(pid_t pid, int bit)
 	else
 		kill(pid, SIGUSR2);
 }
+
 void	send_string(pid_t pid, char *str)
 {
 	int	bits;
