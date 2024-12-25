@@ -73,10 +73,12 @@ static void	translate_signal(int signum)
 }
 
 // server SIGUSR handler
-static void	sigusr_handler(int signum)
+static void	sigusr_handler(int signum, siginfo_t *info, void *context)
 {
 	if (signum == SIGUSR1 || signum == SIGUSR2)
 		translate_signal(signum);
+	kill(info->si_pid, SIGUSR1);
+	(void)context;
 }
 
 // server main
@@ -85,9 +87,9 @@ int	main(void)
 	struct sigaction action;
 
 	ft_printf("# SERVER-PID: %i\n", getpid());
-	action.sa_handler = sigusr_handler;
+	action.sa_sigaction = sigusr_handler;
 	sigemptyset(&action.sa_mask);
-	action.sa_flags = 0;
+	action.sa_flags = SA_SIGINFO;
 	sigaction(SIGUSR1, &action, NULL);
 	sigaction(SIGUSR2, &action, NULL);
 	while (42)
