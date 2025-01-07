@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   algo44_2.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/07 15:55:53 by efembock          #+#    #+#             */
+/*   Updated: 2025/01/07 15:59:56 by efembock         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "push_swap.h"
 
 static void	handle_highest_two(t_data *data)
@@ -9,7 +20,7 @@ static void	handle_highest_two(t_data *data)
 		push_a(data);
 		swap_a(data);
 	}
-	else if(data->a->num > data->a->next->num)
+	else if (data->a->num > data->a->next->num)
 	{
 		swap_a(data);
 		push_b(data);

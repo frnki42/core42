@@ -1,10 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/07 15:57:33 by efembock          #+#    #+#             */
+/*   Updated: 2025/01/07 16:05:38 by efembock         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "push_swap.h"
 
 // reverse rotates stack a
 static void	rra(t_data *data)
 {
 	t_stack	*last;
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	last = data->a;
 	while (last->next->next)
@@ -19,7 +30,7 @@ static void	rra(t_data *data)
 static void	rrb(t_data *data)
 {
 	t_stack	*last;
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	last = data->b;
 	while (last->next->next)

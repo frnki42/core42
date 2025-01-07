@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: .frnki   <frnki@42.fr>                     +#+  +:+       +#+        */
+/*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/16 16:20:42 by .frnki            #+#    #+#             */
-/*   Updated: 2024/11/16 16:42:42 by .frnki           ###   ########.fr       */
+/*   Created: 2025/01/07 15:57:25 by efembock          #+#    #+#             */
+/*   Updated: 2025/01/07 16:04:23 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#ifndef PUSHSWAP_H
-# define PUSHSWAP_H
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 // std header
 // custom header
 # include "libft/get_next_line/get_next_line.h"
@@ -22,20 +21,20 @@
 
 typedef struct s_stack
 {
-	int		num;
-	int		pos;
+	int				num;
+	int				pos;
 	struct s_stack	*next;
 }	t_stack;
 
-typedef struct	s_data
+typedef struct s_data
 {
 	t_stack	*a;
 	t_stack	*b;
 	char	**input;
 	long	*numbers;
-	int	highest_a;
-	int	highest_pos;
-	int	lowest_a;
+	int		highest_a;
+	int		highest_pos;
+	int		lowest_a;
 	size_t	size;
 }	t_data;
 

@@ -1,10 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rotate.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/07 15:57:43 by efembock          #+#    #+#             */
+/*   Updated: 2025/01/07 16:06:12 by efembock         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "push_swap.h"
 
 // rotates stack a
 static void	ra(t_data *data)
 {
 	t_stack	*last;
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	last = NULL;
 	tmp = NULL;
@@ -21,7 +32,7 @@ static void	ra(t_data *data)
 static void	rb(t_data *data)
 {
 	t_stack	*last;
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	last = NULL;
 	tmp = NULL;

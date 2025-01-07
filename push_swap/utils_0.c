@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils_0.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/07 15:58:01 by efembock          #+#    #+#             */
+/*   Updated: 2025/01/07 16:06:55 by efembock         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "push_swap.h"
 
 // counts the amount of numbers inside a string
@@ -26,7 +37,7 @@ size_t	count_numbers(char *argv)
 void	is_sorted(t_data *data)
 {
 	t_stack	*ptr;
-	int	i;
+	int		i;
 
 	ptr = NULL;
 	i = 0;
@@ -44,8 +55,8 @@ void	is_sorted(t_data *data)
 // converts ascii to long
 long	ft_atolong(const char *nptr)
 {
-	int	either;
-	int	i;
+	int		either;
+	int		i;
 	long	result;
 
 	either = 1;

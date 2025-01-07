@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   algo44_3.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/07 15:56:03 by efembock          #+#    #+#             */
+/*   Updated: 2025/01/07 16:00:30 by efembock         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "push_swap.h"
 
 static void	handle_highest_zero(t_data *data)
@@ -54,4 +65,3 @@ void	handle_lowest_three(t_data *data)
 	else if (data->a->next->next->num == data->highest_a)
 		handle_highest_two(data);
 }
-
