@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_map.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/07 18:18:13 by efembock          #+#    #+#             */
+/*   Updated: 2025/01/07 19:10:57 by efembock         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "so_long.h"
 
 // checks if all rows have the same length (rectangle)
@@ -80,12 +91,12 @@ int	check_composition(t_game *game)
 	i = 0;
 	while (game->map.string[i])
 	{
-		if (game->map.string[i] == '0' ||
-			game->map.string[i] == '1' ||
-			game->map.string[i] == 'C' ||
-			game->map.string[i] == 'E' ||
-			game->map.string[i] == 'P' ||
-			game->map.string[i] == '\n')
+		if (game->map.string[i] == '0'
+			|| game->map.string[i] == '1'
+			|| game->map.string[i] == 'C'
+			|| game->map.string[i] == 'E'
+			|| game->map.string[i] == 'P'
+			|| game->map.string[i] == '\n')
 			i++;
 		else
 		{

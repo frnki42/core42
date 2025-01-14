@@ -1,9 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing_map.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/07 18:20:05 by efembock          #+#    #+#             */
+/*   Updated: 2025/01/07 19:13:48 by efembock         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "so_long.h"
 
 // converts .ber file into string
 void	convert_ber(t_game *game, char *path)
 {
-	int	map;
+	int		map;
 	char	*output;
 	char	*temp;
 
@@ -62,21 +73,21 @@ void	show_map(t_game *game, int x, int y)
 		game->player.x = x;
 		game->player.y = y;
 		mlx_put_image_to_window(game->mlx, game->win,
-				game->player.xpm_right, x * 32, y * 32);
+			game->player.xpm_right, x * 32, y * 32);
 		game->map.array[y][x] = '0';
 	}
 	else if (game->map.array[y][x] == '0')
 		mlx_put_image_to_window(game->mlx, game->win,
-				game->tex_empty, x * 32, y * 32);
+			game->tex_empty, x * 32, y * 32);
 	else if (game->map.array[y][x] == '1')
 		mlx_put_image_to_window(game->mlx, game->win,
-				game->tex_wall, x * 32, y * 32);
+			game->tex_wall, x * 32, y * 32);
 	else if (game->map.array[y][x] == 'C')
 		mlx_put_image_to_window(game->mlx, game->win,
-				game->tex_collectible, x * 32, y * 32);
+			game->tex_collectible, x * 32, y * 32);
 	else if (game->map.array[y][x] == 'E')
 		mlx_put_image_to_window(game->mlx, game->win,
-				game->tex_exit, x * 32, y * 32);
+			game->tex_exit, x * 32, y * 32);
 }
 
 // show_map wrapper function

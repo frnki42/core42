@@ -1,12 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/07 18:20:19 by efembock          #+#    #+#             */
+/*   Updated: 2025/01/07 19:11:47 by efembock         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "so_long.h"
 
 // replace all reachable '0' 'C' 'P' 'E' with 'X' in game->map.array_cpy
 void	flood_fill(t_game *game, size_t y, size_t x)
 {
-	if (x < 1 || x >= game->map.columns - 1 ||
-		y < 1 || y >= game->map.rows - 1)
+	if (x < 1 || x >= game->map.columns - 1
+		|| y < 1 || y >= game->map.rows - 1)
 		return ;
-	if (game->map.array_cpy[y][x] == '0'||
+	if (game->map.array_cpy[y][x] == '0' ||
 		game->map.array_cpy[y][x] == 'C' ||
 		game->map.array_cpy[y][x] == 'P' ||
 		game->map.array_cpy[y][x] == 'E')
@@ -31,9 +42,9 @@ int	check_path(t_game *game)
 		x = -1;
 		while (game->map.array_cpy[y][++x])
 		{
-			if (!(game->map.array_cpy[y][x] == '1' ||
-				game->map.array_cpy[y][x] == 'X' ||
-				game->map.array_cpy[y][x] == '0'))
+			if (!(game->map.array_cpy[y][x] == '1'
+				|| game->map.array_cpy[y][x] == 'X'
+				|| game->map.array_cpy[y][x] == '0'))
 			{
 				ft_printf("Error\n# NO VALID PATH DETECTED\n");
 				return (1);

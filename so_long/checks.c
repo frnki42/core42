@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checks.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/07 18:18:38 by efembock          #+#    #+#             */
+/*   Updated: 2025/01/07 18:23:18 by efembock         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "so_long.h"
 
 // checks if argv is valid (*.ber file)
@@ -102,7 +113,7 @@ void	manipulate_map(t_game *game)
 		game->player.collectible++;
 		game->map.array[game->player.y][game->player.x] = '0';
 	}
-	if (game->map.array[game->player.y][game->player.x] == 'E'&&
+	if (game->map.array[game->player.y][game->player.x] == 'E' &&
 			(game->player.collectible == game->map.collectibles))
 	{
 		win_screen(game->player.moves);

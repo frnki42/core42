@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   game.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/07 18:19:13 by efembock          #+#    #+#             */
+/*   Updated: 2025/01/07 19:12:34 by efembock         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "so_long.h"
 
 void	prepare_game(t_game *game, char *path)
@@ -48,7 +59,7 @@ int	main(int argc, char **argv)
 	initialize_game(&game);
 	prepare_game(&game, argv[1]);
 	start_game(&game);
-	mlx_hook(game.win, 2, 1L<<0, movement, &game);
+	mlx_hook(game.win, 2, 1L << 0, movement, &game);
 	mlx_hook(game.win, 17, 0L, exit_game, &game);
 	mlx_loop(game.mlx);
 	return (0);

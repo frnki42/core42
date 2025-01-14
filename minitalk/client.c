@@ -6,7 +6,7 @@
 /*   By: .frnki   <frnki@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 16:20:42 by .frnki            #+#    #+#             */
-/*   Updated: 2024/11/16 16:42:42 by .frnki           ###   ########.fr       */
+/*   Updated: 2025/01/07 19:18:34 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minitalk.h"
@@ -44,8 +44,8 @@ static void	sigusr_handler(int signum)
 
 int	main(int argc, char **argv)
 {
-	struct sigaction action;
-	pid_t	pid;
+	struct sigaction	action;
+	pid_t				pid;
 
 	if (argc != 3)
 		return (1);

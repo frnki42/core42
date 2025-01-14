@@ -6,7 +6,7 @@
 /*   By: .frnki   <frnki@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 16:20:42 by .frnki            #+#    #+#             */
-/*   Updated: 2024/11/16 16:42:42 by .frnki           ###   ########.fr       */
+/*   Updated: 2025/01/07 19:19:42 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minitalk.h"
@@ -38,7 +38,7 @@ static int	add_byte(unsigned char character)
 
 static void	translate_signal(int signum, siginfo_t *info, void *context)
 {
-	static int		bit;
+	static int				bit;
 	static unsigned char	tmp;
 
 	tmp = tmp << 1;
@@ -58,7 +58,7 @@ static void	translate_signal(int signum, siginfo_t *info, void *context)
 
 int	main(void)
 {
-	struct sigaction action;
+	struct sigaction	action;
 
 	ft_printf("# SERVER-PID: %i\n", getpid());
 	action.sa_sigaction = translate_signal;
