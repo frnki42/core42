@@ -6,7 +6,7 @@
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 18:19:24 by efembock          #+#    #+#             */
-/*   Updated: 2025/01/07 18:19:26 by efembock         ###   ########.fr       */
+/*   Updated: 2025/01/21 12:44:01 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -46,6 +46,8 @@ void	init_player(t_game *game)
 	game->player.y = 0;
 	game->player.xpm_left = NULL;
 	game->player.xpm_right = NULL;
+	game->player.xpm_up = NULL;
+	game->player.xpm_down = NULL;
 }
 
 // initializes stuff

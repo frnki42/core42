@@ -6,7 +6,7 @@
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 19:16:08 by efembock          #+#    #+#             */
-/*   Updated: 2025/01/07 19:16:14 by efembock         ###   ########.fr       */
+/*   Updated: 2025/01/21 12:44:41 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef SO_LONG_H
@@ -16,7 +16,7 @@
 # include <stddef.h>
 # include <stdlib.h>
 // custom header
-# include "minilibx-linux/mlx.h"
+# include "mlx.h"
 # include "libft/get_next_line/get_next_line.h"
 # include "libft/printf/ft_printf.h"
 # include "libft/libft.h"
