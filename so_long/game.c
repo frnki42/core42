@@ -6,7 +6,7 @@
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 18:19:13 by efembock          #+#    #+#             */
-/*   Updated: 2025/01/07 19:12:34 by efembock         ###   ########.fr       */
+/*   Updated: 2025/01/23 14:55:19 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -14,7 +14,7 @@
 static void	prepare_game(t_game *game, char *path)
 {
 	convert_ber(game, path);
-	check_new_lines(game);
+	check_empty_lines(game);
 	convert_str(game);
 	detect_start(game);
 	count_collectibles(game);
