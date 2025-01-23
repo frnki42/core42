@@ -16,7 +16,7 @@
 # include <stddef.h>
 # include <stdlib.h>
 // custom header
-# include "mlx.h"
+# include "minilibx-linux/mlx.h"
 # include "libft/get_next_line/get_next_line.h"
 # include "libft/printf/ft_printf.h"
 # include "libft/libft.h"
@@ -68,6 +68,7 @@ void	check_argv(t_game *game, char *argv);
 int		check_collectible(t_game *game);
 int		check_composition(t_game *game);
 int		check_exit(t_game *game);
+void		check_new_lines(t_game *game);
 int		check_path(t_game *game);
 int		check_player(t_game *game);
 int		check_rectangle(t_game *game);
@@ -77,7 +78,6 @@ void	check_valid(t_game *game);
 void	convert_ber(t_game *game, char *path);
 void	convert_str(t_game *game);
 void	count_collectibles(t_game *game);
-void	create_window(t_game *game);
 void	destroy_stuff(t_game *game);
 void	detect_start(t_game *game);
 void	flood_fill(t_game *game, size_t y, size_t x);
@@ -95,10 +95,7 @@ void	move_left(int keycode, t_game *game);
 void	move_right(int keycode, t_game *game);
 void	move_up(int keycode, t_game *game);
 int		exit_game(t_game *game, int exit_status);
-void	prepare_game(t_game *game, char *path);
 void	render_map(t_game *game);
 void	show_map(t_game *game, int x, int y);
-void	start_game(t_game *game);
-void	start_mlx(t_game *game);
 void	win_screen(int moves);
 #endif

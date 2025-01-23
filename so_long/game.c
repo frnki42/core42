@@ -11,9 +11,10 @@
 /* ************************************************************************** */
 #include "so_long.h"
 
-void	prepare_game(t_game *game, char *path)
+static void	prepare_game(t_game *game, char *path)
 {
 	convert_ber(game, path);
+	check_new_lines(game);
 	convert_str(game);
 	detect_start(game);
 	count_collectibles(game);
@@ -23,7 +24,7 @@ void	prepare_game(t_game *game, char *path)
 		exit_game(game, 1);
 }
 
-void	create_window(t_game *game)
+static void	create_window(t_game *game)
 {
 	game->win = mlx_new_window(game->mlx,
 			game->map.columns * 32, game->map.rows * 32,
@@ -32,14 +33,14 @@ void	create_window(t_game *game)
 		exit_game(game, 1);
 }
 
-void	start_mlx(t_game *game)
+static void	start_mlx(t_game *game)
 {
 	game->mlx = mlx_init();
 	if (!game->mlx)
 		exit_game(game, 1);
 }
 
-void	start_game(t_game *game)
+static void	start_game(t_game *game)
 {
 	start_mlx(game);
 	create_window(game);

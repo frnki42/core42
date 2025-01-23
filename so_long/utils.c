@@ -54,6 +54,22 @@ int	check_path(t_game *game)
 	return (0);
 }
 
+// checks if the map contains empty lines
+void	check_new_lines(t_game *game)
+{
+	char	*ptr;
+
+	ptr = game->map.string;
+	while (*ptr)
+	{
+		if (*ptr++ == '\n' && *ptr == '\n')
+		{
+			ft_printf("Error\n# EMPTY LINE IN MAP DETECTED!\n");
+			exit_game(game, 1);
+		}
+	}
+}
+
 // locate game->map.start_x and game->map.start_y
 void	detect_start(t_game *game)
 {
