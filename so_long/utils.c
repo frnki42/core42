@@ -6,7 +6,7 @@
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 18:20:19 by efembock          #+#    #+#             */
-/*   Updated: 2025/01/23 14:55:06 by efembock         ###   ########.fr       */
+/*   Updated: 2025/01/07 19:11:47 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -55,16 +55,13 @@ int	check_path(t_game *game)
 }
 
 // checks if the map contains empty lines
-void	check_empty_lines(t_game *game)
+void	check_new_lines(t_game *game)
 {
 	char	*ptr;
 
 	ptr = game->map.string;
-	if (*ptr == '\n')
-	{
-		ft_printf("Error\n# EMPTY LINE IN MAP DETECTED!\n");
+	if (!ptr)
 		exit_game(game, 1);
-	}
 	while (*ptr)
 	{
 		if (*ptr++ == '\n' && *ptr == '\n')

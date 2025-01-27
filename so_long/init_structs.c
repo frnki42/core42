@@ -57,3 +57,32 @@ void	initialize_game(t_game *game)
 	init_player(game);
 	init_map(game);
 }
+
+void	generate_map_string(t_game *game, int map)
+{
+	char	*output;
+	char	*temp;
+
+	output = get_next_line(map);
+	if (!output)
+	{
+		close(map);
+		exit_game(game, 1);
+	}
+	while (output)
+	{
+		game->map.rows++;
+		temp = game->map.string;
+		game->map.string = ft_strjoin(game->map.string, output);
+		if (!game->map.string)
+		{
+			free(temp);
+			close(map);
+			exit_game(game, 1);
+		}
+		free(temp);
+		free(output);
+		output = get_next_line(map);
+	}
+	free(output);
+}

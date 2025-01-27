@@ -14,22 +14,29 @@
 // checks if argv is valid (*.ber file)
 void	check_argv(t_game *game, char *argv)
 {
+	int	check;
 	int	len;
 
 	if (!argv)
 		exit_game(game, 1);
+	check = 0;
 	len = 0;
 	len = ft_strlen(argv);
 	if (len < 5)
-		exit_game(game, 1);
+		check++;
 	if (argv[--len] != 'r')
-		exit_game(game, 1);
+		check++;
 	if (argv[--len] != 'e')
-		exit_game(game, 1);
+		check++;
 	if (argv[--len] != 'b')
-		exit_game(game, 1);
+		check++;
 	if (argv[--len] != '.')
-		exit_game(game, 1);
+		check++;
+	if (check)
+	{
+		ft_printf("Error\n# MAP IS NOT .BER FORMAT!\n");
+		exit_game(game , 1);
+	}
 }
 
 // performs all map checks

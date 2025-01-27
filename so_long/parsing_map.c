@@ -15,29 +15,17 @@
 void	convert_ber(t_game *game, char *path)
 {
 	int		map;
-	char	*output;
-	char	*temp;
 
-	check_argv(game, path);
 	game->map.string = ft_strdup("");
 	if (!game->map.string)
 		exit_game(game, 1);
 	map = open(path, O_RDONLY);
 	if (map == -1)
-		exit_game(game, 1);
-	output = get_next_line(map);
-	if (!output)
-		exit_game(game, 1);
-	while (output)
 	{
-		game->map.rows++;
-		temp = game->map.string;
-		game->map.string = ft_strjoin(game->map.string, output);
-		free(temp);
-		free(output);
-		output = get_next_line(map);
+		ft_printf("Error\n# FAILED TO OPEN MAP!\n");
+		exit_game(game, 1);
 	}
-	free(output);
+	generate_map_string(game, map);
 	close(map);
 }
 

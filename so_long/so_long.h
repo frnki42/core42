@@ -6,7 +6,7 @@
 /*   By: efembock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 19:16:08 by efembock          #+#    #+#             */
-/*   Updated: 2025/01/23 14:56:05 by efembock         ###   ########.fr       */
+/*   Updated: 2025/01/21 12:44:41 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef SO_LONG_H
@@ -16,7 +16,7 @@
 # include <stddef.h>
 # include <stdlib.h>
 // custom header
-# include "mlx.h"
+# include "minilibx-linux/mlx.h"
 # include "libft/get_next_line/get_next_line.h"
 # include "libft/printf/ft_printf.h"
 # include "libft/libft.h"
@@ -67,8 +67,8 @@ typedef struct s_game
 void	check_argv(t_game *game, char *argv);
 int		check_collectible(t_game *game);
 int		check_composition(t_game *game);
-void	check_empty_lines(t_game *game);
 int		check_exit(t_game *game);
+void		check_new_lines(t_game *game);
 int		check_path(t_game *game);
 int		check_player(t_game *game);
 int		check_rectangle(t_game *game);
@@ -82,6 +82,7 @@ void	destroy_stuff(t_game *game);
 void	detect_start(t_game *game);
 void	flood_fill(t_game *game, size_t y, size_t x);
 void	free_stuff(t_game *game);
+void	generate_map_string(t_game *game, int map);
 void	initialize_game(t_game *game);
 void	init_game(t_game *game);
 void	init_map(t_game *game);
