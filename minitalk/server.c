@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "minitalk.h"
 
-static int	add_byte(unsigned char character)
+static int	add_byte(unsigned char character, siginfo_t *info)
 {
 	static char	*msg;
 	char		*tmp;
@@ -25,7 +25,7 @@ static int	add_byte(unsigned char character)
 		msg[0] = '\0';
 	}
 	if (character == '\0')
-		return (ft_printf("%s\n", msg), free(msg), msg = NULL, 0);
+		return (kill(info->si_pid, SIGUSR2), ft_printf("%s\n", msg), free(msg), msg = NULL, 0);
 	addition[0] = character;
 	addition[1] = '\0';
 	tmp = msg;
@@ -47,7 +47,7 @@ static void	translate_signal(int signum, siginfo_t *info, void *context)
 	bit++;
 	if (bit == 8)
 	{
-		add_byte(tmp);
+		add_byte(tmp, info);
 		tmp = 0;
 		bit = 0;
 	}

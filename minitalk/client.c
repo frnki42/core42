@@ -40,6 +40,8 @@ static void	sigusr_handler(int signum)
 {
 	if (signum == SIGUSR1)
 		write(1, "# server recieved bit\n", 23);
+	if (signum == SIGUSR2)
+		write(1, "# server recieved message\n", 26);
 }
 
 int	main(int argc, char **argv)
@@ -53,6 +55,7 @@ int	main(int argc, char **argv)
 	sigemptyset(&action.sa_mask);
 	action.sa_flags = 0;
 	sigaction(SIGUSR1, &action, NULL);
+	sigaction(SIGUSR2, &action, NULL);
 	pid = ft_atoi(argv[1]);
 	if (pid < 1)
 		return (1);
