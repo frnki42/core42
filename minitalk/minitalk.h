@@ -19,4 +19,5 @@
 # include <signal.h>
 // typedef & structs
 // prototypes
+# define MAX_ARG_STRLEN 131072 // 128 KB - 1 byte
 #endif

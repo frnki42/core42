@@ -11,28 +11,22 @@
 /* ************************************************************************** */
 #include "minitalk.h"
 
+int	g_switch;
+
 static int	add_byte(unsigned char character, siginfo_t *info)
 {
-	static char	*msg;
-	char		*tmp;
-	char		addition[2];
+	static size_t		i;
+	static unsigned char	msg[MAX_ARG_STRLEN];
 
-	if (!msg)
-	{
-		msg = (char *)malloc(1);
-		if (!msg)
-			return (1);
-		msg[0] = '\0';
-	}
+	if (character && info)
+		msg[i++] = character;
 	if (character == '\0')
-		return (kill(info->si_pid, SIGUSR2), ft_printf("%s\n", msg), free(msg), msg = NULL, 0);
-	addition[0] = character;
-	addition[1] = '\0';
-	tmp = msg;
-	msg = ft_strjoin(msg, addition);
-	free(tmp);
-	if (!msg)
-		return (msg = NULL, 1);
+	{
+		i = 0;
+		ft_printf("%s\n", msg);
+		ft_memset(msg, 0, sizeof(msg));
+		kill(info->si_pid, SIGUSR2);
+	}
 	return (0);
 }
 
@@ -51,9 +45,8 @@ static void	translate_signal(int signum, siginfo_t *info, void *context)
 		tmp = 0;
 		bit = 0;
 	}
-	usleep(42);
-	kill(info->si_pid, SIGUSR1);
 	(void)context;
+	kill(info->si_pid, SIGUSR1);
 }
 
 int	main(void)

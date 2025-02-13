@@ -11,13 +11,32 @@
 /* ************************************************************************** */
 #include "minitalk.h"
 
+int	g_switch;
+
+static int	wait_for_signal(void)
+{
+	size_t	time;
+
+	time = 0;
+	while (g_switch)
+	{
+		usleep(100);
+		time++;
+		if (time > 50000)
+			return (ft_printf("# error transmitting bytes\n"));
+	}
+	return (0);
+}
+
 static void	send_bit(pid_t pid, int bit)
 {
 	if (bit)
 		kill(pid, SIGUSR1);
 	else
 		kill(pid, SIGUSR2);
-	pause();
+	g_switch = 1;
+	if (wait_for_signal())
+		exit(1);
 }
 
 static void	send_string(pid_t pid, char *str)
@@ -39,7 +58,7 @@ static void	send_string(pid_t pid, char *str)
 static void	sigusr_handler(int signum)
 {
 	if (signum == SIGUSR1)
-		write(1, "# server recieved bit\n", 23);
+		g_switch = 0;
 	if (signum == SIGUSR2)
 		write(1, "# server recieved message\n", 26);
 }
