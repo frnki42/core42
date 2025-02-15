@@ -6,7 +6,7 @@
 /*   By: .frnki   <frnki@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 16:20:42 by .frnki            #+#    #+#             */
-/*   Updated: 2025/01/07 19:19:42 by efembock         ###   ########.fr       */
+/*   Updated: 2025/02/15 15:02:04 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minitalk.h"
@@ -15,7 +15,7 @@ int	g_switch;
 
 static int	add_byte(unsigned char character, siginfo_t *info)
 {
-	static size_t		i;
+	static size_t			i;
 	static unsigned char	msg[MAX_ARG_STRLEN];
 
 	if (character && info)
@@ -59,7 +59,7 @@ int	main(void)
 	action.sa_flags = SA_SIGINFO;
 	sigaction(SIGUSR1, &action, NULL);
 	sigaction(SIGUSR2, &action, NULL);
-	while (42)
+	while (1)
 		pause();
 	return (0);
 }

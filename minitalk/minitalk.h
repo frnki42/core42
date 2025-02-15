@@ -6,7 +6,7 @@
 /*   By: .frnki   <frnki@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 16:20:42 by .frnki            #+#    #+#             */
-/*   Updated: 2025/01/07 19:19:10 by efembock         ###   ########.fr       */
+/*   Updated: 2025/02/15 14:45:28 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef MINITALK_H
@@ -19,5 +19,5 @@
 # include <signal.h>
 // typedef & structs
 // prototypes
-# define MAX_ARG_STRLEN 131072 // 128 KB - 1 byte
+# define MAX_ARG_STRLEN 131072 
 #endif

@@ -6,7 +6,7 @@
 /*   By: .frnki   <frnki@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 16:20:42 by .frnki            #+#    #+#             */
-/*   Updated: 2025/01/07 19:18:34 by efembock         ###   ########.fr       */
+/*   Updated: 2025/02/15 14:53:13 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minitalk.h"
@@ -22,7 +22,7 @@ static int	wait_for_signal(void)
 	{
 		usleep(100);
 		time++;
-		if (time > 50000)
+		if (time > 42000)
 			return (ft_printf("# error transmitting bytes\n"));
 	}
 	return (0);
@@ -30,11 +30,11 @@ static int	wait_for_signal(void)
 
 static void	send_bit(pid_t pid, int bit)
 {
+	g_switch = 1;
 	if (bit)
 		kill(pid, SIGUSR1);
 	else
 		kill(pid, SIGUSR2);
-	g_switch = 1;
 	if (wait_for_signal())
 		exit(1);
 }
