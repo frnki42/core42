@@ -11,8 +11,9 @@
 /* ************************************************************************** */
 #ifndef PHILO_H
 # define PHILO_H
-// custom header
 // std header
+#include <stdio.h>
+// custom header
 // typedef & structs
 // prototypes
 // macros
