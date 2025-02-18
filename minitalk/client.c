@@ -81,3 +81,4 @@ int	main(int argc, char **argv)
 	send_string(pid, argv[2]);
 	return (0);
 }
+ 
