@@ -13,5 +13,7 @@
 
 int	main()
 {
-	printf("What's up dawg?\n");
+	char	*msg = "What's up dawg?";
+
+	printf("%s\n", msg);
 }

@@ -14,8 +14,8 @@
 // std header
 #include <pthread.h>
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
+#include <string.h>
 #include <sys/time.h>
 #include <unistd.h>
 // custom header
