@@ -20,6 +20,25 @@
 #include <unistd.h>
 // custom header
 // typedef & structs
+
+typedef struct s_philo
+{
+	fork_l
+	fork_r
+	meal_consumed
+	meal_last
+	number;
+}	t_philo;
+
+typedef struct s_table
+{
+	number_of_philosophers;
+	time_to_die;
+	time_to_eat;
+	time_to_sleep;
+	number_of_times_each_philosopher_must_eat;
+
+}	t_table;
 // prototypes
 // macros
 #endif
