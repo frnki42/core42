@@ -26,7 +26,7 @@ typedef struct s_philo
 	pthread_mutex_t	fork_left;		// shared with N+1 [MAIN]
 	pthread_mutex_t	fork_right;		// shared with N-1
 	long		meal_amount;		// meals eaten
-	int		number;			// index + 1?
+	int		number;			// N
 	long		time_last_meal;		// init at start of sim
 }	t_philo;
 
