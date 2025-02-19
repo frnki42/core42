@@ -20,24 +20,29 @@
 # include <unistd.h>
 // custom header
 // typedef & structs
-typedef struct s_philo
-{
-	pthread_t	thread;			// individual thread
-	pthread_mutex_t	fork_left;		// shared with N+1 [MAIN]
-	pthread_mutex_t	fork_right;		// shared with N-1
-	long		meal_amount;		// meals eaten
-	int		number;			// N
-	long		time_last_meal;		// init at start of sim
-}	t_philo;
 
 typedef struct s_table
 {
-	int	number_of_philosophers;		// number_of_forks
-	long	time_to_die;			// in ms
-	long	time_to_eat;			// in ms
-	long	time_to_sleep;			// in ms
-	long	number_of_times_each_philosopher_must_eat;	// optional -1 default 
+	pthread_mutex_t	*forks;				// array of forks
+	unsigned int	number_of_philosophers;		// number_of_forks
+	long		number_of_times_each_philosopher_must_eat;// optional -1 default 
+	long		time_to_die;			// in ms
+	long		time_to_eat;			// in ms
+	long		time_to_sleep;			// in ms
+	long		time_at_start;			// in ms
+	pthread_mutex_t	print_mutex;			// msg check
 }	t_table;
+
+typedef struct s_philo
+{
+	pthread_mutex_t	*fork_left;		// own fork
+	pthread_mutex_t	*fork_right;		// shared with N + 1
+	unsigned int	meals_eaten;		// meals eaten
+	unsigned int	number;			// N
+	pthread_t	thread;			// individual thread
+	long		time_last_meal;		// init at start of sim
+	t_table		*table;
+}	t_philo;
 // prototypes
 // macros
 #endif
