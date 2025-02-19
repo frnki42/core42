@@ -22,20 +22,20 @@
 // typedef & structs
 typedef struct s_philo
 {
-	fork_l;
-	fork_r;
-	meal_consumed;
-	meal_last;
-	number;
+	fork_left;				// shared with N+1 [MAIN]
+	fork_right;				// shared with N-1
+	meal_amount;				// meals eaten
+	last_meal;				// init at start of sim
+	number;					// index + 1?
 }	t_philo;
 
 typedef struct s_table
 {
-	number_of_philosophers;
-	time_to_die;
-	time_to_eat;
-	time_to_sleep;
-	number_of_times_each_philosopher_must_eat;
+	number_of_philosophers;			// number_of_forks
+	time_to_die;				// in ms
+	time_to_eat;				// in ms
+	time_to_sleep;				// in ms
+	number_of_times_each_philosopher_must_eat;	// optional -1 default 
 }	t_table;
 // prototypes
 // macros
