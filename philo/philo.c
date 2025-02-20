@@ -10,10 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "philo.h"
-
-int	main()
+/*
+int	check_arguments(t_table table, char **argv)
 {
-	char	*msg = "What's up dawg?";
+	check_number_of_philosophers(argv);
+	check_time_to_die(argv);
+	check_time_to_eat(argv);
+	check_time_to_sleep(argv);
+}
+*/
+int	main(int argc, char **argv)
+{
+	t_table	table;
 
-	printf("%s\n", msg);
+	if (argc < 5)
+		return(write(1, "# not enough arguments\n", 23), 1);
+	if (argc > 6)
+		return(write(1, "# too many arguments\n", 21), 1);
+	initialize_table(&table);
+//	check_arguments(argv);
+	(void) argv;
+	return (0);
 }
