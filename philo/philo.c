@@ -24,11 +24,13 @@ int	main(int argc, char **argv)
 	t_table	table;
 
 	if (argc < 5)
-		return(write(1, "# not enough arguments\n", 23), 1);
+		return(printf("# not enough arguments\n"), 1);
 	if (argc > 6)
-		return(write(1, "# too many arguments\n", 21), 1);
+		return(printf("# too many arguments\n"), 1);
 	initialize_table(&table);
 //	check_arguments(argv);
+//	set_start_time(&table);
+//	start_simulation();
 	(void) argv;
 	return (0);
 }

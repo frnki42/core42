@@ -13,12 +13,10 @@
 
 void	initialize_table(t_table *table)
 {
-	printf("must_eat = %ld\n", table->must_eat);		//remove me
 	table->must_eat = -1;
 	table->num_of_phil = 0;
 	table->t_die = 0;
 	table->t_eat = 0;
 	table->t_sleep = 0;
 	table->t_start = 0;
-	printf("must_eat = %ld\n", table->must_eat);		//remove me
 }

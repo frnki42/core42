@@ -1,21 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checks.c                                           :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: .frnki   <frnki@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/20 16:20:42 by .frnki            #+#    #+#             */
-/*   Updated: 2025/02/20 16:42:42 by .frnki           ###   ########.fr       */
+/*   Created: 2025/02/21 16:20:42 by .frnki            #+#    #+#             */
+/*   Updated: 2025/02/21 16:42:42 by .frnki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "philo.h"
 
-long	check_time(void)
+long	ft_atolong(char *str)
 {
-	struct timeval	time;
+	int		i;
+	int		sign;
+	long		tmp;
 
-	if (gettimeofday(&time, NULL))
-		return (printf("# gettimeofday() failed.\n"), -1);
-	return ((time.tv_usec / 1000) + (time.tv_sec * 1000));
+	i = 0;
+	sign = 1;
+	tmp = 0;
+	while (str[i] && (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13)))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i++] == '-')
+			sign = -1;
+	}
+	while (str[i] && (str[i] >= '0' && str[i] <= '9'))
+		tmp = tmp * 10 + (str[i++] - '0');
+	return (tmp * sign);
 }
