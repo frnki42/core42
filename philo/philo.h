@@ -44,6 +44,7 @@ typedef struct s_philo
 	long		t_last;				// init at start of sim
 }	t_philo;
 // prototypes
+int	check_str(char *str);
 long	check_time(void);
 long	ft_atolong(char *str);
 void	initialize_table(t_table *table);

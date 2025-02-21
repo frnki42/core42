@@ -11,6 +11,25 @@
 /* ************************************************************************** */
 #include "philo.h"
 
+static int	check_char(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (c);
+	return (0);
+}
+
+int	check_str(char *str)
+{
+	if (*str == '+' || *str == '-' || check_char(*str))
+		str++;
+	while (*str)
+	{
+		if (!check_char(*str++))
+			return (printf("# invalid argument\n"), 1);
+	}
+	return (0);
+}
+
 long	check_time(void)
 {
 	struct timeval	time;

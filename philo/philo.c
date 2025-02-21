@@ -13,6 +13,7 @@
 /*
 int	check_arguments(t_table table, char **argv)
 {
+	check_if_empty(argv);
 	check_number_of_philosophers(argv);
 	check_time_to_die(argv);
 	check_time_to_eat(argv);
@@ -28,6 +29,7 @@ int	main(int argc, char **argv)
 	if (argc > 6)
 		return(printf("# too many arguments\n"), 1);
 	initialize_table(&table);
+	printf("# check_str = %i\n", check_str(argv[1]));
 //	check_arguments(argv);
 //	set_start_time(&table);
 //	start_simulation();
