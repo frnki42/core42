@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "philo.h"
 
-void	initialize_table(t_table *table)
+void	init_table(t_table *table)
 {
 	table->must_eat = -1;
 	table->num_of_phil = 0;

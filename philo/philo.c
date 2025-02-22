@@ -17,9 +17,8 @@ int	main(int argc, char **argv)	// num_of_phil t_die t_eat t_sleep [must_eat]
 
 	if (argc < 5 || argc > 6)
 		return (printf("# wrong amount of arguments\n"), 1);
-	check_arguments(argc, argv);
-	initialize_table(&table);
-//	assign_values
+	check_args(argc, argv);
+	init_table(&table);
 //	set_start_time(&table);
 //	start_simulation();
 	return (0);

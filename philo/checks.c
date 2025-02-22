@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "philo.h"
 
-void	check_arguments(int argc, char **argv)
+void	check_args(int argc, char **argv)
 {
 	int	errors;
 
