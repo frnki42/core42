@@ -11,6 +11,17 @@
 /* ************************************************************************** */
 #include "philo.h"
 
+void	check_arguments(int argc, char **argv)
+{
+	int	errors;
+
+	errors = 0;
+	while (--argc)
+		errors += check_str(argv[argc]);
+	if (errors)
+		exit(1);
+}
+
 static int	check_char(int c)
 {
 	if (c >= '0' && c <= '9')

@@ -10,29 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "philo.h"
-/*
-int	check_arguments(t_table table, char **argv)
-{
-	check_if_empty(argv);
-	check_number_of_philosophers(argv);
-	check_time_to_die(argv);
-	check_time_to_eat(argv);
-	check_time_to_sleep(argv);
-}
-*/
-int	main(int argc, char **argv)
-{
+
+int	main(int argc, char **argv)	// num_of_phil t_die t_eat t_sleep [must_eat]
+{					//	[1]	[2]	[3]	[4]	[5]
 	t_table	table;
 
-	if (argc < 5)
-		return(printf("# not enough arguments\n"), 1);
-	if (argc > 6)
-		return(printf("# too many arguments\n"), 1);
+	if (argc < 5 || argc > 6)
+		return (printf("# wrong amount of arguments\n"), 1);
+	check_arguments(argc, argv);
 	initialize_table(&table);
-	printf("# check_str = %i\n", check_str(argv[1]));
-//	check_arguments(argv);
+//	assign_values
 //	set_start_time(&table);
 //	start_simulation();
-	(void) argv;
 	return (0);
 }

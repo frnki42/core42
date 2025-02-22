@@ -44,6 +44,7 @@ typedef struct s_philo
 	long		t_last;				// init at start of sim
 }	t_philo;
 // prototypes
+void	check_arguments(int argc, char **argv);
 int	check_str(char *str);
 long	check_time(void);
 long	ft_atolong(char *str);
