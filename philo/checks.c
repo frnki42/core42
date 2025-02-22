@@ -20,6 +20,8 @@ static int	check_char(int c)
 
 int	check_str(char *str)
 {
+	if (!*str)
+		return(printf("# empty argument\n"), 1);
 	if (*str == '+' || *str == '-' || check_char(*str))
 		str++;
 	while (*str)
