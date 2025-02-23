@@ -15,8 +15,6 @@ int	main(int argc, char **argv)	// num_of_phil t_die t_eat t_sleep [must_eat]
 {					//	[1]	[2]	[3]	[4]	[5]
 	t_table	table;
 
-	if (argc < 5 || argc > 6)
-		return (printf("# wrong amount of arguments\n"), 1);
 	check_args(argc, argv);
 	init_table(&table);
 //	set_start_time(&table);

@@ -15,6 +15,11 @@ void	check_args(int argc, char **argv)
 {
 	int	errors;
 
+	if (argc < 5 || argc > 6)
+	{
+		printf("# wrong amount of arguments\n");
+		exit(1);
+	}
 	errors = 0;
 	while (--argc)
 		errors += check_str(argv[argc]);
