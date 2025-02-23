@@ -23,7 +23,7 @@ NAME		= philo
 
 # LIBRARIES
 # SRC- & OBJ-FILES
-PHILO_SOURCE 	= checks.c init.c philo.c utils.c
+PHILO_SOURCE 	= checks.c init.c philo.c set_table.c utils.c
 PHILO_OBJECT 	= ${PHILO_SOURCE:.c=.o}
 
 # TARGETS
