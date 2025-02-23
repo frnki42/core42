@@ -11,6 +11,27 @@
 /* ************************************************************************** */
 #include "philo.h"
 
+static int	check_char(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (c);
+	return (0);
+}
+
+static int	check_str(char *str)
+{
+	if (!*str)
+		return(printf("# empty argument\n"), 1);
+	if (*str == '+' || *str == '-' || check_char(*str))
+		str++;
+	while (*str)
+	{
+		if (!check_char(*str++))
+			return (printf("# invalid argument\n"), 1);
+	}
+	return (0);
+}
+
 void	check_args(int argc, char **argv)
 {
 	int	errors;
@@ -25,27 +46,6 @@ void	check_args(int argc, char **argv)
 		errors += check_str(argv[argc]);
 	if (errors)
 		exit(1);
-}
-
-static int	check_char(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (c);
-	return (0);
-}
-
-int	check_str(char *str)
-{
-	if (!*str)
-		return(printf("# empty argument\n"), 1);
-	if (*str == '+' || *str == '-' || check_char(*str))
-		str++;
-	while (*str)
-	{
-		if (!check_char(*str++))
-			return (printf("# invalid argument\n"), 1);
-	}
-	return (0);
 }
 
 long	check_time(void)

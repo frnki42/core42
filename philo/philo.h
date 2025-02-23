@@ -45,7 +45,6 @@ typedef struct s_philo
 }	t_philo;
 // prototypes
 void	check_args(int argc, char **argv);
-int	check_str(char *str);
 long	check_time(void);
 long	ft_atolong(char *str);
 void	init_table(int argc, char **argv, t_table *table);
