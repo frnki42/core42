@@ -22,32 +22,37 @@ void	init_table_zero(t_table *table)
 	table->t_start = 0;
 }
 
-void	create_mutex(pthread_mutex_t fork)
+void	create_mutexes(t_table *table)
 {
-	if (pthread_mutex_init(&fork, NULL))
+	unsigned int	i;
+
+	i = 0;
+	while (i < table->num_of_phil)
+	{
+		if (pthread_mutex_init(&table->forks[i++], NULL))
+		{
+			printf("# pthread_mutex_init failed!\n");
+			destroy_table(table, 1);
+		}	
+		printf("forks[%i] created!\n", i - 1);			//remove me
+	}
+	if (pthread_mutex_init(&table->msg_lock, NULL))
 	{
 		printf("# pthread_mutex_init failed!\n");
-		// free all mutex & exit
+		destroy_table(table, 1);
 	}	
+	printf("msg_lock created!\n");			//remove me
 }
 
 void	init_forks(t_table *table)
 {
-	unsigned int	i;
-
 	table->forks = malloc(sizeof(pthread_mutex_t) * table->num_of_phil);
 	if (!table->forks)
 	{
 		printf("# malloc failed!\n");
 		exit(1);
 	}
-	i = 0;
-	while (i < table->num_of_phil)
-	{
-		create_mutex(table->forks[i++]);
-		printf("mutex[%i] created!\n", i - 1);
-	}
-	free(table->forks);
+	create_mutexes(table);
 }
 
 void	init_table(int argc, char **argv, t_table *table)
@@ -55,6 +60,4 @@ void	init_table(int argc, char **argv, t_table *table)
 	init_table_zero(table);
 	set_table(argc, argv,table);
 	init_forks(table);
-	pthread_mutex_init(&table->msg_lock, NULL);
-	pthread_mutex_destroy(&table->msg_lock);
 }
