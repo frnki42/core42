@@ -48,6 +48,7 @@ void	check_args(int argc, char **argv);
 long	check_time(void);
 void	destroy_table(t_table *table, int exit_status);
 long	ft_atolong(char *str);
+void	init_philo();
 void	init_table(int argc, char **argv, t_table *table);
 void	set_table(int argc, char **argv, t_table *table);
 // macros

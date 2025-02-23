@@ -17,6 +17,7 @@ int	main(int argc, char **argv)	// num_of_phil t_die t_eat t_sleep [must_eat]
 
 	check_args(argc, argv);
 	init_table(argc, argv, &table);
+	init_philo(&table);
 	destroy_table(&table, 0);
 //	set_start_time(&table);
 //	start_simulation();
