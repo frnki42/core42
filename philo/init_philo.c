@@ -25,7 +25,7 @@ void	init_philo_zero(t_philo *philo, unsigned int index)
 void	set_philo(t_philo *philo, t_table *table, unsigned int index)
 {
 	philo[index].fork_left = &table->forks[index];
-	if (index < table->num_of_phil)
+	if ((index + 1) < table->num_of_phil)
 		philo[index].fork_right = &table->forks[index + 1];
 	philo[index].table = table;
 	philo[index].num = index + 1;
