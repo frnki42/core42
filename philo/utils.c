@@ -48,3 +48,16 @@ void	destroy_table(t_table *table, int exit_status)
 	printf("msg_lock destroyed!\n");				//remove me
 	exit(exit_status);
 }
+
+void	free_philo(t_table *table, t_philo *philo)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (i < table->num_of_phil)
+	{
+		free(&philo[i]);
+		i++;
+	}
+	free(philo);
+}

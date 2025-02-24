@@ -13,8 +13,6 @@
 
 void	init_philo_zero(t_philo *philo)
 {
-	philo->fork_left = NULL;
-	philo->fork_right = NULL;
 	philo->table = NULL;
 	philo->ate = 0;
 	philo->num = 0;
@@ -22,7 +20,7 @@ void	init_philo_zero(t_philo *philo)
 	philo->t_last = 0;
 }
 
-void	set_philo(t_table *table, unsigned int index, t_philo *philo)
+void	set_philo(t_philo *philo, t_table *table, unsigned int index)
 {
 	philo->fork_left = &table->forks[index];
 	if ((index + 1) < table->num_of_phil)
@@ -31,22 +29,23 @@ void	set_philo(t_table *table, unsigned int index, t_philo *philo)
 	philo->num = index + 1;
 }
 
-void	create_philo(t_table *table, unsigned int index)
+void	create_philo(t_philo *philo, t_table *table, unsigned int index)
 {
-	t_philo	philo;
-	
-	init_philo_zero(&philo);
-	set_philo(table, index, &philo);
+	philo = malloc(sizeof(t_philo));
+	if (!philo)
+		destroy_table(table, 1);
+	init_philo_zero(philo);
+	set_philo(philo, table, index);
 }
 
-void	init_philo(t_table *table)
+void	init_philo(t_table *table, t_philo *philo)
 {
-	unsigned int	i;
+	unsigned int	index;
 
-	i = 0;
-	while (i < table->num_of_phil)
+	index = 0;
+	while (index < table->num_of_phil)
 	{
-		create_philo(table, i++);
-		printf("# philo[%i] created!\n", i - 1);
+		create_philo(&philo[index], table, index);
+		printf("# philo[%i] created!\n", index++);
 	}
 }

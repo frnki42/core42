@@ -14,11 +14,16 @@
 int	main(int argc, char **argv)	// num_of_phil t_die t_eat t_sleep [must_eat]
 {					//	[1]	[2]	[3]	[4]	[5]
 	t_table	table;
+	t_philo	*philo;
 
 	check_args(argc, argv);
 	init_table(argc, argv, &table);
-	init_philo(&table);
+	philo = malloc(sizeof(t_philo*) * table.num_of_phil);
+	if (!philo)
+		destroy_table(&table, 1);
+	init_philo(&table, philo);
 	destroy_table(&table, 0);
+	free_philo(&table, philo);
 //	set_start_time(&table);
 //	start_simulation();
 	return (0);

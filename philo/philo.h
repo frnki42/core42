@@ -47,8 +47,9 @@ typedef struct s_philo
 void	check_args(int argc, char **argv);
 long	check_time(void);
 void	destroy_table(t_table *table, int exit_status);
+void	free_philo(t_table *table, t_philo *philo);
 long	ft_atolong(char *str);
-void	init_philo();
+void	init_philo(t_table *table, t_philo *philo);
 void	init_table(int argc, char **argv, t_table *table);
 void	set_table(int argc, char **argv, t_table *table);
 // macros
