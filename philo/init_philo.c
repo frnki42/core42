@@ -11,6 +11,32 @@
 /* ************************************************************************** */
 #include "philo.h"
 
+void	*start_routine(void *philo)
+{
+	printf("# HI IM A THREAD!\n");
+	sleep(1);
+	return (philo);
+}
+
+void	join_threads(t_table *table, t_philo *philo)
+{
+	unsigned int i;
+
+	i = 0;
+	while (i < table->num_of_phil)
+		pthread_join(philo[i++].thread, NULL);
+}
+
+void	create_threads(t_philo *philo, t_table *table, unsigned int index)
+{
+	if (pthread_create(&philo[index].thread, NULL, start_routine, NULL))
+	{
+		printf("# error creating thread. cleaning up & exiting..\n");
+		destroy_table(table);
+		free(philo);
+		exit(1);
+	}
+}
 void	init_philo_zero(t_philo *philo, unsigned int index)
 {
 	philo[index].fork_left = NULL;
@@ -35,6 +61,7 @@ void	create_philo(t_philo *philo, t_table *table, unsigned int index)
 {
 	init_philo_zero(philo, index);
 	set_philo(philo, table, index);
+	create_threads(philo, table, index);
 }
 
 void	init_philo(t_table *table, t_philo *philo)
