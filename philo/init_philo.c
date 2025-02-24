@@ -13,6 +13,8 @@
 
 void	init_philo_zero(t_philo *philo)
 {
+	philo->fork_left = NULL;
+	philo->fork_right = NULL;
 	philo->table = NULL;
 	philo->ate = 0;
 	philo->num = 0;
