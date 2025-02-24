@@ -40,10 +40,10 @@ void	destroy_table(t_table *table)
 	while (i < table->num_of_phil)
 	{								//remove me
 		pthread_mutex_destroy(&table->forks[i++]);
-		printf("forks[%i] destroyed!\n", i - 1);		//remove me
+		printf("# forks[%i] destroyed!\n", i - 1);		//remove me
 	}								//remove me
 	if (table->forks)
 		free(table->forks);
 	pthread_mutex_destroy(&table->msg_lock);
-	printf("msg_lock destroyed!\n");				//remove me
+	printf("# msg_lock destroyed!\n");				//remove me
 }

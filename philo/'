@@ -11,29 +11,29 @@
 /* ************************************************************************** */
 #include "philo.h"
 
-void	init_philo_zero(t_philo *philo, unsigned int index)
+void	init_philo_zero(t_philo *philo)
 {
-	philo[index].fork_left = NULL;
-	philo[index].fork_right = NULL;
-	philo[index].table = NULL;
-	philo[index].ate = 0;
-	philo[index].num = 0;
-	philo[index].thread = 0;
-	philo[index].t_last = 0;
+	philo->fork_left = NULL;
+	philo->fork_right = NULL;
+	philo->table = NULL;
+	philo->ate = 0;
+	philo->num = 0;
+	philo->thread = 0;
+	philo->t_last = 0;
 }
 
 void	set_philo(t_philo *philo, t_table *table, unsigned int index)
 {
-	philo[index].fork_left = &table->forks[index];
-	if (index < table->num_of_phil)
-		philo[index].fork_right = &table->forks[index + 1];
-	philo[index].table = table;
-	philo[index].num = index + 1;
+	philo[index]->fork_left = &table->forks[index];
+	if ((index + 1) < table->num_of_phil)
+		philo->fork_right = &table->forks[index + 1];
+	philo[index]->table = table;
+	philo[index]->num = index + 1;
 }
 
 void	create_philo(t_philo *philo, t_table *table, unsigned int index)
 {
-	init_philo_zero(philo, index);
+	init_philo_zero(philo);
 	set_philo(philo, table, index);
 }
 
