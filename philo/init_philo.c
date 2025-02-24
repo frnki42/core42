@@ -11,11 +11,14 @@
 /* ************************************************************************** */
 #include "philo.h"
 
-void	*start_routine(void *philo)
+void	*start_routine(void *arg)
 {
-	printf("# HI IM A THREAD!\n");
-	sleep(1);
-	return (philo);
+	t_philo	*philo;
+
+	philo = (t_philo *)arg;
+	printf("# HI IM THREAD %i\n", philo->num);
+	sleep(philo->table->t_sleep);
+	return (arg);
 }
 
 void	join_threads(t_table *table, t_philo *philo)
@@ -27,18 +30,27 @@ void	join_threads(t_table *table, t_philo *philo)
 		pthread_join(philo[i++].thread, NULL);
 }
 
-void	create_thread(t_philo *philo, t_table *table, unsigned int index)
+void	create_thread(t_philo *philo, t_table *table, unsigned int i)
 {
-	if (pthread_create(&philo[index].thread, NULL, start_routine, NULL))
+	if (pthread_create(&philo[i].thread, NULL, start_routine, &philo[i]))
 	{
 		printf("# error creating thread. cleaning up & exiting..\n");
 		destroy_table(table);
 		free(philo);
 		exit(1);
 	}
-	printf("# philo[%i] created!\n", index);				//remove me
-	philo[index].t_last = check_time();
-	printf("# philo[%i].t_last = %li\n", index, philo[index].t_last);	//remove me
+	printf("# philo[%i] created!\n", i);				//remove me
+	philo[i].t_last = check_time();
+	printf("# philo[%i].t_last = %li\n", i, philo[i].t_last);	//remove me
+}
+
+void	create_threads(t_philo *philo, t_table *table)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (i < table->num_of_phil)
+		create_thread(philo, table, i++);
 }
 void	init_philo_zero(t_philo *philo, unsigned int index)
 {
@@ -64,7 +76,6 @@ void	create_philo(t_philo *philo, t_table *table, unsigned int index)
 {
 	init_philo_zero(philo, index);
 	set_philo(philo, table, index);
-	create_thread(philo, table, index);
 }
 
 void	init_philo(t_table *table, t_philo *philo)

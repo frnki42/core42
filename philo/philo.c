@@ -18,6 +18,10 @@ int	main(int argc, char **argv)	// num_of_phil t_die t_eat t_sleep [must_eat]
 
 	check_args(argc, argv);
 	init_table(argc, argv, &table);
+	printf("num_of_phil = %i.\n", table.num_of_phil);
+	printf("t_die = %li.\n", table.t_die);
+	printf("t_eat = %li.\n", table.t_eat);
+	printf("t_sleep = %li.\n", table.t_sleep);
 	philo = malloc(sizeof(t_philo) * table.num_of_phil);
 	if (!philo)
 	{
@@ -25,6 +29,8 @@ int	main(int argc, char **argv)	// num_of_phil t_die t_eat t_sleep [must_eat]
 		exit(1);
 	}
 	init_philo(&table, philo);
+	set_t_start(&table, philo);
+	create_threads(philo, &table);
 	join_threads(&table, philo);
 	destroy_table(&table);
 	free(philo);

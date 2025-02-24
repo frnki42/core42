@@ -11,6 +11,18 @@
 /* ************************************************************************** */
 #include "philo.h"
 
+void	set_t_start(t_table *table, t_philo *philo)
+{
+	table->t_start = check_time();
+	if (table->t_start == -1)
+	{
+		printf("# gettimeofday() failed. cleaning up & exit.\n");
+		destroy_table(table);
+		free(philo);
+	}
+	printf("# t_start successfully set to %li.\n", table->t_start);		//remove me
+}
+
 static void	set_num_of_phil(t_table *table, char *arg)
 {
 	long	tmp;
