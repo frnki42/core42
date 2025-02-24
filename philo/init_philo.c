@@ -33,9 +33,6 @@ void	set_philo(t_philo *philo, t_table *table, unsigned int index)
 
 void	create_philo(t_philo *philo, t_table *table, unsigned int index)
 {
-	philo = malloc(sizeof(t_philo));
-	if (!philo)
-		destroy_table(table, 1);
 	init_philo_zero(philo);
 	set_philo(philo, table, index);
 }
@@ -47,7 +44,7 @@ void	init_philo(t_table *table, t_philo *philo)
 	index = 0;
 	while (index < table->num_of_phil)
 	{
-		create_philo(&philo[index], table, index);
+		create_philo(philo, table, index);
 		printf("# philo[%i] created!\n", index++);
 	}
 }

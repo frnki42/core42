@@ -20,10 +20,14 @@ int	main(int argc, char **argv)	// num_of_phil t_die t_eat t_sleep [must_eat]
 	init_table(argc, argv, &table);
 	philo = malloc(sizeof(t_philo*) * table.num_of_phil);
 	if (!philo)
-		destroy_table(&table, 1);
+	{
+		destroy_table(&table);
+		exit(1);
+	}
 	init_philo(&table, philo);
-	destroy_table(&table, 0);
-	free_philo(&table, philo);
+	printf("# table->num_of_phil = %i.\n", table.num_of_phil);
+	destroy_table(&table);
+	free(philo);
 //	set_start_time(&table);
 //	start_simulation();
 	return (0);

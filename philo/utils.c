@@ -32,7 +32,7 @@ long	ft_atolong(char *str)
 	return (tmp * sign);
 }
 
-void	destroy_table(t_table *table, int exit_status)
+void	destroy_table(t_table *table)
 {
 	unsigned int	i;
 
@@ -46,18 +46,4 @@ void	destroy_table(t_table *table, int exit_status)
 		free(table->forks);
 	pthread_mutex_destroy(&table->msg_lock);
 	printf("msg_lock destroyed!\n");				//remove me
-	exit(exit_status);
-}
-
-void	free_philo(t_table *table, t_philo *philo)
-{
-	unsigned int	i;
-
-	i = 0;
-	while (i < table->num_of_phil)
-	{
-		free(&philo[i]);
-		i++;
-	}
-	free(philo);
 }

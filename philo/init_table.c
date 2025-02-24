@@ -32,14 +32,14 @@ void	create_mutexes(t_table *table)
 		if (pthread_mutex_init(&table->forks[i++], NULL))
 		{
 			printf("# pthread_mutex_init failed!\n");
-			destroy_table(table, 1);
+			destroy_table(table);
 		}	
 		printf("forks[%i] created!\n", i - 1);			//remove me
 	}
 	if (pthread_mutex_init(&table->msg_lock, NULL))
 	{
 		printf("# pthread_mutex_init failed!\n");
-		destroy_table(table, 1);
+		destroy_table(table);
 	}	
 	printf("msg_lock created!\n");			//remove me
 }
