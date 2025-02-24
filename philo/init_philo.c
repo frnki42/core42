@@ -27,7 +27,7 @@ void	join_threads(t_table *table, t_philo *philo)
 		pthread_join(philo[i++].thread, NULL);
 }
 
-void	create_threads(t_philo *philo, t_table *table, unsigned int index)
+void	create_thread(t_philo *philo, t_table *table, unsigned int index)
 {
 	if (pthread_create(&philo[index].thread, NULL, start_routine, NULL))
 	{
@@ -36,6 +36,9 @@ void	create_threads(t_philo *philo, t_table *table, unsigned int index)
 		free(philo);
 		exit(1);
 	}
+	printf("# philo[%i] created!\n", index);				//remove me
+	philo[index].t_last = check_time();
+	printf("# philo[%i].t_last = %li\n", index, philo[index].t_last);	//remove me
 }
 void	init_philo_zero(t_philo *philo, unsigned int index)
 {
@@ -61,7 +64,7 @@ void	create_philo(t_philo *philo, t_table *table, unsigned int index)
 {
 	init_philo_zero(philo, index);
 	set_philo(philo, table, index);
-	create_threads(philo, table, index);
+	create_thread(philo, table, index);
 }
 
 void	init_philo(t_table *table, t_philo *philo)
@@ -70,8 +73,5 @@ void	init_philo(t_table *table, t_philo *philo)
 
 	index = 0;
 	while (index < table->num_of_phil)
-	{
-		create_philo(philo, table, index);
-		printf("# philo[%i] created!\n", index++);
-	}
+		create_philo(philo, table, index++);
 }
