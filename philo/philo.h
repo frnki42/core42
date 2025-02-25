@@ -23,25 +23,25 @@
 
 typedef struct s_table
 {
-	pthread_mutex_t	*forks;				// array of forks
-	pthread_mutex_t	msg_lock;			// msg check
-	long		must_eat;			// optional -1 default 
-	unsigned int	num_of_phil;			// number_of_forks
-	long		t_die;				// in ms
-	long		t_eat;				// in ms
-	long		t_sleep;			// in ms
-	long		t_start;			// in ms
+	pthread_mutex_t	*forks;
+	pthread_mutex_t	msg_lock;
+	long		must_eat;
+	unsigned int	num_of_phil;
+	long		t_die;
+	long		t_eat;
+	long		t_sleep;
+	long		t_start;
 }	t_table;
 
 typedef struct s_philo
 {
-	pthread_mutex_t	*fork_left;			// own fork
-	pthread_mutex_t	*fork_right;			// shared with N + 1
-	t_table		*table;				// ptr to table
-	unsigned int	ate;				// meals eaten
-	unsigned int	num;				// individual number
-	pthread_t	thread;				// individual thread
-	long		t_last;				// init at start of sim
+	pthread_mutex_t	*fork_left;
+	pthread_mutex_t	*fork_right;
+	t_table		*table;
+	unsigned int	ate;
+	unsigned int	num;
+	pthread_t	thread;
+	long		t_last;
 }	t_philo;
 // prototypes
 void	check_args(int argc, char **argv);
