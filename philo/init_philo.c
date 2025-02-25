@@ -16,8 +16,39 @@ void	*start_routine(void *arg)
 	t_philo	*philo;
 
 	philo = (t_philo *)arg;
-	printf("# HI IM THREAD %i\n", philo->num);
-	sleep(philo->table->t_sleep);
+
+	//pick up both forks
+	pthread_mutex_lock(philo->fork_left);
+	pthread_mutex_lock(&philo->table->msg_lock);
+	printf("%li %i has taken a fork (left hand)\n", check_time(), philo->num);
+	pthread_mutex_unlock(&philo->table->msg_lock);
+	pthread_mutex_lock(philo->fork_right);
+	pthread_mutex_lock(&philo->table->msg_lock);
+	printf("%li %i has taken a fork (right hand)\n", check_time(), philo->num);
+	pthread_mutex_unlock(&philo->table->msg_lock);
+	// "eat" until time is gone
+	pthread_mutex_lock(&philo->table->msg_lock);
+	printf("%li %i is eating\n", check_time(), philo->num);
+	pthread_mutex_unlock(&philo->table->msg_lock);
+	usleep(philo->table->t_eat * 1000);
+	//put forks down
+	pthread_mutex_unlock(philo->fork_left);
+	pthread_mutex_lock(&philo->table->msg_lock);
+	printf("%li %i put a fork down (left hand)\n", check_time(), philo->num);
+	pthread_mutex_unlock(&philo->table->msg_lock);
+	pthread_mutex_unlock(philo->fork_right);
+	pthread_mutex_lock(&philo->table->msg_lock);
+	printf("%li %i put a fork down (right hand)\n", check_time(), philo->num);
+	pthread_mutex_unlock(&philo->table->msg_lock);
+	//sleep
+	pthread_mutex_lock(&philo->table->msg_lock);
+	printf("%li %i is sleeping\n", check_time(), philo->num);
+	pthread_mutex_unlock(&philo->table->msg_lock);
+	usleep(philo->table->t_sleep * 1000);
+	//think
+	pthread_mutex_lock(&philo->table->msg_lock);
+	printf("%li %i is thinking\n", check_time(), philo->num);
+	pthread_mutex_unlock(&philo->table->msg_lock);
 	return (arg);
 }
 
