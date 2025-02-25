@@ -15,6 +15,7 @@ void	init_table_zero(t_table *table)
 {
 	table->forks = NULL;
 	table->must_eat = -1;
+	table->all_alive = 1;
 	table->num_of_phil = 0;
 	table->t_die = 0;
 	table->t_eat = 0;
@@ -34,14 +35,12 @@ void	create_mutexes(t_table *table)
 			printf("# pthread_mutex_init failed!\n");
 			destroy_table(table);
 		}	
-		printf("# forks[%i] created!\n", i - 1);	//remove me
 	}
 	if (pthread_mutex_init(&table->msg_lock, NULL))
 	{
 		printf("# pthread_mutex_init failed!\n");
 		destroy_table(table);
-	}	
-	printf("# msg_lock created!\n");			//remove me
+	}
 }
 
 void	init_forks(t_table *table)

@@ -44,6 +44,6 @@ void	init_philo(t_table *table, t_philo *philo)
 	unsigned int	index;
 
 	index = 0;
-	while (index < table->num_of_phil)
+	while (index < table->num_of_phil && table->all_alive)
 		create_philo(philo, table, index++);
 }

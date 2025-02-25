@@ -39,7 +39,7 @@ void	create_threads(t_philo *philo, t_table *table)
 	unsigned int	i;
 
 	i = 0;
-	while (i < table->num_of_phil)
+	while (i < table->num_of_phil && table->all_alive)
 		create_thread(philo, table, i++);
 }
 
