@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 #include "philo.h"
 
+// converts string to long
 long	ft_atolong(char *str)
 {
 	int		i;
@@ -32,6 +33,7 @@ long	ft_atolong(char *str)
 	return (tmp * sign);
 }
 
+// destroys everything on the table, then the table itself
 void	destroy_table(t_table *table)
 {
 	unsigned int	i;
@@ -43,4 +45,17 @@ void	destroy_table(t_table *table)
 		free(table->forks);
 	pthread_mutex_destroy(&table->msg_lock);
 	pthread_mutex_destroy(&table->alive_lock);
+}
+
+// starts a funny starving adventure
+void	solo_adventure(t_philo *philo)
+{
+	pthread_mutex_lock(philo->fork_left);
+	pthread_mutex_lock(&philo->table->msg_lock);
+	printf("%li %i has taken a fork (left)\n", check_time(), philo->num);
+	pthread_mutex_unlock(&philo->table->msg_lock);
+	usleep(philo->table->t_die * 1000);
+	pthread_mutex_lock(&philo->table->msg_lock);
+	printf("%li %i died\n", check_time(), philo->num);
+	pthread_mutex_unlock(&philo->table->msg_lock);
 }

@@ -11,94 +11,42 @@
 /* ************************************************************************** */
 #include "philo.h"
 
-// lock fork_right before locking fork_left
-void	pick_right_first(t_philo *philo)
+// set current time to t_last and increment ate + usleep(t_eat)
+static void	eat_spaghetti(t_philo *philo)
 {
-	pthread_mutex_lock(philo->fork_right);
-	pthread_mutex_lock(&philo->table->msg_lock);
-	if (philo->table->all_alive)
-		printf("%li %i has taken a fork (right)\n", check_time(), philo->num);
-	pthread_mutex_unlock(&philo->table->msg_lock);
-	pthread_mutex_lock(philo->fork_left);
-	pthread_mutex_lock(&philo->table->msg_lock);
-	if (philo->table->all_alive)
-		printf("%li %i has taken a fork (left)\n", check_time(), philo->num);
-	pthread_mutex_unlock(&philo->table->msg_lock);
-}
+	long	i;
 
-// lock fork_left before locking fork_right
-void	pick_left_first(t_philo *philo)
-{
-	pthread_mutex_lock(philo->fork_left);
-	pthread_mutex_lock(&philo->table->msg_lock);
-	if (philo->table->all_alive)
-		printf("%li %i has taken a fork (left)\n", check_time(), philo->num);
-	pthread_mutex_unlock(&philo->table->msg_lock);
-	pthread_mutex_lock(philo->fork_right);
-	pthread_mutex_lock(&philo->table->msg_lock);
-	if (philo->table->all_alive)
-		printf("%li %i has taken a fork (right)\n", check_time(), philo->num);
-	pthread_mutex_unlock(&philo->table->msg_lock);
-}
-
-// lock and unlock mutexes for fork_left, fork_right
-void	pick_up_forks(t_philo *philo)
-{
-	if (philo->num % 2)
-		pick_left_first(philo);
-	else
-		pick_right_first(philo);
-}
-
-// "eat" until time is gone
-void	eat_spaghetti(t_philo *philo)
-{
-	unsigned int	i;
-
-	pthread_mutex_lock(&philo->table->msg_lock);
-	if (philo->table->all_alive)
-		printf("%li %i is eating\n", check_time(), philo->num);
-	pthread_mutex_unlock(&philo->table->msg_lock);
 	philo->t_last = check_time();
 	philo->ate++;
-	i = 0;
-	while (philo->table->all_alive && i++ < 100)
-		usleep(philo->table->t_eat * 10);
-}
-
-//put forks down
-void	put_down_forks(t_philo *philo)
-{
-	pthread_mutex_unlock(philo->fork_left);
 	pthread_mutex_lock(&philo->table->msg_lock);
-	if (philo->table->all_alive)
-		printf("%li %i put a fork down (left)\n", check_time(), philo->num);
-	pthread_mutex_unlock(&philo->table->msg_lock);
-	pthread_mutex_unlock(philo->fork_right);
-	pthread_mutex_lock(&philo->table->msg_lock);
-	if (philo->table->all_alive)
-		printf("%li %i put a fork down (right)\n", check_time(), philo->num);
-	pthread_mutex_unlock(&philo->table->msg_lock);
-}
-
-//sleep
-void	take_a_nap(t_philo *philo)
-{
-	unsigned int	i;
-
 	if (philo->table->all_alive)
 	{
-		pthread_mutex_lock(&philo->table->msg_lock);
-		if (philo->table->all_alive)
-			printf("%li %i is sleeping\n", check_time(), philo->num);
+		printf("%li %i is eating\n", check_time(), philo->num);
 		pthread_mutex_unlock(&philo->table->msg_lock);
 		i = 0;
 		while (philo->table->all_alive && i++ < 100)
-			usleep(philo->table->t_sleep * 10);
+			usleep(philo->table->t_eat * 10);
 	}
+	else
+		pthread_mutex_unlock(&philo->table->msg_lock);
 }
 
-void	reality_check(t_philo *philo)
+// usleep(t_sleep)
+static void	take_a_nap(t_philo *philo)
+{
+	unsigned int	i;
+
+	pthread_mutex_lock(&philo->table->msg_lock);
+	if (philo->table->all_alive)
+		printf("%li %i is sleeping\n", check_time(), philo->num);
+	pthread_mutex_unlock(&philo->table->msg_lock);
+	i = 0;
+	while (philo->table->all_alive && i++ < 100)
+		usleep(philo->table->t_sleep * 10);
+}
+
+// face the harsh reality of life
+static void	reality_check(t_philo *philo)
 {
 	if ((check_time() - philo->t_last) >= philo->table->t_die)
 	{
@@ -111,25 +59,29 @@ void	reality_check(t_philo *philo)
 	}
 }
 
-//think
-void	think_about_life(t_philo *philo)
+// find your inner zen
+static void	think_about_life(t_philo *philo)
 {
+	pthread_mutex_lock(&philo->table->msg_lock);
 	if (philo->table->all_alive)
 	{
-		pthread_mutex_lock(&philo->table->msg_lock);
-		if (philo->table->all_alive)
-			printf("%li %i is thinking\n", check_time(), philo->num);
+		printf("%li %i is thinking\n", check_time(), philo->num);
 		pthread_mutex_unlock(&philo->table->msg_lock);
 		reality_check(philo);
 	}
+	else
+		pthread_mutex_unlock(&philo->table->msg_lock);
 }
 
+// make the thread do some work
 void	*start_routine(void *arg)
 {
 	t_philo	*philo;
 
 	philo = (t_philo *)arg;
 	philo->t_last = check_time();
+	if (philo->table->num_of_phil == 1)
+		return (solo_adventure(philo), arg);
 	while (philo->ate < philo->table->must_eat && philo->table->all_alive)
 	{
 		if (philo->table->all_alive)

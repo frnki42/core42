@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 #include "philo.h"
 
+// checks if int is in ascii range for digits
 static int	check_char(int c)
 {
 	if (c >= '0' && c <= '9')
@@ -18,6 +19,7 @@ static int	check_char(int c)
 	return (0);
 }
 
+// check if string is valid (digit with only one sign if any)
 static int	check_str(char *str)
 {
 	if (!*str)
@@ -32,6 +34,7 @@ static int	check_str(char *str)
 	return (0);
 }
 
+//checks the amount of arguments and each argument
 void	check_args(int argc, char **argv)
 {
 	int	errors;
@@ -48,6 +51,7 @@ void	check_args(int argc, char **argv)
 		exit(1);
 }
 
+// where is my car dude?
 long	check_time(void)
 {
 	struct timeval	time;

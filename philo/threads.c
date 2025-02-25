@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 #include "philo.h"
 
+// joins threads
 void	join_threads(t_table *table, t_philo *philo)
 {
 	unsigned int i;
@@ -20,6 +21,7 @@ void	join_threads(t_table *table, t_philo *philo)
 		pthread_join(philo[i++].thread, NULL);
 }
 
+// creates one thread, destroys and frees stuff on failure
 void	create_thread(t_philo *philo, t_table *table, unsigned int i)
 {
 	if (pthread_create(&philo[i].thread, NULL, start_routine, &philo[i]))
@@ -31,6 +33,7 @@ void	create_thread(t_philo *philo, t_table *table, unsigned int i)
 	}
 }
 
+// calls create_thread num_of_phil amount of time
 void	create_threads(t_philo *philo, t_table *table)
 {
 	unsigned int	i;
@@ -39,4 +42,3 @@ void	create_threads(t_philo *philo, t_table *table)
 	while (i < table->num_of_phil && table->all_alive)
 		create_thread(philo, table, i++);
 }
-

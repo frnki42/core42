@@ -54,8 +54,11 @@ long	ft_atolong(char *str);
 void	init_philo(t_table *table, t_philo *philo);
 void	init_table(int argc, char **argv, t_table *table);
 void	join_threads(t_table *table, t_philo *philo);
+void	put_down_forks(t_philo *philo);
+void	pick_up_forks(t_philo *philo);
 void	set_t_start(t_table *table, t_philo *philo);
 void	set_table(int argc, char **argv, t_table *table);
+void	solo_adventure(t_philo *philo);
 void	*start_routine(void *arg);
 // macros
 #endif
