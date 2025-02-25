@@ -54,5 +54,6 @@ void	init_table(int argc, char **argv, t_table *table);
 void	join_threads(t_table *table, t_philo *philo);
 void	set_t_start(t_table *table, t_philo *philo);
 void	set_table(int argc, char **argv, t_table *table);
+void	*start_routine(void *arg);
 // macros
 #endif
