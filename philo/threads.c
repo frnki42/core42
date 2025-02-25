@@ -13,19 +13,19 @@
 
 void	pick_up_forks(t_philo *philo)
 {
-	if (philo->num % 2 == 0)
+	if (philo->num % 2)
 	{
-		pthread_mutex_lock(philo->fork_left);
-		printf("%li %i has taken a fork (left hand)\n", check_time(), philo->num);
 		pthread_mutex_lock(philo->fork_right);
 		printf("%li %i has taken a fork (right hand)\n", check_time(), philo->num);
+		pthread_mutex_lock(philo->fork_left);
+		printf("%li %i has taken a fork (left hand)\n", check_time(), philo->num);
 	}
 	else
 	{
-		pthread_mutex_lock(philo->fork_right);
-		printf("%li %i has taken a fork (right hand)\n", check_time(), philo->num);
 		pthread_mutex_lock(philo->fork_left);
 		printf("%li %i has taken a fork (left hand)\n", check_time(), philo->num);
+		pthread_mutex_lock(philo->fork_right);
+		printf("%li %i has taken a fork (right hand)\n", check_time(), philo->num);
 	}
 }
 
