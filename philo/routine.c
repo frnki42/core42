@@ -11,22 +11,40 @@
 /* ************************************************************************** */
 #include "philo.h"
 
+// lock and unlock mutexes for fork_left, fork_right
 void	pick_up_forks(t_philo *philo)
 {
 	if (philo->num % 2)
 	{
 		pthread_mutex_lock(philo->fork_right);
-		printf("%li %i has taken a fork (right hand)\n", check_time(), philo->num);
+		printf("%li %i has taken a fork (right)\n", check_time(), philo->num);
 		pthread_mutex_lock(philo->fork_left);
-		printf("%li %i has taken a fork (left hand)\n", check_time(), philo->num);
+		printf("%li %i has taken a fork (left)\n", check_time(), philo->num);
 	}
 	else
 	{
 		pthread_mutex_lock(philo->fork_left);
-		printf("%li %i has taken a fork (left hand)\n", check_time(), philo->num);
+		printf("%li %i has taken a fork (left)\n", check_time(), philo->num);
 		pthread_mutex_lock(philo->fork_right);
-		printf("%li %i has taken a fork (right hand)\n", check_time(), philo->num);
+		printf("%li %i has taken a fork (right)\n", check_time(), philo->num);
 	}
+}
+
+// "eat" until time is gone
+void	eat_spaghetti(t_philo *philo)
+{
+	printf("%li %i is eating\n", check_time(), philo->num);
+	philo->ate++;
+	usleep(philo->table->t_eat * 1000);
+}
+
+//put forks down
+void	put_down_forks(t_philo *philo)
+{
+	pthread_mutex_unlock(philo->fork_left);
+	printf("%li %i put a fork down (left)\n", check_time(), philo->num);
+	pthread_mutex_unlock(philo->fork_right);
+	printf("%li %i put a fork down (right)\n", check_time(), philo->num);
 }
 
 void	*start_routine(void *arg)
@@ -36,15 +54,8 @@ void	*start_routine(void *arg)
 	philo = (t_philo *)arg;
 
 	pick_up_forks(philo);
-	// "eat" until time is gone
-	printf("%li %i is eating\n", check_time(), philo->num);
-	philo->ate++;
-	usleep(philo->table->t_eat * 1000);
-	//put forks down
-	pthread_mutex_unlock(philo->fork_left);
-	printf("%li %i put a fork down (left hand)\n", check_time(), philo->num);
-	pthread_mutex_unlock(philo->fork_right);
-	printf("%li %i put a fork down (right hand)\n", check_time(), philo->num);
+	eat_spaghetti(philo);
+	put_down_forks(philo);
 	//sleep
 	printf("%li %i is sleeping\n", check_time(), philo->num);
 	usleep(philo->table->t_sleep * 1000);
