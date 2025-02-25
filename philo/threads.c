@@ -29,9 +29,7 @@ void	create_thread(t_philo *philo, t_table *table, unsigned int i)
 		free(philo);
 		exit(1);
 	}
-	printf("# philo[%i] created!\n", i);				//remove me
 	philo[i].t_last = check_time();
-	printf("# philo[%i].t_last = %li\n", i, philo[i].t_last);	//remove me
 }
 
 void	create_threads(t_philo *philo, t_table *table)

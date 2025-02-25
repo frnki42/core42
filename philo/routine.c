@@ -40,6 +40,8 @@ void	pick_left_first(t_philo *philo)
 // lock and unlock mutexes for fork_left, fork_right
 void	pick_up_forks(t_philo *philo)
 {
+	if (!philo->table->all_alive)
+		return ;
 	if (philo->num % 2)
 		pick_left_first(philo);
 	else
@@ -49,6 +51,8 @@ void	pick_up_forks(t_philo *philo)
 // "eat" until time is gone
 void	eat_spaghetti(t_philo *philo)
 {
+	if (!philo->table->all_alive)
+		return ;
 	pthread_mutex_lock(&philo->table->msg_lock);
 	printf("%li %i is eating\n", check_time(), philo->num);
 	pthread_mutex_unlock(&philo->table->msg_lock);
@@ -73,6 +77,8 @@ void	put_down_forks(t_philo *philo)
 //sleep
 void	take_a_nap(t_philo *philo)
 {
+	if (!philo->table->all_alive)
+		return ;
 	pthread_mutex_lock(&philo->table->msg_lock);
 	printf("%li %i is sleeping\n", check_time(), philo->num);
 	pthread_mutex_unlock(&philo->table->msg_lock);
@@ -82,6 +88,8 @@ void	take_a_nap(t_philo *philo)
 //think
 void	think_about_life(t_philo *philo)
 {
+	if (!philo->table->all_alive)
+		return ;
 	pthread_mutex_lock(&philo->table->msg_lock);
 	printf("%li %i is thinking\n", check_time(), philo->num);
 	pthread_mutex_unlock(&philo->table->msg_lock);
