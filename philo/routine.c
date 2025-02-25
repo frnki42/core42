@@ -97,7 +97,7 @@ void	*start_routine(void *arg)
 	t_philo	*philo;
 
 	philo = (t_philo *)arg;
-	while (philo->ate < philo->table->must_eat)
+	while (philo->ate < philo->table->must_eat && philo->table->all_alive)
 	{
 		pick_up_forks(philo);
 		eat_spaghetti(philo);
