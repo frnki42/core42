@@ -29,7 +29,6 @@ void	create_thread(t_philo *philo, t_table *table, unsigned int i)
 		free(philo);
 		exit(1);
 	}
-	philo[i].t_last = check_time();
 }
 
 void	create_threads(t_philo *philo, t_table *table)

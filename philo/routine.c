@@ -40,8 +40,6 @@ void	pick_left_first(t_philo *philo)
 // lock and unlock mutexes for fork_left, fork_right
 void	pick_up_forks(t_philo *philo)
 {
-	if (!philo->table->all_alive)
-		return ;
 	if (philo->num % 2)
 		pick_left_first(philo);
 	else
@@ -51,14 +49,13 @@ void	pick_up_forks(t_philo *philo)
 // "eat" until time is gone
 void	eat_spaghetti(t_philo *philo)
 {
-	if (!philo->table->all_alive)
-		return ;
 	pthread_mutex_lock(&philo->table->msg_lock);
 	printf("%li %i is eating\n", check_time(), philo->num);
 	pthread_mutex_unlock(&philo->table->msg_lock);
 	philo->t_last = check_time();
 	philo->ate++;
-	usleep(philo->table->t_eat * 1000);
+	if (philo->table->all_alive)
+		usleep(philo->table->t_eat * 1000);
 }
 
 //put forks down
@@ -77,27 +74,33 @@ void	put_down_forks(t_philo *philo)
 //sleep
 void	take_a_nap(t_philo *philo)
 {
-	if (!philo->table->all_alive)
-		return ;
 	pthread_mutex_lock(&philo->table->msg_lock);
 	printf("%li %i is sleeping\n", check_time(), philo->num);
 	pthread_mutex_unlock(&philo->table->msg_lock);
-	usleep(philo->table->t_sleep * 1000);
+	if (philo->table->all_alive)
+		usleep(philo->table->t_sleep * 1000);
+}
+
+void	reality_check(t_philo *philo)
+{
+	if ((check_time() - philo->t_last) >= philo->table->t_die)
+	{
+		pthread_mutex_lock(&philo->table->alive_lock);
+		philo->table->all_alive = 0;
+		pthread_mutex_unlock(&philo->table->alive_lock);
+		pthread_mutex_lock(&philo->table->msg_lock);
+		printf("%li %i died\n", check_time(), philo->num);
+		pthread_mutex_unlock(&philo->table->msg_lock);
+	}
 }
 
 //think
 void	think_about_life(t_philo *philo)
 {
-	if (!philo->table->all_alive)
-		return ;
 	pthread_mutex_lock(&philo->table->msg_lock);
 	printf("%li %i is thinking\n", check_time(), philo->num);
 	pthread_mutex_unlock(&philo->table->msg_lock);
-	if ((check_time() - philo->t_last) >= philo->table->t_die)
-	{
-		printf("%li %i died\n", check_time(), philo->num);
-		philo->table->all_alive = 0;
-	}
+	reality_check(philo);
 }
 
 void	*start_routine(void *arg)
@@ -105,6 +108,7 @@ void	*start_routine(void *arg)
 	t_philo	*philo;
 
 	philo = (t_philo *)arg;
+	philo->t_last = check_time();
 	while (philo->ate < philo->table->must_eat && philo->table->all_alive)
 	{
 		pick_up_forks(philo);

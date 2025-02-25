@@ -42,4 +42,5 @@ void	destroy_table(t_table *table)
 	if (table->forks)
 		free(table->forks);
 	pthread_mutex_destroy(&table->msg_lock);
+	pthread_mutex_destroy(&table->alive_lock);
 }

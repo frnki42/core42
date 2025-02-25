@@ -25,6 +25,7 @@ typedef struct s_table
 {
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	msg_lock;
+	pthread_mutex_t	alive_lock;
 	long		must_eat;
 	unsigned int	all_alive;
 	unsigned int	num_of_phil;

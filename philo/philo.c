@@ -28,6 +28,7 @@ int	main(int argc, char **argv)	// num_of_phil t_die t_eat t_sleep [must_eat]
 	set_t_start(&table, philo);
 	create_threads(philo, &table);
 	join_threads(&table, philo);
+	printf("%i\n", philo[0].ate);
 	destroy_table(&table);
 	free(philo);
 	return (0);

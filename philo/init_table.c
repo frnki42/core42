@@ -41,6 +41,11 @@ void	create_mutexes(t_table *table)
 		printf("# pthread_mutex_init failed!\n");
 		destroy_table(table);
 	}
+	if (pthread_mutex_init(&table->alive_lock, NULL))
+	{
+		printf("# pthread_mutex_init failed!\n");
+		destroy_table(table);
+	}
 }
 
 void	init_forks(t_table *table)
