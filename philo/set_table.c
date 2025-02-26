@@ -6,7 +6,7 @@
 /*   By: .frnki   <frnki@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 16:20:42 by .frnki            #+#    #+#             */
-/*   Updated: 2025/02/23 16:42:42 by .frnki           ###   ########.fr       */
+/*   Updated: 2025/02/26 18:02:53 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "philo.h"
@@ -28,10 +28,10 @@ static void	set_num_of_phil(t_table *table, char *arg)
 	long	tmp;
 
 	tmp = ft_atolong(arg);
-	if (tmp < 1 || tmp > 1024)
+	if (tmp < 1 || tmp > 2048)
 	{
 		printf("# invalid number_of_philosophers!\n");
-		printf("# pick a number between 1 and 1024.\n");
+		printf("# pick a number between 1 and 2048.\n");
 		exit(1);
 	}
 	table->num_of_phil = tmp;
