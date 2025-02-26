@@ -35,7 +35,7 @@ void	set_philo(t_philo *philo, t_table *table, unsigned int index)
 
 void	create_philo(t_philo *philo, t_table *table, unsigned int index)
 {
-	init_philo_zero(philo, index);
+	init_philo_zero(philo, index);		//replace me with memset
 	set_philo(philo, table, index);
 }
 

@@ -61,7 +61,7 @@ void	init_forks(t_table *table)
 
 void	init_table(int argc, char **argv, t_table *table)
 {
-	init_table_zero(table);
+	init_table_zero(table);			//replace me with memset
 	set_table(argc, argv,table);
 	init_forks(table);
 }
