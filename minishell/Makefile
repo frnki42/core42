@@ -35,7 +35,7 @@ MINISH_OBJECT 	= ${MINISH_SOURCE:.c=.o}
 all: $(NAME)
 
 $(NAME): $(MINISH_OBJECT) $(LIBFT)
-	@ $(CC) $(CFLAGS) $(MINISH_OBJECT) -o $(NAME) $(LIBFT) $(PRINTF)
+	@ $(CC) $(CFLAGS) $(MINISH_OBJECT) -o $(NAME) $(LIBFT) $(PRINTF) -lreadline
 	@echo "$(BLACK_ON_G)#######################################$(COLOR_OFF)"
 	@echo "$(BLACK_ON_G)#      MINISHELL COMPILED     .frnki  #$(COLOR_OFF)"
 	@echo "$(BLACK_ON_G)#######################################$(COLOR_OFF)"
