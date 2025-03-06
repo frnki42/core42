@@ -15,13 +15,12 @@ int	ft_printf(const char *format, ...)
 			tmp = handle_format(++format, args);
 			if (tmp == -1)
 				return (-1);
-			amonut += tmp;
+			amount += tmp;
 		}
-		else if (write(1, format, 1) == -1)
+		else if (write(1, format++, 1) == -1)
 			return (-1);
 		else
 			amount++;
-		format++;
 	}
 	va_end(args);
 	return (amount);
