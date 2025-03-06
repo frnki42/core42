@@ -14,11 +14,11 @@ int	ft_printf(const char *format, ...)
 		{
 			tmp = handle_format(++format, args);
 			if (tmp == -1)
-				return (-1);
+				return (va_end(args), -1);
 			amount += tmp;
 		}
 		else if (write(1, format, 1) == -1)
-			return (-1);
+			return (va_end(args), -1);
 		else
 			amount++;
 		format++;
