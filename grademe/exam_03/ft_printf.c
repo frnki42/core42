@@ -17,10 +17,11 @@ int	ft_printf(const char *format, ...)
 				return (-1);
 			amount += tmp;
 		}
-		else if (write(1, format++, 1) == -1)
+		else if (write(1, format, 1) == -1)
 			return (-1);
 		else
 			amount++;
+		format++;
 	}
 	va_end(args);
 	return (amount);
