@@ -21,10 +21,7 @@ int	main(int argc, char **argv)
 	init_table(argc, argv, &table);
 	philo = malloc(sizeof(t_philo) * table.num_of_phil);
 	if (!philo)
-	{
-		destroy_table(&table);
-		exit(1);
-	}
+		return (destroy_table(&table), 1);
 	init_philo(&table, philo);
 	set_t_start(&table, philo);
 	create_threads(philo, &table);
