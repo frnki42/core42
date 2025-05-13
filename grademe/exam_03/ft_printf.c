@@ -1,22 +1,26 @@
 #include <stdarg.h>
 #include <unistd.h>
 
-int	ft_puthexa(unsigned int num, int count)
+int	ft_puthexa(unsigned int num)
 {
+	char	digits[8];
 	char	*base;
+	int	amount;
+	int	i;
 
 	if (num == 0)
-	{
-		if (write(1, "0", 1) == -1)
-			return (-1);
-		return (++count);
-	}
+		return (write(1, "0", 1));
 	base = "0123456789abcdef";
-	if (num > 15)
-		count = ft_puthexa(num / 16, count);
-	if (write(1, &base[num % 16], 1) == -1)
-		return (-1);
-	return (++count);
+	i = 0;
+	while (num > 0)
+	{
+		digits[i++] = base[num % 16];
+		num /= 16;
+	}
+	amount = i;
+	while (i > 0)
+		write(1, &digits[--i], 1);
+	return (amount);
 }
 
 int	ft_putnbr(int num)
@@ -59,8 +63,7 @@ int	ft_putstr(char *str)
 	amount = 0;
 	while (*str)
 	{
-		if (write(1, str++, 1) == -1)
-			return (-1);
+		write(1, str++, 1);
 		amount++;
 	}
 	return (amount);
@@ -73,7 +76,7 @@ int	handle_format(const char *format, va_list args)
 	if (*format == 'd')
 		return (ft_putnbr(va_arg(args, int)));
 	if (*format == 'x')
-		return (ft_puthexa(va_arg(args, unsigned int), 0));
+		return (ft_puthexa(va_arg(args, unsigned int)));
 	else
 		return (-1);
 }
