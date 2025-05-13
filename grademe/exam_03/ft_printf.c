@@ -9,7 +9,7 @@ int	ft_puthexa(unsigned int num)
 	int	i;
 
 	if (num == 0)
-		return (write(1, "0", 1));
+		return (write(1, "0",1));
 	base = "0123456789abcdef";
 	i = 0;
 	while (num > 0)
@@ -17,9 +17,12 @@ int	ft_puthexa(unsigned int num)
 		digits[i++] = base[num % 16];
 		num /= 16;
 	}
-	amount = i;
+	amount = 0;
 	while (i > 0)
+	{
 		write(1, &digits[--i], 1);
+		amount++;
+	}
 	return (amount);
 }
 
