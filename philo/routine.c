@@ -6,7 +6,7 @@
 /*   By: .frnki   <frnki@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 16:20:42 by .frnki            #+#    #+#             */
-/*   Updated: 2025/02/25 16:42:42 by .frnki           ###   ########.fr       */
+/*   Updated: 2025/05/21 16:42:42 by .frnki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "philo.h"
@@ -15,13 +15,15 @@
 static void	eat_spaghetti(t_philo *philo)
 {
 	long	i;
+	long	timestamp;
 
 	philo->t_last = check_time();
 	philo->ate++;
 	pthread_mutex_lock(&philo->table->msg_lock);
 	if (philo->table->all_alive)
 	{
-		printf("%li %i is eating\n", check_time(), philo->num);
+		timestamp = check_time() - philo->table->t_start;
+		printf("%li %i is eating\n", timestamp, philo->num);
 		pthread_mutex_unlock(&philo->table->msg_lock);
 		i = 0;
 		while (philo->table->all_alive && i++ < 100)
@@ -35,10 +37,12 @@ static void	eat_spaghetti(t_philo *philo)
 static void	take_a_nap(t_philo *philo)
 {
 	unsigned int	i;
+	long	timestamp;
 
+	timestamp = check_time() - philo->table->t_start;
 	pthread_mutex_lock(&philo->table->msg_lock);
 	if (philo->table->all_alive)
-		printf("%li %i is sleeping\n", check_time(), philo->num);
+		printf("%li %i is sleeping\n", timestamp, philo->num);
 	pthread_mutex_unlock(&philo->table->msg_lock);
 	i = 0;
 	while (philo->table->all_alive && i++ < 100)
@@ -48,13 +52,16 @@ static void	take_a_nap(t_philo *philo)
 // face the harsh reality of life
 static void	reality_check(t_philo *philo)
 {
+	long	timestamp;
+
 	if ((check_time() - philo->t_last) >= philo->table->t_die)
 	{
 		pthread_mutex_lock(&philo->table->alive_lock);
 		philo->table->all_alive = 0;
 		pthread_mutex_unlock(&philo->table->alive_lock);
+		timestamp = check_time() - philo->table->t_start;
 		pthread_mutex_lock(&philo->table->msg_lock);
-		printf("%li %i died\n", check_time(), philo->num);
+		printf("%li %i died\n", timestamp, philo->num);
 		pthread_mutex_unlock(&philo->table->msg_lock);
 	}
 }
@@ -62,10 +69,13 @@ static void	reality_check(t_philo *philo)
 // find your inner zen
 static void	think_about_life(t_philo *philo)
 {
+	long	timestamp;
+
 	pthread_mutex_lock(&philo->table->msg_lock);
 	if (philo->table->all_alive)
 	{
-		printf("%li %i is thinking\n", check_time(), philo->num);
+		timestamp = check_time() - philo->table->t_start;
+		printf("%li %i is thinking\n", timestamp, philo->num);
 		pthread_mutex_unlock(&philo->table->msg_lock);
 		reality_check(philo);
 	}

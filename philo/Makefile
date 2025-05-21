@@ -6,25 +6,25 @@
 #    By: .frnki <frnki@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/18 16:20:42 by .frnki            #+#    #+#              #
-#    Updated: 2025/02/18 16:42:42 by .frnki           ###   ########.fr        #
+#    Updated: 2025/05/21 16:30:44 by efembock         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # COLORS - CUSTOM
-BLACK_ON_G	= \033[42;30m
-COLOR_OFF	= \033[0m
+BLACK_ON_G		= \033[42;30m
+COLOR_OFF		= \033[0m
 
 # COMPILER
-CC 		= cc
-CFLAGS 		= -Wall -Wextra -Werror
+CC				= cc
+CFLAGS 			= -Wall -Wextra -Werror
 
 # VARIABLES
-NAME		= philo
+NAME			= philo
 
 # LIBRARIES
 # SRC- & OBJ-FILES
 PHILO_SOURCE 	= checks.c handle_forks.c init_philo.c init_table.c philo.c \
-		  routine.c set_table.c threads.c utils.c
+				  routine.c set_table.c threads.c utils.c
 PHILO_OBJECT 	= ${PHILO_SOURCE:.c=.o}
 
 # TARGETS

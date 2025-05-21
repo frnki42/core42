@@ -6,7 +6,7 @@
 /*   By: .frnki   <frnki@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 16:20:42 by .frnki            #+#    #+#             */
-/*   Updated: 2025/02/25 16:42:42 by .frnki           ###   ########.fr       */
+/*   Updated: 2025/05/21 16:20:53 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "philo.h"
@@ -14,7 +14,7 @@
 // joins threads
 void	join_threads(t_table *table, t_philo *philo)
 {
-	unsigned int i;
+	unsigned int	i;
 
 	i = 0;
 	while (i < table->num_of_phil)

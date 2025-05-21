@@ -6,7 +6,7 @@
 /*   By: .frnki   <frnki@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 16:20:42 by .frnki            #+#    #+#             */
-/*   Updated: 2025/02/21 16:42:42 by .frnki           ###   ########.fr       */
+/*   Updated: 2025/05/21 16:23:29 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "philo.h"
@@ -16,7 +16,7 @@ long	ft_atolong(char *str)
 {
 	int		i;
 	int		sign;
-	long		tmp;
+	long	tmp;
 
 	i = 0;
 	sign = 1;
@@ -50,12 +50,16 @@ void	destroy_table(t_table *table)
 // starts a funny starving adventure
 void	solo_adventure(t_philo *philo)
 {
+	long	timestamp;
+
 	pthread_mutex_lock(philo->fork_left);
 	pthread_mutex_lock(&philo->table->msg_lock);
-	printf("%li %i has taken a fork (left)\n", check_time(), philo->num);
+	timestamp = check_time() - philo->table->t_start;
+	printf("%li %i has taken a fork (left)\n", timestamp, philo->num);
 	pthread_mutex_unlock(&philo->table->msg_lock);
 	usleep(philo->table->t_die * 1000);
 	pthread_mutex_lock(&philo->table->msg_lock);
-	printf("%li %i died\n", check_time(), philo->num);
+	timestamp = check_time() - philo->table->t_start;
+	printf("%li %i died\n", timestamp, philo->num);
 	pthread_mutex_unlock(&philo->table->msg_lock);
 }

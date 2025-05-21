@@ -6,7 +6,7 @@
 /*   By: .frnki   <frnki@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 16:20:42 by .frnki            #+#    #+#             */
-/*   Updated: 2025/02/20 16:42:42 by .frnki           ###   ########.fr       */
+/*   Updated: 2025/05/21 16:19:23 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "philo.h"
@@ -23,7 +23,7 @@ static int	check_char(int c)
 static int	check_str(char *str)
 {
 	if (!*str)
-		return(printf("# empty argument\n"), 1);
+		return (printf("# empty argument\n"), 1);
 	if (*str == '+' || *str == '-' || check_char(*str))
 		str++;
 	while (*str)

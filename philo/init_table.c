@@ -6,7 +6,7 @@
 /*   By: .frnki   <frnki@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 16:20:42 by .frnki            #+#    #+#             */
-/*   Updated: 2025/02/23 16:42:42 by .frnki           ###   ########.fr       */
+/*   Updated: 2025/05/21 16:22:33 by efembock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "philo.h"
@@ -34,7 +34,7 @@ void	create_mutexes(t_table *table)
 		{
 			printf("# pthread_mutex_init failed!\n");
 			destroy_table(table);
-		}	
+		}
 	}
 	if (pthread_mutex_init(&table->msg_lock, NULL))
 	{
@@ -62,6 +62,6 @@ void	init_forks(t_table *table)
 void	init_table(int argc, char **argv, t_table *table)
 {
 	init_table_zero(table);			//replace me with memset
-	set_table(argc, argv,table);
+	set_table(argc, argv, table);
 	init_forks(table);
 }
