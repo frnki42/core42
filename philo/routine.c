@@ -19,9 +19,9 @@ static void	eat_spaghetti(t_philo *philo)
 
 	philo->t_last = check_time();
 	philo->ate++;
-	pthread_mutex_lock(&philo->table->msg_lock);
 	if (philo->table->all_alive)
 	{
+		pthread_mutex_lock(&philo->table->msg_lock);
 		timestamp = check_time() - philo->table->t_start;
 		printf("%li %i is eating\n", timestamp, philo->num);
 		pthread_mutex_unlock(&philo->table->msg_lock);
@@ -29,18 +29,16 @@ static void	eat_spaghetti(t_philo *philo)
 		while (philo->table->all_alive && i++ < 100)
 			usleep(philo->table->t_eat * 10);
 	}
-	else
-		pthread_mutex_unlock(&philo->table->msg_lock);
 }
 
 // usleep(t_sleep)
 static void	take_a_nap(t_philo *philo)
 {
 	unsigned int	i;
-	long	timestamp;
+	long			timestamp;
 
-	timestamp = check_time() - philo->table->t_start;
 	pthread_mutex_lock(&philo->table->msg_lock);
+	timestamp = check_time() - philo->table->t_start;
 	if (philo->table->all_alive)
 		printf("%li %i is sleeping\n", timestamp, philo->num);
 	pthread_mutex_unlock(&philo->table->msg_lock);
@@ -59,8 +57,8 @@ static void	reality_check(t_philo *philo)
 		pthread_mutex_lock(&philo->table->alive_lock);
 		philo->table->all_alive = 0;
 		pthread_mutex_unlock(&philo->table->alive_lock);
-		timestamp = check_time() - philo->table->t_start;
 		pthread_mutex_lock(&philo->table->msg_lock);
+		timestamp = check_time() - philo->table->t_start;
 		printf("%li %i died\n", timestamp, philo->num);
 		pthread_mutex_unlock(&philo->table->msg_lock);
 	}
@@ -71,16 +69,14 @@ static void	think_about_life(t_philo *philo)
 {
 	long	timestamp;
 
-	pthread_mutex_lock(&philo->table->msg_lock);
 	if (philo->table->all_alive)
 	{
+		pthread_mutex_lock(&philo->table->msg_lock);
 		timestamp = check_time() - philo->table->t_start;
 		printf("%li %i is thinking\n", timestamp, philo->num);
 		pthread_mutex_unlock(&philo->table->msg_lock);
 		reality_check(philo);
 	}
-	else
-		pthread_mutex_unlock(&philo->table->msg_lock);
 }
 
 // make the thread do some work

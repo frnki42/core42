@@ -6,7 +6,7 @@
 /*   By: .frnki   <frnki@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 16:20:42 by .frnki            #+#    #+#             */
-/*   Updated: 2025/05/21 16:22:59 by efembock         ###   ########.fr       */
+/*   Updated: 2025/05/21 16:42:20 by .frnki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PHILO_H
@@ -46,18 +46,18 @@ typedef struct s_philo
 	long			t_last;
 }	t_philo;
 // prototypes
-void	check_args(int argc, char **argv);
+int		check_args(int argc, char **argv);
 long	check_time(void);
-void	create_threads(t_philo *philo, t_table *table);
+int		create_threads(t_philo *philo, t_table *table);
 void	destroy_table(t_table *table);
 long	ft_atolong(char *str);
 void	init_philo(t_table *table, t_philo *philo);
-void	init_table(int argc, char **argv, t_table *table);
+int		init_table(int argc, char **argv, t_table *table);
 void	join_threads(t_table *table, t_philo *philo);
 void	put_down_forks(t_philo *philo);
 void	pick_up_forks(t_philo *philo);
-void	set_t_start(t_table *table, t_philo *philo);
-void	set_table(int argc, char **argv, t_table *table);
+int		set_t_start(t_table *table, t_philo *philo);
+int		set_table(int argc, char **argv, t_table *table);
 void	solo_adventure(t_philo *philo);
 void	*start_routine(void *arg);
 // macros

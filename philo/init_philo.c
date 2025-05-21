@@ -6,7 +6,7 @@
 /*   By: .frnki   <frnki@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 16:20:42 by .frnki            #+#    #+#             */
-/*   Updated: 2025/02/23 16:42:42 by .frnki           ###   ########.fr       */
+/*   Updated: 2025/05/21 16:20:42 by .frnki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "philo.h"
@@ -35,7 +35,7 @@ void	set_philo(t_philo *philo, t_table *table, unsigned int index)
 
 void	create_philo(t_philo *philo, t_table *table, unsigned int index)
 {
-	init_philo_zero(philo, index);		//replace me with memset
+	init_philo_zero(philo, index);
 	set_philo(philo, table, index);
 }
 

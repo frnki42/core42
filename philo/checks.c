@@ -6,7 +6,7 @@
 /*   By: .frnki   <frnki@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 16:20:42 by .frnki            #+#    #+#             */
-/*   Updated: 2025/05/21 16:19:23 by efembock         ###   ########.fr       */
+/*   Updated: 2025/04/20 16:20:42 by .frnki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "philo.h"
@@ -35,20 +35,21 @@ static int	check_str(char *str)
 }
 
 //checks the amount of arguments and each argument
-void	check_args(int argc, char **argv)
+int	check_args(int argc, char **argv)
 {
 	int	errors;
 
 	if (argc < 5 || argc > 6)
 	{
 		printf("# wrong amount of arguments\n");
-		exit(1);
+		return (1);
 	}
 	errors = 0;
 	while (--argc)
 		errors += check_str(argv[argc]);
 	if (errors)
-		exit(1);
+		return (1);
+	return (0);
 }
 
 // where is my car dude?

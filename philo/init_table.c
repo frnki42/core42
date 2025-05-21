@@ -6,7 +6,7 @@
 /*   By: .frnki   <frnki@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 16:20:42 by .frnki            #+#    #+#             */
-/*   Updated: 2025/05/21 16:22:33 by efembock         ###   ########.fr       */
+/*   Updated: 2025/05/21 16:42:20 by .frnki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "philo.h"
@@ -48,20 +48,23 @@ void	create_mutexes(t_table *table)
 	}
 }
 
-void	init_forks(t_table *table)
+int	init_forks(t_table *table)
 {
 	table->forks = malloc(sizeof(pthread_mutex_t) * table->num_of_phil);
 	if (!table->forks)
 	{
 		printf("# malloc failed!\n");
-		exit(1);
+		return (1);
 	}
 	create_mutexes(table);
+	return (0);
 }
 
-void	init_table(int argc, char **argv, t_table *table)
+int	init_table(int argc, char **argv, t_table *table)
 {
-	init_table_zero(table);			//replace me with memset
+	init_table_zero(table);
 	set_table(argc, argv, table);
-	init_forks(table);
+	if (init_forks(table))
+		return (1);
+	return (0);
 }
